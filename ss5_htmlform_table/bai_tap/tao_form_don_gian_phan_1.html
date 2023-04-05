@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>SỞ THÍCH CỦA BẠN</title>
+    <style>
+        th{
+            border-collapse: collapse;
+            border: 5px solid white;
+            background-color: darkorange;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<form method="post">
+    <fieldset>
+    <table style="width: 100%">
+        <th colspan="4">SỞ THÍCH CỦA BẠN</th>
+        <tr>
+            <td style="color: blue"><lable for="Họ và tên">Họ và tên</lable></td>
+            <td colspan="3"><input type="text" name="yourname" id="yourname"></td>
+        </tr>
+        <tr>
+            <td style="color: blue"><label for="Email">Email</label>
+            <td colspan="3"><input type="email" name="Email" id="Email"></td>
+        </tr>
+        <tr>
+            <td style="color: blue"> Sở thích </td>
+            <td style="color: darkorange"><input type="checkbox" id="Thể thao" name="hobby" value="Thể thao">
+                <lable for="Thể thao">Thể thao</lable>
+            <td style="color: darkorange"><input type="checkbox" id="Âm nhạc" name="hobby" value="Âm nhạc">
+                <lable for="Âm nhạc">Âm nhạc</lable></td>
+            <td style="color: darkorange"><input type="checkbox" id="Đọc sách" name="hobby" value="Đọc sách">
+                <lable for="Đọc sách">Đọc sách</lable></td>
+          </tr>
+        <tr>
+            <td rowspan="3"> </td>
+            <td style="color: darkorange"><input type="checkbox" id="Lướt web" name="hobby" value="Lướt web">
+                <lable for="Lướt web">Lướt web</lable></td>
+            <td style="color: darkorange"><input type="checkbox" id="Chơi game" name="hobby" value="Chơi game">
+                <lable for="Chơi game">Chơi game</lable></td>
+            <td style="color: darkorange"><input type="checkbox" id="Điện ảnh" name="hobby" value="Điện ảnh">
+                <lable for="Điện ảnh">Điện ảnh</lable></td>
+        </tr>
+        <tr>
+            <td style="color: darkorange"><input type="checkbox" id="Du lịch" name="hobby" value="Du lịch">
+                <lable for="Du lịch">Du lịch</lable></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Gửi thông tin"></td>
+            <td><input type="reset" value="Nhập lại"></td>
+        </tr>
+    </table>
+    </fieldset>
+</form>
+</body>
+</html>
