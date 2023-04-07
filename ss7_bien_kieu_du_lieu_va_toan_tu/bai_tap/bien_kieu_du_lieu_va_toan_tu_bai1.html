@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chương trình tính điểm cho sinh viên</title>
+</head>
+<body>
+<p><b>Bài 1:</b></p>
+<script>
+    inputa = prompt("Điểm vật lý: ");
+    inputb = prompt("Điểm hóa học: ");
+    inputc = prompt("Điểm sinh học");
+    let a = parseInt(inputa);
+    let b = parseInt(inputb);
+    let c = parseInt(inputc);
+    let sum = a + b + c;
+    let ave = (a + b + c) / 3;
+    document.write("Điểm vật lý: " + a);
+    document.write("<br/>");
+    document.write("Điểm hóa học: " + b);
+    document.write("<br/>");
+    document.write("Điểm sinh học: " + c);
+    document.write("<br/><br/>");
+    document.write("* Điểm trung bình là: " + ave);
+    document.write("<br/>");
+    document.write("* Tổng điểm là: " + sum);
+    document.write("<br/>");
+    if (ave > 8) {
+        document.write("<b><i>Học lực của bạn xếp loại giỏi. Chúc mừng bạn!</i></b>")
+    } else if (ave > 6.5) {
+        document.write("<br/>");
+        document.write("<b><i>Học lực của bạn xếp loại khá. Tiếp tục cố gắng nhé!</i></b> ")
+    } else if (ave > 5) {
+        document.write("<br/>");
+        document.write("<b><i>Học lực bạn xếp loại trung bình. Cần cố gắng nỗ lực nhiều hơn!</i></b>")
+    } else {
+        document.write("<br/>");
+        document.write("<b><i>Học lực bạn xếp loại yếu. Cần xem lại phương pháp học tập!</i></b>")
+    }
+</script> <br><br>
+</body>
+</html>

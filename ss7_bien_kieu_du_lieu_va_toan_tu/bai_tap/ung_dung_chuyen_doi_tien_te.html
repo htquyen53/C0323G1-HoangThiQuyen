@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung dung chuyen doi tien te</title>
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form method="post" style="width: 600px">
+    <table style="width: 100%">
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                <input type="text" name="amount" id="giatri">
+            </td>
+            <td>
+                <select id="from currency" name="type of currency">
+                    <option value="vietnam">VietNam</option>
+                    <option value="usd">USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="to currency" name="type of currency">
+                    <option value="usd">USD</option>
+                    <option value="vietnam">VietNam</option>
+                </select>
+            </td>
+            <td>
+                <button type="reset">Convert</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        let m = parseInt(inputm);
+        if (to currency = usd) {
+            x = m / 23000;
+        } else {
+        x = m * 23000;
+        }
+        document.write('Result: ' + x)
+    </script>
+</form>
+</body>
+</html>
