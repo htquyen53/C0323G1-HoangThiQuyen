@@ -35,18 +35,34 @@
                 </select>
             </td>
             <td>
-                <button type="reset">Convert</button>
+                <button type="button" onclick="myFunction()">Convert</button>
             </td>
         </tr>
     </table>
+    <br>
+    <p id="result"> Result = </p>
     <script>
-        let m = parseInt(inputm);
-        if (to currency = usd) {
-            x = m / 23000;
-        } else {
-        x = m * 23000;
+        function myFunction() {
+            let inputm = document.getElementById("giatri").value;
+            let from = document.getElementById("from currency").value;
+            let to = document.getElementById("to currency").value;
+            let m = parseInt(inputm);
+            let x;
+
+            if (from == "usd" && to == "vietnam") {
+                x = m * 23000;
+                document.getElementById("result").innerHTML = "Result = " + x + " VNĐ";
+            } else if (from == "vietnam" && to == "usd") {
+                x = m / 23000;
+                document.getElementById("result").innerHTML = "Result = " + x + " USD";
+
+            } else if (from == vietnam) {
+                x == m;
+                document.getElementById("result").innerHTML = "Result = " + x + " VNĐ";
+            } else {
+                document.getElementById("result").innerHTML = "Result = " + x + " USD";
+            }
         }
-        document.write('Result: ' + x)
     </script>
 </form>
 </body>
