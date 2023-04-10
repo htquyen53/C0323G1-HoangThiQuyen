@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh hoa hong nhan duoc theo doanh so</title>
+</head>
+<body>
+<p><i>Giả sử hoa hồng nhận được là 3% cho mỗi đơn hàng.</i></p>
+<p><i>5% cho mỗi đơn hàng nếu có 5 đơn hàng trở lên</i></p>
+<p><i>7% cho mỗi đơn hàng nếu có 10 đơn hàng trở lên.</i></p>
+
+<form>
+    <table>
+        <tr>
+            <td><label for="soDonhang">Số đơn hàng:</label></td>
+            <td><input type="text" id="soDonhang" style="border: 0px"></td>
+            <td>
+                <button type="button" onclick="thanhtoan ()">Thanh toán</button>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="hoaHong">Phần trăm hoa hồng bạn nhận được là:</label></td>
+            <td id="hoaHong"></td>
+        </tr>
+        <tr>
+            <td><label for="thanhTien">Số tiền hoa hồng bạn nhận được là:</label></td>
+            <td id="thanhTien"></td>
+        </tr>
+    </table>
+</form>
+</body>
+<script>
+    function thanhtoan() {
+        let soDonhang = +document.getElementById('soDonhang').value;
+        if (soDonhang < 5) {
+            document.getElementById('hoaHong').innerHTML= +"0.03";
+        } else if (soDonhang < 10) {
+            document.getElementById('hoaHong').innerHTML= +"0.05";
+        } else {
+            document.getElementById('hoaHong').innerHTML= +"0.1";
+        }
+        let hoaHong = +document.getElementById('hoaHong').value;
+        const giatridonhang = 1000000;
+        let tienhoahong = (soDonhang * hoaHong * giatridonhang);
+        document.getElementById('thanhTien').innerHTML = + tienhoahong + "VND";
+    }
+</script>
+</html>
