@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xep hang học luc</title>
+
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <td><label for="diemtrenlop">Điểm trên lớp: </label></td>
+            <td><input type="text" id="diemtrenlop" name="diemtrenlop"></td>
+        </tr>
+        <tr>
+            <td><label for="diem15phut">Điểm kiểm tra 15 phút: </label></td>
+            <td><input type="text" id="diem15phut" name="diem15phut"></td>
+        </tr>
+        <tr>
+            <td><label for="diemgiuaky">Điểm thi giữa kỳ: </label></td>
+            <td><input type="text" id="diemgiuaky" name="scoreClass"></td>
+        </tr>
+        <tr>
+            <td><label for="diemcuoiky">Điểm thi cuối kỳ: </label></td>
+            <td><input type="text" id="diemcuoiky" name="diemcuoiky"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" id="xemketqua" onclick="ketqua ()">Xem kết quả:</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <div id="result"><b>Kết quả: </b></div>
+</form>
+</body>
+<script>
+    function ketqua() {
+        let diemtrenlop = + document.getElementById('diemtrenlop').value;
+        let diem15phut = + document.getElementById('diem15phut').value;
+        let diemgiuaky = + document.getElementById('diemgiuaky').value;
+        let diemcuoiky = + document.getElementById('diemcuoiky').value;
+        let diemtrungbinh = (diemtrenlop + diem15phut + diemgiuaky * 2 + diemcuoiky * 3) / 7;
+        if (diemtrungbinh > 8.0) {
+            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemtrungbinh + "<br> Học lực của bạn xếp loại giỏi"
+        } else if (diemtrungbinh > 6.5) {
+            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemtrungbinh + "<br> Học lực của bạn xếp loại khá"
+        } else if (diemtrungbinh > 5.0) {
+            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemtrungbinh + "<br> Học lực của bạn xếp loại trung bình"
+        } else {
+            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemtrungbinh + "<br> Học lực của bạn xếp loại trung yếu"
+        }
+    }
+</script>
+</html>

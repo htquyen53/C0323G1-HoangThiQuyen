@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim gia tri lon nhat cua 3 so nguyen</title>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <td><label for="number1">Nhập số thứ nhất: </label></td>
+            <td><input type="number" id="number1" style="width: 100px"></td>
+        </tr>
+        <tr>
+            <td><label for="number2">Nhập số thứ hai: </label></td>
+            <td><input type="number" id="number2" style="width: 100px"></td>
+        </tr>
+        <tr>
+            <td><label for="number3">Nhập số thứ ba: </label></td>
+            <td><input type="number" id="number3" style="width: 100px"></td>
+        </tr>
+    </table>
+    <button type="button" onclick="checkFunction ()">Kiểm tra</button>
+    <br>
+    <div id="result"><b>Kết quả: </b></div>
+</form>
+</body>
+<script>
+    function checkFunction() {
+        let number1 = +document.getElementById('number1').value;
+        let number2 = +document.getElementById('number2').value;
+        let number3 = +document.getElementById('number3').value;
+        if ((number1 > number2) && (number1 > number3)) {
+            document.getElementById('result').innerHTML = "<b>Kết quả: </b>" + "Số lớn nhất là " + number1;
+        } else if (number2 > number3) {
+            document.getElementById('result').innerHTML = "<b>Kết quả: </b>" + "Số lớn nhất là " + number2;
+        } else {
+            document.getElementById('result').innerHTML = "<b>Kết quả: </b>" + "Số lớn nhất là " + number3;
+        }
+    }
+</script>
+</html>

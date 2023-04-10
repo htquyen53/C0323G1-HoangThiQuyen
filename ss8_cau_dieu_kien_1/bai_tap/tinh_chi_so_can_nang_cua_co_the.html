@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh chi so can nang cua co the</title>
+</head>
+<body>
+<h2>Calculate and classify your body weight index</h2>
+<form>
+    <table>
+        <tr>
+            <td><label for="yourWeight">Enter your weight (kg):</label></td>
+            <td><input type="text" id="yourWeight" name="yourWeight"></td>
+        </tr>
+        <tr>
+            <td><label for="yourHeight">Enter your height (m):</label></td>
+            <td><input type="text" id="yourHeight" name="yourHeight"></td>
+        </tr>
+    </table>
+    <br>
+    <button type="button" id="check">Check</button>
+    <br>
+    <div id="result"><b>Result:</b></div>
+    <script>
+        let check = document.getElementById("check");
+        check.addEventListener("click", clickFuntion);
+
+        function clickFuntion() {
+            let yourWeight = +document.getElementById("yourWeight").value;
+            let yourHeight = +document.getElementById("yourHeight").value;
+            let bmi = yourWeight / (yourHeight ^ 2);
+            if (bmi < 18.5) {
+                document.getElementById("result").innerHTML = "<b>Result:</b> " + "Your BMI = " + bmi + " => Your body is underweight!";
+            } else if (bmi < 25.0) {
+                document.getElementById("result").innerHTML = "<b>Result:</b>" + "Your BMI = " + bmi + " => Your body is normal!";
+            } else if (bmi < 30.0) {
+                document.getElementById("result").innerHTML = "<b>Result:</b>" + "Your BMI = " + bmi + " => Your body is overweight!";
+            } else {
+                document.getElementById("result").innerHTML = "<b>Result:</b>" + "Your BMI = " + bmi + " => Your body is obsese!";
+            }
+        }
+    </script>
+</form>
+</body>
+</html>

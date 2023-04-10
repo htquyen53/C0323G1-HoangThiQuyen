@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phep toan kiem tra</title>
+</head>
+<body>
+<h2>Bài 1:</h2>
+<form>
+    <table>
+        <tr>
+            <td><label for="numberA">Nhập số a:</label></td>
+            <td><input type="text" id="numberA"></td>
+        </tr>
+        <tr>
+            <td><label for="numberB">Nhập số b:</label></td>
+            <td><input type="text" id="numberB"></td>
+        </tr>
+    </table>
+    <br>
+    <button type="button" onclick="checkAB ()">Check</button>
+    <br><br>
+    <div id="result"><b>Result:</b></div>
+</form>
+</body>
+<script>
+    function checkAB() {
+        let a = +document.getElementById("numberA").value;
+        let b = +document.getElementById("numberB").value;
+        if (b === 0) {
+            document.getElementById("result").innerHTML = "<b>Result:</b>" + "Phép toán vô nghĩa";
+        } else if (a % b === 0) {
+            document.getElementById("result").innerHTML = "<b>Result: </b>" + "a chia hết cho b";
+        } else {
+            document.getElementById("result").innerHTML = "<b>Result: </b>" + "a không chia hết cho b";
+        }
+    }
+</script>
+</html>
