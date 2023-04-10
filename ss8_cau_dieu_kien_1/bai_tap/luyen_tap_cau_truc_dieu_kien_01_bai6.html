@@ -13,18 +13,18 @@
     <table>
         <tr>
             <td><label for="soDonhang">Số đơn hàng:</label></td>
-            <td><input type="text" id="soDonhang" style="border: 0px"></td>
+            <td><input type="text" id="soDonhang" style="border: 1px solid silver"></td>
             <td>
                 <button type="button" onclick="thanhtoan ()">Thanh toán</button>
             </td>
         </tr>
         <tr>
             <td><label for="hoaHong">Phần trăm hoa hồng bạn nhận được là:</label></td>
-            <td id="hoaHong"></td>
+            <td id="hoaHong" style="border: 1px solid silver"></td>
         </tr>
         <tr>
             <td><label for="thanhTien">Số tiền hoa hồng bạn nhận được là:</label></td>
-            <td id="thanhTien"></td>
+            <td id="thanhTien" style="border: 1px solid silver"></td>
         </tr>
     </table>
 </form>
@@ -32,17 +32,20 @@
 <script>
     function thanhtoan() {
         let soDonhang = +document.getElementById('soDonhang').value;
+        let giatridonhang = 1000000;
         if (soDonhang < 5) {
             document.getElementById('hoaHong').innerHTML= +"0.03";
+            let tienhoahong = (soDonhang * 0.03 * giatridonhang);
+            document.getElementById('thanhTien').innerHTML = + tienhoahong + "VND";
         } else if (soDonhang < 10) {
             document.getElementById('hoaHong').innerHTML= +"0.05";
+            let tienhoahong = (soDonhang * 0.05 * giatridonhang);
+            document.getElementById('thanhTien').innerHTML = + tienhoahong + "VND";
         } else {
             document.getElementById('hoaHong').innerHTML= +"0.1";
+            let tienhoahong = (soDonhang * 0.1 * giatridonhang);
+            document.getElementById('thanhTien').innerHTML = + tienhoahong + "VND";
         }
-        let hoaHong = +document.getElementById('hoaHong').value;
-        const giatridonhang = 1000000;
-        let tienhoahong = (soDonhang * hoaHong * giatridonhang);
-        document.getElementById('thanhTien').innerHTML = + tienhoahong + "VND";
     }
 </script>
 </html>
