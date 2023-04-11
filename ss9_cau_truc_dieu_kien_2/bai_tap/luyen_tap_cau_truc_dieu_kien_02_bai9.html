@@ -11,7 +11,9 @@
         <tr>
             <td><label for="inputA">Nhập a: </label></td>
             <td><input type="text" id="inputA"></td>
-            <td><button type="button" onclick="checkFun ()">Check</button> </td>
+            <td>
+                <button type="button" onclick="checkFun ()">Check</button>
+            </td>
         </tr>
         <tr>
             <td><label for="inputB">Nhập b: </label></td>
@@ -26,15 +28,15 @@
 </form>
 </body>
 <script>
-    function checkFun (){
+    function checkFun() {
         let a = +document.getElementById('inputA').value;
         let b = +document.getElementById('inputB').value;
         let c = +document.getElementById('inputC').value;
-if ((a>0) && (b>0) && (c>0) && (a+b >c) && (b+c>a) && (a+c >b)) {
-    document.getElementById('result').innerHTML = "3 số thực (a,b.c) nhập vào là cạnh của một tam giác."
-} else {
-    document.getElementById('result').innerHTML = "3 số thực (a,b,c) nhập vào  không phải là cạnh của một tam giác."
-}
+        if ((a > 0) && (b > 0) && (c > 0) && (a + b > c) && (b + c > a) && (a + c > b)) {
+            document.getElementById('result').innerHTML = "3 số thực (a,b.c) nhập vào là cạnh của một tam giác."
+        } else {
+            document.getElementById('result').innerHTML = "3 số thực (a,b,c) nhập vào  không phải là cạnh của một tam giác."
+        }
     }
 </script>
 </html>

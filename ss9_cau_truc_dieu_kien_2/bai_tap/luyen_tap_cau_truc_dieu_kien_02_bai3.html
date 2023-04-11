@@ -11,7 +11,9 @@
         <tr>
             <td><label for="side">Enter the length of a side:</label></td>
             <td><input type="text" id="side" style="border: 1px solid silver; width: 100px"></td>
-            <td><button type="button" onclick="calculateFun ()">Calculate</button> </td>
+            <td>
+                <button type="button" onclick="calculateFun ()">Calculate</button>
+            </td>
         </tr>
         <tr>
             <td><label for="area">Area of a Square is:</label></td>
@@ -22,9 +24,9 @@
 <script>
     function calculateFun() {
         let lenghtAside = +document.getElementById('side').value;
-        let area = lenghtAside*lenghtAside;
+        let area = lenghtAside * lenghtAside;
         let aRea = area.toFixed(1);
-        document.getElementById('area').innerHTML = + aRea;
+        document.getElementById('area').innerHTML = +aRea;
     }
 </script>
 </body>

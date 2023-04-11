@@ -9,7 +9,7 @@
 <form>
     <table style="border: 1px solid silver">
         <tr>
-            <td style="color: red"> <b>Phiếu thanh toán</b></td>
+            <td style="color: red"><b>Phiếu thanh toán</b></td>
         </tr>
         <tr>
             <td><label for="tieuThu">Tổng lượng điện tiêu thụ (kWh):</label></td>
@@ -27,7 +27,7 @@
             <td id="donGia" style="border: 1px solid silver"></td>
         </tr>
         <tr>
-            <td><label for="thanhTien" >Tiền điện bạn phải trả (VND) là:</label></td>
+            <td><label for="thanhTien">Tiền điện bạn phải trả (VND) là:</label></td>
             <td id="thanhTien" style="border: 1px solid silver; color: red"></td>
         </tr>
     </table>
@@ -36,40 +36,39 @@
     function thanhtoan() {
         let tieuThu = +document.getElementById('tieuThu').value;
         if (tieuThu <= 50) {
-            document.getElementById('xepLoai').innerHTML=  "Bậc 1";
-            document.getElementById('donGia').innerHTML=  "1.678";
-            let thanhTien1 = tieuThu*1678;
+            document.getElementById('xepLoai').innerHTML = "Bậc 1";
+            document.getElementById('donGia').innerHTML = "1.678";
+            let thanhTien1 = tieuThu * 1678;
             let thanhTien = thanhTien1.toFixed(0);
-            document.getElementById('thanhTien').innerHTML = + thanhTien;
+            document.getElementById('thanhTien').innerHTML = +thanhTien;
         } else if (tieuThu <= 100) {
-            document.getElementById('xepLoai').innerHTML=  "Bậc 2";
-            document.getElementById('donGia').innerHTML=  "1.734";
-            let thanhTien1 = tieuThu*1734;
+            document.getElementById('xepLoai').innerHTML = "Bậc 2";
+            document.getElementById('donGia').innerHTML = "1.734";
+            let thanhTien1 = tieuThu * 1734;
             let thanhTien = thanhTien1.toFixed(0);
-            document.getElementById('thanhTien').innerHTML = + thanhTien;
-        } else if (tieuThu <= 200){
-            document.getElementById('xepLoai').innerHTML=  "Bậc 3";
-            document.getElementById('donGia').innerHTML=  "2.014";
-            let thanhTien1 = tieuThu*2014;
+            document.getElementById('thanhTien').innerHTML = +thanhTien;
+        } else if (tieuThu <= 200) {
+            document.getElementById('xepLoai').innerHTML = "Bậc 3";
+            document.getElementById('donGia').innerHTML = "2.014";
+            let thanhTien1 = tieuThu * 2014;
             let thanhTien = thanhTien1.toFixed(0);
-            document.getElementById('thanhTien').innerHTML = + thanhTien;
-        } else if (tieuThu <= 300){
-            document.getElementById('xepLoai').innerHTML=  "Bậc 4";
-            document.getElementById('donGia').innerHTML=  "2.536";
-            let thanhTien1 = tieuThu*2536;
+            document.getElementById('thanhTien').innerHTML = +thanhTien;
+        } else if (tieuThu <= 300) {
+            document.getElementById('xepLoai').innerHTML = "Bậc 4";
+            document.getElementById('donGia').innerHTML = "2.536";
+            let thanhTien1 = tieuThu * 2536;
             let thanhTien = thanhTien1.toFixed(0);
-            document.getElementById('thanhTien').innerHTML = + thanhTien;
-        } else if (tieuThu <= 400){
-            document.getElementById('xepLoai').innerHTML=  "Bậc 5";
-            document.getElementById('donGia').innerHTML=  "2.834";
-            let thanhTien1 = tieuThu*2834;
+            document.getElementById('thanhTien').innerHTML = +thanhTien;
+        } else if (tieuThu <= 400) {
+            document.getElementById('xepLoai').innerHTML = "Bậc 5";
+            document.getElementById('donGia').innerHTML = "2.834";
+            let thanhTien1 = tieuThu * 2834;
             let thanhTien = thanhTien1.toFixed(0);
-            document.getElementById('thanhTien').innerHTML = + thanhTien;
-        }
-        else {
-            document.getElementById('xepLoai').innerHTML=  "Bậc 6";
-            document.getElementById('donGia').innerHTML=  "2.927";
-            let thanhTien1 = tieuThu*2927;
+            document.getElementById('thanhTien').innerHTML = +thanhTien;
+        } else {
+            document.getElementById('xepLoai').innerHTML = "Bậc 6";
+            document.getElementById('donGia').innerHTML = "2.927";
+            let thanhTien1 = tieuThu * 2927;
             let thanhTien = thanhTien1.toFixed(0);
             document.getElementById('thanhTien').innerHTML = thanhTien;
         }

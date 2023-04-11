@@ -11,7 +11,9 @@
         <tr>
             <td><label for="tienvay">Số tiền ban đầu (VND): </label></td>
             <td><input type="text" id="tienvay"></td>
-            <td><button type="button" onclick="checkFun ()">Kiểm tra</button> </td>
+            <td>
+                <button type="button" onclick="checkFun ()">Kiểm tra</button>
+            </td>
         </tr>
         <tr>
             <td><label for="thangvay"></label>Số tháng cho vay:</td>
@@ -33,16 +35,16 @@
 </form>
 </body>
 <script>
-    function checkFun () {
+    function checkFun() {
         let tienvay = +document.getElementById('tienvay').value;
         let sothang = +document.getElementById('thangvay').value;
         let laisuat = +document.getElementById('laisuat').value;
-        let laithang = tienvay*laisuat/100/12;
+        let laithang = tienvay * laisuat / 100 / 12;
         let laiThang = laithang.toFixed(0);
-        document.getElementById('laithang').innerHTML= + laiThang;
-        let tonglai = laithang*sothang;8
+        document.getElementById('laithang').innerHTML = +laiThang;
+        let tonglai = laithang * sothang;
         let tongLai = tonglai.toFixed(0);
-        document.getElementById('tientra').innerHTML= + tongLai;
+        document.getElementById('tientra').innerHTML = +tongLai;
     }
 </script>
 </html>

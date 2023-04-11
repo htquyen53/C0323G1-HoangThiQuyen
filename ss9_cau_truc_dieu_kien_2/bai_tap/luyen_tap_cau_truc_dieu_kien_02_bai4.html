@@ -11,7 +11,9 @@
         <tr>
             <td><label for="length">Enter the length:</label></td>
             <td><input type="text" id="length" style="border: 1px solid silver; width: 100px;text-align: center"></td>
-            <td><button type="button" onclick="calculateFun ()">Calculate</button> </td>
+            <td>
+                <button type="button" onclick="calculateFun ()">Calculate</button>
+            </td>
         </tr>
         <tr>
             <td><label for="width">Enter the width:</label></td>
@@ -27,9 +29,9 @@
     function calculateFun() {
         let lenghtRec = +document.getElementById('length').value;
         let widthRec = +document.getElementById('width').value;
-        let area = lenghtRec*widthRec;
+        let area = lenghtRec * widthRec;
         let aRea = area.toFixed(1);
-        document.getElementById('area').innerHTML = + aRea;
+        document.getElementById('area').innerHTML = +aRea;
     }
 </script>
 </body>
