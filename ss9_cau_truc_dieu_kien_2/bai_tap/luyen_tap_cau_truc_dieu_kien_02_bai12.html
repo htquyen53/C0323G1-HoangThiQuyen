@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình tính lãi suất ngân hàng</title>
+</head>
+<body>
+<h2>Chương trình tính lãi ngân hàng</h2>
+<form>
+    <table>
+        <tr>
+            <td><label for="tienvay">Số tiền ban đầu (VND): </label></td>
+            <td><input type="text" id="tienvay"></td>
+            <td><button type="button" onclick="checkFun ()">Kiểm tra</button> </td>
+        </tr>
+        <tr>
+            <td><label for="thangvay"></label>Số tháng cho vay:</td>
+            <td><input type="text" id="thangvay"></td>
+        </tr>
+        <tr>
+            <td><label for="laisuat"></label>Lãi suất (%/năm):</td>
+            <td><input type="text" id="laisuat"></td>
+        </tr>
+        <tr>
+            <td><label for="laithang"></label>Tiền lãi hàng tháng (VND):</td>
+            <td id="laithang"></td>
+        </tr>
+        <tr>
+            <td><label for="tientra"></label>Tổng số tiền lãi phải trả (VND):</td>
+            <td id="tientra"></td>
+        </tr>
+    </table>
+</form>
+</body>
+<script>
+    function checkFun () {
+        let tienvay = +document.getElementById('tienvay').value;
+        let sothang = +document.getElementById('thangvay').value;
+        let laisuat = +document.getElementById('laisuat').value;
+        let laithang = tienvay*laisuat/100/12;
+        let laiThang = laithang.toFixed(0);
+        document.getElementById('laithang').innerHTML= + laiThang;
+        let tonglai = laithang*sothang;8
+        let tongLai = tonglai.toFixed(0);
+        document.getElementById('tientra').innerHTML= + tongLai;
+    }
+</script>
+</html>

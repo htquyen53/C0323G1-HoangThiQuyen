@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh thue thu nhap ca nhan</title>
+</head>
+<body>
+<form>
+    <table style="width: 500px; border-collapse: collapse">
+        <thead>
+        <th colspan="3" style="color: blue">TÍNH THUẾ THU NHẬP CÁ NHÂN</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="color: blue"><label for="thuNhap"> Tổng thu nhập (VND): </label> </td>
+            <td> <input type="text" id="thuNhap" name="thuNhap" style="border: 1px solid silver"></td>
+            <td><button type="button" style="background-color: goldenrod" id="check" onclick="checkFun ()">Kiểm tra</button></td>
+        </tr>
+        <tr>
+            <td style="color: blue"><label for="nguoiPt"> Số người phụ thuộc (người): </label> </td>
+            <td> <input type="text" id="nguoiPt" name="nguoiPt" style="border: 1px solid silver"></td>
+        </tr>
+        <tr>
+            <td style="color: red"> Thuế TNCN phải nộp (VND):</td>
+            <td id="thuetncn" style="color: red"></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+<script>
+    function checkFun () {
+        let thuNhap = +document.getElementById('thuNhap').value;
+        let nguoiPt = +document.getElementById('nguoiPt').value;
+        let giamtruCn = 11000000;
+        let tnTinhthue = thuNhap-giamtruCn-4400000*nguoiPt;
+        if (tnTinhthue<=5000000) {
+            let thuetncn = tnTinhthue*5/100;
+            let thuenet = thuetncn.toFixed(0);
+            document.getElementById('thuetncn').innerHTML = + thuenet;
+        } else if (tnTinhthue<=10000000) {
+            let thuetncn = tntinhthue*10/100;
+            let thuenet = thuetncn.toFixed(0)
+            document.getElementById('thuetncn').innerHTML = + thuenet;
+        } else if (tnTinhthue<=18000000) {
+            let thuetncn = tnTinhthue * 15 / 100;
+            let thuenet = thuetncn.toFixed(0);
+            document.getElementById('thuetncn').innerHTML = + thuenet;
+        }
+        else if (tnTinhthue<=32000000) {
+            let thuetncn = tnTinhthue * 20 / 100;
+            let thuenet = thuetncn.toFixed(0);
+            document.getElementById('thuetncn').innerHTML = + thuenet;
+        } else if (tnTinhthue<=52000000) {
+            let thuetncn = tnTinhthue * 25 / 100;
+            let thuenet = thuetncn.toFixed(0);
+            document.getElementById('thuetncn').innerHTML = + thuenet;
+        } else if (tnTinhthue<=80000000) {
+            let thuetncn = tnTinhthue * 30 / 100;
+            let thuenet = thuetncn.toFixed(0);
+            document.getElementById('thuetncn').innerHTML = + thuenet;
+        } else {
+            let thuetncn = tnTinhthue * 55 / 100;
+            let thuenet = thuetncn.toFixed(0);
+            document.getElementById('thuetncn').innerHTML = + thuenet;
+        }
+    }
+</script>
+</html>
