@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Area of a Square</title>
+</head>
+<body>
+<form>
+    <h2>Area of a Square</h2>
+    <table>
+        <tr>
+            <td><label for="side">Enter the length of a side:</label></td>
+            <td><input type="text" id="side" style="border: 1px solid silver; width: 100px"></td>
+            <td><button type="button" onclick="calculateFun ()">Calculate</button> </td>
+        </tr>
+        <tr>
+            <td><label for="area">Area of a Square is:</label></td>
+            <td id="area" style="border: 1px solid silver; width: 100px"></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function calculateFun() {
+        let lenghtAside = +document.getElementById('side').value;
+        let area = lenghtAside*lenghtAside;
+        let aRea = area.toFixed(1);
+        document.getElementById('area').innerHTML = + aRea;
+    }
+</script>
+</body>
+</html>

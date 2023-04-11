@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 1</title>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <th colspan="2"><h2>Giải phương trình bậc 1 <br>
+                ax + b = 0</h2></th>
+        </tr>
+        <tr>
+            <td><label for="inputA">Nhập a: </label></td>
+            <td><input type="text" id="inputA"></td>
+        </tr>
+        <tr>
+            <td><label for="inputB">Nhập b: </label></td>
+            <td><input type="text" id="inputB"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="solveEqua()">Giải</button>
+            </td>
+            <td id="outputX"></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function solveEqua() {
+        let a = +document.getElementById('inputA').value;
+        let b = +document.getElementById('inputB').value;
+        if (a === 0) {
+            if (b === 0) {
+                document.getElementById('outputX').innerHTML = "Phương trình có vô số nghiệm.";
+            } else {
+                document.getElementById('outputX').innerHTML = "Phương trình vô nghiệm.";
+            }
+        } else {
+            let outputx = -b / a;
+            let x = outputx.toFixed(1);
+            document.getElementById('outputX').innerHTML = "Phương trình có nghiệm duy nhất là:" + x;
+        }
+    }
+</script>
+</body>
+</html>

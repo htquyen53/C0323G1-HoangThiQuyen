@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra cạnh của tam giác</title>
+</head>
+<body>
+<form>
+    <h2> Kiểm tra 3 số thực (a, b, c) có phải là cạnh của một tam giác không</h2>
+    <table>
+        <tr>
+            <td><label for="inputA">Nhập a: </label></td>
+            <td><input type="text" id="inputA"></td>
+            <td><button type="button" onclick="checkFun ()">Check</button> </td>
+        </tr>
+        <tr>
+            <td><label for="inputB">Nhập b: </label></td>
+            <td><input type="text" id="inputB"></td>
+        </tr>
+        <tr>
+            <td><label for="inputC">Nhập c: </label></td>
+            <td><input type="text" id="inputC"></td>
+        </tr>
+    </table>
+    <p id="result"><b>Result: </b></p>
+</form>
+</body>
+<script>
+    function checkFun (){
+        let a = +document.getElementById('inputA').value;
+        let b = +document.getElementById('inputB').value;
+        let c = +document.getElementById('inputC').value;
+if ((a>0) && (b>0) && (c>0) && (a+b >c) && (b+c>a) && (a+c >b)) {
+    document.getElementById('result').innerHTML = "3 số thực (a,b.c) nhập vào là cạnh của một tam giác."
+} else {
+    document.getElementById('result').innerHTML = "3 số thực (a,b,c) nhập vào  không phải là cạnh của một tam giác."
+}
+    }
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Area of the Rectangular</title>
+</head>
+<body>
+<form>
+    <h2>Area of a Rectangular</h2>
+    <table>
+        <tr>
+            <td><label for="length">Enter the length:</label></td>
+            <td><input type="text" id="length" style="border: 1px solid silver; width: 100px;text-align: center"></td>
+            <td><button type="button" onclick="calculateFun ()">Calculate</button> </td>
+        </tr>
+        <tr>
+            <td><label for="width">Enter the width:</label></td>
+            <td><input type="text" id="width" style="border: 1px solid silver; width: 100px;text-align: center"></td>
+        </tr>
+        <tr>
+            <td><label for="area">Area of a Rectangular is:</label></td>
+            <td id="area" style="border: 1px solid silver; text-align: center; width: 100px; color: #d61b06"></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function calculateFun() {
+        let lenghtRec = +document.getElementById('length').value;
+        let widthRec = +document.getElementById('width').value;
+        let area = lenghtRec*widthRec;
+        let aRea = area.toFixed(1);
+        document.getElementById('area').innerHTML = + aRea;
+    }
+</script>
+</body>
+</html>

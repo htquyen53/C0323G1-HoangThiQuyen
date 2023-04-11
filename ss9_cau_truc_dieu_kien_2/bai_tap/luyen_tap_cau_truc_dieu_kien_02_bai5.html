@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Area of the Right Triangle</title>
+</head>
+<body>
+<form>
+    <h2>Area of the Right Triangle</h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Rtriangle.svg/1200px-Rtriangle.svg.png" style="border: 0; width: 200px">
+    <table>
+        <tr>
+            <td><label for="height">Enter the height (a):</label></td>
+            <td><input type="text" id="height" style="border: 1px solid silver; width: 200px;text-align: center"></td>
+            <td><button type="button" onclick="calculateFun ()">Calculate</button> </td>
+        </tr>
+        <tr>
+            <td><label for="base">Enter the base (b):</label></td>
+            <td><input type="text" id="base" style="border: 1px solid silver; width: 200px;text-align: center"></td>
+        </tr>
+        <tr>
+            <td><label for="area">Area of the Right Triangle is: <br>
+                (Area = ab/2) </label></td>
+            <td id="area" style="border: 1px solid silver; width: 200px; text-align: center; color: #d61b06"></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function calculateFun() {
+        let a = +document.getElementById('height').value;
+        let b = +document.getElementById('base').value;
+        let area = (a*b)/2;
+        let aRea = area.toFixed(1);
+        document.getElementById('area').innerHTML = + aRea;
+    }
+</script>
+</body>
+</html>

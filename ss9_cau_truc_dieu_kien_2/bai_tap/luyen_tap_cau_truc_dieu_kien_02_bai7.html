@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
+</head>
+<body>
+<form>
+    <table>
+        <tr>
+            <th colspan="2"><h2>Giải phương trình bậc 2 <br>
+                ax<sup>2</sup> + bx + c = 0</h2></th>
+        </tr>
+        <tr>
+            <td><label for="inputA">Nhập a: </label></td>
+            <td><input type="text" id="inputA"></td>
+        </tr>
+        <tr>
+            <td><label for="inputB">Nhập b: </label></td>
+            <td><input type="text" id="inputB"></td>
+        </tr>
+        <tr>
+            <td><label for="inputC">Nhập c: </label></td>
+            <td><input type="text" id="inputC"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="solveEqua()">Giải</button>
+            </td>
+            <td id="outputX"></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function solveEqua() {
+        let a = +document.getElementById('inputA').value;
+        let b = +document.getElementById('inputB').value;
+        let c = +document.getElementById('inputC').value;
+        let deTa = b * b - 4 * a * c;
+        if (deTa === 0) {
+            let outputx = -b / (2 * a);
+            let x = outputx.toFixed(1);
+            document.getElementById('outputX').innerHTML = "Phương trình có một nghiệm kép x = " + x;
+        } else if (deTa < 0) {
+            document.getElementById('outputX').innerHTML = "Phương trình vô nghiệm.";
+        } else {
+            let sqrtDe = Math.sqrt(deTa);
+            let outputX1 = (-b + sqrtDe) / (2 * a);
+            let outputX2 = (-b - sqrtDe) / (2 * a);
+            let x1 = outputX1.toFixed(1);
+            let x2 = outputX2.toFixed(1);
+            document.getElementById('outputX').innerHTML = "Phương trình có hai nghiệm là x<sub>1</sub> = " + x1 + " và x<sub>2</sub> = " + x2;
+        }
+    }
+</script>
+</body>
+</html>

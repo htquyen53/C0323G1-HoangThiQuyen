@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xác định tuổi người</title>
+</head>
+<body>
+<form>
+    <h2> Kiểm tra một số có phải tuổi của người không</h2>
+    <label for="number"><input type="text" id="number" placeholder="Enter here!"></label>
+    <button type="button" onclick="checkFun ()">Check</button>
+    <p id="result"><b>Result: </b></p>
+</form>
+<script>
+    function checkFun() {
+        let numa = +document.getElementById('number').value;
+        if (Number.isInteger(numa) && (numa > 0) && (numa < 120)) {
+            document.getElementById('result').innerHTML = "<b>Result: </b>" + "Số nhập vào là tuổi của một người!";
+        } else {
+            document.getElementById('result').innerHTML = "<b>Result: </b>" + "Số nhập vào không phải là tuổi của một người!";
+        }
+    }
+</script>
+</body>
+</html>
