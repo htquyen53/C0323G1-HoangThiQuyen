@@ -8,13 +8,15 @@
 <script>
     let nhietDo = +prompt('Nhập nhiệt độ:');
     while (nhietDo < 20 || nhietDo > 100) {
-        if (nhietDo <= 20) {
-            alert('Hãy tăng nhiệt độ!')
+        if (nhietDo < 20) {
+            alert('Hãy tăng nhiệt độ!');
+            break;
         } else {
-            alert('Hãy giảm nhiệt độ!')
+            alert('Hãy giảm nhiệt độ!');
+            break;
         }
     }
-    alert('Bạn đã nhập nhiệt độ: ' + nhietDo)
+    alert('Bạn đã nhập nhiệt độ: ' + nhietDo);
 </script>
 </body>
 </html>
