@@ -15,7 +15,7 @@
             <td><label for="soDonhang">Số đơn hàng:</label></td>
             <td><input type="text" id="soDonhang" style="border: 1px solid silver"></td>
             <td>
-                <button type="button" onclick="thanhtoan()">Thanh toán</button>
+                <button type="button" onclick="thanhToan()">Thanh toán</button>
             </td>
         </tr>
         <tr>
@@ -30,21 +30,21 @@
 </form>
 </body>
 <script>
-    function thanhtoan() {
+    function thanhToan() {
         let soDonhang = +document.getElementById('soDonhang').value;
-        let giatridonhang = 1000000;
+        let giatriDonhang = 1000000;
         if (soDonhang < 5) {
             document.getElementById('hoaHong').innerHTML= +"0.03";
-            let tienhoahong = (soDonhang * 0.03 * giatridonhang);
-            document.getElementById('thanhTien').innerHTML = + tienhoahong + "VND";
+            let tienHoahong = (soDonhang * 0.03 * giatriDonhang);
+            document.getElementById('thanhTien').innerHTML = + tienHoahong + "VND";
         } else if (soDonhang < 10) {
             document.getElementById('hoaHong').innerHTML= +"0.05";
-            let tienhoahong = (soDonhang * 0.05 * giatridonhang);
-            document.getElementById('thanhTien').innerHTML = + tienhoahong + "VND";
+            let tienHoahong = (soDonhang * 0.05 * giatriDonhang);
+            document.getElementById('thanhTien').innerHTML = + tienHoahong + "VND";
         } else {
             document.getElementById('hoaHong').innerHTML= +"0.1";
-            let tienhoahong = (soDonhang * 0.1 * giatridonhang);
-            document.getElementById('thanhTien').innerHTML = + tienhoahong + "VND";
+            let tienHoahong = (soDonhang * 0.1 * giatriDonhang);
+            document.getElementById('thanhTien').innerHTML = + tienHoahong + "VND";
         }
     }
 </script>

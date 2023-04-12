@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td>
-                <button type="button" id="xemketqua" onclick="ketqua ()">Xem kết quả:</button>
+                <button type="button" id="xemketqua" onclick="ketQua ()">Xem kết quả:</button>
             </td>
         </tr>
     </table>
@@ -35,20 +35,26 @@
 </form>
 </body>
 <script>
-    function ketqua() {
-        let diemtrenlop = + document.getElementById('diemtrenlop').value;
+    function ketQua() {
+        let diemTrenlop = + document.getElementById('diemtrenlop').value;
         let diem15phut = + document.getElementById('diem15phut').value;
-        let diemgiuaky = + document.getElementById('diemgiuaky').value;
-        let diemcuoiky = + document.getElementById('diemcuoiky').value;
-        let diemtrungbinh = (diemtrenlop + diem15phut + diemgiuaky * 2 + diemcuoiky * 3) / 7;
-        if (diemtrungbinh > 8.0) {
-            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemtrungbinh + "<br> Học lực của bạn xếp loại giỏi"
-        } else if (diemtrungbinh > 6.5) {
-            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemtrungbinh + "<br> Học lực của bạn xếp loại khá"
-        } else if (diemtrungbinh > 5.0) {
-            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemtrungbinh + "<br> Học lực của bạn xếp loại trung bình"
+        let diemGiuaky = + document.getElementById('diemgiuaky').value;
+        let diemCuoiky = + document.getElementById('diemcuoiky').value;
+        let diemTb = (diemTrenlop + diem15phut + diemGiuaky * 2 + diemCuoiky * 3) / 7;
+        let diemTrungbinh = diemTb.toFixed(1)
+        if (diemTrungbinh >= 8.0) {
+            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemTrungbinh +
+                "<br> Học lực của bạn xếp loại <b>giỏi</b>"
+        } else if (diemTrungbinh >= 6.5) {
+            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemTrungbinh +
+                "<br> Học lực của bạn xếp loại <b>khá</b>"
+
+        } else if (diemTrungbinh > 5.0) {
+            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemTrungbinh +
+                "<br> Học lực của bạn xếp loại <b>trung bình</b>"
         } else {
-            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemtrungbinh + "<br> Học lực của bạn xếp loại trung yếu"
+            document.getElementById('result').innerHTML = "Điểm trung bình của bạn là: " + diemTrungbinh +
+                "<br> Học lực của bạn xếp loại <b>trung bình yếu</b>"
         }
     }
 </script>

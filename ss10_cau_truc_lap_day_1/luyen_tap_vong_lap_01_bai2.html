@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>luyen tap vong lap bai 02</title>
+</head>
+<body>
+<script>
+    let nhietDo = +prompt('Nhập nhiệt độ:');
+    while (nhietDo < 20 || nhietDo > 100) {
+        if (nhietDo <= 20) {
+            alert('Hãy tăng nhiệt độ!')
+        } else {
+            alert('Hãy giảm nhiệt độ!')
+        }
+    }
+    alert('Bạn đã nhập nhiệt độ: ' + nhietDo)
+</script>
+</body>
+</html>
