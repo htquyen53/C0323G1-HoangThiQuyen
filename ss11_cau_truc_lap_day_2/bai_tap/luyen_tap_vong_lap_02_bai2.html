@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh giai thua cua mot so nguyen duong</title>
+</head>
+<body>
+<script>
+    let n = +prompt('Nhập số cần tính giai thừa:')
+    let result = n;
+    for (let i=1; i<n; i++) {
+        if (n<=0) {
+            alert('Số nhập không hợp lệ!');
+            break;
+        } else {
+            result=result*i;
+        }
+    }
+    alert('Giai thừa của số nguyên dương bạn đã nhập là =' +result);
+
+</script>
+</body>
+</html>

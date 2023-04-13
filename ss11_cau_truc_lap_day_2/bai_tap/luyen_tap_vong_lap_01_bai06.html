@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh tong của 30 so chia het het cho 7 dau tien trong cac so tu nhien</title>
+</head>
+<body>
+<script>
+    let n = 0;
+    let count = 1;
+    let sum = 0;
+    while (count<=30) {
+        if (n%7===0) {
+            sum = sum + n;
+            count++;
+        }
+        n++;
+    }
+    document.write('Tổng của 30 số chia hết cho 7 đầu tiên =  '+sum);
+</script>
+</body>
+</html>

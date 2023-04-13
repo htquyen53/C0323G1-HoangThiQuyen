@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In hinh chu nhat</title>
+</head>
+<body>
+<script>
+    document.write('<table>');
+    document.write('<tr>');
+    for (let i = 0; i < 20; i++) {
+        document.write('<td>');
+        document.write('*');
+        document.write('</td>');
+    }
+    document.write('</tr>');
+    for (let r = 1; r <= 5; r++) {
+        document.write('<tr>');
+        for (let j = 1; j <= 20; j++) {
+            if (j === 1 || j === 20) {
+                document.write('<td>');
+                document.write('*');
+                document.write('</td>');
+            } else {
+                document.write('<td>');
+                document.write('');
+                document.write('</td>');
+            }
+        }
+        document.write('</tr>');
+    }
+    for (let i = 0; i < 20; i++) {
+        document.write('<td>');
+        document.write('*');
+        document.write('</td>');
+    }
+    // document.write('</table>');
+    // for (let n = 1; n <= 7; n++) {
+    //     for (let m = 1; m <= 20; m++) {
+    //         if (n === 1 || n === 7 || m === 1|| m === 20) {
+    //             document.write("*");
+    //         } else {
+    //             document.write("&nbsp&nbsp");
+    //         }
+    //     }
+    //     document.write('<br>')
+    // }
+</script>
+</body>
+</html>
