@@ -2,30 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Viết Chương Trình Tính Thuế Thu Nhập Cá Nhân</title>
+    <title>Hiển thị 20 số trong dãy Fibonacci</title>
 </head>
 <body>
-<form action="/student" method="get">
-    <h1>Tính Thuế Thu Nhập Cá Nhân</h1>
-    <label>Lương<input type="number" id="wage"></label><br>
-    <button type="button" onclick="getValue()">Kết quả</button>
-    <br>
-    <div id="result"></div>
 
-</form>
 </body>
 <script>
-    function getValue() {
-        let wage = +document.getElementById('wage').value;
-        if (wage <= 0) {
-            document.getElementById('result').innerHTML = 0;
-        } else if (wage <= 10000000) {
-            document.getElementById('result').innerHTML = 'Không nộp thuế';
-        } else if (wage <= 20000000) {
-            document.getElementById('result').innerHTML = 'Thuế: ' + wage*0.15 + 'đ';
-        } else {
-            document.getElementById('result').innerHTML = 'Thuế: ' + wage*0.2 +'đ';
-        }
+    let numA = 0;
+    let numB = 1;
+    let fibonacci;
+    for (let i = 0; i < 18; i++) {
+        fibonacci = numA + numB;
+        numA = numB;
+        numB = fibonacci;
+        document.write(fibonacci + '<br>');
     }
 </script>
 </html>
