@@ -30,7 +30,7 @@
     document.write("<br>");
     for (let c = 1; c <= 5; c++) {
         for (let d = 1; d <= 5; d++) {
-            if (c===d || c === d-1) {
+            if (c>=d) {
                 document.write("*");
             } else {
                 document.write("&nbsp&nbsp");
@@ -39,9 +39,9 @@
         document.write("<br>");
     }
     document.write("<br>");
-    for (let n = 1; n <= 5; n++) {
-        for (let m = 1; m <= 5; m++) {
-            if (n >= m) {
+    for (let e = 1; e <= 5; e++) {
+        for (let f = 1; f <= 5; f++) {
+            if (e >= f) {
                 document.write("*");
             } else {
                 document.write("&nbsp&nbsp");
@@ -53,7 +53,7 @@
     document.write("<br>");
     for (let i = 1; i <= 5; i++) {
         for (let j = 1; j <= 5; j++) {
-            if (i >= j) {
+            if (i > j) {
                 document.write("&nbsp&nbsp");
             } else {
                 document.write("*");
