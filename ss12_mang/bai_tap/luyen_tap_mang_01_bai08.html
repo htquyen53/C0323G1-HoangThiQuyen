@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr_Str = [];
+    let count = 1;
+    while (count <= 10) {
+        number = +prompt('Bắt đầu khởi tạo mảng số nguyên: ');
+        if (number % 1 === 0) {
+            arr_Str.push(number);
+            count++;
+        }
+    }
+    document.write('Mảng số nguyên đã khởi tạo là: ' + arr_Str + '<br>');
+    arr_Str.sort(function(a,b) {
+        return (b-a);
+    })
+    document.write('Mảng số nguyên sau khi được sắp xếp theo ' +
+        'thứ tự giảm dần là: ' + arr_Str + '<br>');
+
+</script>
+</body>
+</html>

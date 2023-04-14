@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CT dem so nguyen am trong mot chuoi</title>
+</head>
+<body>
+<script>
+    let num_Arr = [];
+    let num_In;
+    let count = 0;
+    for (let i = 0; i < 7; i++) {
+        num_In = +prompt('Khởi tạo mảng số nguyên: ')
+        if (num_In%1===0) {
+            num_Arr.push(num_In);
+        }
+    }
+    document.write('Chuỗi đã nhập là: ' + num_Arr + '<br>');
+    for (let j = 0; j < num_Arr.length ; j++) {
+        if (num_Arr[j]<0) {
+            count++;
+        }
+    } document.write('Có ' + count + ' số nguyên âm trong chuỗi đã nhập!')
+</script>
+</body>
+</html>

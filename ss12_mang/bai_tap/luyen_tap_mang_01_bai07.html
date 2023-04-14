@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr_Str = [];
+    let count = 1;
+    while (count <= 10) {
+        number = +prompt('Bắt đầu khởi tạo mảng số nguyên: ');
+        if (number % 1 === 0) {
+            arr_Str.push(number);
+            count++;
+        }
+    }
+    document.write('Mảng số nguyên đã khởi tạo là: ' + arr_Str + '<br>');
+    numberV = +prompt('Nhập số nguyên bất kỳ: ')
+    if (numberV%1===0) {
+        for (let i = 0; i < arr_Str.length; i++) {
+            if (numberV === arr_Str[i]) {
+                arr_Str.pop(numberV)
+                document.write('V is in the array');
+            } else {
+                document.write('V is not in the array')
+            }
+        }
+    }
+</script>
+</body>
+</html>

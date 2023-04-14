@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>bai 02 luyen tap 01</title>
+    <title>Khoi tao va tinh gia tri trung binh cua cac phan tu trong mang</title>
 </head>
 <body>
 <script>
@@ -17,15 +17,16 @@
     }
     alert(arr_Str);
     let max_ele = arr_Str[0];
+    let sum_arr = 0;
     for (let j = 0; j < arr_Str.length; j++) {
+        sum_arr = sum_arr + arr_Str[j];
         if (max_ele < arr_Str[j]) {
             max_ele = arr_Str[j];
         }
     }
-    document.write('Mảng đã tạo là: ' + '['+ arr_Str +']' + '<br>');
+    document.write('Mảng đã tạo là: ' + '[' + arr_Str + ']' + '<br>');
     document.write('Phần tử có giá trị lớn nhất trong mảng là: ' + max_ele + '<br>');
-    document.write('Vị trí của phần tử có giá trị lớn nhất trong mảng là: ' + arr_Str.indexOf(max_ele) + '<br>');
-
+    document.write('Giá trị trung bình của các phần tử trong mảng là: ' + sum_arr/arr_Str.length + '<br>');
 </script>
 </body>
 </html>
