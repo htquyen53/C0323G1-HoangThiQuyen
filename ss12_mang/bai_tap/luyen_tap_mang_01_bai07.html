@@ -17,15 +17,15 @@
     }
     document.write('Mảng số nguyên đã khởi tạo là: ' + arr_Str + '<br>');
     numberV = +prompt('Nhập số nguyên bất kỳ: ')
-    if (numberV%1===0) {
+    if (numberV % 1 === 0) {
         for (let i = 0; i < arr_Str.length; i++) {
             if (numberV === arr_Str[i]) {
-                arr_Str.pop(numberV)
-                document.write('V is in the array');
-            } else {
-                document.write('V is not in the array')
+                document.write('V is in the array' + '<br>');
             }
         }
+        number_V = arr_Str.indexOf(numberV);
+        arr_Str.splice(number_V, 1);
+        document.write('Mảng số nguyên sau khi đã loại bỏ V: ' + arr_Str);
     }
 </script>
 </body>
