@@ -30,7 +30,7 @@
     document.write("<br>");
     for (let c = 1; c <= 5; c++) {
         for (let d = 1; d <= 5; d++) {
-            if (c>=d) {
+            if (d<5 && c<4|| c<4 && d<3||d===1||c===1) {
                 document.write("*");
             } else {
                 document.write("&nbsp&nbsp");

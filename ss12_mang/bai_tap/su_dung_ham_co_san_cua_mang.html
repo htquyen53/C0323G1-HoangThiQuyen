@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Using built-in array function</title>
+</head>
+<body>
+<p>Exercise 1:</p>
+<script>
+    let myColors = ["Red", "Green", "White", "Black"];
+    console.log(myColors.toString());
+    console.log(myColors.join("+"));
+</script>
+
+<p>Exercise 2:</p>
+<script>
+    let inNum = prompt('Enter the number!');
+    let str = inNum.toString();
+    let numArr = str.split("");
+    alert(numArr);
+    for (let i = 1; i < numArr.length; i++) {
+        if ((numArr[i-1] % 2 === 0) && (numArr[i] % 2 === 0)) {
+            document.write(numArr.join('-',numArr[i]));
+        }
+        else {
+            document.write(numArr[i]);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tu dien</title>
+</head>
+<body>
+<label for="trWord">What word do you want to look up?</label> <br>
+<input type="text" id="trWord">
+<button type="button" onclick="transFun()">Translate</button>
+<br>
+<hr>
+<div id="result"><b>Result: </b></div>
+<script>
+    function transFun() {
+        let engLang = ['abide', 'agreement', 'assurance', 'cancellation'];
+        let vietLang = ['tôn trọng', 'sự thỏa thuận', 'bảo đảm', 'sự bãi bỏ'];
+        let word = document.getElementById('trWord').value;
+        for (let i = 0; i < engLang.length; i++) {
+            if (word === engLang[i]) {
+                document.getElementById("result").innerHTML = '<b>Result: </b>' + vietLang[i];
+                break;
+            } else {
+                document.getElementById("result").innerText = 'The word you entered is not in the dictionary!';
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
