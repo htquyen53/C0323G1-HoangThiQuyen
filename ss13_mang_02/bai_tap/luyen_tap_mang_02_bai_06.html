@@ -7,11 +7,16 @@
 <body>
 <script>
     let arr = [];
-    arr = prompt('Enter elements in you array: ');
-    let str = arr.toString();
-    let strNew = str.replace('-','_');
-    let arrNew = strNew.split('');
-    document.write('New array is: ' + arrNew);
+    arr_length = +prompt('Enter the length of the array: ');
+    for (let i = 0; i < arr_length; i++) {
+        arr[i] = prompt('Enter elements of the array:')
+    }
+        for (let i of arr) {
+            if (arr [i] === '-') {
+                arr[i] = '_';
+            }
+        }
+        document.write('New array is: ' + arr);
 </script>
 </body>
 </html>
