@@ -16,16 +16,22 @@
         }
     }
     document.write('Mảng số nguyên đã khởi tạo là: ' + arr_Str + '<br>');
-    numberV = +prompt('Nhập số nguyên bất kỳ: ')
+    numberV = +prompt('Nhập số nguyên bất kỳ: ');
+    let i = 0;
     if (numberV % 1 === 0) {
-        for (let i = 0; i < arr_Str.length; i++) {
+        for (; i < arr_Str.length; i++) {
+
             if (numberV === arr_Str[i]) {
-                document.write('V is in the array' + '<br>');
+                document.write('V thuộc mảng số nguyên' + '<br>');
             }
         }
-        number_V = arr_Str.indexOf(numberV);
-        arr_Str.splice(number_V, 1);
-        document.write('Mảng số nguyên sau khi đã loại bỏ V: ' + arr_Str);
+        if (i === arr_Str.length) {
+            document.write('V không thuộc mảng');
+        } else {
+            number_V = arr_Str.indexOf(numberV);
+            arr_Str.splice(number_V, 1);
+            document.write('Mảng số nguyên sau khi đã loại bỏ V: ' + arr_Str);
+        }
     }
 </script>
 </body>

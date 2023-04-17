@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add arrays</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let b = [];
+    let c = [];
+    let count = 0;
+    while (count <= 20 && x % 1 === 0) {
+        x = +prompt('Khởi tạo mảng số nguyên: ');
+        if (count <= 10) {
+            a.push(x);
+            count++;
+        } else {
+            b.push(x);
+            count++;
+        }
+    }
+    c.unshift(a);
+    c.push(b);
+    document.write('Hiển thị mảng c sau khi đã cộng mảng a và b vào chuỗi là: ' + c);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Two String</title>
+</head>
+<body>
+<script>
+    let strA;
+    strA = prompt('Nhập vào chuỗi thứ nhất:');
+    let strB;
+    let flag;
+    strB = prompt('Nhập vào chuỗi số hai:');
+    if ((strA.length)!==(strB.length)) {
+        flag = false;
+    } else {
+        for (let i = 0; i < strA.length; i++) {
+            if ((strA[i])!==(strB[i])) {
+                flag = false;
+                break;
+            } else { flag = true;
+            }
+        }
+    }
+    if (flag) {
+        document.write('Hai chuỗi kỹ tự giống nhau');
+    } else {
+        document.write('Hai chuỗi kỹ tự không giống nhau');
+    }
+
+</script>
+</body>
+</html>

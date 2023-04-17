@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Count the number of words in a string</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let count = 1;
+    arr_length = +prompt('Enter the length of the array: ');
+    for (let i = 0; i < arr_length; i++) {
+        arr[i] = prompt('Enter elements of the array:')
+    }
+    str = arr.toString();
+    console.log(str);
+    str_length = str.length;
+    for (let i = 0; i < str_length ; i++) {
+        console.log(str[i]);
+        if (str[i] === '' || str[i] === ',') {
+            count++;
+        }
+    }
+    document.write('The number of word in the string entered is: ' + count);
+</script>
+</body>
+</html>

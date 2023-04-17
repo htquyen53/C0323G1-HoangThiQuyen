@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse Arrays</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    arr_length = +prompt('Enter the length of Array: ');
+    for (let i = 0; i < arr_length; i++) {
+        arr[i] = prompt('Let initialize the integer array!');
+    }
+    document.write('The integer array is: ' + arr + '<br>');
+    arr.reverse();
+    document.write('The integer array after reversed is: ' + arr.join(''));
+</script>
+</body>
+</html>
