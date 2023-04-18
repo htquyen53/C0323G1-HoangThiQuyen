@@ -6,22 +6,27 @@
 </head>
 <body>
 <script>
-    let a = ['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus'];
-    let b = ['Ursa Minor','Tarurus','Cygnus','Lyra','Aquila','Ursa Major','Leo'];
+    let star = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let groupStar = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    let index = -1;
+
     function checkFunction(x) {
-        for (let i = 0; i < a.length; i++) {
-            if (x === a[i]) {
-                result = b[i];
+        for (let i = 0; i < star.length; i++) {
+            if (x === star[i]) {
+                index = i;
                 break;
-            } else {
-                result = 'Not here!';
             }
         }
-        return result;
+        if (index === -1) {
+            return 'Chuỗi không tìm thấy!';
+        } else {
+            return groupStar[index];
+        }
     }
-        let name = prompt('Enter the name of star: ');
-        result = checkFunction(name);
-        alert(result);
+
+    let name = prompt('Enter the name of star: ');
+    let result = checkFunction(name);
+    alert(result);
 
 </script>
 </body>
