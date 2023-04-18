@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ex_05</title>
+</head>
+<body>
+<script>
+    let a = ['Polaris','Aldebaran','Deneb','Vega','Altair','Dubhe','Regulus'];
+    let b = ['Ursa Minor','Tarurus','Cygnus','Lyra','Aquila','Ursa Major','Leo'];
+    function checkFunction(x) {
+        for (let i = 0; i < a.length; i++) {
+            if (x === a[i]) {
+                result = b[i];
+                break;
+            } else {
+                result = 'Not here!';
+            }
+        }
+        return result;
+    }
+        let name = prompt('Enter the name of star: ');
+        result = checkFunction(name);
+        alert(result);
+
+</script>
+</body>
+</html>

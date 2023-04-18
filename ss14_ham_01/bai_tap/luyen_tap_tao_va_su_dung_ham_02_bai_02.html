@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>area_peri_0f_Cirle</title>
+</head>
+<body>
+<script>
+    function areaFunction(x) {
+        return x * x * 3.14;
+    }
+
+    function perimeterFunction(x) {
+        return x * 2 * 3.14;
+    }
+
+    let r = +prompt('Enter the radius of the cirle:');
+    let result_are = areaFunction(r);
+    alert('The area of the cirle is: ' + result_are);
+    let result_peri = perimeterFunction(r);
+    alert('The diameter of the cirle is: ' + result_peri);
+
+</script>
+</body>
+</html>

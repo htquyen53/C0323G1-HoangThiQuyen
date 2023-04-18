@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function number_Function(x,y) {
+        if (x>y) {
+            return 'Tham số thứ nhất > Tham số thứ hai';
+        } else {
+            return 'Tổng hai số là: ' + (x+y);
+        }
+    }
+    let num1 = +prompt('Nhập vào tham số thứ nhất:');
+    let num2 = +prompt('Nhập vào tham số thứ hai:');
+    let result = number_Function(num1,num2);
+    alert(result);
+</script>
+</body>
+</html>
