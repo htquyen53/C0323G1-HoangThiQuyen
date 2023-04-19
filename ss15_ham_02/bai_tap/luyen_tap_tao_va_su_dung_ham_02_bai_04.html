@@ -6,12 +6,20 @@
 </head>
 <body>
 <script>
-    function checkFunction(x) {
-        Number.isFinite(x) ? alert('True') :
-            alert('False')
-    }
     let character = +prompt('Enter the character to check: ');
-    let result = checkFunction(character);
+    checkInput(character);
+    function checkInput (x) {
+        let strX = x.toString();
+        if (strX.length!==1) {
+            alert('You have entered more than one character, please re-enter!')
+        } else {
+            checkFunction(x);
+        }
+    }
+    function checkFunction(y) {
+        Number.isFinite(y) ? alert('True') :
+            alert('False');
+    }
 </script>
 </body>
 </html>

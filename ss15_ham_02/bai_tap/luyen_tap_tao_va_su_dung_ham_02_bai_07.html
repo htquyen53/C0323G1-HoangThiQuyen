@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Swap_2_elements</title>
 </head>
 <body>
+<script>
+    let arrayAB = [];
+    let numberA = +prompt('Enter the element off Array: ');
+    pushElement(numberA, arrayAB);
+    let numberB = +prompt('Enter the element off Array: ');
+    pushElement(numberB, arrayAB);
+    alert(arrayAB);
+    swap(arrayAB);
+    alert(arrayAB);
 
+
+    function pushElement(elementX, arrayX) {
+            if (elementX % 1 === 0) {
+                return arrayX.push(elementX);
+            } else {
+                alert('Your value you entered is not an integer, please re-enter!')
+            }
+    }
+
+    function swap(arrayX) {
+        arrayX.reverse();
+        return arrayX;
+    }
+
+
+</script>
 </body>
 </html>
