@@ -11,16 +11,17 @@
     pushElement(numberA, arrayAB);
     let numberB = +prompt('Enter the element off Array: ');
     pushElement(numberB, arrayAB);
-    alert(arrayAB);
+    alert('Vị trí 2 số nguyên trước khi tráo đổi: ' +arrayAB);
     swap(arrayAB);
-    alert(arrayAB);
+    alert('Đổi vị trí 2 số đã nhập ta được: '+ arrayAB);
 
 
     function pushElement(elementX, arrayX) {
             if (elementX % 1 === 0) {
                 return arrayX.push(elementX);
             } else {
-                alert('Your value you entered is not an integer, please re-enter!')
+                elementX = +prompt('Your value you entered is not an integer, please re-enter!')
+                return arrayX.push(elementX);
             }
     }
 
