@@ -8,14 +8,14 @@
 <script>
     let arr = [];
     let count = 1;
-    arr_length = +prompt('Enter the length of the array: ');
-    for (let i = 0; i < arr_length; i++) {
+    let arrLength = +prompt('Enter the length of the array: ');
+    for (let i = 0; i < arrLength; i++) {
         arr[i] = prompt('Enter elements of the array:')
     }
-    str = arr.toString();
+    let str = arr.toString();
     console.log(str);
-    str_length = str.length;
-    for (let i = 0; i < str_length ; i++) {
+    let strLength = str.length;
+    for (let i = 0; i < strLength ; i++) {
         console.log(str[i]);
         if (str[i] === '' || str[i] === ',') {
             count++;

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Factorial Function</title>
+</head>
+<body>
+<label for="input">The factory of number
+    <input type="text" id="input" oninput="factorialFunction(this.value)">
+</label> is: <span id="result"> </span>
+<script>
+    let result;
+    function factorialFunction(n) {
+        for (let i = 1; i <= n-1; i++) {
+            result = n*i;
+        }
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>

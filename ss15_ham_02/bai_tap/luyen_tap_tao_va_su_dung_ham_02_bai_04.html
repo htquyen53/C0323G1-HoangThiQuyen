@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check_number</title>
+</head>
+<body>
+<script>
+    function checkFunction(x) {
+        Number.isFinite(x) ? alert('True') :
+            alert('False')
+    }
+    let character = +prompt('Enter the character to check: ');
+    let result = checkFunction(character);
+</script>
+</body>
+</html>

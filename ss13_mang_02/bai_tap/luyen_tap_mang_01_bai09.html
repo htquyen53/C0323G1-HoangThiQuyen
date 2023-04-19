@@ -6,23 +6,22 @@
 </head>
 <body>
 <script>
-    let a = [];
-    let b = [];
-    let c = [];
+    let arrA = [];
+    let arrB = [];
+    let arrC;
     let count = 0;
     while (count <= 20 && x % 1 === 0) {
         x = +prompt('Khởi tạo mảng số nguyên: ');
         if (count <= 10) {
-            a.push(x);
+            arrA.push(x);
             count++;
         } else {
-            b.push(x);
+            arrB.push(x);
             count++;
         }
     }
-    c.unshift(a);
-    c.push(b);
-    document.write('Hiển thị mảng c sau khi đã cộng mảng a và b vào chuỗi là: ' + c);
+   arrC = arrA.concat(arrB)
+    document.write('Hiển thị mảng arrC sau khi đã cộng mảng arrA và arB vào chuỗi là: ' + arrC);
 
 </script>
 </body>

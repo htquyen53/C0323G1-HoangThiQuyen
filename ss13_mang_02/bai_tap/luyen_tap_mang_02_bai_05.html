@@ -9,16 +9,15 @@
     let strA;
     strA = prompt('Nhập vào chuỗi thứ nhất:');
     let strB;
-    let flag;
+    let flag =true;
     strB = prompt('Nhập vào chuỗi số hai:');
-    if ((strA.length)!==(strB.length)) {
+    if ((strA.length) !== (strB.length)) {
         flag = false;
     } else {
         for (let i = 0; i < strA.length; i++) {
-            if ((strA[i])!==(strB[i])) {
+            if (strA[i] !== strB[i]) {
                 flag = false;
                 break;
-            } else { flag = true;
             }
         }
     }

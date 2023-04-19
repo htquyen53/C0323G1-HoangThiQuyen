@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check for positive integers</title>
+</head>
+<body>
+<script>
+    function integerFunction(x) {
+        if (x % 1 === 0 && x > 0) {
+            return 'true';
+        } else {
+            return 'false';
+        }
+    }
+
+    let number = +prompt('Enter a number to check: ');
+    let result = integerFunction(number);
+    alert(result);
+
+</script>
+</body>
+</html>
