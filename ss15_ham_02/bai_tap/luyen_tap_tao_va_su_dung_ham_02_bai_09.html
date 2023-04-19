@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Character_Array</title>
 </head>
 <body>
+<script>
+    let arr = [];
+    let arrLenght = +prompt('Enter the length of array: ');
+    for (let i = 0; i < arrLenght; i++) {
+        arr[i] = prompt('Enter the elements of array: ');
+    }
+    let character = prompt('Enter the check character:');
+    let result = checkFunc(character, arr);
+    alert('The check result is: '+result);
 
+
+    function checkFunc(x, array) {
+        for (let i = 0; i < array.length; i++) {
+            if (x === array[i]) {
+                return +1;
+            } else {
+                return -1;
+            }
+        }
+    }
+</script>
 </body>
 </html>

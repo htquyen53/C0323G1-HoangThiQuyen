@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Reverse_Array</title>
 </head>
 <body>
+<script>
+    let arr = [];
+    let arrLength = +prompt('Enter the length of array: ');
+    for (let i = 0; i < arrLength; i++) {
+        let number = +prompt('Enter the element of array: ');
+        if (number % 1 === 0) {
+            arr.push(number);
+        } else {
+            number = +prompt('You have entered not an integer, please re-enter!');
+            arr.push(number);
+        }
+    }
+    document.write('The Integer Array you entered is: ' + arr + '<br>');
+    reverse(arr);
+    document.write('The Reversed Array is: ' + arr);
 
+    function reverse(array) {
+        return array.reverse();
+    }
+</script>
 </body>
 </html>
