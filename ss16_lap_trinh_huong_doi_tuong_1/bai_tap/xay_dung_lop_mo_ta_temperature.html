@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class temperature</title>
+</head>
+<body>
+<table style="border: 1px solid blue">
+    <tr>
+        <th> Celsius</th>
+        <th> Fahrenheit</th>
+        <th> Kenvin</th>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td id="fahrenheitDegrees" ></td>
+        <td id="kenvinDegrees"></td>
+    </tr>
+</table>
+<script>
+    let temperature = function (celsius) {
+        this.celsius = celsius;
+        this.fahrenheit = function () {
+            return celsius * 1.8 + 32;
+        }
+        this.kenvin = function () {
+            return celsius + 273.15;
+        }
+    };
+    let input = new temperature(25);
+    let fahrenheitResult = input.fahrenheit();
+    let kenvinResult = input.kenvin();
+    document.getElementById('fahrenheitDegrees').innerText = fahrenheitResult;
+    document.getElementById('kenvinDegrees').innerText = kenvinResult;
+</script>
+</body>
+</html>

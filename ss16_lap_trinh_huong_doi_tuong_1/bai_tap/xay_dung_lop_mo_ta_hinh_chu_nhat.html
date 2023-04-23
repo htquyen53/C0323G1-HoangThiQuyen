@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class Rect</title>
+</head>
+<body>
+<canvas id="myRectangle"></canvas>
+<script>
+    let rectangle = function(length, width) {
+        this.length = length;
+        this.width = width;
+        this.getArea = function() {
+            return length*width;
+        }
+        this.getPerimeter = function() {
+            return 2*length*width;
+        }
+        this.canvasRect = function() {
+            let c = document.getElementById("myRectangle");
+            let ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000"
+            ctx.fillRect(0,0,length,width);
+            ctx.stroke();
+        }
+        this.setLength = function(length){
+            this.length = length;
+        }
+        this.setWidth= function(width) {
+            this.width = width;
+        }
+    };
+    let rectangleA = new rectangle(200,50);
+    let displayA = rectangleA.canvasRect();
+    let length = rectangleA.setLength();
+    let width = rectangleA.setWidth();
+    let areaA = rectangleA.getArea();
+    let perimeterA = rectangleA.getPerimeter();
+    alert("Area: "+areaA + "; Perimeter: "+ perimeterA);
+
+
+</script>
+</body>
+</html>

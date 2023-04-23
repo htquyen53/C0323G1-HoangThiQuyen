@@ -17,9 +17,9 @@
 
 
     function checkFunc(x, array) {
-        for (let i = 0; i < array.length; i++) {
-            if (x === array[i]) {
-                return +1;
+        for (let i of array) {
+                if (x === array[i]) {
+                    return +1;
             } else {
                 return -1;
             }
