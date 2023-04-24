@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mang và loop 01</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let n = +prompt('Nhập độ dài mảng a: ');
+    let count = 0;
+    while (count < n) {
+        let number = +prompt('Khởi tạo mảng số nguyên a: ')
+        if (number % 1 === 0) {
+            a.push(number);
+            count++
+        }
+    }
+    document.write('Mảng a là: a = [' + a + '] <br>');
+    let b = [];
+    for (let i = 1; i < a.length; i++) {
+        b[0] = a[0];
+        b[i] = b[i-1] + a[i];
+    }
+    document.write('Mảng prefix sums của mảng a là: prefixSums(a) = ['+ b + ']');
+</script>
+</body>
+</html>

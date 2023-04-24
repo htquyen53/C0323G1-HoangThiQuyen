@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mang va loop 2</title>
+</head>
+<body>
+<script>
+    let arrayA = [];
+    let n = +prompt('Nhập độ dài mảng A: ');
+    let countA = 0;
+    while (countA < n) {
+        let numberA = +prompt('Khởi tạo mảng số nguyên A : ')
+        if (numberA % 1 === 0) {
+            arrayA.push(numberA);
+            countA++;
+        } else {
+            alert('Số bạn nhập không phải số nguyên!');
+        }
+    }
+    let arrayB = [];
+    let m = +prompt('Nhập độ dài mảng B: ');
+    let countB = 0;
+    while (countB < m) {
+        let numberB = +prompt('Khởi tạo mảng số nguyên B : ')
+        if (numberB % 1 === 0) {
+            arrayB.push(numberB);
+            countB++;
+        } else {
+            alert('Số bạn nhập không phải số nguyên!');
+        }
+    }
+    document.write('Mảng A là: A = [' + arrayA + '] <br>');
+    document.write('Mảng B là: B = [' + arrayB + '] <br>');
+    let index;
+    for (let i = 0; i < arrayA.length; i++) {
+        for (let j = 0; j < arrayB.length; j++) {
+            if (arrayA[i] === arrayB[j]) {
+                index = [j];
+                arrayB.splice(index,1);
+            }
+        }
+    }
+    document.write('MissingValue(A,B) = [' + arrayB + ']');
+</script>
+</body>
+</html>
