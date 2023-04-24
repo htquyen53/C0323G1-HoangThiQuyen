@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng lương</title>
+    <style>
+        table,th,td {
+            width: 500px;
+            border: 1px solid blue;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th {
+            background-color: mistyrose;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <table>
+        <tr><td colspan="3>"><b>BẢNG TÍNH LƯƠNG</b><br>
+            Họ và tên: Nguyễn Văn A
+        </td></tr>
+        <tr>
+            <th> Lương <br> (triệu đồng) </th>
+            <th> Thuế thu nhập <br> (%) </th>
+            <th> Lương ròng <br> (triệu đồng) </th>
+        </tr>
+        <tr>
+            <td><label><input type="text" style="border: 0px" id="luong" placeholder="Nhập vào đây..." oninput="tinhthue()"></label></td>
+            <td id="muc tinh thue"></td>
+            <td id="luong rong"></td>
+        </tr>
+    </table>
+</form>
+</body>
+<script>
+ function tinhthue() {
+     let luong = +document.getElementById('luong').value;
+     if (luong<=7) {
+         document.getElementById('muc tinh thue').innerText = '5%';
+         let luongRong = luong*(1-0.05);
+         document.getElementById('luong rong').innerHTML = + luongRong;
+     } else if (luong<=15) {
+         document.getElementById('muc tinh thue').innerText = '10%';
+         let luongRong = luong*(1-0.1);
+         document.getElementById('luong rong').innerHTML = + luongRong;
+     } else {
+         document.getElementById('muc tinh thue').innerText = '20%';
+         let luongRong = luong*(1-0.2);
+         document.getElementById('luong rong').innerHTML = + luongRong;
+     }
+ }
+</script>
+</html>

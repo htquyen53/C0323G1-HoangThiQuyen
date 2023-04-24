@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <label for="input"><input id="input" placeholder="Enter here!"></label>
+    <button type="button" onclick="checkFunction()">Check</button>
+    <div id="result">Result:</div>
+</form>
+</body>
+<script>
+    function checkFunction() {
+        let arrayA = ['o', 'u', 'i', 'a', 'e'];
+        let arrayB = ['O', 'U', 'I', 'A', 'E'];
+        let character = document.getElementById('input').value;
+        let flagA = false;
+        let flagB = false;
+        for (let i = 0; i < arrayA.length; i++) {
+            if (character === arrayA[i]) {
+                flagA = true;
+                break;
+            }
+        }
+        for (let j = 0; j < arrayB.length; j++) {
+            if (character === arrayB[j]) {
+                flagB = true;
+                break;
+            }
+        }
+        if (flagA === true || flagB === true) {
+            document.getElementById('result').innerText = 'Result: Ký tự nhập vào là nguyên âm!';
+        } else {
+            document.getElementById('result').innerText = 'Result: Ký tự nhập vào là phụ âm!';
+        }
+    }
+</script>
+</html>
