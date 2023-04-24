@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>max</title>
 </head>
 <body>
-
+<script>
+    let numerators = [];
+    let denominators = [];
+    let n = +prompt('Nhập số phân số muốn so sánh: ');
+    for (let i = 0; i < n; i++) {
+        numerators[i] = +prompt('Nhập tử số: ')
+        denominators[i] = +prompt('Nhập mẫu số: ')
+    }
+    document.write('numerators = [' + numerators + ']' +'<br>');
+    document.write('denominators = [' + denominators + ']'+'<br>');
+    let max = numerators[0]/denominators[0]
+    let indexMax = 0;
+    for (let i = 1; i < n; i++) {
+        if (max < (numerators[i]/denominators[i])) {
+            indexMax = i;
+            max = numerators[i]/denominators[i];
+        }
+    }
+    document.write(+ numerators[indexMax] + '/' + denominators[indexMax] + ' là phân số lớn nhất, có chỉ số là ' +indexMax);
+</script>
 </body>
 </html>
