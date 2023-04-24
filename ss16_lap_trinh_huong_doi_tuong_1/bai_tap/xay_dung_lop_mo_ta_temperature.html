@@ -18,7 +18,7 @@
     </tr>
 </table>
 <script>
-    let temperature = function (celsius) {
+    let Temperature = function (celsius) {
         this.celsius = celsius;
         this.fahrenheit = function () {
             return celsius * 1.8 + 32;
@@ -27,7 +27,7 @@
             return celsius + 273.15;
         }
     };
-    let input = new temperature(25);
+    let input = new Temperature(25);
     let fahrenheitResult = input.fahrenheit();
     let kenvinResult = input.kenvin();
     document.getElementById('fahrenheitDegrees').innerText = fahrenheitResult;

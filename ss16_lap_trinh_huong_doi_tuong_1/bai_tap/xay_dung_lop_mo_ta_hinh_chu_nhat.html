@@ -7,7 +7,7 @@
 <body>
 <canvas id="myRectangle"></canvas>
 <script>
-    let rectangle = function(length, width) {
+    let Rectangle = function(length, width) {
         this.length = length;
         this.width = width;
         this.getArea = function() {
@@ -30,7 +30,7 @@
             this.width = width;
         }
     };
-    let rectangleA = new rectangle(200,50);
+    let rectangleA = new Rectangle(200,50);
     let displayA = rectangleA.canvasRect();
     let length = rectangleA.setLength();
     let width = rectangleA.setWidth();
