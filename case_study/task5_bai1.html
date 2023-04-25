@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    function sumArray(array) {
+        let sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i]
+        }
+        return sum;
+    }
+    let arrayA = [2,5,7,3];
+    let sumA = sumArray(arrayA);
+    alert(sumA);
+</script>
 </body>
 </html>

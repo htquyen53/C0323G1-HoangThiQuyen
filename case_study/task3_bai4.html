@@ -33,11 +33,11 @@
             "6. Nước dừa\n" +
             "7. Kết thúc order, thanh toán!\n"));
         if (oder > 0 && oder < 7) {
-            let n = +prompt('Món bạn chọn là ' + menu[oder - 1] + ' có giá là: ' + price[oder - 1] + 'VND' + ' Mời bạn chọn số lượng: ');
+            let n = +prompt('Món bạn chọn là ' + menu[oder - 1] + ' có giá là: ' + price[oder - 1] + ' (VND)' + ' Mời bạn chọn số lượng: ');
             arrayOder.push((n * price[oder - 1]));
         } else if (oder === 7) {
             let sumarray = sumArray(arrayOder);
-            alert('Số tiền bạn cần phải thanh toán là: ' + sumarray);
+            alert('Số tiền bạn cần phải thanh toán là: ' + sumarray + '(VND)');
         } else {
             flag = false;
             break;
@@ -46,6 +46,7 @@
     while (flag) ;
 
     function sumArray(array) {
+        let sum = 0;
         for (let i = 0; i < array.length; i++) {
             sum += array[i]
         }
