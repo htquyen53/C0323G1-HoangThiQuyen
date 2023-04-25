@@ -5,6 +5,52 @@
     <title>loop1</title>
 </head>
 <body>
+<h2 style="text-align: center"> MENU </h2>
+<hr>
+<ol>
+    <li>Cafe</li>
+    <li>Cam vắt</li>
+    <li>Nước ép cà rốt</li>
+    <li>Nước ép cà chua</li>
+    <li>Nước lọc</li>
+    <li>Nước dừa</li>
+</ol>
+<hr>
+<div id="result"><h2 style="text-align: center"> HÓA ĐƠN THANH TOÁN </h2></div>
+<script>
 
+    let menu = ['Cafe', 'Cam vắt', 'Nước ép cà rốt', 'Nước ép cà chua', 'Nước lọc', 'Nước dừa'];
+    let price = [30000, 35000, 30000, 28000, 15000, 30000];
+    let arrayOder = [];
+    let flag = true;
+    do {
+        let oder = parseInt(prompt("Mời bạn chọn món: \n" +
+            "1. Cafe\n" +
+            "2. Cam vắt\n" +
+            "3. Nước ép cà rốt\n" +
+            "4. Nước ép cà chua\n" +
+            "5. Nước lọc\n" +
+            "6. Nước dừa\n" +
+            "7. Kết thúc order, thanh toán!\n"));
+        if (oder > 0 && oder < 7) {
+            let n = +prompt('Món bạn chọn là ' + menu[oder - 1] + ' có giá là: ' + price[oder - 1] + 'VND' + ' Mời bạn chọn số lượng: ');
+            arrayOder.push((n * price[oder - 1]));
+        } else if (oder === 7) {
+            let sumarray = sumArray(arrayOder);
+            alert('Số tiền bạn cần phải thanh toán là: ' + sumarray);
+        } else {
+            flag = false;
+            break;
+        }
+    }
+    while (flag) ;
+
+    function sumArray(array) {
+        for (let i = 0; i < array.length; i++) {
+            sum += array[i]
+        }
+        return sum;
+    }
+</script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuan hoa xau ky tu</title>
+</head>
+<body>
+<label for="input">Nhập vào xâu ký tự cần chuẩn hóa: </label>
+<input type="text" id="input" placeholder="Nhập vào đây!">
+<button onclick=" check()">Submit</button>
+<hr>
+<div id="result">Kết quả:</div>
+<script>
+    // Viết một hàm chuẩn hóa xâu ký tự: biến đổi xâu ký tự thành xâu sao cho trong xâu không có 2
+    // dấu cách liền nhau và bắt đầu mỗi từ phải in hoa. Ví dụ tRuong    TaN   HAI => Truong Tan Hai.
+    // Và một hàm tìm từ dài nhất trong 1 xâu ký tự. Hàm main sử dụng các hàm này để nhập xâu ký tự từ bàn phím,
+    // in ra xâu trước và sau khi chuẩn hóa, 1 từ dài nhất trong xâu đó.
+
+
+    function standardizedFunction(string) {
+        let s = string.toLowerCase();
+        let arrayS = s.split(" ");
+        let result = [];
+        for (let i = 0; i < arrayS.length; i++) {
+            if (arrayS[i] !== "") {
+                result.push(arrayS[i] = upLowCase(arrayS[i]));
+            }
+        }
+        return result.join(' ');
+    }
+
+    function upLowCase(stringA) {
+        return stringA.replace(stringA[0], stringA[0].toUpperCase());
+    }
+
+    function maxStringFun (string) {
+        let array = string.split(' ');
+        let maxString = array[0];
+        for (let i = 1; i < array.length; i++) {
+            if (maxString.length < array[i].length) {
+                maxString = array[i];
+            }
+        } return maxString;
+    }
+
+    let input = prompt('Nhập xâu ký tự cần chuẩn hóa: ');
+    let resultInput = standardizedFunction(input);
+    let maxStringInput = maxStringFun(resultInput);
+    alert('Xâu sau khi chuẩn hóa là: ' + resultInput + ' Từ dài nhất trong xâu là: ' + maxStringInput);
+
+
+
+
+
+    // function check(){
+    //     let input = document.getElementById('input').value;
+    //     let resultInput = standardizedFunction(input);
+    //     document.getElementById('result').innerHTML = 'Kết quả: ' + resultInput;
+    // }
+
+
+</script>
+</body>
+</html>
