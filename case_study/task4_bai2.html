@@ -5,6 +5,18 @@
     <title>Title</title>
 </head>
 <body>
+<!--Bài 2: Cho xâu kí tự. Hãy đếm số lượng ký tự khác nhau trong xâu đó-->
+<!--Ví dụ: s = "cabca", thì kết quả differentSymbolsNaive(s) = 3.-->
+<!--⇨	Có 3 ký tự khác nhau là a, b và c.-->
+<script>
+    let string = prompt('Nhập xâu kí tự cần đếm: ');
+    let array = [];
+    for (let i = 0; i < string.length; i++) {
+        if (!array.includes(string[i])) {
+            array.push(string[i]);
+        }
+    } alert('Có ' + array.length + ' kí tự khác nhau. ' + 'Đó là: ' + array);
+</script>
 
 </body>
 </html>

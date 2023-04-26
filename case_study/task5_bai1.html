@@ -6,16 +6,38 @@
 </head>
 <body>
 <script>
-    function sumArray(array) {
-        let sum = 0;
-        for (let i = 0; i < array.length; i++) {
-            sum += array[i]
+    // Bài 1: Viết hàm tính tổng các số chẵn trong ma trận có kích thước m*n. Với m, n là các số nhập từ bàn phím.
+</script>
+<script>
+    let m = +prompt('Nhập kích thước ma trận: m = ');
+    let n = +prompt('Nhập kích thước ma trận: n = ');
+    let array2D = creatArray(m, n);
+    let sumEven = sumArray(array2D);
+    document.write('Ma trận ' + m + 'x' + n + ' [' + array2D + '] có tổng các số chẵn là: ' + sumEven);
+
+    function creatArray(x, y) {
+        let array = [];
+        for (let i = 0; i < x; i++) {
+            array[i] = [];
+            for (let j = 0; j < y; j++) {
+                array[i][j] = +prompt('Khởi tạo mảng 2 chiều: ');
+            }
         }
-        return sum;
+        return array;
     }
-    let arrayA = [2,5,7,3];
-    let sumA = sumArray(arrayA);
-    alert(sumA);
+
+    function sumArray(arrayX) {
+        let sum2X = 0;
+        for (let i = 0; i < arrayX.length; i++) {
+            for (let j = 0; j < arrayX[i].length; j++) {
+                if (arrayX[i][j] % 2 === 0) {
+                    sum2X += arrayX[i][j];
+                }
+            }
+        }
+        return sum2X;
+    }
+
 </script>
 </body>
 </html>

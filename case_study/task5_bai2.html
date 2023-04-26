@@ -5,6 +5,56 @@
     <title>Title</title>
 </head>
 <body>
+<!--Bài 2: Viết hàm liệt kê các số nguyên tố trong mảng 2 chiều, đếm các số nguyên tố có trong mảng đó.-->
+<script>
 
+    function listPrime(array) {
+        let arrayPrime = [];
+        for (let i = 0; i < array.length; i++) {
+            for (let j = 0; j < array[i].length; j++) {
+                if (checkPrime(array[i][j])) {
+                    arrayPrime.push(array[i][j]);
+                }
+            }
+        }
+        return arrayPrime;
+    }
+
+    function checkPrime(number) {
+        let flag = true;
+        if (number % 1 !== 0) {
+            flag = false;
+        } else if (number <= 1) {
+            flag = false;
+        } else if (number > 2) {
+            for (let i = 2; i < number; i++) {
+                if (number % i === 0) {
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        return flag;
+    }
+
+    function creatArray(x, y) {
+        let array = [];
+        for (let i = 0; i < x; i++) {
+            array[i] = [];
+            for (let j = 0; j < y; j++) {
+                array[i][j] = +prompt('Khởi tạo mảng 2 chiều: ');
+            }
+        }
+        return array;
+    }
+
+    let row = +prompt('Nhập kích thước mảng: m = ');
+    let column = +prompt('Nhập kích thước mảng: n = ');
+    let array2D = creatArray(row, column);
+    let arrayPrime = listPrime(array2D);
+    alert(arrayPrime);
+    alert('Liệt kê các số nguyên tố trong mảng đã nhập: ' + arrayPrime + '. Có ' + arrayPrime.length +
+        ' số nguyên tố có trong mảng đã nhập.');
+</script>
 </body>
 </html>

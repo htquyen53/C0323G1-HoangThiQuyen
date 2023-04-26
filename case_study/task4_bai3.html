@@ -6,21 +6,28 @@
 </head>
 <body>
 <script>
-    let a = ["hom","nay","la","mot","haiajijidjid","dep","troi"];
-    let c = ("hom nay la mot nagy sjdhakdh");
-    let d = c.split(',');
-    console.log(d);
-    // alert(a.length);
-    // alert(a[4].length);
-    // let s = a[4];
-    // alert(s);
-    // let max= a[0];
-    // for (let i = 1; i < a.length; i++) {
-    //     if(max.length<a[i].length) {
-    //         max=a[i];
-    //         maxLength=a[i].length;
-    //     }
-    // } alert(max + maxLength);
+    //     Bài 3: Cho hai xâu kí tự, tìm số lượng kí tự chung giữa chúng.
+    //         Ví dụ: s1 = "aabcc" và s2 = "adcaa", thì kết quả commonCharacterCount(s1, s2) = 3.
+    // ⇨	2 xâu s1 và s2 có 3 kí tự chung: 2 ký tự 'a' và 1 kí tự 'c'.
+
+    let stringA = prompt('Nhập xâu ký tự thứ nhất: ');
+    let stringB = prompt('Nhập xâu ký tự thứ hai: ');
+    let strA = stringA.split('');
+    let strB = stringB.split('');
+    let arrayAB = [];
+    let count = 0;
+    for (let i = 0; i < strA.length; i++) {
+        for (let j = 0; j < strB.length; j++) {
+            if (strA[i] === strB[j]) {
+                strB.splice(j,1);
+                arrayAB.push(strA[i])
+                count++;
+                break;
+            }
+        }
+    }
+    alert('commonCharacterCount(stringA, stringB) = ' + count +'.')
+
 </script>
 </body>
 </html>

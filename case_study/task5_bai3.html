@@ -5,6 +5,36 @@
     <title></title>
 </head>
 <body>
-
+<!--Bài 3: Viết hàm tìm giá trị lớn nhất, nhỏ nhất trong mảng 2 chiều-->
 </body>
 </html>
+<script>
+    function max2D(array2D) {
+        let max = array2D[0][0];
+        for (let i = 0; i < array2D.length; i++) {
+            for (let j = 0; j < array2D[i].length; j++) {
+                if (max < array2D[i][j]) {
+                    max = array2D[i][j]
+                }
+            }
+        }
+        return max;
+    }
+
+    function min2D(array2D) {
+        let min = array2D[0][0];
+        for (let i = 0; i < array2D.length; i++) {
+            for (let j = 0; j < array2D[i].length; j++) {
+                if (min > array2D[i][j]) {
+                    min = array2D[i][j]
+                }
+            }
+        }
+        return min;
+    }
+
+    let arrayCheck = [[1, 2, 3], [4, 5, 6], [9, 8, 7]];
+    let minCheck = min2D(arrayCheck);
+    let maxCheck = max2D(arrayCheck);
+    alert('Giá trị nhỏ nhất là: ' + minCheck + '. Giá trị lớn nhất là: ' + maxCheck + '.');
+</script>
