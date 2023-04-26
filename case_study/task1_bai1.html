@@ -4,30 +4,42 @@
     <meta charset="UTF-8">
     <title>Bảng lương</title>
     <style>
-        table,th,td {
+        table, th, td {
             width: 500px;
             border: 1px solid blue;
             border-collapse: collapse;
             text-align: center;
         }
+
         th {
             background-color: mistyrose;
         }
     </style>
 </head>
 <body>
+<!--Bài 1: Viết một chương trình để nhập lương nhân viên, tính thuế thu nhập và lương ròng
+(số tiền lương thực sự mà nhân viên đó nhận được).
+Với các thông số giả sử như sau (không theo luật lương,
+chỉ là con số giả sử để dễ tính toán):-->
+<!--20% thuế thu nhập nếu lương là 15 triệu.-->
+<!--10% thuế thu nhập nếu lương từ 7 đến 15 triệu.-->
+<!--5% thuế thu nhập nếu lương dưới 7 triệu-->
+
 <form>
     <table>
-        <tr><td colspan="3>"><b>BẢNG TÍNH LƯƠNG</b><br>
-            Họ và tên: Nguyễn Văn A
-        </td></tr>
         <tr>
-            <th> Lương <br> (triệu đồng) </th>
-            <th> Thuế thu nhập <br> (%) </th>
-            <th> Lương ròng <br> (triệu đồng) </th>
+            <td colspan="3>"><b>BẢNG TÍNH LƯƠNG</b><br>
+                Họ và tên: Nguyễn Văn A
+            </td>
         </tr>
         <tr>
-            <td><label><input type="text" style="border: 0px" id="luong" placeholder="Nhập vào đây..." oninput="tinhthue()"></label></td>
+            <th> Lương <br> (triệu đồng)</th>
+            <th> Thuế thu nhập <br> (%)</th>
+            <th> Lương ròng <br> (triệu đồng)</th>
+        </tr>
+        <tr>
+            <td><label><input type="text" style="border: 0px" id="luong" placeholder="Nhập vào đây..."
+                              oninput="tinhthue()"></label></td>
             <td id="muc tinh thue"></td>
             <td id="luong rong"></td>
         </tr>
@@ -35,21 +47,21 @@
 </form>
 </body>
 <script>
- function tinhthue() {
-     let luong = +document.getElementById('luong').value;
-     if (luong<=7) {
-         document.getElementById('muc tinh thue').innerText = '5%';
-         let luongRong = luong*(1-0.05);
-         document.getElementById('luong rong').innerHTML = + luongRong;
-     } else if (luong<=15) {
-         document.getElementById('muc tinh thue').innerText = '10%';
-         let luongRong = luong*(1-0.1);
-         document.getElementById('luong rong').innerHTML = + luongRong;
-     } else {
-         document.getElementById('muc tinh thue').innerText = '20%';
-         let luongRong = luong*(1-0.2);
-         document.getElementById('luong rong').innerHTML = + luongRong;
-     }
- }
+    function tinhthue() {
+        let luong = +document.getElementById('luong').value;
+        if (luong <= 7) {
+            document.getElementById('muc tinh thue').innerText = '5%';
+            let luongRong = luong * (1 - 0.05);
+            document.getElementById('luong rong').innerHTML = +luongRong;
+        } else if (luong <= 15) {
+            document.getElementById('muc tinh thue').innerText = '10%';
+            let luongRong = luong * (1 - 0.1);
+            document.getElementById('luong rong').innerHTML = +luongRong;
+        } else {
+            document.getElementById('muc tinh thue').innerText = '20%';
+            let luongRong = luong * (1 - 0.2);
+            document.getElementById('luong rong').innerHTML = +luongRong;
+        }
+    }
 </script>
 </html>
