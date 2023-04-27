@@ -5,6 +5,19 @@
     <title>Draw</title>
 </head>
 <body>
+<script>
+    let h = +prompt('Enter the height of the triangle: ');
+    for (let i = 0; i < h; i++) {
+        for (let j = 0; j < h; j++) {
+            if (i === h - 1 || i === j || j === 0) {
+                document.write("*");
+            } else {
+                document.write("&nbsp&nbsp")
+            }
+        }
+        document.write("<br>");
 
+    }
+</script>
 </body>
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ tam giác cân đặc biệt</title>
+</head>
+<body>
+<script>
+    let h = +prompt('Nhập chiều cao tam giác: ');
+    for (let i = 0; i < h; i++) {
+        for (let j = 0; j < 2 * h - 1; j++) {
+            if (i === h - 1 && j < 2 * h || j < h - 1 - i || j > h - 1 + i) {
+                document.write("&nbsp&nbsp")
+            } else {
+                document.write("*")
+            }
+        }
+        document.write("<br>")
+    }
+</script>
+</body>
+</html>
