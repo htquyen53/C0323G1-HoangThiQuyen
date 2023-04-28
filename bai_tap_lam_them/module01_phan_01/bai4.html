@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>checkString</title>
+</head>
+<body>
+<script>
+    function checkString(string) {
+        let countLow = 0;
+        let countUp = 0;
+
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] === string[i].toLocaleUpperCase()) {
+                countLow ++;
+            }
+        }
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] === string[i].toLocaleLowerCase()) {
+                countUp ++;
+            }
+        }
+
+        return countUp === countLow;
+    }
+
+    let stringA = prompt('Enter the string need to check:')
+    let result = checkString(stringA);
+    alert(result);
+</script>
+</body>
+</html>

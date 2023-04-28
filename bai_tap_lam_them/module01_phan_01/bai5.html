@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra phần tử liền kề nhau</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let n = +prompt('Enter the array length as an even number: ');
+    if (n % 2 === 0) {
+        for (let i = 0; i < n; i++) {
+            array[i] = +prompt('Enter the array elements:');
+        }
+        document.write('The array you entered is: array = [' + array + ']');
+        let flag = true;
+        for (let i = 0; i < array.length; i+=2) {
+            if (array[i] > array[i + 1]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            alert('OK!');
+        } else {
+            alert('NO!')
+        }
+    } else {
+        alert('The value you entered is not even!');
+    }
+
+</script>
+</body>
+</html>

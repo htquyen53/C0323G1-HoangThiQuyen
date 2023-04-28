@@ -18,12 +18,12 @@
 
 
     function standardizedFunction(string) {
-        let s = string.toLowerCase();
+        let s = string.toLowerCase(); // không nên viết tắt!
         let arrayS = s.split(" ");
         let result = [];
         for (let i = 0; i < arrayS.length; i++) {
             if (arrayS[i] !== "") {
-                result.push(arrayS[i] = upLowCase(arrayS[i]));
+                result.push(upLowCase(arrayS[i]));
             }
         }
         return result.join(' ');

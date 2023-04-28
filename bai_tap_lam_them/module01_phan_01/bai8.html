@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số lượng lớn nhất trong mảng</title>
+</head>
+<body>
+<script>
+    //3:05pm - 3:20pm (Do phân tâm làm chuyện khác nên mất nhiều thời gian!
+    let array = [];
+    let n = +prompt('Enter the length of array: ');
+    for (let i = 0; i < n; i++) {
+        array[i] = prompt('Enter the element of array: ');
+    }
+    document.write('The array you entered is: ' + array);
+    let result = countMaxElement(array);
+    document.write('Result is: ' + result);
+
+    function countMaxElement(arr) {
+        let maxArr = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if (maxArr < arr[i]) {
+                maxArr = arr[i];
+            }
+        }
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (maxArr === arr[i]) {
+                count++;
+            }
+        }
+        return count;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort_Array</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let arrayS = [];
+    let n = +prompt('Enter the length of array: ');
+    count = 0;
+    while (count < n) {
+        let element = +prompt('Enter the elements of array: ')
+        if (!isNaN(element)) {
+            array.push(element);
+            arrayS.push(element);
+            count++;
+        }
+    }
+    document.write('Mảng đã nhập là [' + array + ']');
+    arrayS.sort();
+    let flag = true;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== arrayS[i]) {
+            flag = false;
+            break;
+        }
+    }
+    if (flag) {
+        alert("OK!");
+    } else {
+        alert("NO!");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chẵn lẻ</title>
+</head>
+<body>
+<script>
+    n = +prompt('Nhập độ dài mảng: ');
+    let array = [];
+    let count = 0;
+    while (count < n) {
+        let number = +prompt('Nhập phần tử mảng: ')
+        if (number % 1 === 0) {
+            array.push(number);
+            count++;
+        } else {
+            alert('Giá trị của bạn nhập không phải số nguyên! Mời nhập lại!')
+        }
+    }
+    document.write('[' + array + ']');
+    let countEven = 0;
+    let countOdd = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] % 2 === 0) {
+            countEven++;
+        } else if (array[i] % 1 === 0) {
+            countOdd++;
+        }
+    }
+    if (countOdd === countEven) {
+        document.write(' OK!');
+    } else {
+        document.write(' NO!');
+    }
+</script>
+</body>
+</html>

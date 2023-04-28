@@ -39,7 +39,7 @@ chỉ là con số giả sử để dễ tính toán):-->
         </tr>
         <tr>
             <td><label><input type="text" style="border: 0px" id="luong" placeholder="Nhập vào đây..."
-                              oninput="tinhthue()"></label></td>
+                              oninput="tinhThue()"></label></td>
             <td id="muc tinh thue"></td>
             <td id="luong rong"></td>
         </tr>
@@ -47,7 +47,7 @@ chỉ là con số giả sử để dễ tính toán):-->
 </form>
 </body>
 <script>
-    function tinhthue() {
+    function tinhThue() {
         let luong = +document.getElementById('luong').value;
         if (luong <= 7) {
             document.getElementById('muc tinh thue').innerText = '5%';

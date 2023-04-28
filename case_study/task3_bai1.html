@@ -27,8 +27,8 @@
     }
     document.write('Mảng a là: a = [' + a + '] <br>');
     let b = [];
+    b[0] = a[0];
     for (let i = 1; i < a.length; i++) {
-        b[0] = a[0];
         b[i] = b[i - 1] + a[i];
     }
     document.write('Mảng prefix sums của mảng a là: prefixSums(a) = [' + b + ']');

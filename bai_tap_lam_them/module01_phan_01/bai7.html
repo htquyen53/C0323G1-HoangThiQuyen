@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiển thị phần tử hàng đơn vị lớp lớn hơn hàng chục</title>
+</head>
+<body>
+<script>
+    let array = [];
+    let n = +prompt('Enter the length of array: ');
+    count = 0;
+    while (count < n) {
+        let element = +prompt('Enter the element of array: ');
+        if (element % 1 === 0 && element > 10 && element < 100) {
+            array.push(element);
+            count++;
+        }
+    }
+    document.write('The array you entered is: [' + array + ']' + '<br>');
+    let arrayResult = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (checkElement(array[i])) {
+            arrayResult.push(array[i]);
+        }
+    }
+    console.log(arrayResult);
+    document.write('Result is: ' + arrayResult);
+
+    function checkElement(elementX) {
+        let arrElementX = String(elementX).split('');
+        let flag = true;
+        for (let i = 0; i < arrElementX.length; i++) {
+            if (+arrElementX[i] >= +arrElementX[i + 1]) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+</script>
+</body>
+</html>

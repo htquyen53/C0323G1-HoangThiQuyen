@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm trả về ký tự nguyên âm</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let myArray = str.split('');
+        let arrayVowels = ['u', 'e', 'o', 'a', 'i', 'U', 'E', 'O', 'A', 'I'];
+        let arrResult = [];
+        for (let i = 0; i < myArray.length; i++) {
+            for (let j = 0; j < arrayVowels.length; j++) {
+                if (myArray[i] === arrayVowels[j]) {
+                    arrResult.push(myArray[i]);
+                    break;
+                }
+            }
+        }
+        return arrResult;
+    }
+    let string = 'Hello! My name is Quinn!';
+    let result = checkString(string);
+    alert(result);
+</script>
+</body>
+</html>
