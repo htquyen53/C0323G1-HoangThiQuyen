@@ -3,7 +3,8 @@ package ss4.bai_tap;
 import java.util.Scanner;
 
 public class StopWatch {
-    long startTime, endTime;
+    long startTime;
+    long endTime;
 
     public StopWatch(long startTime, long endTime) {
         this.startTime = startTime;

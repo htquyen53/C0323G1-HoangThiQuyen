@@ -3,7 +3,9 @@ package ss4.bai_tap;
 import java.util.Scanner;
 
 public class QuadraticEquament {
-    double a, b, c;
+    double a;
+    double b;
+    double c;
 
     public QuadraticEquament(double a, double b, double c) {
         this.a = a;
