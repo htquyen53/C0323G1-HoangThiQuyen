@@ -16,7 +16,7 @@ public class Cirle {
         return radius;
     }
 
-    public double setArea() {
+    public double getArea() {
         return this.radius * this.radius * PI;
     }
 

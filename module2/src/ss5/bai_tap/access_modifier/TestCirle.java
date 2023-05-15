@@ -9,7 +9,7 @@ public class TestCirle {
         double radius1 = scanner.nextDouble();
         Cirle cirle1 = new Cirle(radius1);
         System.out.println("The radius you entered is: " + cirle1.getRadius());
-        System.out.println("The area of circle you created is: " + cirle1.setArea());
+        System.out.println("The area of circle you created is: " + cirle1.getArea());
 
     }
 }
