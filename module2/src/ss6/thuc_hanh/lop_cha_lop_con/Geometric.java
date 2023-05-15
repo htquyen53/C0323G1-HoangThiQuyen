@@ -19,4 +19,17 @@ public class Geometric {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public String getFilled() {
+        return this.filled;
+    }
+
+    public void setFilled(String filled) {
+        this.filled = filled;
+    }
+
+    public String toString() {
+        return "creat with \"" + color + "\" color and " + (filled == null ? "no fill":
+        "filled with \"" + filled + "\" color");
+    }
 }
