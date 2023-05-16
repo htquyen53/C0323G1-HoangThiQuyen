@@ -1,13 +1,13 @@
-package ss7.bai_tap.trien_khai_colorable;
+package ss7.bai_tap.trien_khai_resizeable;
 
-public class Square extends Shape implements Resizeable {
+public class SquareX extends Shape implements Colorable {
     private double side;
-    public Square(){
+    public SquareX(){
     }
-    public Square(double side) {
+    public SquareX(double side) {
         this.side = side;
     }
-    public Square( double side, String color, boolean filled) {
+    public SquareX(double side, String color, boolean filled) {
         super(color, filled);
         this.side = side;
     }
@@ -24,8 +24,8 @@ public class Square extends Shape implements Resizeable {
     }
 
     @Override
-    public void resize(double percent) {
-        setSide(getSide()+getSide()*percent/100);
+    public void howToColor() {
+        System.out.println("Color all four sides");
     }
 
     @Override

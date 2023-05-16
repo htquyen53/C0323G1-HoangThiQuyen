@@ -27,14 +27,13 @@ public class Circle extends Shape implements Resizeable {
     }
 
 
-
     @Override
     public void resize(double percent) {
-        setRadius(getRadius() + getRadius() * percent);
+        setRadius(getRadius() + getRadius() * percent/100);
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", radius = " + getRadius() + ", area  = " + getArea();
+        return super.toString() + ", radius = " + getRadius() + ", area is: " + getArea();
     }
 }
