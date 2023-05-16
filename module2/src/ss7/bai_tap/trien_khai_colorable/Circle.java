@@ -22,14 +22,19 @@ public class Circle extends Shape implements Resizeable {
     public double getRadius() {
         return this.radius;
     }
-    public double getArea() {
-        return this.radius*this.radius*Math.PI;
-    }
 
+    @Override
+    public double getArea() {
+        return this.radius * this.radius * Math.PI;
+    }
+    @Override
+    public String getName() {
+        return "Circle";
+    }
 
     @Override
     public void resize(double percent) {
-        setRadius(getRadius() + getRadius() * percent/100);
+        setRadius(getRadius() + getRadius() * percent / 100);
     }
 
     @Override

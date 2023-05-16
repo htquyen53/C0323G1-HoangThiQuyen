@@ -1,6 +1,6 @@
 package ss7.bai_tap.trien_khai_resizeable;
 
-public class Shape {
+public abstract class Shape {
     private String color;
     private boolean filled;
 
@@ -27,12 +27,13 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
+    public abstract double getArea();
+    public abstract String getName();
     @Override
     public String toString() {
         return "Shape{" +
                 "color='" + color + '\'' +
-                ", filled=" + filled +
+                ", filled=" + (isFilled()? "filled":"not-filled") +
                 '}';
     }
 }

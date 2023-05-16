@@ -22,6 +22,7 @@ public class SquareX extends Shape implements Colorable {
     public double getArea(){
         return side*side;
     }
+    public String getName() {return "Square";}
 
     @Override
     public void howToColor() {
@@ -31,7 +32,7 @@ public class SquareX extends Shape implements Colorable {
     @Override
     public String toString() {
         return "SquareX{" + super.toString() +
-                "side=" + side +
+                "side =" + side + " , Area = " + getArea() +
                 '}';
     }
 }
