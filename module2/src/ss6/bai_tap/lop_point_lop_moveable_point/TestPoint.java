@@ -10,7 +10,8 @@ public class TestPoint {
         System.out.println("Enter y = ");
         float y = Float.parseFloat(scanner.nextLine());
         Point point = new Point();
-        Point point1 = new Point(x,y);
+        Point point1 = new Point(x, y);
+        System.out.println(point);
         System.out.println(point1);
     }
 }

@@ -37,13 +37,12 @@ public class MovablePoint extends Point {
     }
 
     public void setSpeed(float xSpeed, float ySpeed) {
-        this.xSpeed = xSpeed;
-        this.ySpeed = ySpeed;
+        setXSpeed(xSpeed);
+        setYSpeed(ySpeed);
     }
 
     public float[] getSpeed() {
-        float[] arrSpeed = {this.xSpeed, this.ySpeed};
-        return arrSpeed;
+        return new float[]{this.xSpeed, this.ySpeed};
     }
 
     public String toString() {
