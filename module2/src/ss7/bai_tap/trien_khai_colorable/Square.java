@@ -40,7 +40,7 @@ public class Square extends Shape implements Resizeable {
 
     @Override
     public String toString() {
-        return "SquareX{" + super.toString() +
+        return "Square{" + super.toString() +
                 "side=" + side +
                 '}';
     }

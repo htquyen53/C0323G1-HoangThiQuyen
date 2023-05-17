@@ -1,15 +1,15 @@
 package ss7.bai_tap.trien_khai_resizeable;
 
-public class CircleX extends Shape {
+public class Circle extends Shape {
     private double radius;
-    public CircleX() {
+    public Circle() {
     }
 
-    public CircleX(double radius) {
+    public Circle(double radius) {
         this.radius = radius;
     }
 
-    public CircleX(double radius, String color, boolean filled) {
+    public Circle(double radius, String color, boolean filled) {
         super(color, filled);
         this.radius = radius;
     }
@@ -28,7 +28,7 @@ public class CircleX extends Shape {
 
     @Override
     public String toString() {
-        return "CircleX{" + super.toString() +
+        return "Circle{" + super.toString() +
                 "radius=" + radius + " , Area = " + getArea() +
                 '}';
     }

@@ -1,8 +1,5 @@
 package ss7.bai_tap.trien_khai_colorable;
 
-import ss7.bai_tap.trien_khai_resizeable.CircleX;
-import ss7.bai_tap.trien_khai_resizeable.SquareX;
-
 import java.util.Scanner;
 
 public class TestResizeable {

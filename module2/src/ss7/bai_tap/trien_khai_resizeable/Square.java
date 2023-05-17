@@ -1,13 +1,13 @@
 package ss7.bai_tap.trien_khai_resizeable;
 
-public class SquareX extends Shape implements Colorable {
+public class Square extends Shape implements Colorable {
     private double side;
-    public SquareX(){
+    public Square(){
     }
-    public SquareX(double side) {
+    public Square(double side) {
         this.side = side;
     }
-    public SquareX(double side, String color, boolean filled) {
+    public Square(double side, String color, boolean filled) {
         super(color, filled);
         this.side = side;
     }
@@ -31,7 +31,7 @@ public class SquareX extends Shape implements Colorable {
 
     @Override
     public String toString() {
-        return "SquareX{" + super.toString() +
+        return "Square{" + super.toString() +
                 "side =" + side + " , Area = " + getArea() +
                 '}';
     }
