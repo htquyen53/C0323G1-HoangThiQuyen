@@ -22,6 +22,10 @@ public class Bracket {
                 left = (Character) string.charAt(i);
                 bStack.push(left);
             }
+            if (aStack == null && bStack != null) {
+                flag = false;
+                break;
+            }
         }
         if (aStack.size() != bStack.size()) {
             flag = false;
