@@ -20,7 +20,7 @@ public class Main {
         }
     }
 
-    //Bước 3: Khai báo hàm binarySearch(int[] array, int left, int right ,int value).
+        //Bước 3: Khai báo hàm binarySearch(int[] array, int left, int right ,int value).
     public static int binarySearch(int[] array, int left, int right, int value) {
         while (left < right) {
             int middle = (left + right) / 2;
