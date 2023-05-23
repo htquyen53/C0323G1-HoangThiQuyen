@@ -3,17 +3,17 @@ package ss12.service;
 import ss12.model.Product;
 import ss12.repository.ProductRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductServive implements IProductService {
-    Scanner scanner = new Scanner(System.in);
-    ProductRepository productRepository = new ProductRepository();
+    private static Scanner scanner = new Scanner(System.in);
+    private static ProductRepository productRepository = new ProductRepository();
+    private static List<Product> productList;
 
     @Override
     public void displayProductList() {
-        List<Product> productList = productRepository.getAll();
+        productList = productRepository.getAll();
         for (Product product : productList) {
             System.out.println(product);
         }
@@ -67,10 +67,13 @@ public class ProductServive implements IProductService {
     public void getProductByName() {
         System.out.println("Nhập tên sản phẩm ");
         String name = scanner.nextLine();
-        if (productRepository.getProductByName(name) == null) {
+        List<Product> resultList = productRepository.getProductByName(name);
+        if (resultList == null) {
             System.out.println("Sản phẩm có tên " + name + " không tồn tại!");
         } else {
-            System.out.println("Sản phẩm bạn tìm kiếm là: " + productRepository.getProductByName(name).toString());
+            for (Product product : resultList) {
+                System.out.println(product);
+            }
         }
     }
 

@@ -2,12 +2,11 @@ package ss12.controller;
 
 import ss12.service.ProductServive;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class ProductController {
-    ProductServive productServive = new ProductServive();
-    public void showMenu(){
+    private static ProductServive productServive = new ProductServive();
+    public static void showMenu(){
         Scanner scanner = new Scanner(System.in);
         MENU_WHILE: do {
             System.out.println("-----------CHƯƠNG TRÌNH QUẢN LÝ SẢN PHẨM----------\n"+

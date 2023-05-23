@@ -32,13 +32,18 @@ public class ProductRepository implements IProductRepository {
     }
 
     @Override
-    public Product getProductByName(String productName) {
+    public List<Product> getProductByName(String productName) {
+        List<Product> resultList = new ArrayList<>();
         for (Product product : productList) {
-            if (product.getProductName().equals(productName)) {
-                return product;
+            if (product.getProductName().toLowerCase().contains(productName)) {
+                resultList.add(product);
             }
         }
-        return null;
+        if (!resultList.isEmpty()) {
+            return resultList;
+        } else {
+            return null;
+        }
     }
 
     @Override
@@ -59,7 +64,6 @@ public class ProductRepository implements IProductRepository {
                 return (int) (o1.getPrice() - o2.getPrice());
             }
         });
-
     }
 
     @Override

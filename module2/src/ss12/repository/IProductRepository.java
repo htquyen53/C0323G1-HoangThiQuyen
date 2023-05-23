@@ -9,7 +9,7 @@ public interface IProductRepository {
 
     Product getProductById(String id);
 
-    Product getProductByName(String productName);
+    List<Product> getProductByName(String productName);
 
     void addProduct(Product product);
 
