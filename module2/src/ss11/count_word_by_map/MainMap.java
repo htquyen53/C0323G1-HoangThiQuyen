@@ -14,9 +14,9 @@ public class MainMap {
         String[] arrString = string.split(" ");
         for (String s : arrString) {
             if (!mapWord.containsKey(s)) {
-                mapWord.put((s), 1);
+                mapWord.put(s, 1);
             } else {
-                mapWord.put((s), mapWord.get(s) + 1);
+                mapWord.put(s, mapWord.get(s) + 1);
             }
         }
         Set<String> keySet = mapWord.keySet();
