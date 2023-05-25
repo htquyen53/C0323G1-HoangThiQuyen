@@ -2,6 +2,8 @@ package ss12.service;
 
 import ss12.model.Product;
 import ss12.repository.ProductRepository;
+import ss12.utils.ProductValidate;
+import ss15.bai_tap.triangle.IllegalTriangleException;
 
 import java.util.List;
 import java.util.Scanner;
@@ -22,8 +24,22 @@ public class ProductServive implements IProductService {
     @Override
     public void addProduct() {
         //Product(String id, String productName, String productOrigin, int quantity, String description, float price)
-        System.out.println("Nhập mã sản phẩm cần thêm: ");
-        String id = scanner.nextLine();
+        String id = "";
+        do {
+            System.out.println("Nhập mã sản phẩm cần thêm: ");
+            try {
+                id = scanner.nextLine();
+                if(!ProductValidate.checkId(id)) {
+                    throw new IllegalInputException("Vui lòng không nhập ký tự đặc biệt. Mời nhập lại!");
+
+                }
+                if (id.contains("%")) {
+                }
+                break;
+            } catch (IllegalInputException e) {
+                System.out.println(e.getMessage());
+            }
+        } while (true);
         Product product = productRepository.getProductById(id);
         if (product != null) {
             System.out.println("Mã sản phẩm đã tồn tại");
