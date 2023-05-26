@@ -31,9 +31,6 @@ public class ProductServive implements IProductService {
                 id = scanner.nextLine();
                 if(!ProductValidate.checkId(id)) {
                     throw new IllegalInputException("Vui lòng không nhập ký tự đặc biệt. Mời nhập lại!");
-
-                }
-                if (id.contains("%")) {
                 }
                 break;
             } catch (IllegalInputException e) {

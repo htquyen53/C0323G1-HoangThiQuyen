@@ -25,7 +25,6 @@ public class TriangleSides {
             } catch (Exception e) {
                 System.out.println("Error");
             }
-
         } while (true);
         do {
             System.out.print("\nNhập kích thước thứ hai: b = ");
@@ -67,7 +66,6 @@ public class TriangleSides {
             System.out.println("Ctrl + F5 để kiểm tra lại!");
         }
     }
-
 
     public static void checkTriangle(double firstSide, double secondSide, double thirdSide) throws
             IllegalTriangleException {
