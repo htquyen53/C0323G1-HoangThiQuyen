@@ -21,8 +21,10 @@ public class ReadAndWriteFile {
                 }
             }
             bufferedReader.close();
-        } catch (Exception e) {
+        }catch (FileNotFoundException e) {
             System.out.println("File không tồn tại hoặc nội dung có lỗi!");
+        } catch (Exception e) {
+            e.getStackTrace();
         }
         return characters;
     }

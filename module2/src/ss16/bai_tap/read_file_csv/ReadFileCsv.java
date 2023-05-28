@@ -23,9 +23,9 @@ public class ReadFileCsv {
         countries.add(country6);
         countries.add(country7);
         countries.add(country8);
-        writeCountriesToFile(countries,"module2/src/ss16/bai_tap/read_file_csv/countries.csv");
+        writeCountriesToFile(countries, "module2/src/ss16/bai_tap/read_file_csv/countries.csv");
         List<Country> countryList = readCountriesFromFile("module2/src/ss16/bai_tap/read_file_csv/countries.csv");
-        for (Country country: countryList) {
+        for (Country country : countryList) {
             System.out.println(country.getInfoToCSV());
         }
     }
@@ -51,6 +51,9 @@ public class ReadFileCsv {
         List<Country> countries = new ArrayList<>();
         File file = new File(filePath);
         try {
+            if (!file.exists()) {
+                throw new FileNotFoundException();
+            }
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = null;
@@ -61,6 +64,8 @@ public class ReadFileCsv {
             }
             bufferedReader.close();
             fileReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File không tồn tại!");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
