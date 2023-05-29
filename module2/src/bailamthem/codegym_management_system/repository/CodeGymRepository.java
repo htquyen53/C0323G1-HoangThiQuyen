@@ -27,7 +27,7 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public void addStudent(Student student) {
-        studentList = (ArrayList<Student>) ReadAndWriteFileCSV.readFile();
+        studentList = (List<Student>) ReadAndWriteFileCSV.readFile();
         studentList.add(student);
         ReadAndWriteFileCSV.writeFile(studentList);
 
@@ -71,7 +71,7 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public Student getStudentById(String id) {
-        studentList = (ArrayList<Student>) ReadAndWriteFileCSV.readFile();
+        studentList = (List<Student>) ReadAndWriteFileCSV.readFile();
         for (Student product : studentList) {
             if (product.getId().equals(id)) {
                 return product;
@@ -82,7 +82,7 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public void deleteStudent(Student student) {
-        studentList = (ArrayList<Student>) ReadAndWriteFileCSV.readFile();
+        studentList = (List<Student>) ReadAndWriteFileCSV.readFile();
         studentList.remove(student);
         ReadAndWriteFileCSV.writeFile(studentList);
     }
