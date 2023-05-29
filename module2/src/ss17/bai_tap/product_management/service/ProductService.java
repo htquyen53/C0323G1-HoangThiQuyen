@@ -2,6 +2,7 @@ package ss17.bai_tap.product_management.service;
 
 import ss17.bai_tap.product_management.model.Product;
 import ss17.bai_tap.product_management.repository.ProductRepository;
+import ss17.bai_tap.product_management.utils.IllegalInputException;
 import java.util.List;
 import java.util.Scanner;
 

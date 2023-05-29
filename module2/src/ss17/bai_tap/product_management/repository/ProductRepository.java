@@ -1,6 +1,6 @@
 package ss17.bai_tap.product_management.repository;
 
-import ss17.bai_tap.product_management.common.ReadAndWriteFileCSV;
+import ss17.bai_tap.product_management.common.ReadAndWriteFileDAT;
 import ss17.bai_tap.product_management.model.Product;
 
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ProductRepository implements IProductRepository {
-    private static final String STUDENTLIST_PATH = "module2/src/ss17/bai_tap/product_management/data/student.dat";
+    private static final String PRODUCTLIST_PATH = "module2/src/ss17/bai_tap/product_management/data/products.dat";
     private static List<Product> productList = new ArrayList<>();
 
     static {
@@ -21,7 +21,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public void addProduct(Product product) {
-        productList = (List<Product>)ReadAndWriteFileCSV.readFile();
+        productList = ReadAndWriteFileDAT.readProductListFromFile(PRODUCTLIST_PATH);
         productList.add(product);
     }
 
@@ -52,7 +52,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> getAll() {
-        ReadAndWriteFileCSV.writeFile(productList);
+        ReadAndWriteFileDAT.writeProductListListToFile(productList, PRODUCTLIST_PATH);
         return productList;
     }
 
@@ -61,16 +61,12 @@ public class ProductRepository implements IProductRepository {
         String patternId = "^T\\d{3}$";
         Pattern regex = Pattern.compile(patternId);
         Matcher matcher = regex.matcher(id);
-        if (matcher.matches()) {
-            return true;
-        } else {
-            return false;
-        }
+        return matcher.matches();
     }
 
     @Override
     public boolean checkInput(String input) {
-        for (int i = 0; i < input.length(); i++) {
+        for (int i = 0; i <= input.length() - 1; i++) {
             if ((int) input.charAt(i) >= 32 && (int) input.charAt(i) <= 47 ||
                     (int) input.charAt(i) >= 58 && (int) input.charAt(i) <= 64) {
                 return false;
