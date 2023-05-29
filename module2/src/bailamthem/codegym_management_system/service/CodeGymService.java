@@ -2,6 +2,7 @@ package bailamthem.codegym_management_system.service;
 
 import bailamthem.codegym_management_system.model.Student;
 import bailamthem.codegym_management_system.repository.CodeGymRepository;
+import bailamthem.codegym_management_system.utils.IllegalInputException;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -20,18 +21,66 @@ public class CodeGymService implements ICodeGymService {
         }
     }
 
+    public static boolean checkId(String id) {
+        for (int i = 0; i < id.length(); i++) {
+            if ((int) id.charAt(i) >= 32 && (int) id.charAt(i) <= 47 ||
+                    (int) id.charAt(i) >= 58 && (int) id.charAt(i) <= 64) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     @Override
     public void addStudent() {
         System.out.println("Nhập mã học viên: ");
-        String id = scanner.nextLine();
+        String id = "";
+        try {
+            id = scanner.nextLine();
+            if (!checkId(id)) {
+                throw new IllegalInputException("Vui lòng không nhập ký tự đặc biệt!");
+            }
+        } catch (IllegalInputException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Student student = codeGymRepository.getStudentById(id);
         if (student != null) {
             System.out.println("Mã học viên đã tồn tại!");
         } else {
-            System.out.println("Nhập tên học viên: ");
-            String name = scanner.nextLine();
-            System.out.println("Nhập ngày sinh: ");
-            String birthday = scanner.nextLine();
+            String name;
+            do {
+                System.out.println("Nhập tên học viên: ");
+                try {
+                    name = scanner.nextLine();
+                    if (name.trim().isEmpty()) {
+                        throw new RuntimeException("Không để trống tên!");
+                    }
+                    break;
+                } catch (RuntimeException e) {
+                    System.out.println(e.getMessage());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            while (true);
+            String birthday;
+            do {
+                System.out.println("Nhập ngày sinh: ");
+                try {
+                    birthday = scanner.nextLine();
+                    if (!codeGymRepository.checkDateFormat(birthday)) {
+                        throw new IllegalInputException("Vui lòng nhập đúng định dạng dd/mm/yyyy");
+                    }
+                    break;
+                } catch (IllegalInputException e) {
+                    System.out.println(e.getMessage());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } while (true);
+
             System.out.println("Nhập giới tính: ");
             boolean gender = Boolean.parseBoolean(scanner.nextLine());
             System.out.println("Nhập tên lớp: ");
@@ -52,7 +101,7 @@ public class CodeGymService implements ICodeGymService {
         if (student == null) {
             System.out.println("Mã học viên không tồn tại!");
         } else {
-            System.out.println("Bạn muốn xóa học viên " + student.getStudentName() + "?");
+            System.out.println("Bạn muốn xóa học viên " + student.getName() + "?");
             System.out.println("1. Xóa ");
             System.out.println("2. Không xóa. ");
             int choose = Integer.parseInt(scanner.nextLine());

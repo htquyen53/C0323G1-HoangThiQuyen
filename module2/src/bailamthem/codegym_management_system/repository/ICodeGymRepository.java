@@ -9,4 +9,8 @@ public interface ICodeGymRepository {
     void addStudent(Student student);
     Student getStudentById(String id);
     void deleteStudent(Student student);
+    boolean checkIdFormat (String id);
+    boolean checkDateFormat (String date);
+    boolean checkClassNameFormat (String className);
+
 }

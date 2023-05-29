@@ -1,8 +1,11 @@
 package bailamthem.codegym_management_system.repository;
 
+import bailamthem.codegym_management_system.common.ReadAndWriteFileCSV;
 import bailamthem.codegym_management_system.model.Student;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CodeGymRepository implements ICodeGymRepository {
     private static ArrayList<Student> studentList = new ArrayList<>();
@@ -22,18 +25,59 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public ArrayList<Student> getStudentList() {
+        ReadAndWriteFileCSV.writeFile(studentList);
         return studentList;
     }
 
     @Override
     public void addStudent(Student student) {
+        studentList = (ArrayList<Student>) ReadAndWriteFileCSV.readFile();
         studentList.add(student);
+        ReadAndWriteFileCSV.writeFile(studentList);
+
+    }
+
+    @Override
+    public boolean checkIdFormat(String id) {
+        String patternId = "^T\\d{3}$";
+        Pattern regex = Pattern.compile(patternId);
+        Matcher matcher = regex.matcher(id);
+        if (matcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkDateFormat(String date) {
+        String pattern = "^\\d{2}/\\d{2}\\d{4}$";
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(date);
+        if (matcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkClassNameFormat(String className) {
+        String patternClassName = "^[C]\\D{4}$";
+        Pattern regex = Pattern.compile(patternClassName);
+        Matcher matcher = regex.matcher(className);
+        if (matcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
     public Student getStudentById(String id) {
+        studentList = (ArrayList<Student>) ReadAndWriteFileCSV.readFile();
         for (Student student : studentList) {
-            if (student.getStudentID().equals(id)) {
+            if (student.getId().equals(id)) {
                 return student;
             }
         }
@@ -42,6 +86,8 @@ public class CodeGymRepository implements ICodeGymRepository {
 
     @Override
     public void deleteStudent(Student student) {
+        studentList = (ArrayList<Student>) ReadAndWriteFileCSV.readFile();
         studentList.remove(student);
+        ReadAndWriteFileCSV.writeFile(studentList);
     }
 }

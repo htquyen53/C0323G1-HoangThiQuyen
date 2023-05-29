@@ -3,8 +3,7 @@ package ss12.service;
 import ss12.model.Product;
 import ss12.repository.ProductRepository;
 import ss12.utils.ProductValidate;
-import ss15.bai_tap.triangle.IllegalTriangleException;
-
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,7 +28,7 @@ public class ProductServive implements IProductService {
             System.out.println("Nhập mã sản phẩm cần thêm: ");
             try {
                 id = scanner.nextLine();
-                if(!ProductValidate.checkId(id)) {
+                if (!ProductValidate.checkId(id)) {
                     throw new IllegalInputException("Vui lòng không nhập ký tự đặc biệt. Mời nhập lại!");
                 }
                 break;
@@ -42,15 +41,34 @@ public class ProductServive implements IProductService {
             System.out.println("Mã sản phẩm đã tồn tại");
         } else {
             System.out.println("Nhập tên sản phẩm: ");
-            String nameProduct = scanner.nextLine();
-            System.out.println("Nhập xuất xứ sản phẩm: ");
-            String productOrigin = scanner.nextLine();
+            String nameProduct = "";
+            String productOrigin = "";
+            try {
+                nameProduct = scanner.nextLine();
+                System.out.println("Nhập xuất xứ sản phẩm: ");
+                productOrigin = scanner.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Nhập sau định dạng!");
+            } catch (Exception e) {
+                System.out.println("Error!");
+            }
             System.out.println("Nhập số lượng: ");
-            int quantity = Integer.parseInt(scanner.nextLine());
-            System.out.println("Nhập mô tả: ");
-            String description = scanner.nextLine();
-            System.out.println("Nhập giá sản phẩm: ");
-            float price = Float.parseFloat(scanner.nextLine());
+            int quantity = 0;
+            String description = "";
+            float price = 0;
+            try {
+                quantity = Integer.parseInt(scanner.nextLine());
+                System.out.println("Nhập mô tả: ");
+                description = scanner.nextLine();
+                System.out.println("Nhập giá sản phẩm: ");
+                price = Float.parseFloat(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Bạn nhập sai định dạng, mời nhập lại!");
+            } catch (InputMismatchException e) {
+                System.out.println("Bạn nhập sai định dạng, mời nhập lại!");
+            } catch (Exception e) {
+                System.out.println("Error");
+            }
             Product newProduct = new Product(id, nameProduct, productOrigin, quantity, description, price);
             productRepository.addProduct(newProduct);
             System.out.println("Thêm mới thành công!");
