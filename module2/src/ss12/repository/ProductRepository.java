@@ -7,7 +7,7 @@ import java.util.*;
 public class ProductRepository implements IProductRepository {
     private static List<Product> productList = new ArrayList<>();
 
-    //Product(String id, String productName, String productOrigin, int quantity, String description, float price)
+    //Student(String id, String productName, String productOrigin, int quantity, String description, float price)
     static {
         productList.add(new Product("01KCN", "Kem chống nắng ANESSA", "Anesa Nhật Bản", 100, "Kem chống nắng cho da nhạy cảm", 350000));
         productList.add(new Product("02KCN", "Kem chống nắng ANESSA hồng", "Anesa Nhật Bản", 150, "Kem chống nắng cho em bé", 360000));

@@ -1,4 +1,4 @@
-package ss17.bai_tap.product_management.common.controller.utils;
+package ss17.bai_tap.product_management.utils;
 
 public class ProductValidate {
 

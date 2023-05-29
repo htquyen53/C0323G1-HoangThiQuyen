@@ -1,4 +1,4 @@
-package ss17.bai_tap.product_management.common.controller.model;
+package ss17.bai_tap.product_management.model;
 
 public class Product {
     private String productID;
@@ -58,7 +58,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "Student{" +
                 "productID='" + productID + '\'' +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +

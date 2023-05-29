@@ -1,6 +1,6 @@
-package ss17.bai_tap.product_management.common.controller.repository;
+package ss17.bai_tap.product_management.repository;
 
-import ss17.bai_tap.product_management.common.controller.model.Product;
+import ss17.bai_tap.product_management.model.Product;
 
 import java.util.List;
 

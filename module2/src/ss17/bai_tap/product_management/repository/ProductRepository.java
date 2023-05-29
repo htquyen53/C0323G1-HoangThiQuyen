@@ -1,11 +1,13 @@
-package ss17.bai_tap.product_management.common.controller.repository;
+package ss17.bai_tap.product_management.repository;
 
-import ss17.bai_tap.product_management.common.controller.model.Product;
+import ss17.bai_tap.product_management.common.ReadAndWriteFileCSV;
+import ss17.bai_tap.product_management.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProductRepository implements IProductRepository {
+    private static final String STUDENTLIST_PATH = "module2/src/ss17/bai_tap/product_management/data/student.dat";
     private static List<Product> productList = new ArrayList<>();
 
     static {
@@ -17,6 +19,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public void addProduct(Product product) {
+        productList = (List<Product>) ReadAndWriteFileCSV.readFile();
         productList.add(product);
     }
 
@@ -47,6 +50,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> getAll() {
+        ReadAndWriteFileCSV.writeFile(productList,STUDENTLIST_PATH);
         return productList;
     }
 }

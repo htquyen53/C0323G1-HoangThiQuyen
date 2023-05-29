@@ -1,4 +1,4 @@
-package ss17.bai_tap.product_management.common.controller.service;
+package ss17.bai_tap.product_management.service;
 
 public interface IProductService {
     void displayProductList();

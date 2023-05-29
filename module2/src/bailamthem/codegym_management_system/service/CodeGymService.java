@@ -13,10 +13,10 @@ public class CodeGymService implements ICodeGymService {
 
     @Override
     public void displayStudentList() {
-        ArrayList<Student> studentList = codeGymRepository.getStudentList();
-        for (Student student : studentList) {
-            if (student != null) {
-                System.out.println(student);
+        ArrayList<Student> productList = codeGymRepository.getStudentList();
+        for (Student product : productList) {
+            if (product != null) {
+                System.out.println(product);
             }
         }
     }
@@ -45,8 +45,8 @@ public class CodeGymService implements ICodeGymService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Student student = codeGymRepository.getStudentById(id);
-        if (student != null) {
+        Student product = codeGymRepository.getStudentById(id);
+        if (product != null) {
             System.out.println("Mã học viên đã tồn tại!");
         } else {
             String name;
@@ -87,8 +87,8 @@ public class CodeGymService implements ICodeGymService {
             String nameClass = scanner.nextLine();
             System.out.println("Nhập điểm học viên: ");
             double score = Double.parseDouble(scanner.nextLine());
-            Student newStudent = new Student(id, name, birthday, gender, nameClass, score);
-            codeGymRepository.addStudent(newStudent);
+            Student newProduct = new Student(id, name, birthday, gender, nameClass, score);
+            codeGymRepository.addStudent(newProduct);
         }
     }
 
@@ -97,16 +97,16 @@ public class CodeGymService implements ICodeGymService {
         System.out.println("Vui lòng nhập mã học sinh bạn muốn xóa: ");
         String id = scanner.nextLine();
         // Kiểm tra mã học viên có tồn tại không.
-        Student student = codeGymRepository.getStudentById(id);
-        if (student == null) {
+        Student product = codeGymRepository.getStudentById(id);
+        if (product == null) {
             System.out.println("Mã học viên không tồn tại!");
         } else {
-            System.out.println("Bạn muốn xóa học viên " + student.getName() + "?");
+            System.out.println("Bạn muốn xóa học viên " + product.getName() + "?");
             System.out.println("1. Xóa ");
             System.out.println("2. Không xóa. ");
             int choose = Integer.parseInt(scanner.nextLine());
             if (choose == 1) {
-                codeGymRepository.deleteStudent(student);
+                codeGymRepository.deleteStudent(product);
                 System.out.println("Xóa thành công!");
             }
         }

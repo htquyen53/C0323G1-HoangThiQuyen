@@ -22,7 +22,7 @@ public class ProductServive implements IProductService {
 
     @Override
     public void addProduct() {
-        //Product(String id, String productName, String productOrigin, int quantity, String description, float price)
+        //Student(String id, String productName, String productOrigin, int quantity, String description, float price)
         String id = "";
         do {
             System.out.println("Nhập mã sản phẩm cần thêm: ");

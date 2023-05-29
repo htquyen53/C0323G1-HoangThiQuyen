@@ -71,12 +71,12 @@
         }
     }
 
-    let studentList = [];
-    let student1 = new StudentManagement("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004");
-    let student2 = new StudentManagement("HV-0002", "Nguyễn Văn B", "C1122G1", "nguyenvanb@gmail.com", "02/02/2004");
-    let student3 = new StudentManagement("HV-0003", "Nguyễn Thị C", "C1222G1", "nguyenthic@gmail.com", "03/03/2004");
-    studentList.push(student1, student2, student3);
-    display(studentList);
+    let productList = [];
+    let product1 = new StudentManagement("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004");
+    let product2 = new StudentManagement("HV-0002", "Nguyễn Văn B", "C1122G1", "nguyenvanb@gmail.com", "02/02/2004");
+    let product3 = new StudentManagement("HV-0003", "Nguyễn Thị C", "C1222G1", "nguyenthic@gmail.com", "03/03/2004");
+    productList.push(product1, product2, product3);
+    display(productList);
 
     function display(list) {
         let tableString = '<table style="border: 1px solid blue; border-collapse: collapse; text-align: center">\n' +
@@ -106,24 +106,24 @@
         let grade = prompt('Nhập lớp: ');
         let email = prompt('Nhập email: ');
         let birthday = prompt('Nhập ngày sinh: ');
-        let newStudent = new StudentManagement(id, name, grade, email, birthday);
-        studentList.push(newStudent);
-        display(studentList);
+        let newProduct = new StudentManagement(id, name, grade, email, birthday);
+        productList.push(newProduct);
+        display(productList);
     }
 
     function editStudent() {
         let editId = prompt('Nhập mã học viên cần chỉnh sửa: ');
-        for (let i = 0; i < studentList.length; i++) {
-            if (editId === studentList[i].getId()) {
+        for (let i = 0; i < productList.length; i++) {
+            if (editId === productList[i].getId()) {
                 let editName = prompt('Chỉnh sửa tên học viên: ');
                 let editGrade = prompt('Chỉnh sửa tên lớp: ');
                 let editEmail = prompt('Chỉnh sửa email: ');
                 let editBirthday = prompt('Chỉnh sửa ngày sinh: ');
-                studentList[i].setName(editName);
-                studentList[i].setGrade(editGrade);
-                studentList[i].setEmail(editEmail);
-                studentList[i].setBirthday(editBirthday);
-                display(studentList);
+                productList[i].setName(editName);
+                productList[i].setGrade(editGrade);
+                productList[i].setEmail(editEmail);
+                productList[i].setBirthday(editBirthday);
+                display(productList);
                 break;
             }
         }
@@ -132,12 +132,12 @@
 
     function deleteStudent() {
         let deleteId = prompt('Nhập mã học viên muốn xóa: ');
-        for (let i = 0; i < studentList.length; i++) {
-            if (deleteId === studentList[i].getId()) {
-                let conf = confirm('Bạn có chắc chắn muốn xóa học viên ' + studentList[i].getName() + '?????')
+        for (let i = 0; i < productList.length; i++) {
+            if (deleteId === productList[i].getId()) {
+                let conf = confirm('Bạn có chắc chắn muốn xóa học viên ' + productList[i].getName() + '?????')
                 if (conf) {
-                    studentList.splice(i, 1);
-                    display(studentList);
+                    productList.splice(i, 1);
+                    display(productList);
                     break;
                 }
             }

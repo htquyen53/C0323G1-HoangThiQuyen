@@ -1,4 +1,4 @@
-package bailamthem.codegym_management_system.common;
+package ss17.bai_tap.product_management.common;
 
 import bailamthem.codegym_management_system.model.Student;
 
@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteFileCSV {
-    private static final String STUDENT_LIST_PATH = "module2/src/bailamthem/codegym_management_system/data/students.csv";
+    private static final String PRODUCT_LIST_PATH = "module2/src/ss17/bai_tap/product_management/data/product.csv";
     public static void writeFile(List<Student> productList) {
-        File file = new File(STUDENT_LIST_PATH);
+        File file = new File(PRODUCT_LIST_PATH);
         try {
             FileWriter fileWriter = new FileWriter(file, false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -26,7 +26,7 @@ public class ReadAndWriteFileCSV {
     }
     public static List<Student> readFile() {
         List<Student> productList = new ArrayList<>();
-        File file = new File(STUDENT_LIST_PATH);
+        File file = new File(PRODUCT_LIST_PATH);
         try {
             if (!file.exists()) {
                 throw new FileNotFoundException();
@@ -35,9 +35,9 @@ public class ReadAndWriteFileCSV {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
-                String[] studentArr = line.split(",");
-                Student product = new Student(studentArr[0], studentArr[1], studentArr[2],
-                        Boolean.getBoolean(studentArr[3]), studentArr[4], Double.parseDouble(studentArr[5]));
+                String[] products = line.split(",");
+                Student product = new Student(products[0], products[1], products[2],
+                        Boolean.getBoolean(products[3]), products[4], Double.parseDouble(products[5]));
                 productList.add(product);
             }
             bufferedReader.close();
