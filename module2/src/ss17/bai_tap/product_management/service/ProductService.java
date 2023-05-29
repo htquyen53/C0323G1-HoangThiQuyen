@@ -2,8 +2,6 @@ package ss17.bai_tap.product_management.service;
 
 import ss17.bai_tap.product_management.model.Product;
 import ss17.bai_tap.product_management.repository.ProductRepository;
-import ss17.bai_tap.product_management.common.controller.utils.PersonValidate;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -65,8 +63,8 @@ public class ProductService implements IProductService {
             System.out.println("Nhập mã sản phẩm cần thêm: ");
             try {
                 id = scanner.nextLine();
-                if (!PersonValidate.checkFormat(id)) {
-                    throw new IllegalInputException("Vui lòng không nhập ký tự đặc biệt!");
+                if (!productRepository.checkIdFormat(id)) {
+                    throw new IllegalInputException("Vui lòng không nhập id đúng định dạng!");
                 }
                 break;
             } catch (IllegalInputException e) {
@@ -94,13 +92,13 @@ public class ProductService implements IProductService {
                 System.out.println("Nhập sai định dạng, mời nhập lại!");
             }
         } while (true);
-        String manufacturer;
+        String manufacturer = "";
         do {
             System.out.println("Nhập tên hãng sản xuất sản phẩm: ");
             try {
                 manufacturer = scanner.nextLine();
-                if (!PersonValidate.checkFormat(manufacturer)) {
-                    throw new IllegalInputException("Không sử dụng ký tự đặc biệt!");
+                if (!productRepository.checkInput(manufacturer)) {
+                    throw new IllegalInputException("Bạn nhập sai định dạng, chú ý không sử dụng ký tự đặc biệt!");
                 }
                 break;
             } catch (IllegalInputException e) {
@@ -109,12 +107,12 @@ public class ProductService implements IProductService {
                 e.printStackTrace();
             }
         } while (true);
-        String description;
+        String description = "";
         do {
             System.out.println("Nhập mô tả sản phẩm: ");
             try {
                 description = scanner.nextLine();
-                if (!PersonValidate.checkFormat(description)) {
+                if (productRepository.checkInput(description)) {
                     throw new IllegalInputException("Không sử dụng ký tự đặc biệt!");
                 }
                 break;

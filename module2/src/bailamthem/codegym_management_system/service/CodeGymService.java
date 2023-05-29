@@ -5,6 +5,7 @@ import bailamthem.codegym_management_system.repository.CodeGymRepository;
 import bailamthem.codegym_management_system.utils.IllegalInputException;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CodeGymService implements ICodeGymService {
@@ -13,7 +14,7 @@ public class CodeGymService implements ICodeGymService {
 
     @Override
     public void displayStudentList() {
-        ArrayList<Student> productList = codeGymRepository.getStudentList();
+        List<Student> productList = codeGymRepository.getStudentList();
         for (Student product : productList) {
             if (product != null) {
                 System.out.println(product);

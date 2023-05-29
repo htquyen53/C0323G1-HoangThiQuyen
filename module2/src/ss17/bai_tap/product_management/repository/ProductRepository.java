@@ -5,6 +5,8 @@ import ss17.bai_tap.product_management.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ProductRepository implements IProductRepository {
     private static final String STUDENTLIST_PATH = "module2/src/ss17/bai_tap/product_management/data/student.dat";
@@ -19,7 +21,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public void addProduct(Product product) {
-        productList = (List<Product>) ReadAndWriteFileCSV.readFile();
+        productList = (List<Product>)ReadAndWriteFileCSV.readFile();
         productList.add(product);
     }
 
@@ -50,7 +52,30 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public List<Product> getAll() {
-        ReadAndWriteFileCSV.writeFile(productList,STUDENTLIST_PATH);
+        ReadAndWriteFileCSV.writeFile(productList);
         return productList;
+    }
+
+    @Override
+    public boolean checkIdFormat(String id) {
+        String patternId = "^T\\d{3}$";
+        Pattern regex = Pattern.compile(patternId);
+        Matcher matcher = regex.matcher(id);
+        if (matcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public boolean checkInput(String input) {
+        for (int i = 0; i < input.length(); i++) {
+            if ((int) input.charAt(i) >= 32 && (int) input.charAt(i) <= 47 ||
+                    (int) input.charAt(i) >= 58 && (int) input.charAt(i) <= 64) {
+                return false;
+            }
+        }
+        return true;
     }
 }
