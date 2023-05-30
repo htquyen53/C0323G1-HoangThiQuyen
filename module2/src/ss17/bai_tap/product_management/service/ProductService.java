@@ -73,7 +73,7 @@ public class ProductService implements IProductService {
             }
         } while (true);
         Product product = productRepository.getProductById(id);
-        String productName;
+        String productName ="";
         if (product != null) {
             System.out.println("Mã sản phẩm đã tồn tại!");
         } else {
@@ -89,6 +89,7 @@ public class ProductService implements IProductService {
             System.out.println("Nhập giá sản phẩm: ");
             try {
                 price = Float.parseFloat(scanner.nextLine());
+                break;
             } catch (NumberFormatException e) {
                 System.out.println("Nhập sai định dạng, mời nhập lại!");
             }

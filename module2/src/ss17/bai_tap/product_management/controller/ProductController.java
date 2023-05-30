@@ -61,7 +61,7 @@ public class ProductController {
             } catch (NumberFormatException e) {
                 System.out.println("Bạn nhập sai định dạng, vui lòng nhập lại!");
             } catch (Exception e) {
-                System.out.println("Error!");
+                e.printStackTrace();
             }
         } while (true);
     }

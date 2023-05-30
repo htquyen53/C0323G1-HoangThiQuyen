@@ -1,6 +1,8 @@
 package ss17.bai_tap.product_management.model;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private String productID;
     private String productName;
     private float price;
