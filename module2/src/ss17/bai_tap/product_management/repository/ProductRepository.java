@@ -58,7 +58,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public boolean checkIdFormat(String id) {
-        String patternId = "^T\\d{3}$";
+        String patternId = "^\\d{2}\\w$";
         Pattern regex = Pattern.compile(patternId);
         Matcher matcher = regex.matcher(id);
         return matcher.matches();
@@ -67,7 +67,7 @@ public class ProductRepository implements IProductRepository {
     @Override
     public boolean checkInput(String input) {
         for (int i = 0; i <= input.length() - 1; i++) {
-            if ((int) input.charAt(i) >= 32 && (int) input.charAt(i) <= 47 ||
+            if ((int) input.charAt(i) > 32 && (int) input.charAt(i) <= 47 ||
                     (int) input.charAt(i) >= 58 && (int) input.charAt(i) <= 64) {
                 return false;
             }

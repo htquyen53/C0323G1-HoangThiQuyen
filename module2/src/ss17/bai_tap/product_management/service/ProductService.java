@@ -63,9 +63,9 @@ public class ProductService implements IProductService {
         do {
             System.out.println("Nhập mã sản phẩm cần thêm: ");
             try {
-                id = scanner.nextLine();
+                id = scanner.nextLine().toUpperCase();
                 if (!productRepository.checkIdFormat(id)) {
-                    throw new IllegalInputException("Vui lòng không nhập id đúng định dạng!");
+                    throw new IllegalInputException("Vui lòng nhập id đúng định dạng (VD: 01A)!");
                 }
                 break;
             } catch (IllegalInputException e) {
@@ -114,7 +114,7 @@ public class ProductService implements IProductService {
             System.out.println("Nhập mô tả sản phẩm: ");
             try {
                 description = scanner.nextLine();
-                if (productRepository.checkInput(description)) {
+                if (!productRepository.checkInput(description)) {
                     throw new IllegalInputException("Không sử dụng ký tự đặc biệt!");
                 }
                 break;
