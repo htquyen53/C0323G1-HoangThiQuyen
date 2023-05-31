@@ -9,6 +9,4 @@ public interface IProductRepository {
     Product getProductById(String id);
     List<Product> getProductByName(String name);
     List<Product> getAll();
-    boolean checkIdFormat (String id);
-    boolean checkInput (String input);
 }

@@ -2,13 +2,16 @@ package ss17.bai_tap.product_management.service;
 
 import ss17.bai_tap.product_management.model.Product;
 import ss17.bai_tap.product_management.repository.ProductRepository;
+import ss17.bai_tap.product_management.utils.DataValidate;
 import ss17.bai_tap.product_management.utils.IllegalInputException;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductService implements IProductService {
     private static Scanner scanner = new Scanner(System.in);
     private static ProductRepository productRepository = new ProductRepository();
+    private static DataValidate dataValidate = new DataValidate();
     private static List<Product> productList;
 
     @Override
@@ -64,7 +67,7 @@ public class ProductService implements IProductService {
             System.out.println("Nhập mã sản phẩm cần thêm: ");
             try {
                 id = scanner.nextLine().toUpperCase();
-                if (!productRepository.checkIdFormat(id)) {
+                if (!dataValidate.checkIdFormat(id)) {
                     throw new IllegalInputException("Vui lòng nhập id đúng định dạng (VD: 01A)!");
                 }
                 break;
@@ -73,7 +76,7 @@ public class ProductService implements IProductService {
             }
         } while (true);
         Product product = productRepository.getProductById(id);
-        String productName ="";
+        String productName = "";
         if (product != null) {
             System.out.println("Mã sản phẩm đã tồn tại!");
         } else {
@@ -89,7 +92,12 @@ public class ProductService implements IProductService {
             System.out.println("Nhập giá sản phẩm: ");
             try {
                 price = Float.parseFloat(scanner.nextLine());
+                if (!dataValidate.checkPriceFormat(price)) {
+                    throw new IllegalInputException("Nhập sai định dạng giá, mời nhập lại theo mẫu '-----000'");
+                }
                 break;
+            } catch (IllegalInputException e) {
+                System.out.println(e.getMessage());
             } catch (NumberFormatException e) {
                 System.out.println("Nhập sai định dạng, mời nhập lại!");
             }
@@ -99,7 +107,7 @@ public class ProductService implements IProductService {
             System.out.println("Nhập tên hãng sản xuất sản phẩm: ");
             try {
                 manufacturer = scanner.nextLine();
-                if (!productRepository.checkInput(manufacturer)) {
+                if (!dataValidate.checkInput(manufacturer)) {
                     throw new IllegalInputException("Bạn nhập sai định dạng, chú ý không sử dụng ký tự đặc biệt!");
                 }
                 break;
@@ -114,7 +122,7 @@ public class ProductService implements IProductService {
             System.out.println("Nhập mô tả sản phẩm: ");
             try {
                 description = scanner.nextLine();
-                if (!productRepository.checkInput(description)) {
+                if (!dataValidate.checkInput(description)) {
                     throw new IllegalInputException("Không sử dụng ký tự đặc biệt!");
                 }
                 break;
