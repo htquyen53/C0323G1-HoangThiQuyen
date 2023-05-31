@@ -1,6 +1,6 @@
-package case_study.furama_resort.model.service;
+package case_study.furama_resort.model.facility;
 
-public class Service {
+public abstract class Facility {
     private String id;
     private String name;
     private Double usableArea;
@@ -8,10 +8,10 @@ public class Service {
     private int maxQuantity;
     private String typeRental;
 
-    public Service() {
+    public Facility() {
     }
 
-    public Service(String id, String name, Double usableArea, Double price, int maxQuantity, String typeRental) {
+    public Facility(String id, String name, Double usableArea, Double price, int maxQuantity, String typeRental) {
         this.id = id;
         this.name = name;
         this.usableArea = usableArea;
@@ -70,7 +70,7 @@ public class Service {
 
     @Override
     public String toString() {
-        return "Service{" +
+        return "Facility{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", usableArea=" + usableArea +

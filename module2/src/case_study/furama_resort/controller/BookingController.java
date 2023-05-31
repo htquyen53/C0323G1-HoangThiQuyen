@@ -2,20 +2,19 @@ package case_study.furama_resort.controller;
 
 import java.util.Scanner;
 
-public class FuramaController {
-
-    public static void displayMainMenu() {
+public class BookingController {
+    public static void displayBookingMenu() {
         Scanner scanner = new Scanner(System.in);
-        MAIN_MENU_WHILE:
-        do {
-            System.out.println("--------FURAMA RESORT MANAGEMENT PROGRAM---------\n" +
-                    "Welcome to Intelligent Furama Resort Management Program, please enter the number to continue!\n" +
-                    "1. Employee Management \n" +
-                    "2. Customer Management \n" +
-                    "3. Facility Management \n" +
-                    "4. Booking Management  \n" +
-                    "5. Promotion Management\n" +
-                    "6. Exit");
+        BOOKING_MENU_WHILE:
+        do{
+            System.out.println("------FURAMA BOOKING MANAGEMENT PROGRAM------\n" +
+                    "Please enter a number to continue!\n" +
+                    "1. Add new booking\n" +
+                    "2. Display list booking\n" +
+                    "3. Creat new contracts\n" +
+                    "4. Display list contracts" +
+                    "5. Edit contracts\n" +
+                    "6. Return main menu");
             int option = 0;
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -26,22 +25,18 @@ public class FuramaController {
             }
             switch (option) {
                 case 1:
-                    EmployeeController.displayEmployeeMenu();
                     break;
                 case 2:
-                    CustomerController.displayCustomerMenu();
                     break;
                 case 3:
-                    FacilityController.displayFacilityMenu();
                     break;
                 case 4:
-                    BookingController.displayBookingMenu();
                     break;
                 case 5:
-                    PromotionController.displayPromotionMenu();
                     break;
                 case 6:
-                    break MAIN_MENU_WHILE;
+                    FuramaController.displayMainMenu();
+                    break BOOKING_MENU_WHILE;
                 case 0:
                     break;
                 default:

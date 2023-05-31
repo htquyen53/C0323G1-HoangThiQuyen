@@ -1,6 +1,6 @@
-package case_study.furama_resort.model.service;
+package case_study.furama_resort.model.facility;
 
-public class House extends Service {
+public class House extends Facility {
     private String roomStandard;
     private int floor;
 
