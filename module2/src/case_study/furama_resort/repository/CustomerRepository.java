@@ -31,22 +31,11 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     @Override
-    public Customer getByID(String id) {
-        customerList = getAll();
-        for (Customer customer: customerList) {
-            if (customer.getId().equals(id)) {
-                return customer;
-            }
-        }
-        return null;
-    }
-
-    @Override
     public void edit(String id) {
         customerList = getAll();
         List<String> customerStr = new ArrayList<>();
-        for (Customer customer: customerList) {
-            if(customer.getId().equals(id)) {
+        for (Customer customer : customerList) {
+            if (customer.getId().equals(id)) {
                 customer.setName(customer.getName());
                 customer.setBirthday(customer.getBirthday());
                 customer.setGender(customer.isGender());
@@ -55,12 +44,41 @@ public class CustomerRepository implements ICustomerRepository {
                 customer.setEmail(customer.getEmail());
                 customer.setTypeCustomer(customer.getTypeCustomer());
                 customer.setAddress(customer.getAddress());
-                customerStr.add(getInfoToCSV(customer));
-            } customerStr.add(getInfoToCSV(customer));
+            }
+        }
+        for (Customer customer : customerList) {
+            customerStr.add(getInfoToCSV(customer));
         }
         ReadAndWriteCSV.writeFile(customerStr, CUSTOMERS_LIST_PATH, false);
     }
 
+    @Override
+    public void delete(Customer customer) {
+        customerList = getAll();
+        customerList.remove(customer);
+        List<String> strings = new ArrayList<>();
+        for (Customer e : customerList) {
+            strings.add(getInfoToCSV(e));
+        }
+        ReadAndWriteCSV.writeFile(strings, CUSTOMERS_LIST_PATH, false);
+
+    }
+
+    @Override
+    public Customer findByID(String id) {
+        customerList = getAll();
+        for (Customer customer : customerList) {
+            if (customer.getId().equals(id)) {
+                return customer;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<Customer> findByName(String name) {
+        return null;
+    }
 
     public String getInfoToCSV(Customer customer) {
         return customer.getId() + "," + customer.getName() + "," + customer.getBirthday() + "," + customer.isGender()

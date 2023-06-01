@@ -16,7 +16,9 @@ public class CustomerController {
                     "1. Display list customers\n" +
                     "2. Add new customer\n" +
                     "3. Edit customer\n" +
-                    "4. Return main menu");
+                    "4. Delete customer \n" +
+                    "5. Search for customer information\n" +
+                    "6. Return main menu");
             int option = 0;
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -36,6 +38,9 @@ public class CustomerController {
                     customerService.editInfo();
                     break;
                 case 4:
+                    customerService.delete();
+                case 5:
+                case 6:
                     FuramaController.displayMainMenu();
                     break CUSTOMER_MENU_WHILE;
                 case 0:

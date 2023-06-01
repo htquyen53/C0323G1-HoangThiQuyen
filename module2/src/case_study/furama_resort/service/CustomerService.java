@@ -2,12 +2,10 @@ package case_study.furama_resort.service;
 
 import case_study.furama_resort.controller.FuramaController;
 import case_study.furama_resort.model.human.Customer;
-import case_study.furama_resort.model.human.Employee;
 import case_study.furama_resort.repository.CustomerRepository;
 import case_study.furama_resort.utils.IllegalInputException;
 import case_study.furama_resort.utils.Validate;
 
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -40,7 +38,7 @@ public class CustomerService implements ICustomerService {
                 e.printStackTrace();
             }
         } while (true);
-        if (customerRepository.getByID(idNew) == null) {
+        if (customerRepository.findByID(idNew) == null) {
             String name = "";
             do {
                 System.out.println("Enter the name of customer: ");
@@ -201,7 +199,7 @@ public class CustomerService implements ICustomerService {
             System.out.println("Enter id of customer you want to edit information: ");
             try {
                 editID = scanner.nextLine();
-                Customer editCustomer = customerRepository.getByID(editID);
+                Customer editCustomer = customerRepository.findByID(editID);
                 if (editCustomer != null) {
                     System.out.println("Customer whose code is " + editID + "is: " + editCustomer.getName() + ".\n" +
                             "Please enter a number to continue: \n" +
@@ -330,5 +328,20 @@ public class CustomerService implements ICustomerService {
                 System.out.println("Error");
             }
         } while (true);
+    }
+
+    @Override
+    public void delete() {
+
+    }
+
+    @Override
+    public Customer findByID(String id) {
+        return null;
+    }
+
+    @Override
+    public Customer findByName(String name) {
+        return null;
     }
 }
