@@ -1,8 +1,12 @@
 package case_study.furama_resort.controller;
 
+import case_study.furama_resort.service.CustomerService;
+import case_study.furama_resort.service.ICustomerService;
+
 import java.util.Scanner;
 
 public class CustomerController {
+    private static ICustomerService customerService = new CustomerService();
     public static void displayCustomerMenu() {
         Scanner scanner = new Scanner(System.in);
         CUSTOMER_MENU_WHILE:
@@ -23,10 +27,13 @@ public class CustomerController {
             }
             switch (option) {
                 case 1:
+                    customerService.displayList();
                     break;
                 case 2:
+                    customerService.addNew();
                     break;
                 case 3:
+                    customerService.editInfo();
                     break;
                 case 4:
                     FuramaController.displayMainMenu();

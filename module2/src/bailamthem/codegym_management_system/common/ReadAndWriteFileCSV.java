@@ -8,13 +8,13 @@ import java.util.List;
 
 public class ReadAndWriteFileCSV {
     private static final String STUDENT_LIST_PATH = "module2/src/bailamthem/codegym_management_system/data/students.csv";
-    public static void writeFile(List<Student> productList) {
+    public static void writeFile(List<Student> studentList) {
         File file = new File(STUDENT_LIST_PATH);
         try {
             FileWriter fileWriter = new FileWriter(file, false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            for (int i = 0; i < productList.size(); i++) {
-                bufferedWriter.write(productList.get(i).getInfoToCSV());
+            for (int i = 0; i < studentList.size(); i++) {
+                bufferedWriter.write(studentList.get(i).getInfoToCSV());
                 bufferedWriter.newLine();
             }
             bufferedWriter.flush();
@@ -25,7 +25,7 @@ public class ReadAndWriteFileCSV {
         }
     }
     public static List<Student> readFile() {
-        List<Student> productList = new ArrayList<>();
+        List<Student> studentList = new ArrayList<>();
         File file = new File(STUDENT_LIST_PATH);
         try {
             if (!file.exists()) {
@@ -36,9 +36,9 @@ public class ReadAndWriteFileCSV {
             String line = null;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] studentArr = line.split(",");
-                Student product = new Student(studentArr[0], studentArr[1], studentArr[2],
+                Student student = new Student(studentArr[0], studentArr[1], studentArr[2],
                         Boolean.getBoolean(studentArr[3]), studentArr[4], Double.parseDouble(studentArr[5]));
-                productList.add(product);
+                studentList.add(student);
             }
             bufferedReader.close();
             fileReader.close();
@@ -47,6 +47,6 @@ public class ReadAndWriteFileCSV {
         } catch (IOException e) {
             throw new RuntimeException();
         }
-        return productList;
+        return studentList;
     }
 }
