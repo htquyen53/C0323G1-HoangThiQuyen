@@ -3,7 +3,6 @@ package case_study.furama_resort.controller;
 
 import case_study.furama_resort.service.EmployeeService;
 import case_study.furama_resort.service.IEmployeeService;
-
 import java.util.Scanner;
 
 public class EmployeeController {

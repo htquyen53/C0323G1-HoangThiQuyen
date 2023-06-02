@@ -32,22 +32,26 @@ public class CustomerRepository implements ICustomerRepository {
     @Override
     public void edit(Customer customer) {
         customerList = getAll();
-        for (Customer temp : customerList) {
-            if (temp.getId().equals(customer.getId())) {
-                temp.setName(customer.getName());
-                temp.setBirthday(customer.getBirthday());
-                temp.setGender(customer.isGender());
-                temp.setCitizenID(customer.getCitizenID());
-                temp.setNumberPhone(customer.getNumberPhone());
-                temp.setEmail(customer.getEmail());
-                temp.setTypeCustomer(customer.getTypeCustomer());
-                temp.setAddress(customer.getAddress());
+        for (int i = 0; i < customerList.size(); i++) {
+            if (customer.getId().equals(customerList.get(i).getId())) {
+                customerList.set(i,customer);
             }
         }
+//        for (Customer temp : customerList) {
+//            if (temp.getId().equals(customer.getId())) {
+//                temp.setName(customer.getName());
+//                temp.setBirthday(customer.getBirthday());
+//                temp.setGender(customer.isGender());
+//                temp.setCitizenID(customer.getCitizenID());
+//                temp.setNumberPhone(customer.getNumberPhone());
+//                temp.setEmail(customer.getEmail());
+//                temp.setTypeCustomer(customer.getTypeCustomer());
+//                temp.setAddress(customer.getAddress());
+//            }
+//        }
         List<String> customerStr = new ArrayList<>();
         for (Customer temp : customerList) {
             customerStr.add(getInfoToCSV(temp));
-
             ReadAndWriteCSV.writeFile(customerStr, CUSTOMERS_LIST_PATH, false);
         }
     }

@@ -5,7 +5,7 @@ public class Validate {
         return id.matches("^(NV)-\\d{4}$");
     }
     public static boolean checkCustomerID(String id) {
-        return id.matches("^(C0)-\\d+$");
+        return id.matches("^(KH)-\\d{4}$");
     }
 
     public static boolean checkName(String name) {
