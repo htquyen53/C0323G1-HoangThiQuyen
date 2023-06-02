@@ -4,8 +4,6 @@ public interface IFuramaService<E> {
     void displayList();
     void addNew();
     void delete();
-    E findByID(String id);
-    E findByName(String name);
-
+    void find();
     void editInfo();
 }

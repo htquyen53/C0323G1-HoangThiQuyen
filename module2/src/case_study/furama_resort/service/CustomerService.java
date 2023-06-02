@@ -3,6 +3,7 @@ package case_study.furama_resort.service;
 import case_study.furama_resort.controller.FuramaController;
 import case_study.furama_resort.model.human.Customer;
 import case_study.furama_resort.repository.CustomerRepository;
+import case_study.furama_resort.repository.ICustomerRepository;
 import case_study.furama_resort.utils.IllegalInputException;
 import case_study.furama_resort.utils.Validate;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerService implements ICustomerService {
-    private static CustomerRepository customerRepository = new CustomerRepository();
+    private static ICustomerRepository customerRepository = new CustomerRepository();
     private static Scanner scanner = new Scanner(System.in);
 
     @Override
@@ -195,11 +196,12 @@ public class CustomerService implements ICustomerService {
     @Override
     public void editInfo() {
         String editID;
-        do {
+        Customer editCustomer;
+        loop: do {
             System.out.println("Enter id of customer you want to edit information: ");
             try {
                 editID = scanner.nextLine();
-                Customer editCustomer = customerRepository.findByID(editID);
+                 editCustomer = customerRepository.findByID(editID);
                 if (editCustomer != null) {
                     System.out.println("Customer whose code is " + editID + "is: " + editCustomer.getName() + ".\n" +
                             "Please enter a number to continue: \n" +
@@ -315,7 +317,7 @@ public class CustomerService implements ICustomerService {
                                 System.out.println(e.getMessage());
                             }
                         case 9:
-                            FuramaController.displayMainMenu();
+                            break loop;
                         default:
                             System.out.println("Enter wrong!");
                     }
@@ -328,6 +330,7 @@ public class CustomerService implements ICustomerService {
                 System.out.println("Error");
             }
         } while (true);
+        customerRepository.edit(editCustomer);
     }
 
     @Override
@@ -336,12 +339,17 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public Customer findByID(String id) {
-        return null;
+    public void find() {
+
     }
 
-    @Override
-    public Customer findByName(String name) {
-        return null;
-    }
+//    @Override
+//    public Customer findByID(String id) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Customer findByName(String name) {
+//        return null;
+//    }
 }

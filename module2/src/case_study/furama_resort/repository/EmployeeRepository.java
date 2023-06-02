@@ -32,23 +32,23 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
-    public void edit(String id) {
+    public void edit(Employee employee) {
         employeeList = getAll();
-        for (Employee employee: employeeList) {
-            if (employee.getId().equals(id)) {
-                employee.setName(employee.getName());
-                employee.setBirthday(employee.getBirthday());
-                employee.setGender(employee.isGender());
-                employee.setCitizenID(employee.getCitizenID());
-                employee.setNumberPhone(employee.getNumberPhone());
-                employee.setEmail(employee.getEmail());
-                employee.setAcademicLevel(employee.getAcademicLevel());
-                employee.setSalary(employee.getSalary());
+        for (Employee temp: employeeList) {
+            if (temp.getId().equals(employee.getId())) {
+                temp.setName(employee.getName());
+                temp.setBirthday(employee.getBirthday());
+                temp.setGender(employee.isGender());
+                temp.setCitizenID(employee.getCitizenID());
+                temp.setNumberPhone(employee.getNumberPhone());
+                temp.setEmail(employee.getEmail());
+                temp.setAcademicLevel(employee.getAcademicLevel());
+                temp.setSalary(employee.getSalary());
             }
         }
         List<String> strings = new ArrayList<>();
-        for (Employee employee: employeeList) {
-            strings.add(getInfoToCSV(employee));
+        for (Employee temp: employeeList) {
+            strings.add(getInfoToCSV(temp));
         }
         ReadAndWriteCSV.writeFile(strings, EMPLOYEES_LIST_PATH, false);
     }

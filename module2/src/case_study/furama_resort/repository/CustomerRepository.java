@@ -2,7 +2,6 @@ package case_study.furama_resort.repository;
 
 import case_study.furama_resort.common.ReadAndWriteCSV;
 import case_study.furama_resort.model.human.Customer;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,58 +30,58 @@ public class CustomerRepository implements ICustomerRepository {
     }
 
     @Override
-    public void edit(String id) {
+    public void edit(Customer customer) {
         customerList = getAll();
+        for (Customer temp : customerList) {
+            if (temp.getId().equals(customer.getId())) {
+                temp.setName(customer.getName());
+                temp.setBirthday(customer.getBirthday());
+                temp.setGender(customer.isGender());
+                temp.setCitizenID(customer.getCitizenID());
+                temp.setNumberPhone(customer.getNumberPhone());
+                temp.setEmail(customer.getEmail());
+                temp.setTypeCustomer(customer.getTypeCustomer());
+                temp.setAddress(customer.getAddress());
+            }
+        }
         List<String> customerStr = new ArrayList<>();
-        for (Customer customer : customerList) {
-            if (customer.getId().equals(id)) {
-                customer.setName(customer.getName());
-                customer.setBirthday(customer.getBirthday());
-                customer.setGender(customer.isGender());
-                customer.setCitizenID(customer.getCitizenID());
-                customer.setNumberPhone(customer.getNumberPhone());
-                customer.setEmail(customer.getEmail());
-                customer.setTypeCustomer(customer.getTypeCustomer());
-                customer.setAddress(customer.getAddress());
+        for (Customer temp : customerList) {
+            customerStr.add(getInfoToCSV(temp));
+
+            ReadAndWriteCSV.writeFile(customerStr, CUSTOMERS_LIST_PATH, false);
+        }
+    }
+
+        @Override
+        public void delete (Customer customer){
+            customerList = getAll();
+            customerList.remove(customer);
+            List<String> strings = new ArrayList<>();
+            for (Customer e : customerList) {
+                strings.add(getInfoToCSV(e));
             }
+            ReadAndWriteCSV.writeFile(strings, CUSTOMERS_LIST_PATH, false);
         }
-        for (Customer customer : customerList) {
-            customerStr.add(getInfoToCSV(customer));
-        }
-        ReadAndWriteCSV.writeFile(customerStr, CUSTOMERS_LIST_PATH, false);
-    }
 
-    @Override
-    public void delete(Customer customer) {
-        customerList = getAll();
-        customerList.remove(customer);
-        List<String> strings = new ArrayList<>();
-        for (Customer e : customerList) {
-            strings.add(getInfoToCSV(e));
-        }
-        ReadAndWriteCSV.writeFile(strings, CUSTOMERS_LIST_PATH, false);
-
-    }
-
-    @Override
-    public Customer findByID(String id) {
-        customerList = getAll();
-        for (Customer customer : customerList) {
-            if (customer.getId().equals(id)) {
-                return customer;
+        @Override
+        public Customer findByID (String id){
+            customerList = getAll();
+            for (Customer customer : customerList) {
+                if (customer.getId().equals(id)) {
+                    return customer;
+                }
             }
+            return null;
         }
-        return null;
-    }
 
-    @Override
-    public List<Customer> findByName(String name) {
-        return null;
-    }
+        @Override
+        public List<Customer> findByName (String name){
+            return null;
+        }
 
-    public String getInfoToCSV(Customer customer) {
-        return customer.getId() + "," + customer.getName() + "," + customer.getBirthday() + "," + customer.isGender()
-                + "," + customer.getCitizenID() + "," + customer.getNumberPhone() + "," + customer.getEmail()
-                + "," + customer.getTypeCustomer() + "," + customer.getAddress();
+        public String getInfoToCSV (Customer customer){
+            return customer.getId() + "," + customer.getName() + "," + customer.getBirthday() + "," + customer.isGender()
+                    + "," + customer.getCitizenID() + "," + customer.getNumberPhone() + "," + customer.getEmail()
+                    + "," + customer.getTypeCustomer() + "," + customer.getAddress();
+        }
     }
-}
