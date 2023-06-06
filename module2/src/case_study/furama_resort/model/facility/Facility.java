@@ -1,17 +1,19 @@
 package case_study.furama_resort.model.facility;
 
+import java.util.Objects;
+
 public abstract class Facility {
     private String id;
     private String name;
-    private Double usableArea;
-    private Double price;
+    private double usableArea;
+    private double price;
     private int maxQuantity;
     private String typeRental;
 
     public Facility() {
     }
 
-    public Facility(String id, String name, Double usableArea, Double price, int maxQuantity, String typeRental) {
+    public Facility(String id, String name, double usableArea, double price, int maxQuantity, String typeRental) {
         this.id = id;
         this.name = name;
         this.usableArea = usableArea;
@@ -36,19 +38,19 @@ public abstract class Facility {
         this.name = name;
     }
 
-    public Double getUsableArea() {
+    public double getUsableArea() {
         return usableArea;
     }
 
-    public void setUsableArea(Double usableArea) {
+    public void setUsableArea(double usableArea) {
         this.usableArea = usableArea;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -70,13 +72,25 @@ public abstract class Facility {
 
     @Override
     public String toString() {
-        return "Facility{" +
+        return "Facility:" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", usableArea=" + usableArea +
                 ", price=" + price +
                 ", maxQuantity=" + maxQuantity +
-                ", typeRental='" + typeRental + '\'' +
-                '}';
+                ", typeRental='" + typeRental + '\'';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Facility facility = (Facility) o;
+        return Objects.equals(id, facility.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

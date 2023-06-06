@@ -4,7 +4,7 @@ public class Room extends Facility {
     private String freeService;
     public Room(){
     }
-    public Room(String id, String name, Double usableArea, Double price, int maxQuantity, String typeRental, String freeService) {
+    public Room(String id, String name, double usableArea, double price, int maxQuantity, String typeRental, String freeService) {
         super(id, name, usableArea, price, maxQuantity, typeRental);
         this.freeService = freeService;
     }

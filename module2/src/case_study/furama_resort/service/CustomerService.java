@@ -364,9 +364,17 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public void delete() {
-        System.out.println("Enter ID:");
-        String deleteID = scanner.nextLine();
-
+        do {
+            System.out.println("Enter ID:");
+            String deleteID = scanner.nextLine();
+            Customer deleteCustomer = customerRepository.findByID(deleteID);
+            if (deleteCustomer != null) {
+                customerRepository.delete(deleteCustomer);
+                System.out.println("Delete successful!");
+                break;
+            }
+            System.out.println("ID you entered does not exist!");
+        } while (true);
     }
 
     @Override

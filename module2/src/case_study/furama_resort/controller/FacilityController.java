@@ -1,8 +1,11 @@
 package case_study.furama_resort.controller;
 
+import case_study.furama_resort.service.FacilityService;
+
 import java.util.Scanner;
 
 public class FacilityController {
+    private static final FacilityService facilityService = new FacilityService();
     public static void displayFacilityMenu() {
         Scanner scanner = new Scanner(System.in);
         FACILITY_MENU_WHILE:
@@ -23,8 +26,10 @@ public class FacilityController {
             }
             switch (option) {
                 case 1:
+                    facilityService.display();
                     break;
                 case 2:
+                    facilityService.addNew();
                     break;
                 case 3:
                     break;

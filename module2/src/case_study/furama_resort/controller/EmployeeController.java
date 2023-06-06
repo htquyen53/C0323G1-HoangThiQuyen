@@ -16,7 +16,7 @@ public class EmployeeController {
                     "1. Display list employees\n" +
                     "2. Add new employee\n" +
                     "3. Edit employee\n" +
-                    "4. Delete customer \n" +
+                    "4. Delete employee \n" +
                     "5. Search for customer information\n" +
                     "6. Return main menu");
             int option = 0;

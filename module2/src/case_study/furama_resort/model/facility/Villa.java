@@ -2,18 +2,18 @@ package case_study.furama_resort.model.facility;
 
 public class Villa extends Facility {
     private String roomStandard;
-    private Double poolArea;
+    private double poolArea;
     private int floor;
     public Villa(){
     }
 
-    public Villa(String roomStandard, Double poolArea, int floor) {
+    public Villa(String roomStandard, double poolArea, int floor) {
         this.roomStandard = roomStandard;
         this.poolArea = poolArea;
         this.floor = floor;
     }
 
-    public Villa(String id, String name, Double usableArea, Double price, int maxQuantity, String typeRental, String roomStandard, Double poolArea, int floor) {
+    public Villa(String id, String name, double usableArea, double price, int maxQuantity, String typeRental, String roomStandard, double poolArea, int floor) {
         super(id, name, usableArea, price, maxQuantity, typeRental);
         this.roomStandard = roomStandard;
         this.poolArea = poolArea;
