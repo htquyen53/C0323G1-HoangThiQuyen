@@ -14,8 +14,9 @@ public class FacilityController {
                     "Please enter a number to continue!\n" +
                     "1. Display list facility\n" +
                     "2. Add new facility\n" +
-                    "3. Edit facility\n" +
-                    "4. Return main menu");
+                    "3. Display list facility maintenance\n"+
+                    "4. Return main menu \n" +
+                    "Enter here: ");
             int option = 0;
             try {
                 option = Integer.parseInt(scanner.nextLine());
@@ -32,6 +33,7 @@ public class FacilityController {
                     facilityService.addNew();
                     break;
                 case 3:
+                    facilityService.displayMaintenance();
                     break;
                 case 4:
                     FuramaController.displayMainMenu();
