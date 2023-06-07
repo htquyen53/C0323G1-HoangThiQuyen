@@ -99,7 +99,7 @@ public class FacilityService implements IFacilityService {
                     System.out.println("Enter id of villa: ");
                     try {
                         id = scanner.nextLine();
-                        if (facilityRepository.checkFacilityID(id) != null) {
+                        if (facilityRepository.getFacilityID(id) != null) {
                             System.out.println("This ID exist!");
                         } else if (!Validate.checkVillaID(id)) {
                             throw new IllegalInputException("Id does not validate");
@@ -218,7 +218,7 @@ public class FacilityService implements IFacilityService {
                     System.out.println("Enter id of House: ");
                     try {
                         idHouse = scanner.nextLine();
-                        if (facilityRepository.checkFacilityID(idHouse) != null) {
+                        if (facilityRepository.getFacilityID(idHouse) != null) {
                             System.out.println("This ID exist!");
                         } else if (!Validate.checkHouseID(idHouse)) {
                             throw new IllegalInputException("This ID does not validate!");
@@ -327,7 +327,7 @@ public class FacilityService implements IFacilityService {
                     System.out.println("Enter id of room: ");
                     try {
                         idRoom = scanner.nextLine();
-                        if (facilityRepository.checkFacilityID(idRoom) != null) {
+                        if (facilityRepository.getFacilityID(idRoom) != null) {
                             System.out.println("This ID exist!");
                         } else if (!Validate.checkRoomID(idRoom)) {
                             throw new IllegalInputException("This ID does not validate!!");

@@ -1,8 +1,13 @@
 package case_study.furama_resort.controller;
 
+import case_study.furama_resort.service.BookingService;
+import case_study.furama_resort.service.IBookingService;
+import case_study.furama_resort.service.ICustomerService;
+
 import java.util.Scanner;
 
 public class BookingController {
+    private static final IBookingService bookingService = new BookingService();
     public static void displayBookingMenu() {
         Scanner scanner = new Scanner(System.in);
         BOOKING_MENU_WHILE:
@@ -25,8 +30,10 @@ public class BookingController {
             }
             switch (option) {
                 case 1:
+                    bookingService.addNewBooking();
                     break;
                 case 2:
+                    bookingService.displayBooking();
                     break;
                 case 3:
                     break;
@@ -35,8 +42,7 @@ public class BookingController {
                 case 5:
                     break;
                 case 6:
-                    FuramaController.displayMainMenu();
-                    break BOOKING_MENU_WHILE;
+                   break BOOKING_MENU_WHILE;
                 case 0:
                     break;
                 default:

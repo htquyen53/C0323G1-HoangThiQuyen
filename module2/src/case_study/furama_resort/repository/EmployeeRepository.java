@@ -88,6 +88,11 @@ public class EmployeeRepository implements IEmployeeRepository {
     }
 
     @Override
+    public Employee getByCitizenID(String citizenID) {
+        return null;
+    }
+
+    @Override
     public String getInfoToCSV(Employee employee) {
         return employee.getId() + "," + employee.getName() + "," + employee.getBirthday() + "," +
                 employee.isGender() + "," + employee.getCitizenID() + "," + employee.getNumberPhone() + "," +

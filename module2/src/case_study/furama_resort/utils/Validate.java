@@ -1,7 +1,5 @@
 package case_study.furama_resort.utils;
 
-import java.util.List;
-
 public class Validate {
     public static boolean checkEmployeeID(String id) {
         return id.matches("^(NV)-\\d{4}$");
@@ -22,6 +20,7 @@ public class Validate {
     public static boolean checkRoomID(String id) {
         return id.matches("^(SVRO)-\\d{4}$");
     }
+    public static boolean checkBookingID(String id) { return id.matches("^(BOK-\\d{4})$");}
 
     public static boolean checkFacility(String facility) {
         return facility.matches("^([A-Z]([a-z]+)\\s)+[A-Z]([a-z]+)$");
@@ -31,8 +30,8 @@ public class Validate {
         return name.matches("^([A-Z]([a-z]+)\\s)+([A-Z]([a-z]+))$");
     }
 
-    public static boolean checkBirthday(String birthday) {
-        return birthday.matches("^[0-3][0-9]/(0[1-9]|1[0-2])/\\d{4}$");
+    public static boolean checkDate(String date) {
+        return date.matches("^[0-3][0-9]/(0[1-9]|1[0-2])/\\d{4}$");
     }
 
     public static boolean checkCitizenID(String citizenID) {
@@ -46,7 +45,6 @@ public class Validate {
     public static boolean checkEmail(String email) {
         return email.matches("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$");
     }
-
     public static boolean checkInput(String input) {
         for (int i = 0; i < input.length(); i++) {
             if ((int) input.charAt(i) > 32 && (int) input.charAt(i) <= 64 ||

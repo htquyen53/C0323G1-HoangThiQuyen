@@ -59,7 +59,7 @@ public class CustomerService implements ICustomerService {
                 System.out.println("Enter the birthday of customer: ");
                 try {
                     birthday = scanner.nextLine();
-                    if (!Validate.checkBirthday(birthday)) {
+                    if (!Validate.checkDate(birthday)) {
                         throw new IllegalInputException("You have entered wrong format birthday, please re-enter");
                     }
                     break;
@@ -239,7 +239,7 @@ public class CustomerService implements ICustomerService {
                         do {
                             System.out.println("Edit birthday: ");
                             String birthday = scanner.nextLine();
-                            if (Validate.checkBirthday(birthday)) {
+                            if (Validate.checkDate(birthday)) {
                                 editCustomer.setBirthday(birthday);
                                 System.out.println("Edit successful!");
                                 break;

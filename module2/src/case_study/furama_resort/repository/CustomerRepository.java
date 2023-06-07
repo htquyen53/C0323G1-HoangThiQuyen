@@ -77,7 +77,16 @@ public class CustomerRepository implements ICustomerRepository {
             }
             return null;
         }
-
+    @Override
+    public Customer getByCitizenID(String citizenID) {
+        customerList = getAll();
+        for (Customer customer : customerList) {
+            if (customer.getCitizenID().equals(citizenID)) {
+                return customer;
+            }
+        }
+        return null;
+    }
         @Override
         public List<Customer> findByName (String name){
             return null;

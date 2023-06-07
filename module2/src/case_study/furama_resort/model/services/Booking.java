@@ -1,21 +1,25 @@
 package case_study.furama_resort.model.services;
 
+import java.util.Objects;
+
 public class Booking {
     private String bookingID;
     private String bookingDay;
     private String startDay;
     private String endDay;
-    private String id;
+    private String customerID;
+    private String facilityID;
 
     public Booking() {
     }
 
-    public Booking(String bookingID, String bookingDay, String startDay, String endDay, String id) {
+    public Booking(String bookingID, String bookingDay, String startDay, String endDay, String customerID, String facilityID) {
         this.bookingID = bookingID;
         this.bookingDay = bookingDay;
         this.startDay = startDay;
         this.endDay = endDay;
-        this.id = id;
+        this.customerID = customerID;
+        this.facilityID = facilityID;
     }
 
     public String getBookingID() {
@@ -50,12 +54,20 @@ public class Booking {
         this.endDay = endDay;
     }
 
-    public String getId() {
-        return id;
+    public String getCustomerID() {
+        return customerID;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
+    }
+
+    public String getFacilityID() {
+        return facilityID;
+    }
+
+    public void setFacilityID(String facilityID) {
+        this.facilityID = facilityID;
     }
 
     @Override
@@ -65,7 +77,21 @@ public class Booking {
                 ", bookingDay='" + bookingDay + '\'' +
                 ", startDay='" + startDay + '\'' +
                 ", endDay='" + endDay + '\'' +
-                ", id='" + id + '\'' +
+                ", customerID='" + customerID + '\'' +
+                ", facilityID='" + facilityID + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Booking booking = (Booking) o;
+        return Objects.equals(bookingID, booking.bookingID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookingID);
     }
 }

@@ -5,7 +5,6 @@ import case_study.furama_resort.repository.EmployeeRepository;
 import case_study.furama_resort.utils.IllegalInputException;
 import case_study.furama_resort.utils.Validate;
 
-import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
@@ -55,7 +54,7 @@ public class EmployeeService implements IEmployeeService {
             System.out.println("Enter birthday: ");
             try {
                 birthday = scanner.nextLine();
-                if (!Validate.checkBirthday(birthday)) {
+                if (!Validate.checkDate(birthday)) {
                     throw new IllegalInputException("Enter wrong format date! Please enter with format: 01/01/1999");
                 }
                 break;
@@ -279,7 +278,7 @@ public class EmployeeService implements IEmployeeService {
                         do {
                             System.out.println("Enter employee's birthday: ");
                             birthday = scanner.nextLine();
-                            if (Validate.checkBirthday(birthday)) {
+                            if (Validate.checkDate(birthday)) {
                                 editEmployee.setBirthday(birthday);
                                 System.out.println("Edit successful!");
                                 break;
