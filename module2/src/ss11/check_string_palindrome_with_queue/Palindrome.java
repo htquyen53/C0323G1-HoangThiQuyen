@@ -19,7 +19,7 @@ public class Palindrome {
         }
         boolean flag = true;
         for (int i = 0; i < stringArray.length; i++) {
-            if (!Objects.equals(stack.pop(), queue.pop())) {
+            if (!Objects.equals(stack.pop(), queue.poll())) {
                 flag = false;
                 break;
             }
