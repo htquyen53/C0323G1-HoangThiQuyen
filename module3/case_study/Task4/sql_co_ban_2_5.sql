@@ -1,5 +1,5 @@
 USE furama_management_system;
--- 2. Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự.
+-- 2. Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 kí tự. độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”;
 SELECT 
     e.employer_code, e.full_name
 FROM
@@ -8,7 +8,7 @@ WHERE
     (e.full_name LIKE 'H%'
         OR e.full_name LIKE 'T%'
         OR e.full_name LIKE 'K%')
-        AND CHAR_LENGTH(e.full_name) <= 15độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”;
+        AND CHAR_LENGTH(e.full_name) <= 15; 
 SELECT *
 FROM customer c
 WHERE ((datediff(NOW(),c.birthday)/365) >=18 AND (datediff(NOW(),c.birthday)/365) <=50) AND (c.address like "%Đà Nẵng" OR c.address like "%Quảng Trị");
@@ -33,7 +33,8 @@ SELECT
     s.name_service,
     co.contract_date,
     co.contract_end_date,
-    s.rental_code + sum(acs.accompanied_service_price*ifnull(cdt.quantity,0)) as Total
+    sum(ifnull(s.rental_code,0) + ifnull(acs.accompanied_service_price*cdt.quantity,0)) as total
+    -- s.rental_code + sum(acs.accompanied_service_price*ifnull(cdt.quantity,0)) as Total
 FROM
     customer c
         LEFT JOIN
@@ -43,7 +44,7 @@ FROM
         LEFT JOIN
     services s ON s.service_code = co.code_service
         LEFT JOIN
-    contract_detail cdt ON co.contract_code = cdt.contract_code
+    contract_detail cdt ON  cdt.contract_code = co.contract_code
         LEFT JOIN
     accompanied_service acs ON acs.accompanied_service_code = cdt.accompanied_service_code
     group by co.contract_code;
