@@ -3,16 +3,23 @@ USE furama_management_system;
 -- sử dụng bởi những khách hàng có ten_loai_khach là “Diamond” và 
 -- có dia_chi ở “Vinh” hoặc “Quảng Ngãi”.
 
-SELECT *
-FROM accompanied_service accs 
-JOIN contract_detail cod ON accs.accompanied_service_code = cod.accompanied_service_code
-JOIN contract co ON co.contract_code = cod.contract_code
-JOIN customer c ON c.customer_code = co.customer_code
-JOIN customer_type ctp ON ctp.customer_type_code = c.customer_type_code
-WHERE ctp.type_of_customer = "Diamond" AND (c.address LIKE "%Vinh" OR  c.address LIKE "%%Quảng Ngãi")
-GROUP BY accs.accompanied_service_code;
-
--- 12.	Hiển thị thông tin ma_hop_dong, ho_ten (nhân viên), ho_ten (khách hàng), so_dien_thoai (khách hàng),
+SELECT 
+    *
+FROM
+    accompanied_service accs
+        JOIN
+    contract_detail cod ON accs.accompanied_service_code = cod.accompanied_service_code
+        JOIN
+    contract co ON co.contract_code = cod.contract_code
+        JOIN
+    customer c ON c.customer_code = co.customer_code
+        JOIN
+    customer_type ctp ON ctp.customer_type_code = c.customer_type_code
+WHERE
+    ctp.type_of_customer = 'Diamond'
+        AND (c.address LIKE '%Vinh'
+        OR c.address LIKE '%%Quảng Ngãi')
+GROUP BY accs.accompanied_service_code viên), ho_ten (khách hàng), so_dien_thoai (khách hàng),
 -- ten_dich_vu, so_luong_dich_vu_di_kem (được tính dựa trên việc sum so_luong ở dich_vu_di_kem),
 --  tien_dat_coc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2020 
 -- nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021.
@@ -101,7 +108,7 @@ SELECT cod.accompanied_service_code AS 'code', count(cod.accompanied_service_cod
 SELECT e.employer_code, e.full_name, a.academic_level_name, d.department_name, e.numberphone, e.address
 FROM (SELECT co.employer_code AS 'code', count(co.employer_code) AS "count_contract"
  FROM contract co
- WHERE co.contract_date BETWEEN "2020-01-01" AND "2021-12-31"
+ WHERE co.contract_date BETWEEN "2021-01-01" AND "2021-12-31"
  GROUP BY co.employer_code) count_table
  JOIN employer e ON e.employer_code = count_table.code
  JOIN academic_level a ON a.academic_level_code = e.academic_level_code
