@@ -8,7 +8,7 @@ CREATE TABLE rental_type (
 );
 
 CREATE TABLE service_type (
-    code_service INT AUTO_INCREMENT PRIMARY KEY,
+    service_type_code INT AUTO_INCREMENT PRIMARY KEY,
     name_service_type VARCHAR(45)
 );
 
@@ -25,9 +25,9 @@ CREATE TABLE services (
 	rental_code INT,
     FOREIGN KEY (rental_code)
         REFERENCES rental_type (code_rental),
-    service_code INT,
-    FOREIGN KEY (service_code)
-        REFERENCES service_type (code_service)
+    service_type_code INT,
+    FOREIGN KEY (service_type_code)
+        REFERENCES service_type (service_type_code)
 );
 CREATE TABLE accompanied_service (
     accompanied_service_code INT AUTO_INCREMENT PRIMARY KEY,
