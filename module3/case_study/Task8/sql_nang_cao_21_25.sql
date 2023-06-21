@@ -53,18 +53,20 @@ CALL sp_them_moi_hop_dong (13, "2020-07-14 00:00:00",	"2020-07-21 00:00:00",	210
 -- Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
    
 SELECT count(*) FROM contract;
+
 DELIMITER //
 CREATE TRIGGER tr_xoa_hop_dong 
 AFTER DELETE ON contract
 FOR EACH ROW
 BEGIN
-SELECT count(*) INTO @count FROM contract;
-SET @message = CONCAT('Number of remaining contracts:', @count);
-SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = @message; 
+SELECT count(*) INTO @msg FROM contract;
+-- SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = @message; 
 END //
 DELIMITER ;
-DROP TRIGGER tr_xoa_hop_dong ;
-DELETE FROM contract
-WHERE contract_code = 2;
 
+DROP TRIGGER tr_xoa_hop_dong ;
+set @msg=0;
+DELETE FROM contract co
+WHERE co.contract_code = 2;
+select @msg as'hợp đồng còn lại'
 
