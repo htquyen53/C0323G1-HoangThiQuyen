@@ -1,6 +1,6 @@
 USE furama_management_system;
 -- 16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2019 đến năm 2021.
-
+SET SQL_SAFE_UPDATES = 0;
 DELETE e FROM (SELECT e.employer_code as 'code'
 	FROM employer e
 	WHERE e.employer_code NOT IN (SELECT e.employer_code
@@ -10,8 +10,14 @@ DELETE e FROM (SELECT e.employer_code as 'code'
 		GROUP BY e.employer_code)
  GROUP BY code) non_contract 
  JOIN employer e ON e.employer_code = non_contract.code ;
-     SELECT * FROM employer;
-     
+SET SQL_SAFE_UPDATES = 1;
+SELECT * FROM employer;
+	
+SELECT e.employer_code
+		FROM employer e
+		JOIN contract co ON co.employer_code = e.employer_code
+		WHERE co.contract_date BETWEEN "2019-01-01" AND "2021-12-31"
+		GROUP BY e.employer_code;
  -- 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond,
  -- chỉ cập nhật những khách hàng đã từng đặt phòng với 
  -- Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
