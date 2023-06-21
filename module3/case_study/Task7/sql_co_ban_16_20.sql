@@ -15,39 +15,43 @@ DELETE e FROM (SELECT e.employer_code as 'code'
  -- 17.	Cập nhật thông tin những khách hàng có ten_loai_khach từ Platinum lên Diamond,
  -- chỉ cập nhật những khách hàng đã từng đặt phòng với 
  -- Tổng Tiền thanh toán trong năm 2021 là lớn hơn 10.000.000 VNĐ.
- 
- UPDATE customer_type ct 
-	SET ct.type_of_customer = "Diamond"
-	WHERE ct.type_of_customer = "Platinum" AND ( SELECT total_per_customer.total AS 'vip'
-    FROM
-		(SELECT 
-			c.customer_code,
-			sum(total_per_contract_table.total_per_contract) AS 'total'
-			FROM 
-            customer c
-            JOIN (SELECT 	c.customer_code AS 'code', 
-							co.contract_code,
-							(s.rental_cost + (ifnull(cod.quantity,0)*(ifnull(acs.accompanied_service_price,0))))as 'Total_per_contract'
-				FROM customer c
-				JOIN contract co ON co.customer_code = c.customer_code
-				LEFT JOIN contract_detail cod ON cod.contract_code = co.contract_code
-				JOIN services s ON s.code_service = co.code_service
-				LEFT JOIN accompanied_service acs ON acs.accompanied_service_code = cod.accompanied_service_code
-				WHERE co.contract_date BETWEEN "2021-01-01" AND "2021-12-31"
-				GROUP BY co.contract_code) total_per_contract_table ON c.customer_code = total_per_contract_table.code
-			GROUP BY c.customer_code) total_per_contract
-            HAVING total_per_customer.total>10000000);
+ 	SET SQL_SAFE_UPDATES = 0;
+ UPDATE customer c
+	SET c.customer_type_code = 1
+	WHERE c.customer_type_code IN 
+				(SELECT c.customer_type_code 
+                FROM  (SELECT 	c.customer_code AS 'code', 
+						c.full_name AS 'name',
+						c.customer_type_code,
+						ct.type_of_customer AS 'type',
+						sum(s.rental_cost + ifnull(cod.quantity*acs.accompanied_service_price,0)) as 'Total'
+					FROM customer c
+					JOIN customer_type ct ON c.customer_type_code = ct.customer_type_code 
+					JOIN contract co ON co.customer_code = c.customer_code
+					LEFT JOIN contract_detail cod ON cod.contract_code = co.contract_code
+					JOIN services s ON s.code_service = co.code_service
+					LEFT JOIN accompanied_service acs ON acs.accompanied_service_code = cod.accompanied_service_code
+					WHERE (co.contract_date BETWEEN "2021-01-01" AND "2021-12-31") AND ct.type_of_customer = "Platinium"
+					GROUP BY code
+					HAVING Total > 10000 
+					ORDER BY code) result);
+	SET SQL_SAFE_UPDATES = 1;
             
 				SELECT 	c.customer_code AS 'code', 
-						co.contract_code,
-						(s.rental_cost + (ifnull(cod.quantity,0)*(ifnull(acs.accompanied_service_price,0))))as 'Total_per_contract'
+						c.full_name AS 'name',
+                        c.customer_type_code,
+						ct.type_of_customer AS 'Type',
+						sum(s.rental_cost + ifnull(cod.quantity*acs.accompanied_service_price,0)) as 'Total'
 				FROM customer c
+                JOIN customer_type ct ON c.customer_type_code = ct.customer_type_code 
 				JOIN contract co ON co.customer_code = c.customer_code
 				LEFT JOIN contract_detail cod ON cod.contract_code = co.contract_code
 				JOIN services s ON s.code_service = co.code_service
 				LEFT JOIN accompanied_service acs ON acs.accompanied_service_code = cod.accompanied_service_code
-				WHERE co.contract_date BETWEEN "2021-01-01" AND "2021-12-31"
-				GROUP BY co.contract_code;
+				WHERE (co.contract_date BETWEEN "2021-01-01" AND "2021-12-31") AND ct.type_of_customer = "Platinium"
+				GROUP BY code
+                HAVING Total > 10000 
+                ORDER BY code;
     
     -- 18.	Xóa những khách hàng có hợp đồng trước năm 2021 (chú ý ràng buộc giữa các bảng).
     SET FOREIGN_KEY_CHECKS = 0;
