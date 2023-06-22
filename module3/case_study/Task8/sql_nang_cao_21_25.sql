@@ -69,4 +69,3 @@ set @msg=0;
 DELETE FROM contract co
 WHERE co.contract_code = 2;
 select @msg as'hợp đồng còn lại'
-
