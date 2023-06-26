@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.pic_1 {
+    width: 100%;
+    left: 30px;
+    position: relative;
+}
+body {
+    margin: 0;
+}
+
+#header {
+    background: blanchedalmond;
+    height: 100px;
+    width: 100%;
+    position: sticky;
+    float: left;
+}
+
+#head-link {
+    height: 50px;
+    width: 100%;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: gray;
+    align-content: center;
+    margin-bottom: 5px;
+    color: black;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+#head-link a {
+    text-decoration: none;
+    color: black;
+}
+#head-link a:hover {
+    color: wheat;
+}
+#sidebar {
+    background: white;
+    float: left;
+}
+
+#main {
+    background: white;
+    left: 30px;
+    right: 30px;
+    float: left;
+}
+#main.video {
+    float: left;
+}
+#content {
+    background-color: white;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#footer {
+    background: pink;
+    height: 100px;
+    width: 100%;
+    clear: both;
+}
