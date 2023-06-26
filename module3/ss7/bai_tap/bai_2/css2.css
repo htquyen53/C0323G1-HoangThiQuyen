@@ -28,12 +28,16 @@
     left: 30px;
     position: relative;
 }
+iframe {
+    width: 100%;
+    position: relative;
+}
 body {
     margin: 0;
 }
 
 #header {
-    background: blanchedalmond;
+    background: cadetblue;
     height: 100px;
     width: 100%;
     position: sticky;
@@ -46,7 +50,7 @@ body {
     line-height: 30px;
     padding-left: 10px;
     padding-right: 10px;
-    background-color: gray;
+    background-color: beige;
     align-content: center;
     margin-bottom: 5px;
     color: black;
@@ -59,7 +63,7 @@ body {
     color: black;
 }
 #head-link a:hover {
-    color: wheat;
+    color: palevioletred;
 }
 #sidebar {
     background: white;
@@ -70,9 +74,6 @@ body {
     background: white;
     left: 30px;
     right: 30px;
-    float: left;
-}
-#main.video {
     float: left;
 }
 #content {
