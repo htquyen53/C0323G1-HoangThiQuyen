@@ -1,10 +1,33 @@
-body{
+body {
     margin: 0;
     font-family: sans-serif;
-    background-color: beige;
+    background-color: white;
 }
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(12,1fr);
+    grid-template-columns: repeat(12, 1fr);
     gap: 30px;
+}
+
+header {
+    padding: 20px 40px;
+    background: #F8F8FF;
+}
+
+header nav div a img {
+    grid-column: 2/span 3;
+    width: 100%;
+}
+main {
+    max-width: 1200px;
+    margin:  60px auto;
+    padding: 20px;
+}
+main img {
+    grid-column: span 6;
+    width: 100%;
+}
+main .introduce {
+    grid-column: span 6;
 }
