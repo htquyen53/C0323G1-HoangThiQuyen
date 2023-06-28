@@ -7,27 +7,37 @@ body {
 .grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 30px;
+    gap: 0px;
 }
 
 header {
     padding: 20px 40px;
-    background: #F8F8FF;
 }
 
-header nav div a img {
+header img {
     grid-column: 2/span 3;
     width: 100%;
+    height: auto;
 }
 main {
-    max-width: 1200px;
-    margin:  60px auto;
-    padding: 20px;
+    background-image: url(https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/surface-pro-9_multi-color_Pride-english?scl=1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
 }
-main img {
-    grid-column: span 6;
-    width: 100%;
-}
+
 main .introduce {
     grid-column: span 6;
+    margin-top: 300px;
+    margin-left: 100px;
+    font-size: x-large;
+}
+main .introduce h1 {
+    font-size: 450%;
+}
+main .introduce a {
+    text-decoration: none;
+    cursor: pointer;
+    color: #111111;
+    margin-left: 30px;
 }
