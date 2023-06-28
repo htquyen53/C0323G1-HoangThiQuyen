@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: "Segoe UI";
     background-color: white;
 }
 
@@ -9,7 +9,6 @@ body {
     grid-template-columns: repeat(12, 1fr);
     gap: 0px;
 }
-
 header {
     padding: 20px 40px;
 }
@@ -17,7 +16,13 @@ header {
 header img {
     grid-column: 2/span 3;
     width: 100%;
-    height: auto;
+}
+header nav {
+    grid-column: 2/span 6;
+    text-decoration: none;
+}
+header nav a:hover {
+    text-decoration: underline;
 }
 main {
     background-image: url(https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/surface-pro-9_multi-color_Pride-english?scl=1);
@@ -35,9 +40,30 @@ main .introduce {
 main .introduce h1 {
     font-size: 450%;
 }
+main .introduce p{
+    margin-right:  50px;
+}
 main .introduce a {
     text-decoration: none;
     cursor: pointer;
     color: #111111;
     margin-left: 30px;
+}
+main .introduce a::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    vertical-align: middle;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 5px solid black;
+    transition: margin-left 0.1s ease-in-out;
+}
+main .introduce a:hover{
+    text-decoration: underline;
+}
+main .introduce a:hover::after{
+    margin-left: 15px;
 }
