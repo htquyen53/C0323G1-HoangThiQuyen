@@ -23,8 +23,8 @@ public class DiscountServlet extends HttpServlet {
         float discount_price = price - discount_amount;
         request.setAttribute("description", description);
         request.setAttribute("price", price);
-        request.setAttribute("discount_amount", discount_amount);
-        request.setAttribute("discount_price", discount_price);
+        request.setAttribute("discountAmount", discount_amount);
+        request.setAttribute("discountPrice", discount_price);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("display.jsp");
         requestDispatcher.forward(request, response);
 

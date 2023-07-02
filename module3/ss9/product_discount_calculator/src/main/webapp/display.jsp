@@ -14,7 +14,7 @@
 <body>
 <p> Descriptoon: ${description}</p>
 <p>Price: ${price}</p>
-<p>Discount Amount: <span>${discount_amount}</span></p>
-<p>Discount Price: <span>${discount_price}</span></p>
+<p>Discount Amount: <span>${discountAmount}</span></p>
+<p>Discount Price: <span>${discountPrice}</span></p>
 </body>
 </html>
