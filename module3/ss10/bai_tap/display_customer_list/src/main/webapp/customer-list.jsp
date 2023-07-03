@@ -10,6 +10,15 @@
 <html>
 <head>
     <title>DANH SÁCH KHÁCH HÀNG</title>
+    <style>
+        table {
+            border: 1px solid blue;
+            align-content: center;
+        }
+        td, th {
+            border: 1px solid blue;
+        }
+    </style>
 </head>
 <body>
 <table>
@@ -17,10 +26,10 @@
     <c:forEach var="customer" items="${customerList}" varStatus="loop">
         <tr>
             <td>${loop.count}</td>
-            <td><c:out value="${customer.name}"/></td>
-            <td><c:out value="${customer.birthday}"/></td>
-            <td><c:out value="${customer.address}"/></td>
-            <td><c:out value="${customer.img}"/></td>
+            <td>"${customer.name}"</td>
+            <td>"${customer.birthday}</td>
+            <td>"${customer.address}</td>
+            <td><img src="${customer.img}" style="width: 100px; height: 100px"></td>
         </tr>
     </c:forEach>
 </table>

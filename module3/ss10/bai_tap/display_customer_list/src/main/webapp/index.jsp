@@ -6,7 +6,7 @@
 </head>
 <body>
 <form action="/customer-list" method="post" >
+    <button type="submit">Display List of Customers</button>
 </form>
-<a href="customer-list">Display List of Customers</a>
 </body>
 </html>

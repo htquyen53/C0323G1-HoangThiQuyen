@@ -18,12 +18,13 @@
             </tr>
             <tr>
                 <td>Operator:</td>
-                <td><select disabled="disabled" name="operator">
-                    <option name="addition" value="+">Addition</option>
-                    <option name="subtraction" value="-">Subtraction</option>
-                    <option name="multiplication" value="*">Multiplication</option>
-                    <option name="division" value="/">Division</option>
-                </select>
+                <td>
+                    <select name="operator">
+                        <option name="addition" value="+">Addition</option>
+                        <option name="subtraction" value="-">Subtraction</option>
+                        <option name="multiplication" value="*">Multiplication</option>
+                        <option name="division" value="/">Division</option>
+                    </select>
                 </td>
             </tr>
             <tr>
