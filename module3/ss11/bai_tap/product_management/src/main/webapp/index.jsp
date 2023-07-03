@@ -6,6 +6,6 @@
 </head>
 <body>
 <br/>
-<a href="/ProductServlet">List of Products</a>
+<a href="/ProductServlet">Danh sách sản phẩm</a>
 </body>
 </html>

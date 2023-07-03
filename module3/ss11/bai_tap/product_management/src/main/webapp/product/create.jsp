@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Create new product</h1>
-<form action="/ProductServlet?action=create" method="post" style="width: 500px">
+<form method="post" style="width: 500px">
     <fieldset>
         <legend>Thêm sản phẩm mới</legend>
         <table>
@@ -38,7 +38,7 @@
                 <td><input type="text" name="manufacturer" id="manufacturer"></td>
             </tr>
             <tr>
-                <td><input type="submit" value="submit"></td>
+                <td><input type="submit" value="Create"></td>
                 <td></td>
             </tr>
         </table>

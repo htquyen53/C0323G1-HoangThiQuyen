@@ -14,29 +14,33 @@
         table {
             border: 1px solid blue;
         }
+
         th, td {
             border: 1px solid blue;
         }
     </style>
 </head>
-<body>
+<br>
 <h1>Products</h1>
 <br>
-    <a href="/ProductServlet?action=create">Thêm mới</a></br>
-    <c:if test="${msg != null}">
-        <c:out value="${msg}"/>
-    </c:if>
+<a href="/ProductServlet?action=create">Thêm mới</a></br>
+<a href="/ProductServlet?action=delete">Xóa sản phẩm</a></br>
+<a href="/ProductServlet?action=view">Tìm kiếm sản phẩm</a></br>
+
+<c:if test="${msg != null}">
+    <c:out value="${msg}"/>
+</c:if>
 </p>
 <table>
     <tr>
-        <th>STT: </th>
-        <th>Tên sản phẩm: </th>
-        <th>Giá: </th>
-        <th>Mô tả: </th>
-        <th>Nhà sản xuất: </th>
+        <th>STT:</th>
+        <th>Tên sản phẩm:</th>
+        <th>Giá:</th>
+        <th>Mô tả:</th>
+        <th>Nhà sản xuất:</th>
         <th></th>
     </tr>
-    <c:forEach items="${products}" var = "product" varStatus="loop">
+    <c:forEach items="${products}" var="product" varStatus="loop">
         <tr>
             <td><c:out value="${loop.count}"/></td>
             <td><c:out value="${product.getNameProduct()}"/></td>

@@ -21,7 +21,7 @@
 <p>
     <a href="/customers"> Quay lại danh sách </a>
 </p>
-<form action="/ProductServlet?action=update" method="post">
+<form method="post">
     <fieldset>
         <legend>Thông tin sản phẩm</legend>
         <table>
