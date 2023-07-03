@@ -39,7 +39,7 @@
             </tr>
             <tr>
                 <td>Manufacturer: </td>
-                <td><input type="text" name="manufacturer" id = "description" value="${requestScope["product"].getDescription()}"></td>
+                <td><input type="text" name="manufacturer" id = "manufacturer" value="${requestScope["product"].getManufacturer()}"></td>
             </tr>
         </table>
     </fieldset>
