@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.Currency;
 import java.util.List;
 
 @WebServlet(name = "ProductServlet", value = "/ProductServlet")
@@ -31,12 +32,30 @@ public class ProductServlet extends HttpServlet {
                 showDeleteForm(request, response);
                 break;
             case "view":
-                break;
-            case "search":
+                viewProduct(request,response);
                 break;
             default:
                 showList(request, response);
                 break;
+        }
+    }
+
+    private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = this.productService.findById(id);
+        RequestDispatcher dispatcher;
+        if (product == null){
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        } else {
+            request.setAttribute("product", product);
+            dispatcher = request.getRequestDispatcher("product/view.jsp");
+        }
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -120,8 +139,6 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 deleteProduct(request,response);
                 break;
-            case "search":
-                break;
             default:
                 break;
         }
@@ -132,7 +149,7 @@ public class ProductServlet extends HttpServlet {
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
         if(product == null) {
-            dispatcher = request.getRequestDispatcher("error-404.jsp")
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             this.productService.remove(id);
         } try {

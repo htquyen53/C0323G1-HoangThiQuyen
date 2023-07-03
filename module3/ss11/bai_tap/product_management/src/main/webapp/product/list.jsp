@@ -34,6 +34,7 @@
         <th>Giá: </th>
         <th>Mô tả: </th>
         <th>Nhà sản xuất: </th>
+        <th></th>
     </tr>
     <c:forEach items="${products}" var = "product" varStatus="loop">
         <tr>
@@ -42,6 +43,7 @@
             <td><c:out value="${product.getPriceProduct()}"/></td>
             <td><c:out value="${product.getDescription()}"/></td>
             <td><c:out value="${product.getManufacturer()}"/></td>
+            <td><a href="/ProductServlet?action=update">Chỉnh sửa</a></td>
         </tr>
     </c:forEach>
 </table>

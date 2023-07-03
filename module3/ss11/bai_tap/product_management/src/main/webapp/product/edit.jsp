@@ -21,7 +21,7 @@
 <p>
     <a href="/customers"> Quay lại danh sách </a>
 </p>
-<form method="post">
+<form action="/ProductServlet?action=update" method="post">
     <fieldset>
         <legend>Thông tin sản phẩm</legend>
         <table>
@@ -46,6 +46,7 @@
                 <td><input type="submit" value="Update product"></td>
             </tr>
         </table>
+        <a href="/ProductServlet">Trở về danh sách</a>
     </fieldset>
 </form>
 </body>
