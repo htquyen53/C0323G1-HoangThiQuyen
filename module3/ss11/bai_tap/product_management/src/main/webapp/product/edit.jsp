@@ -41,6 +41,10 @@
                 <td>Manufacturer: </td>
                 <td><input type="text" name="manufacturer" id = "manufacturer" value="${requestScope["product"].getManufacturer()}"></td>
             </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update product"></td>
+            </tr>
         </table>
     </fieldset>
 </form>
