@@ -21,8 +21,8 @@
         <a href="/UserServlet?action=create">Add New User</a>
     </h2>
 </center>
-<div align="center">
-    <table border="1" cellpadding="5">
+<div style="align-content: center">
+    <table style="border: 1px solid gold">
         <caption><h2>List of Users</h2></caption>
         <tr>
             <th>ID</th>
