@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Currency;
 import java.util.List;
 
@@ -32,7 +33,10 @@ public class ProductServlet extends HttpServlet {
                 showDeleteForm(request, response);
                 break;
             case "view":
-                viewProduct(request,response);
+                viewProduct(request, response);
+                break;
+            case "confirm":
+                confirmDeleteProduct(request, response);
                 break;
             default:
                 showList(request, response);
@@ -40,11 +44,27 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
+    private void confirmDeleteProduct(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        this.productService.remove(id);
+        boolean flag=false;
+        request.setAttribute("msg", "Delete complete");
+        request.setAttribute("flag", flag);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/delete.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
-        if (product == null){
+        if (product == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             request.setAttribute("product", product);
@@ -60,15 +80,8 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
-        if (product == null) {
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
-        } else {
-            request.setAttribute("product", product);
-            dispatcher = request.getRequestDispatcher("product/delete.jsp");
-        }
+        dispatcher = request.getRequestDispatcher("product/delete.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -137,7 +150,7 @@ public class ProductServlet extends HttpServlet {
                 updateProduct(request, response);
                 break;
             case "delete":
-                deleteProduct(request,response);
+                deleteProduct(request, response);
                 break;
             default:
                 break;
@@ -146,14 +159,16 @@ public class ProductServlet extends HttpServlet {
 
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
+        boolean flag = true;
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
-        if(product == null) {
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
-        } else {
-            this.productService.remove(id);
-        } try {
-            response.sendRedirect("/ProductServlet");
+        request.setAttribute("flag", flag);
+        request.setAttribute("product", product);
+        dispatcher = request.getRequestDispatcher("product/delete.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

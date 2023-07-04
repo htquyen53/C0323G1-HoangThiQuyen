@@ -57,4 +57,15 @@ public class Product {
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "idProduct=" + idProduct +
+                ", nameProduct='" + nameProduct + '\'' +
+                ", priceProduct=" + priceProduct +
+                ", description='" + description + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                '}';
+    }
 }

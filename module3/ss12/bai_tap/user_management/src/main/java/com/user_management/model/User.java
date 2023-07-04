@@ -1,20 +1,22 @@
-package com.practise_customer_management.model;
+package com.user_management.model;
 
-public class Customer {
-    private int id;
-    private String name;
-    private String email;
-    private String address;
+public class User {
+    protected int id;
+    protected String name;
+    protected String email;
+    protected String country;
 
-    public Customer() {
+    public User() {
     }
 
-    public Customer(int id, String name, String email, String address) {
+    public User(int id, String name, String email, String country) {
+        super();
         this.id = id;
         this.name = name;
         this.email = email;
-        this.address = address;
+        this.country = country;
     }
+
 
     public int getId() {
         return id;
@@ -40,11 +42,11 @@ public class Customer {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
+    public String getCountry() {
+        return country;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCountry(String country) {
+        this.country = country;
     }
 }

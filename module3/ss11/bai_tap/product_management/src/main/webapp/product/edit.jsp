@@ -18,9 +18,6 @@
         <span class="message">${requestScope["message"]}</span>
     </c:if>
 </p>
-<p>
-    <a href="/customers"> Quay lại danh sách </a>
-</p>
 <form method="post">
     <fieldset>
         <legend>Thông tin sản phẩm</legend>

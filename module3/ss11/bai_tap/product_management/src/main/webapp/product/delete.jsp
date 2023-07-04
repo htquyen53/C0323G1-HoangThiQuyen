@@ -13,29 +13,33 @@
 </head>
 <body>
 <h1>Delete product</h1>
-<p>
-    <a href="/ProductServlet">Quay lại danh sách</a>
-</p>
+
 <form method="post">
+    <label for="id">Nhập id</label>
+    <input type="text" id="id" name="id">
     <h3>Are you sure?</h3>
     <fieldset>
         <legend>Product Information</legend>
         <table>
             <tr>
-                <td>Name: </td>
-                <td>${requestScope["product"].getNameProduct()}</td>
+                <td>Id: </td>
+                <td>${product.getIdProduct()}</td>
             </tr>
             <tr>
                 <td>Name: </td>
-                <td>${requestScope["product"].getPriceProduct()}</td>
+                <td>${product.getNameProduct()}</td>
             </tr>
             <tr>
-                <td>Name: </td>
-                <td>${requestScope["product"].getDescription()}</td>
+                <td>Price: </td>
+                <td>${product.getPriceProduct()}</td>
             </tr>
             <tr>
-                <td>Name: </td>
-                <td>${requestScope["product"].getManufacturer()}</td>
+                <td>Description: </td>
+                <td>${product.getDescription()}</td>
+            </tr>
+            <tr>
+                <td>Manufacturer: </td>
+                <td>${product.getManufacturer()}</td>
             </tr>
             <tr>
                 <td><input type="submit" value="Delete"></td>
@@ -44,5 +48,8 @@
         </table>
     </fieldset>
 </form>
+<c:if test="${flag==true}">
+    <a href="/ProductServlet?action=confirm&id=${product.getIdProduct()}">Confirm</a>
+</c:if>
 </body>
 </html>
