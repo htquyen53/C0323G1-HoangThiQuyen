@@ -189,7 +189,7 @@ public class UserServlet extends HttpServlet {
             User user = new User(id, name, email, country);
             userService.add(user);
             try {
-                response.sendRedirect("/UserSelvlet?msg=Add%20new%successful!");
+                response.sendRedirect("/UserServlet?msg=Add%20new%successful!");
             } catch (IOException e) {
                 e.printStackTrace();
             }

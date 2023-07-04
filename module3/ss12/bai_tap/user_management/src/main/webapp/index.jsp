@@ -5,7 +5,7 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "USER MANAGEMENT" %>
 </h1>
 <br/>
 <a href="/UserServlet">Users List</a>
