@@ -28,7 +28,7 @@ public class UserServlet extends HttpServlet {
                 showEditFrom(request, response);
                 break;
             case "delete":
-                showDeleteFrom(request, response);
+                showDeleteForm(request, response);
                 break;
             case "view":
                 viewUser(request, response);
@@ -74,7 +74,7 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void showDeleteFrom(HttpServletRequest request, HttpServletResponse response) {
+    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.searchById(id);
         RequestDispatcher dispatcher;
