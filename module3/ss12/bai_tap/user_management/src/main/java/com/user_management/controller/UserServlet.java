@@ -33,6 +33,9 @@ public class UserServlet extends HttpServlet {
             case "view":
                 viewUser(request, response);
                 break;
+            case "sort":
+                sortByName(request, response);
+                break;
             default:
                 showUsers(request, response);
                 break;
@@ -40,8 +43,16 @@ public class UserServlet extends HttpServlet {
 
     }
 
+    private void sortByName(HttpServletRequest request, HttpServletResponse response) {
+        List<User> users = userService.sortByName();
+        RequestDispatcher requestDispatcher;
+    }
+
     private void showUsers(HttpServletRequest request, HttpServletResponse response) {
         List<User> users = userService.showUsers();
+        System.out.println("a");
+        System.out.println(users);
+        System.out.println("a");
         String msg = request.getParameter("msg");
         request.setAttribute("msg", msg);
         request.setAttribute("users", users);
@@ -154,44 +165,44 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-        private void updateUser (HttpServletRequest request, HttpServletResponse response){
-            int id = Integer.parseInt(request.getParameter("id"));
-            String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String country = request.getParameter("country");
-            User user = userService.searchById(id);
-            RequestDispatcher dispatcher;
-            if (user == null) {
-                dispatcher = request.getRequestDispatcher("error-404.jsp");
-            } else {
-                user.setName(name);
-                user.setEmail(email);
-                user.setCountry(country);
-                userService.edit(id, user);
-                request.setAttribute("user", user);
-                request.setAttribute("message", "Update successful!");
-                dispatcher = request.getRequestDispatcher("user/edit.jsp");
-            }
-            try {
-                dispatcher.forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    private void updateUser(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        User user = userService.searchById(id);
+        RequestDispatcher dispatcher;
+        if (user == null) {
+            dispatcher = request.getRequestDispatcher("error-404.jsp");
+        } else {
+            user.setName(name);
+            user.setEmail(email);
+            user.setCountry(country);
+            userService.edit(id, user);
+            request.setAttribute("user", user);
+            request.setAttribute("message", "Update successful!");
+            dispatcher = request.getRequestDispatcher("user/edit.jsp");
         }
-
-        private void createUser (HttpServletRequest request, HttpServletResponse response){
-            int id = Integer.parseInt(request.getParameter("id"));
-            String name = request.getParameter("name");
-            String email = request.getParameter("email");
-            String country = request.getParameter("country");
-            User user = new User(id, name, email, country);
-            userService.add(user);
-            try {
-                response.sendRedirect("/UserServlet?msg=Add%20new%successful!");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+
+    private void createUser(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        User user = new User(id, name, email, country);
+        userService.add(user);
+        try {
+            response.sendRedirect("/UserServlet?msg=Add%20new%successful!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

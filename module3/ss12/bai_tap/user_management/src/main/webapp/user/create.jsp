@@ -8,6 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
 <html>
 <head>
     <title>Create User</title>
@@ -32,6 +33,10 @@
             <tr>
                 <td>Country: </td>
                 <td><input type="text" name="country" id="country"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="submit" value="Submit"></td>
             </tr>
         </table>
     </fieldset>

@@ -14,6 +14,7 @@ public class BaseRepository {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
+            System.out.println("connect");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
