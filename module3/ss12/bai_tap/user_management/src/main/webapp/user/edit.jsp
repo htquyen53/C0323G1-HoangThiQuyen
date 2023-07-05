@@ -18,13 +18,14 @@
         <span class="message">${"message"}</span>
     </c:if>
 </p>
-<form method="post">
+<form action="/UserServlet?action=update" method="post">
     <fieldset>
         <legend>User Information</legend>
         <table>
             <tr>
                 <td>ID:</td>
-                <td><input type="number" name="id" id = "id" value="${user.id}"></td>
+                <td><label>${user.id}</label></td>
+                <td><input hidden="hidden" type="number" name="id" id = "id" value="${user.id}"></td>
             </tr>
             <tr>
                 <td>Name: </td>

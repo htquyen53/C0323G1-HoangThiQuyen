@@ -44,22 +44,12 @@ public class UserServlet extends HttpServlet {
     }
 
     private void deleteUser(HttpServletRequest request, HttpServletResponse response) {
-
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.searchById(id);
-        if (user == null) {
-            request.setAttribute("message", "user not found!");
-        } else {
-            userService.remove(id);
-            request.setAttribute("msg", "Delete complete!");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("user/delete.jsp");
-            try {
-                dispatcher.forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+       int id = Integer.parseInt(request.getParameter("id"));
+       userService.remove(id);
+        try {
+            response.sendRedirect("/UserServlet");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -70,9 +60,6 @@ public class UserServlet extends HttpServlet {
 
     private void showUsers(HttpServletRequest request, HttpServletResponse response) {
         List<User> users = userService.showUsers();
-        System.out.println("a");
-        System.out.println(users);
-        System.out.println("a");
         String msg = request.getParameter("msg");
         request.setAttribute("msg", msg);
         request.setAttribute("users", users);
@@ -151,7 +138,17 @@ public class UserServlet extends HttpServlet {
     }
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response) {
-        
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String country = request.getParameter("country");
+        User updateUser = new User(id, name, email, country);
+        userService.edit(updateUser);
+        try {
+            response.sendRedirect("/UserServlet");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void createUser(HttpServletRequest request, HttpServletResponse response) {
