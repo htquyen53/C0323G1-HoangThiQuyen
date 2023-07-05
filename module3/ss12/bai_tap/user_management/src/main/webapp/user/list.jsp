@@ -44,7 +44,7 @@
                 <td><c:out value="${user.email}"/></td>
                 <td><c:out value="${user.country}"/></td>
                 <td>
-                    <a href="/UserServlet?action=edit&id=${user.id}">Edit</a>
+                    <a href="/UserServlet?action=update&id=${user.id}">Edit</a>
                     <a href="/UserServlet?action=delete&id=${user.id}">Delete</a>
                 </td>
             </tr>

@@ -23,15 +23,19 @@
         <legend>User Information</legend>
         <table>
             <tr>
+                <td>ID:</td>
+                <td><input type="number" name="id" id = "id" value="${user.id}"></td>
+            </tr>
+            <tr>
                 <td>Name: </td>
                 <td><input type="text" name="name" id = "name" value="${requestScope["user"].getName()}"></td>
             </tr>
             <tr>
-                <td>Price: </td>
+                <td>Email: </td>
                 <td><input type="text" name="email" id = "email" value="${requestScope["user"].getEmail()}"></td>
             </tr>
             <tr>
-                <td>Description: </td>
+                <td>Country: </td>
                 <td><input type="text" name="country" id = "country" value="${requestScope["user"].getCountry()}"></td>
             </tr>
             <tr>

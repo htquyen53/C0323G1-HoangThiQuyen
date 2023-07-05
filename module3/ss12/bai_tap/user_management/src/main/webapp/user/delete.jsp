@@ -9,9 +9,12 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>DELETE</title>
 </head>
 <body>
-
-</body>
+<p>
+    <c:if test='${"message"!= null}'>
+        <span class="message">${"message"}</span>
+    </c:if>
+</p></body>
 </html>

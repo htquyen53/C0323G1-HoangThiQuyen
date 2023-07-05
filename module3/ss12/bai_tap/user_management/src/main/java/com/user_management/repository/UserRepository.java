@@ -35,8 +35,9 @@ public class UserRepository implements IUserRepository {
         User user = null;
         Connection connection = BaseRepository.getConnection();
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(SELECT_USER_BY_ID);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
             String name;
             String email;
             String country;

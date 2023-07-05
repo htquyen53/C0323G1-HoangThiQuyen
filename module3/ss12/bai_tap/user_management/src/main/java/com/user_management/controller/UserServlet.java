@@ -28,7 +28,7 @@ public class UserServlet extends HttpServlet {
                 showEditFrom(request, response);
                 break;
             case "delete":
-                showDeleteForm(request, response);
+                deleteUser(request, response);
                 break;
             case "view":
                 viewUser(request, response);
@@ -41,6 +41,26 @@ public class UserServlet extends HttpServlet {
                 break;
         }
 
+    }
+
+    private void deleteUser(HttpServletRequest request, HttpServletResponse response) {
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        User user = userService.searchById(id);
+        if (user == null) {
+            request.setAttribute("message", "user not found!");
+        } else {
+            userService.remove(id);
+            request.setAttribute("msg", "Delete complete!");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("user/delete.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response) {
@@ -85,26 +105,12 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.searchById(id);
-        RequestDispatcher dispatcher;
-        if (user == null) {
-            dispatcher = request.getRequestDispatcher("Error-404.jsp");
-        } else {
-            request.setAttribute("user", user);
-            dispatcher = request.getRequestDispatcher("user/edit.jsp");
-        }
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void showEditFrom(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        User user = userService.searchById(id);
+        System.out.println(user);
+        request.setAttribute("user",user);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         try {
             dispatcher.forward(request, response);
@@ -138,58 +144,14 @@ public class UserServlet extends HttpServlet {
                 break;
             case "update":
                 updateUser(request, response);
-            case "delete":
-                deleteUser(request, response);
                 break;
             default:
                 break;
         }
     }
 
-    private void deleteUser(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        User user = userService.searchById(id);
-        if (user == null) {
-            request.setAttribute("message", "user not found!");
-        } else {
-            userService.remove(id);
-            request.setAttribute("msg", "Delete complete!");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("user/delete.jsp");
-            try {
-                dispatcher.forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     private void updateUser(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String country = request.getParameter("country");
-        User user = userService.searchById(id);
-        RequestDispatcher dispatcher;
-        if (user == null) {
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
-        } else {
-            user.setName(name);
-            user.setEmail(email);
-            user.setCountry(country);
-            userService.edit(id, user);
-            request.setAttribute("user", user);
-            request.setAttribute("message", "Update successful!");
-            dispatcher = request.getRequestDispatcher("user/edit.jsp");
-        }
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        
     }
 
     private void createUser(HttpServletRequest request, HttpServletResponse response) {
