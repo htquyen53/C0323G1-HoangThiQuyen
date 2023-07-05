@@ -96,7 +96,6 @@ public class UserServlet extends HttpServlet {
     private void showEditFrom(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         User user = userService.searchById(id);
-        System.out.println(user);
         request.setAttribute("user",user);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         try {
