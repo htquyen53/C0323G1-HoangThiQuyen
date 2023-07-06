@@ -34,6 +34,11 @@ public class ProductRepository implements IProductRepository{
     }
 
     @Override
+    public List<Product> findByName(String name) {
+        return null;
+    }
+
+    @Override
     public void update(int id, Product product) {
         products.put(id, product);
     }

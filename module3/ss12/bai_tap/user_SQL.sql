@@ -8,7 +8,7 @@ email VARCHAR(220) NOT NULL,
 country VARCHAR(120)
 );
 insert into users(name, email, country)
-values("Minh", "minh@codegym.vn","Viet Nam");
+values("oanh", "a@codegym.vn","Viet Nam");
 insert into users(name, email, country)
 values("Kante", "kante@gmail.com", "Kenia");
 
@@ -33,3 +33,25 @@ DELIMITER ;
 drop procedure if exists update_user;
 
 call update_user(2,"Kante J","kante@gmail.com","Kenia");
+
+DELIMITER //
+create procedure delete_user(IN user_id int)
+BEGIN
+delete from users
+WHERE id = user_id;
+END //
+DELIMITER ;
+
+drop procedure if exists delete_user;
+call delete_user(2);
+
+DELIMITER //
+create procedure sort_by_name()
+BEGIN
+select * 
+from users
+order by name asc;
+END //
+DELIMITER ;
+drop procedure if exists sort_by_name;
+call sort_by_name();
