@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        form {
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 70%;
+            text-align: center;
+            border-collapse: collapse;
+            border: 3px solid peachpuff;
+        }
+
+        td, th {
+            border-collapse: collapse;
+            border: 1px solid gray;
+            text-align: center;
+        }
+
+        input {
+            border: 0px;
+        }
+
+        .msg {
+            text-align: center;
+            position: relative;
+        }
+        footer{
+            text-align: right;
+            margin-right: 200px;
+        }
+    </style>
+</head>
+<body>
+<footer th:fragment="footer">
+    &copy; 2021 CodeGym
+</footer>
+</body>
+
+</html>
