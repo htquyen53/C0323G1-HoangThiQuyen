@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+  <meta charset="UTF-8">
+  <title>Edit blog</title>
+</head>
+<body>
+<div>
+  <h1>BLOG DETAIL</h1>
+  <form th:action="@{my-blog/update}" th:object="${blog}" method="post">
+    <table>
+      <tr>
+        <td>#</td>
+        <td>
+          <input type="hidden" th:field="*{id}"/>
+        </td>
+      </tr>
+      <tr>
+        <th>Title:</th>
+        <td><input type="text" th:field="*{title}"/></td>
+      </tr>
+      <tr>
+        <th>Date Of Post</th>
+        <td><input type="number" th:field="*{datePost}"/></td>
+      </tr>
+      <tr>
+        <th>Author:</th>
+        <td><input type="text" th:field="*{authorName}"/></td>
+      </tr>
+      <tr>
+        <th>Category</th>
+        <td><input type="text" th:field="*{category}"/></td>
+      </tr>
+      <tr>
+        <th>Content</th>
+        <td><input type="text" th:field="*{content}"/></td>
+      </tr>
+      <tr>
+        <td colspan="2"><a th:href="@{my-blog/list}">Quay lại danh sách</a></td>
+      </tr>
+      <tr><input type="submit" value="Submit"></tr>
+    </table>
+  </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

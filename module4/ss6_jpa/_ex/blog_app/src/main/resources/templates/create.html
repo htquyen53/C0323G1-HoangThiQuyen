@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>POST DETAILS</h1>
+    <div class="form">
+        <form th:action="@{/my-blog/save}" th:object="${blog}" method="post" class="form-group">
+            <input type="hidden" th:field="*{id}"/>
+            <div>
+                <table>
+                    <tr>
+                        <th>Title:</th>
+                        <td><input class="form-control" type="text" th:field="*{title}"/></td>
+                    </tr>
+                    <tr>
+                        <th>Category:</th>
+                        <td><select th:field="*{category}">
+                                <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.categoryName}"></option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Date of post:</th>
+                        <td><input class="form-control" type="Date" th:field="*{datePost}"/></td>
+                    </tr>
+                    <tr>
+                        <th>Author:</th>
+                        <td><input class="form-control" type="text" th:field="*{authorName}"/></td>
+                    </tr>
+                    <tr>
+                        <th>Content:</th>
+                        <td><textarea th:field="*{content}" ></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>IMG:</th>
+                        <td><input class="form-control" type="text" th:field="*{imgPath}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input class="btn btn-success" type="submit" value="Save"/></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
