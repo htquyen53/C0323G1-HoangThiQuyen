@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div>
+        <a class="btn btn-primary" th:href="@{/my-blog/list}">Quay lại danh sách</a>
+    </div>
+    <div>
+        <h3>Chi tiết:</h3>
+    </div>
+    <div>
+        <table class="table table-stripped">
+            <tr>
+                <th>Tiêu đề:</th>
+                <td th:text="${blog.title}"></td>
+            </tr>
+            <tr>
+                <th>Tác giả:</th>
+                <td th:text="${blog.author.authorName}"></td>
+            </tr>
+            <tr>
+                <th>Ngày đăng:</th>
+                <td th:text="${blog.datePost.toString()}"></td>
+            </tr>
+            <tr>
+                <th>Thể loại:</th>
+                <td th:text="${blog.category.categoryName}"></td>
+            </tr>
+            <tr>
+                <th>Tóm tắt:</th>
+                <td th:text="${blog.summary.summaryPost}"></td>
+            </tr>
+            <tr>
+                <th>Nội dung:</th>
+                <td th:text="${blog.content}"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -2,6 +2,8 @@ package com.blog_app.service;
 
 import com.blog_app.model.Blog;
 import com.blog_app.model.Category;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -11,6 +13,7 @@ public interface IBlogService {
     boolean save(Blog blog);
     Blog findById(int id);
     boolean update(int id, Blog blog);
-    boolean deleteById(int Id);
+    boolean deleteById(int id);
+    Page<Blog> findAll(Pageable pageable, String name);
 
 }

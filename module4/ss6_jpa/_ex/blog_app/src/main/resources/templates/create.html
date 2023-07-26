@@ -12,7 +12,6 @@
     <h1>POST DETAILS</h1>
     <div class="form">
         <form th:action="@{/my-blog/save}" th:object="${blog}" method="post" class="form-group">
-            <input type="hidden" th:field="*{id}"/>
             <div>
                 <table>
                     <tr>
@@ -22,21 +21,30 @@
                     <tr>
                         <th>Category:</th>
                         <td><select th:field="*{category}">
-                                <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.categoryName}"></option>
+                            <option th:each="cat: ${categories}" th:value="${cat.id}"
+                                    th:text="${cat.categoryName}"></option>
                         </select>
                         </td>
                     </tr>
                     <tr>
-                        <th>Date of post:</th>
-                        <td><input class="form-control" type="Date" th:field="*{datePost}"/></td>
+                        <th>Summary</th>
+                        <td>
+
+                            <textarea th:field="*{summary.summaryPost}" name="summary" cols="30" rows="10"></textarea>
+                        </td>
                     </tr>
                     <tr>
                         <th>Author:</th>
-                        <td><input class="form-control" type="text" th:field="*{authorName}"/></td>
+                        <td><select th:field="*{author}">
+                            <option th:each="author: ${authors}" th:value="${author.id}"
+                                    th:text="${author.authorName}"></option>
+                        </select>
+                        </td>
                     </tr>
                     <tr>
                         <th>Content:</th>
-                        <td><textarea th:field="*{content}" ></textarea></td>
+                        <td><textarea th:field="*{content}" name="content" id="content" cols="50" rows="50"></textarea>
+                        </td>
                     </tr>
                     <tr>
                         <th>IMG:</th>

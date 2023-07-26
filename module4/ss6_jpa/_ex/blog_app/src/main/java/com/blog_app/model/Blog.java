@@ -15,7 +15,7 @@ public class Blog {
 
     @ManyToOne
     @JoinColumn(name = "id_author", referencedColumnName = "id")
-    private Author authorName;
+    private Author author;
 
     @OneToOne
     @JoinColumn (name = "summary_id", referencedColumnName = "id")
@@ -26,17 +26,6 @@ public class Blog {
     private Category category;
 
     public Blog() {
-    }
-
-    public Blog(int id, String title, String content, Date datePost, String imgPath, Author authorName, Summary summary, Category category) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.datePost = datePost;
-        this.imgPath = imgPath;
-        this.authorName = authorName;
-        this.summary = summary;
-        this.category = category;
     }
 
     public Blog(int id, String title, String content, Date datePost, String imgPath) {
@@ -87,12 +76,12 @@ public class Blog {
         this.imgPath = imgPath;
     }
 
-    public Author getAuthorName() {
-        return authorName;
+    public Author getAuthor() {
+        return author;
     }
 
-    public void setAuthorName(Author authorName) {
-        this.authorName = authorName;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     public Summary getSummary() {

@@ -1,47 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/layout :: head">
-  <meta charset="UTF-8">
-  <title>Edit blog</title>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div>
-  <h1>BLOG DETAIL</h1>
-  <form th:action="@{my-blog/update}" th:object="${blog}" method="post">
-    <table>
-      <tr>
-        <td>#</td>
-        <td>
-          <input type="hidden" th:field="*{id}"/>
-        </td>
-      </tr>
-      <tr>
-        <th>Title:</th>
-        <td><input type="text" th:field="*{title}"/></td>
-      </tr>
-      <tr>
-        <th>Date Of Post</th>
-        <td><input type="number" th:field="*{datePost}"/></td>
-      </tr>
-      <tr>
-        <th>Author:</th>
-        <td><input type="text" th:field="*{authorName}"/></td>
-      </tr>
-      <tr>
-        <th>Category</th>
-        <td><input type="text" th:field="*{category}"/></td>
-      </tr>
-      <tr>
-        <th>Content</th>
-        <td><input type="text" th:field="*{content}"/></td>
-      </tr>
-      <tr>
-        <td colspan="2"><a th:href="@{my-blog/list}">Quay lại danh sách</a></td>
-      </tr>
-      <tr><input type="submit" value="Submit"></tr>
-    </table>
-  </form>
+<div class="container">
+    <div style="text-align: center"><h1>POST DETAILS</h1></div>
+    <div class="form">
+        <form th:action="@{/my-blog/update}" th:object="${blog}" method="post" class="form-group">
+            <table class="table">
+                <tr>
+                    <td>#</td>
+                    <td>
+                        <input class="form-control" type="hidden" th:field="*{id}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Title:</th>
+                    <td><input class="form-control" type="text" th:field="*{title}"/></td>
+                </tr>
+                <tr>
+                    <th>Date Of Post</th>
+                    <td><input class="form-control" type="date" th:field="*{datePost}"/></td>
+                </tr>
+                <tr>
+                    <th>Author:</th>
+                    <td><input class="form-control" type="text" th:field="*{author}"/></td>
+                </tr>
+                <tr>
+                    <th>Category</th>
+                    <td><input class="form-control" type="text" th:field="*{category}"/></td>
+                </tr>
+                <tr>
+                    <th>Summary</th>
+                    <td>
+
+                        <textarea th:field="*{summary.summaryPost}" name="summary" cols="150" rows="10"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Content:</th>
+                    <td><textarea th:field="*{content}" name="content" id="content" cols="150" rows="20"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>IMG:</th>
+                    <td><input class="form-control" type="text" th:field="*{imgPath}"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="text-align: right">
+                        <button type="submit" class="btn btn-primary"> Submit</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
 </div>
-<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

@@ -13,7 +13,7 @@ public class Author {
     private Date birthday;
     private int citizenID;
     private int visaCard;
-    @OneToMany(mappedBy = "authorName")
+    @OneToMany(mappedBy = "author")
     private Set<Blog> blogSet;
 
 
