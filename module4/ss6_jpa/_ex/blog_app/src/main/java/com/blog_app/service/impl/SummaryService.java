@@ -1,7 +1,8 @@
-package com.blog_app.service;
+package com.blog_app.service.impl;
 
 import com.blog_app.model.Summary;
 import com.blog_app.repository.ISummaryRepository;
+import com.blog_app.service.ISummaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

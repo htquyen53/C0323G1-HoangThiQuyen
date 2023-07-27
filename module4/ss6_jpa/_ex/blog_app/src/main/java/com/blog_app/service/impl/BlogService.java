@@ -1,14 +1,16 @@
-package com.blog_app.service;
+package com.blog_app.service.impl;
 
 import com.blog_app.model.Blog;
 import com.blog_app.model.Category;
 import com.blog_app.repository.IBlogRepository;
+import com.blog_app.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -62,5 +64,10 @@ public class BlogService implements IBlogService {
        } catch (Exception e) {
            return false;
        } return true;
+    }
+
+    @Override
+    public Page<Blog> sortByDatePost(Pageable pageable, Date date) {
+        return blogRepository.findAllByDatePost(pageable, date);
     }
 }
