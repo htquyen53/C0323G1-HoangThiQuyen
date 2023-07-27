@@ -83,14 +83,14 @@ public class UserDto implements Validator {
     public void validate(Object target, Errors errors) {
         UserDto userDto = (UserDto) target;
         // Check name
-        if (userDto.getFirstName().equals("")) {
+        if (userDto.getFirstName().trim().equals("")) {
             errors.rejectValue("firstName", null, "Not empty!");
-        } else if (userDto.getFirstName().length() < 4 || userDto.getFirstName().length() > 50) {
+        } else if (userDto.getFirstName().length() < 5 || userDto.getFirstName().length() > 45) {
             errors.rejectValue("firstName", null, "Not valid length!");
         }
         if (userDto.getLastName().equals("")) {
             errors.rejectValue("lastName", null, "Not empty!");
-        } else if (userDto.getLastName().length() < 4 || userDto.getLastName().length() > 50) {
+        } else if (userDto.getLastName().length() < 5 || userDto.getLastName().length() > 45) {
             errors.rejectValue("lastName", null, "Not valid length!");
         }
         // check phoneNumber
@@ -100,12 +100,12 @@ public class UserDto implements Validator {
             errors.rejectValue("phoneNumber",null, "Not match regex!");
         }
         // check age
-        if(userDto.getBirthday().equals("")) {
+        if(userDto.getBirthday() == null) {
             errors.rejectValue("birthday", null, "Not empty!");
         } else if (!ValidateInput.checkAge(userDto.getBirthday())) {
             errors.rejectValue("birthday", null, "Not enough 18 years old!");
         }
-        if (userDto.getEmail().equals("")) {
+        if (userDto.getEmail().trim().equals("")) {
             errors.rejectValue("email", null, "Not empty!");
         } else if (userDto.getEmail().matches("^[a-z0-9]+@[a-z]+\\.[a-z]{2,3}$")) {
             errors.rejectValue("email", null, "Not match regex!");
