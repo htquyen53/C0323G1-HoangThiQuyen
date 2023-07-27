@@ -107,7 +107,7 @@ public class UserDto implements Validator {
         }
         if (userDto.getEmail().trim().equals("")) {
             errors.rejectValue("email", null, "Not empty!");
-        } else if (userDto.getEmail().matches("^[a-z0-9]+@[a-z]+\\.[a-z]{2,3}$")) {
+        } else if (!userDto.getEmail().matches("^[a-z0-9]+@[a-z]+\\.[a-z]{2,3}$")) {
             errors.rejectValue("email", null, "Not match regex!");
         }
     }

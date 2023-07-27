@@ -10,7 +10,8 @@ public class ValidateInput {
     public static boolean checkAge(Date birthday) {
         Instant instant = birthday.toInstant();
         LocalDate localBD = instant.atZone(ZoneId.systemDefault()).toLocalDate();
-        LocalDate localDate = LocalDate.now();
-        return Period.between(localBD,localDate).getYears() >= 18;
+        LocalDate currentDate = LocalDate.now();
+        return Period.between(localBD,currentDate).getYears() >= 18;
     }
 }
+

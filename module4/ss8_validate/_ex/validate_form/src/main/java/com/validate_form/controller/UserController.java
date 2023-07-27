@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/user")
@@ -33,6 +35,7 @@ public class UserController {
             model.addAttribute("userDto", userDto);
             return "index";
         }
+        userDto.setBirthday(Date.parse(userDto.getBirthday()));
         BeanUtils.copyProperties(userDto, user);
         boolean check = userService.add(user);
         if (check) {
