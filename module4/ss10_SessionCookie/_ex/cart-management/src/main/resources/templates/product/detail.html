@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+<div class="container">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img th:src="@{${product.img}}" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${product.name}"></h5>
+                    <p class="card-text" th:text="${product.description}"></p>
+                    <strong class="card-text" th:text="${product.price}"></strong>
+                    <p class="card-text"><small>Cập nhất cách đây 3 phút!</small></p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

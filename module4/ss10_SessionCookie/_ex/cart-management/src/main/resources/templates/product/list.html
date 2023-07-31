@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách sản phẩm</title>
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.1-dist/bootstrap-5.3.1-dist/css/bootstrap.css}"
+          href="../../static/bootstrap-5.3.1-dist/bootstrap-5.3.1-dist/css/bootstrap.css">
+    <style>
+        img {
+            width: 50px;
+            height: 70px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Hình ảnh</th>
+            <th>Mô tả</th>
+            <th>Giá</th>
+            <th>Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product,status:${productPage.getContent()}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${product.name}"></td>
+            <td>
+                <a th:href="@{/produt/detail/{id}(id=${product.id})}">
+                    <img th:src="@{${product.img}}">
+                </a>
+            </td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.price}"></td>
+            <td>
+                <a class="btn btn-success" th:href="@{/product/add/__${product.id}__}">Add to cart</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <!--    Sản phẩm tìm kiếm gần nhất-->
+    <div class="col-md-4" th:if="${historyProduct}">
+        <div class="card sticky-top border-0">
+            <img th:src="${historyProduct.img}" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title" th:text="${historyProduct.name}"></h4>
+                <p class="card-text" th:text="${historyProduct.price}"></p>
+            </div>
+        </div>
+    </div>
+
+    <!--    Phân trang-->
+    <div style="text-align: center">
+        <a th:if="${productPage.hasPrevious()}"
+           th:href="@{/product/list(page=${productPage.number-1},searchName=${searchName})}">Trang trước</a>
+        <span th:text="${productPage.number+1}"></span>/<span th:text="${productPage.totalPages}"></span>
+        <a th:if="${productPage.hasNext()}"
+           th:ref="@{/product/list(page=${productPage.number+1},searchName=${searchName})}">Trang tiếp</a>
+    </div>
+</div>
+</body>
+<script th:src="@{/bootstrap-5.3.1-dist/bootstrap-5.3.1-dist/js/bootstrap.bundle.js}"></script>
+</html>
