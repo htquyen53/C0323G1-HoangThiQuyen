@@ -1,6 +1,9 @@
 package com.blog_app.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -10,6 +13,7 @@ public class Category {
     private int id;
     private String categoryName;
     @OneToMany(mappedBy = "category")
+    @JsonBackReference
     private Set<Blog> blog;
 
     public Category() {
@@ -34,5 +38,18 @@ public class Category {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return id == category.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

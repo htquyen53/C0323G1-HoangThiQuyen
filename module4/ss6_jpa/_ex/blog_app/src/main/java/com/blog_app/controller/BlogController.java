@@ -15,14 +15,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.List;
 
 @Controller
 @RequestMapping("/my-blog")
@@ -46,8 +44,8 @@ public class BlogController {
     public String addNew(Model model) {
         model.addAttribute("blog", new Blog());
         model.addAttribute("authors", iAuthorService.authors());
-        model.addAttribute("categories", categoryService.showAllCategory());
-        return "create";
+        model.addAttribute("categories", categoryService.showListCategory());
+        return "blog/create";
     }
 
     @PostMapping("/save")
@@ -64,20 +62,12 @@ public class BlogController {
         return "redirect:/my-blog/list";
     }
 
-    @GetMapping("/{id}/edit")
-    public String edit(@PathVariable int id, Model model) {
-        model.addAttribute("blog", blogService.findById(id));
-        return "edit";
-    }
+
 
     @PostMapping("/update")
     public String update(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes) {
         Summary summary = summaryService.save(blog.getSummary());
-        Category category = categoryService.save(blog.getCategory());
-        Author author = iAuthorService.save(blog.getAuthor());
         blog.setSummary(summary);
-        blog.setAuthor(author);
-        blog.setCategory(category);
         blog.setDatePost(Date.valueOf(LocalDate.now()));
         boolean result = blogService.update(blog.getId(), blog);
         if (result == true) {
@@ -102,14 +92,14 @@ public class BlogController {
     public String view(@PathVariable int id, Model model) {
         Blog blog =blogService.findById(id);
         model.addAttribute("blog",blog);
-        return "view";
+        return "/blog/view";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ModelAndView showList(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "") String searchName) {
         Pageable pageable = PageRequest.of(page, 2, Sort.by("title").ascending());
         Page<Blog> blogPage = blogService.findAll(pageable,searchName);
-        ModelAndView modelAndView = new ModelAndView("list");
+        ModelAndView modelAndView = new ModelAndView("/blog/list");
         modelAndView.addObject("blogs",blogPage);
         modelAndView.addObject("searchName",searchName);
         return modelAndView;

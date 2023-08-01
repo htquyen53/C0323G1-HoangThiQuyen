@@ -1,5 +1,7 @@
 package com.blog_app.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Set;
@@ -14,6 +16,7 @@ public class Author {
     private int citizenID;
     private int visaCard;
     @OneToMany(mappedBy = "author")
+    @JsonBackReference
     private Set<Blog> blogSet;
 
 

@@ -18,7 +18,7 @@ public class Blog {
     private Author author;
 
     @OneToOne
-    @JoinColumn (name = "summary_id", referencedColumnName = "id")
+    @JoinColumn (name = "id_summary", referencedColumnName = "id")
     private Summary summary;
 
     @ManyToOne

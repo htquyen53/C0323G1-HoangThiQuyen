@@ -43,7 +43,7 @@
             <tr th:each="blog,status: ${blogs}">
                 <td th:text="${status.count}"></td>
                 <td th:text="${blog.title}"></td>
-                <td th:text="${blog.datePost}"></td>
+                <td th:text="${#dates.format(blog.datePost,'dd-MM-yyyy')}"></td>
                 <td th:text="${blog.author.authorName}"></td>
                 <td th:text="${blog.category.categoryName}"></td>
                 <td><a class="btn btn-primary" th:href="@{/my-blog/{id}/edit(id=${blog.getId()})}">Edit</a></td>
