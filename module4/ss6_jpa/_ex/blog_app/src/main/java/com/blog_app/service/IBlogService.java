@@ -16,5 +16,6 @@ public interface IBlogService {
     boolean update(int id, Blog blog);
     boolean deleteById(int id);
     Page<Blog> findAll(Pageable pageable, String name);
+    Page<Blog> getBlogsByCategory(Pageable pageable, Category category);
     Page<Blog> sortByDatePost(Pageable pageable, Date date);
 }

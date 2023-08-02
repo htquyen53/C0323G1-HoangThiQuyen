@@ -70,4 +70,9 @@ public class BlogService implements IBlogService {
     public Page<Blog> sortByDatePost(Pageable pageable, Date date) {
         return blogRepository.findAllByDatePost(pageable, date);
     }
+
+    @Override
+    public Page<Blog> getBlogsByCategory(Pageable pageable, Category category) {
+        return blogRepository.findBlogsByCategory(pageable,category);
+    }
 }

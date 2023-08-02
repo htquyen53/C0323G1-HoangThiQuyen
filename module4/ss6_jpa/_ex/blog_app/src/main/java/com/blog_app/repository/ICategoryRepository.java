@@ -1,5 +1,6 @@
 package com.blog_app.repository;
 
+import com.blog_app.model.Blog;
 import com.blog_app.model.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

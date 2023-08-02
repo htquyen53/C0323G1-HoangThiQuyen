@@ -3,8 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="../../static/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .searchInput {
+            text-align: right;
+        }
+
+        .main {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
+<div class="container">
+    <div><h1 style="text-align: center"><strong>Blogs Management</strong></h1></div>
+    <div class="searchInput">
+        <input class="" id="searchName" placeholder="Enter the tittle...">
+        <button class="btn btn-danger" id="btn" onclick="display()">Search</button>
+    </div>
+    <div class="main">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>Tittle</th>
+                <th>Date post</th>
+                <th>Author</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody id="content">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <button id="btn-readMore" onclick="more()">Xem thêm</button>
+    </div>
+    <hr>
+    <div class="paging" style="text-align: center">
+        <button id="btn-prev" class="btn btn-success" onclick="previous()">Prev</button>
 
+        <button id="btn-next" class="btn btn-success" onclick="next()">Next</button>
+    </div>
+</div>
+<script>
+    let size = 2;
+    let maxSize = 0;
+    display();
+
+    function display() {
+        let name = $('#searchName').val();
+        let content = "";
+        $.ajax({
+            contentType: "application/json",
+            method: "GET",
+            dataType: "json",
+            url: "http://localhost:8080/api/blog?searchName=" + name,
+            success: function (data) {
+                maxSize = data.totalElements;
+                for (let i = 0; i < data.content.length; i++) {
+                    content += `<tr>
+                            <td>${i + 1}</td>
+                            <td>${data.content[i].title}</td>
+                            <td>${data.content[i].datePost}</td>
+                            <td>${data.content[i].author.authorName}</td>
+                            <td>${data.content[i].category.categoryName}</td>
+                        </tr>`
+                }
+                $('#content').html(content);
+            }
+        })
+    }
+    function more() {
+        let name = $('#searchName').val();
+        let content = "";
+        if (size == maxSize) {
+            return false;
+        } else {
+            size +=2;
+        }
+        $.ajax({
+            contentType: "application/json",
+            method: "GET",
+            dataType: "json",
+            url: "http://localhost:8080/api/blog?searchName=" + name + "&size=" + size,
+            success: function (data) {
+                for (let i = 0; i < data.content.length; i++) {
+                    content += `<tr>
+                            <td>${i + 1}</td>
+                            <td>${data.content[i].title}</td>
+                            <td>${data.content[i].datePost}</td>
+                            <td>${data.content[i].author.authorName}</td>
+                            <td>${data.content[i].category.categoryName}</td>
+                        </tr>`
+                }
+                $('#content').html(content);
+            }
+        })
+    }
+</script>
 </body>
 </html>
