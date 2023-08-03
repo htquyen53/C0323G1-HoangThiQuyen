@@ -1,4 +1,4 @@
-package com.blog_app.controller;
+package com.blog_app.controller.blog;
 
 import com.blog_app.model.Author;
 import com.blog_app.model.Blog;
