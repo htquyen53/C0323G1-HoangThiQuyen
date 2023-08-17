@@ -1,7 +1,7 @@
 package com.blog_app.service;
 
-import com.blog_app.model.Blog;
-import com.blog_app.model.Category;
+import com.blog_app.model.blog.Blog;
+import com.blog_app.model.category.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

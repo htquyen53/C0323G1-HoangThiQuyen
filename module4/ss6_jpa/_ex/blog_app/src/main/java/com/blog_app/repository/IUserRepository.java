@@ -1,2 +1,4 @@
-package com.blog_app.repository;public interface IUserRepository {
+package com.blog_app.repository;
+
+public interface IUserRepository {
 }

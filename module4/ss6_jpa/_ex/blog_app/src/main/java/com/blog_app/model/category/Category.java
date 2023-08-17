@@ -1,5 +1,6 @@
-package com.blog_app.model;
+package com.blog_app.model.category;
 
+import com.blog_app.model.blog.Blog;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;

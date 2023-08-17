@@ -1,7 +1,7 @@
 package com.blog_app.controller.blog;
 
-import com.blog_app.model.Blog;
-import com.blog_app.model.Category;
+import com.blog_app.model.blog.Blog;
+import com.blog_app.model.category.Category;
 import com.blog_app.service.IBlogService;
 import com.blog_app.service.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

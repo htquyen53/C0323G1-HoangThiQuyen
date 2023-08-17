@@ -1,4 +1,4 @@
-package com.personalproject1.service.iml;
+package com.personalproject1.service.product;
 
 public class ProductService {
 }

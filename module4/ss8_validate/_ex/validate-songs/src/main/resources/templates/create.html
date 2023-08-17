@@ -103,64 +103,27 @@
 <header>
     <h1>Song App</h1>
 </header>
-
+<!--Danh sách bài hát-->
 <div class="container">
-    <div class="section">
+    <div class="section" th:each="song, status:${songs}">
         <h2 class="section-title">All Songs</h2>
         <div class="song">
             <img
                     class="song-image"
                     src="https://www.freepnglogos.com/uploads/apple-music-logo-circle-png-28.png"
-                    alt="Song 1"
+                    alt="Song"
             />
             <div class="song-info">
-                <div class="song-title">Song Title 1</div>
-                <div class="song-artist">Artist 1</div>
-            </div>
-            <button class="add-song">Play</button>
-        </div>
-        <div class="song">
-            <img
-                    class="song-image"
-                    src="https://www.freepnglogos.com/uploads/apple-music-logo-circle-png-28.png"
-                    alt="Song 2"
-            />
-            <div class="song-info">
-                <div class="song-title">Song Title 2</div>
-                <div class="song-artist">Artist 2</div>
+                <div class="song-title" th:text="${song.name}"></div>
+                <div class="song-artist" th:text="${song.artist}">Artist 1</div>
             </div>
             <button class="add-song">Play</button>
         </div>
     </div>
+</div>
 
-    <div class="section">
-        <h2 class="section-title">Playlist</h2>
-        <div class="song">
-            <img
-                    class="song-image"
-                    src="https://www.freepnglogos.com/uploads/apple-music-logo-circle-png-28.png"
-                    alt="Song 3"
-            />
-            <div class="song-info">
-                <div class="song-title">Song Title 3</div>
-                <div class="song-artist">Artist 3</div>
-            </div>
-            <button class="add-song">Play</button>
-        </div>
-        <div class="song">
-            <img
-                    class="song-image"
-                    src="https://www.freepnglogos.com/uploads/apple-music-logo-circle-png-28.png"
-                    alt="Song 4"
-            />
-            <div class="song-info">
-                <div class="song-title">Song Title 4</div>
-                <div class="song-artist">Artist 4</div>
-            </div>
-            <button class="add-song">Play</button>
-        </div>
-    </div>
-
+<!--Thêm mới bài hát-->
+<div class="container">
     <div class="section section-add justify-content-center">
         <div><h2 class="section-title">Add Playlist</h2></br></div>
         <div style="color: green" th:text="${message}"></br></div>

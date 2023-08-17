@@ -1,2 +1,4 @@
-package com.personalproject1.service.account;public class AccountService {
+package com.personalproject1.service.account;
+
+public class AccountService {
 }

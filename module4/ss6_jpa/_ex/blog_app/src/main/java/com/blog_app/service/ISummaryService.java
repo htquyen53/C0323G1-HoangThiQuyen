@@ -1,6 +1,6 @@
 package com.blog_app.service;
 
-import com.blog_app.model.Summary;
+import com.blog_app.model.summary.Summary;
 
 import java.util.List;
 

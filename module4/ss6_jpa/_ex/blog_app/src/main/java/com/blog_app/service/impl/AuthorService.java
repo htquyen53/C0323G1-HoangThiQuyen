@@ -1,6 +1,6 @@
 package com.blog_app.service.impl;
 
-import com.blog_app.model.Author;
+import com.blog_app.model.author.Author;
 import com.blog_app.repository.IAuthorRepository;
 import com.blog_app.service.IAuthorService;
 import org.springframework.beans.factory.annotation.Autowired;

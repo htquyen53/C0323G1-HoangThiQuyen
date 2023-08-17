@@ -1,6 +1,6 @@
 package com.blog_app.service;
 
-import com.blog_app.model.Author;
+import com.blog_app.model.author.Author;
 
 import java.util.List;
 

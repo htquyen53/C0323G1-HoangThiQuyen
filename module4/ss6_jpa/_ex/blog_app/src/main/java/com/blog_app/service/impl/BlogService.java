@@ -1,11 +1,10 @@
 package com.blog_app.service.impl;
 
-import com.blog_app.model.Blog;
-import com.blog_app.model.Category;
+import com.blog_app.model.blog.Blog;
+import com.blog_app.model.category.Category;
 import com.blog_app.repository.IBlogRepository;
 import com.blog_app.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;

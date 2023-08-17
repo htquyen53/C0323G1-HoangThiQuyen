@@ -121,8 +121,8 @@ public class UserRepository implements IUserRepository {
 //            statement.setInt(1, id);
 //            rowDeleted = statement.executeUpdate() > 0;
             CallableStatement callableStatement = connection.prepareCall(CALL_DELETE_USER);
-            callableStatement.setInt(1,id);
-            rowDeleted = callableStatement.executeUpdate()>0;
+            callableStatement.setInt(1, id);
+            rowDeleted = callableStatement.executeUpdate() > 0;
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -144,6 +144,12 @@ public class UserRepository implements IUserRepository {
 //            rowUpdate = statement.executeUpdate() > 0;
 //        } catch (SQLException e) {
 //            e.printStackTrace();
+//          } finally {
+//        try {
+//            connection.close();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
 //        }
 //        return rowUpdate;
         // Cách 2: Sử dụng procedure

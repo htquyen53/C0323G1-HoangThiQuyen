@@ -35,7 +35,6 @@ public class UserController {
             model.addAttribute("userDto", userDto);
             return "index";
         }
-        userDto.setBirthday(Date.parse(userDto.getBirthday()));
         BeanUtils.copyProperties(userDto, user);
         boolean check = userService.add(user);
         if (check) {

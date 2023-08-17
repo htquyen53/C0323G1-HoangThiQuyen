@@ -1,35 +1,181 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Form</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script></head>
-<body>
-<div class="container">
-    <div><h1>ĐĂNG KÝ THÀNH VIÊN</h1></div>
-    <div class="form">
-        <form th:object="${userDto}" th:action="@{/user/create}" method="post">
-            First name:
-            <input type="text" th:field="*{firstName}"></br>
-            <small style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></small></br>
-            Last Name:
-            <input type="text" th:field="*{lastName}"></br>
-            <small style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></small></br>
-            Birthday:
-            <input type="date" th:field="*{birthday}"></br>
-            <small style="color: red" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></small></br>
-            Number Phone:
-            <input type="number" th:field="*{phoneNumber}"></br>
-            <small style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></small></br>
-            Email:
-            <input type="text" th:field="*{email}"> </br>
-            <small style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small></br>
-            <button type="submit">Save</button>
-        </form>
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Create Form</title>-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>-->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script></head>-->
+<!--<body>-->
+<!--<div class="container">-->
+<!--    <div><h1>ĐĂNG KÝ THÀNH VIÊN</h1></div>-->
+<!--    <div class="form">-->
+<!--        <form th:object="${userDto}" th:action="@{/user/create}" method="post">-->
+<!--            First name:-->
+<!--            <input type="text" th:field="*{firstName}"></br>-->
+<!--            <small style="color: red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></small></br>-->
+<!--            Last Name:-->
+<!--            <input type="text" th:field="*{lastName}"></br>-->
+<!--            <small style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></small></br>-->
+<!--            Birthday:-->
+<!--            <input type="date" th:field="*{birthday}"></br>-->
+<!--            <small style="color: red" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></small></br>-->
+<!--            Number Phone:-->
+<!--            <input type="number" th:field="*{phoneNumber}"></br>-->
+<!--            <small style="color: red" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></small></br>-->
+<!--            Email:-->
+<!--            <input type="text" th:field="*{email}"> </br>-->
+<!--            <small style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small></br>-->
+<!--            <button type="submit">Save</button>-->
+<!--        </form>-->
 
+<!--    </div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 16px;
+            background-color: white;
+            width: 60%;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        /* Set a grey background color and center the text of the "sign in" section */
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+        }
+
+        .success-message {
+            position: absolute;
+            z-index: 2;
+        }
+
+    </style>
+</head>
+<body>
+<form th:action="@{/user/create}" th:object="${userDto}" method="post">
+    <div class="container">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <hr>
+        <!-- First Name -->
+        <label for="firstName"><b>First Name</b></label>
+        <input type="text" placeholder="Enter First Name" th:field="*{firstName}" id="firstName" required>
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="error-message"></span>
+
+        <!-- Last Name -->
+        <label for="lastName"><b>Last Name</b></label>
+        <input type="text" placeholder="Enter Last Name" th:field="*{lastName}" id="lastName" required>
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error-message"></span>
+
+        <!-- Username -->
+<!--        <label for="username"><b>Username</b></label>-->
+<!--        <input type="text" placeholder="Enter Username" th:field="*{username}" id="username" required>-->
+<!--        <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error-message"></span>-->
+
+        <!-- Password -->
+<!--        <label for="password"><b>Password</b></label>-->
+<!--        <input type="password" placeholder="Enter Password" th:field="*{password}" id="password" required>-->
+<!--        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-message"></span>-->
+
+        <!-- Phone Number -->
+        <label for="phoneNumber"><b>Phone Number</b></label>
+        <input type="text" placeholder="Enter Phone Number" th:field="*{phoneNumber}" id="phoneNumber" required>
+        <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" class="error-message"></span>
+
+        <!-- Date of Birth -->
+        <label for="dateOfBirth"><b>Date of Birth</b></label>
+        <input type="date" th:field="*{birthday}" id="dateOfBirth" required>
+        <span th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}" class="error-message"></span>
+
+        <!-- Email -->
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" th:field="*{email}" id="email" required>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-message"></span>
+
+        <!-- Add any other properties here with corresponding input fields -->
+
+        <hr>
+        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+        <button type="submit" class="registerbtn">Register</button>
     </div>
-</div>
+</form>
+
+<!--<div th:if="${msg}" class="success-message">-->
+<!--    <p th:text="${msg}" id="message">Message</p>-->
+<!--</div>-->
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let msg = document.getElementById("message").innerText;
+        alert(msg);
+    });
+</script>
 </html>

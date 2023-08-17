@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="de80007a-7010-46cd-8155-d4e9802a1ff5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/controller/CartController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/dto/CartDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/dto/ProductDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/model/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/model/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/repository/IProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/service/IProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/service/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/resources/templates/cart/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/resources/templates/product/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ss10_SessionCookie/_ex/cart-management/src/main/resources/templates/product/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module2/src/ThiThuatToan/ve_hinh.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module2/src/ThiThuatToan/ve_hinh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module3/ss11/bai_tap/product_management/src/main/webapp/product/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/ss11/bai_tap/product_management/src/main/webapp/product/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module3/ss12/bai_tap/user_management/src/main/java/com/user_management/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module3/ss12/bai_tap/user_management/src/main/java/com/user_management/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1/src/main/java/com/example/ss1/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1/src/main/java/com/example/ss1/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1/src/main/java/com/example/ss1/controller/GreetingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1/src/main/webapp/WEB-INF/views/greeting.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_springMVC/_pr/pr01/src/main/java/com/pr01/Controller/GreetingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_springMVC/_pr/pr01/src/main/java/com/pr01/Controller/GreetingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_springMVC/_pr/pr01/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_springMVC/_pr/pr01/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_springController/_ex/caculator/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_springController/_ex/caculator/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_springController/_pr/email_validate_maven/src/main/java/com/email_validate_maven/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_springController/_pr/email_validate_maven/src/main/java/com/email_validate_maven/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_springController/_pr/email_validate_maven/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_springController/_pr/email_validate_maven/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_springController/_pr/email_validate_maven/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_springController/_pr/email_validate_maven/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_springController/_pr/email_validate_maven/src/main/webapp/WEB-INF/views/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_springController/_pr/email_validate_maven/src/main/webapp/WEB-INF/views/success.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_springController/_pr/spring-timezone/src/main/java/com/springtimezone/TimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_springController/_pr/spring-timezone/src/main/java/com/springtimezone/TimeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss2_springController/_pr/spring-timezone/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss2_springController/_pr/spring-timezone/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/java/com/product_management/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/java/com/product_management/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_ex/product-management/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/config/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/config/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/config/AppInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/config/AppInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/repository/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/repository/ICustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/service/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/java/com/customers_management/service/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss3_thymeleaf/_pr/customers_management/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/controller/BlogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/controller/BlogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/model/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/model/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/model/Blog.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/model/Blog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/model/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/model/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/repository/IBlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/repository/IBlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/service/IBlogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss6_jpa/_ex/blog_app/src/main/java/com/blog_app/service/IBlogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/java/com/validatesongs/controller/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/java/com/validatesongs/controller/SongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/java/com/validatesongs/repository/ISongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/java/com/validatesongs/repository/ISongRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/java/com/validatesongs/service/ISongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/java/com/validatesongs/service/ISongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/java/com/validatesongs/service/SongService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/java/com/validatesongs/service/SongService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/resources/templates/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/resources/templates/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_ex/validate-songs/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_ex/validate_form/src/main/java/com/validate_form/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_ex/validate_form/src/main/java/com/validate_form/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_ex/validate_form/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_ex/validate_form/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_pr/demo-validate/src/main/java/com/example/demovalidate/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_pr/demo-validate/src/main/java/com/example/demovalidate/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_pr/demo-validate/src/main/java/com/example/demovalidate/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_pr/demo-validate/src/main/java/com/example/demovalidate/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_pr/demo-validate/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_pr/demo-validate/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss8_validate/_pr/demo-validate/src/main/resources/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss8_validate/_pr/demo-validate/src/main/resources/templates/result.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2TKMb0n99aBKBNoPRoM0hu6vQmG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Codegym/C0323G1-HoangThiQuyen/module4/ss9_Aop",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de80007a-7010-46cd-8155-d4e9802a1ff5" name="Changes" comment="" />
+      <created>1690787386302</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690787386302</updated>
+      <workItem from="1690787387485" duration="26000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

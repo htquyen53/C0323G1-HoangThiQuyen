@@ -1,9 +1,9 @@
 package com.blog_app.controller.blog;
 
-import com.blog_app.model.Author;
-import com.blog_app.model.Blog;
-import com.blog_app.model.Category;
-import com.blog_app.model.Summary;
+import com.blog_app.model.author.Author;
+import com.blog_app.model.blog.Blog;
+import com.blog_app.model.category.Category;
+import com.blog_app.model.summary.Summary;
 import com.blog_app.service.IAuthorService;
 import com.blog_app.service.IBlogService;
 import com.blog_app.service.ICategoryService;

@@ -1,4 +1,6 @@
-package com.blog_app.model;
+package com.blog_app.model.summary;
+
+import com.blog_app.model.blog.Blog;
 
 import javax.persistence.*;
 

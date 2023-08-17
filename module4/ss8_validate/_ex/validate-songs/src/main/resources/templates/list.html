@@ -1,10 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #149641;
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .song {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .song-image {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .song-info {
+            flex-grow: 1;
+        }
+
+        .song-title {
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .song-artist {
+            color: #888;
+        }
+
+        .section-add {
+            width: 250px;
+        }
+
+        .form-add-song {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-add-song .add-label {
+            width: 55px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-add-song input {
+            width: 180px;
+        }
+
+        .add-song {
+            background-color: #149641;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-left: 60px;
+        }
+
+    </style>
 </head>
 <body>
-
+<div class="container">
+    <!--    Thanh tìm kiếm-->
+    <form class="navbar-form navbar-right" action="/play-music-free/list" method="get">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Nhập tên tìm kiếm..." th:name="searchName"
+                   th:value="${searchName}">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    <!--Danh sách bài hát-->
+    <div class="section">
+        <h2 class="section-title">All Songs</h2>
+        <div th:each="song, status:${songs}" class="song">
+            <img
+                    class="song-image"
+                    src="https://www.freepnglogos.com/uploads/apple-music-logo-circle-png-28.png"
+                    alt="Song"
+            />
+            <div class="song-info">
+                <div class="song-title" th:text="${song.name}"></div>
+                <div class="song-artist" th:text="${song.artist}"></div>
+            </div>
+            <button class="add-song">Play</button>
+        </div>
+    </div>
+<!--    Phân trang-->
+    <a th:if="${songs.hasPrevious()}" th:href="@{/play-music-free/list(page=${songs.number-1},searchName=${searchName})}">Prev</a>
+    <span th:text="${songs.number+1}"></span>/<span th:text="${songs.totalPages}"></span>
+    <a th:if="${songs.hasNext()}" th:href="@{/play-music-free/list(page=${songs.number+1},searchName=${searchName})}">Next</a>
+</div>
 </body>
 </html>

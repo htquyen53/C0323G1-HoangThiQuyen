@@ -1,2 +1,4 @@
-package com.personalproject1.controller.customer;public class CustomerController {
+package com.personalproject1.controller.customer;
+
+public class CustomerController {
 }

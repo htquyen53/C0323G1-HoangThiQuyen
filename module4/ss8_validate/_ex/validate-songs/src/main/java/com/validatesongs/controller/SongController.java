@@ -5,13 +5,15 @@ import com.validatesongs.model.Song;
 import com.validatesongs.service.ISongService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -21,7 +23,15 @@ import javax.validation.Valid;
 public class SongController {
     @Autowired
     private ISongService songService;
-
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public ModelAndView showList(@RequestParam int page, @RequestParam(defaultValue = "") String searchName) {
+        Pageable pageable = PageRequest.of(page,5, Sort.by("name").ascending());
+        Page<Song> songPage = songService.findAll(pageable,searchName);
+        ModelAndView modelAndView = new ModelAndView("list");
+        modelAndView.addObject("songs", songPage);
+        modelAndView.addObject("searchName",searchName);
+        return modelAndView;
+    }
     @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("songDto", new SongDto());

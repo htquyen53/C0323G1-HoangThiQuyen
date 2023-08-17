@@ -1,2 +1,4 @@
-package com.blog_app.model.user;public class WebUserRole {
+package com.blog_app.model.user;
+
+public class WebUserRole {
 }

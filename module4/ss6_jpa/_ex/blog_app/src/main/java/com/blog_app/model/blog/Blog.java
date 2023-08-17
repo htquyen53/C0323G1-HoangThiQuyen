@@ -1,4 +1,8 @@
-package com.blog_app.model;
+package com.blog_app.model.blog;
+
+import com.blog_app.model.author.Author;
+import com.blog_app.model.category.Category;
+import com.blog_app.model.summary.Summary;
 
 import javax.persistence.*;
 import java.sql.Date;

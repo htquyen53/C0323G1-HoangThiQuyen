@@ -33,7 +33,6 @@
 <h1>Products</h1>
 <br>
 <a href="/ProductServlet?action=create">Thêm mới</a></br>
-<a href="/ProductServlet?action=delete">Xóa sản phẩm</a></br>
 <a href="/ProductServlet?action=view">Tìm kiếm sản phẩm</a></br>
 <p style="color: cadetblue; font-weight: bold">
 <c:if test="${msg != null}">
@@ -57,6 +56,7 @@
             <td><c:out value="${product.getDescription()}"/></td>
             <td><c:out value="${product.getManufacturer()}"/></td>
             <td><a href="/ProductServlet?action=update&id=${product.getIdProduct()}" class="btn btn-primary">Chỉnh sửa</a></td>
+            <td><a href="/ProductServlet?action=delete&id=${product.getIdProduct()}" class="btn btn-danger">Xóa</a></td>
         </tr>
     </c:forEach>
 </table>

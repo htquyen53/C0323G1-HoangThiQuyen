@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <head>
+        <meta charset="UTF-8">
+        <title>Trang chủ</title>
+    </head>
 <body>
-$END$
+<h1 style="text-align: center"><b>DANH SÁCH SẢN PHẨM</b></h1>
+<div class="container">
+<div style="color: red" th:if="${message!=null}">
+    <h3 th:text="${message}"></h3>
+</div>
+<div th:if="${products.size()>0}">
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Nơi sản xuất</th>
+        </tr>
+        <tr th:each="product,status: ${products}">
+            <td th:text="${status.count}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.description}"></td>
+            <td th:text="${product.manufacturer}"></td>
+            <td><a th:href="@{/product/{id}/edit(id=${product.getId()})}">Chỉnh sửa</a></td>
+            <td><a th:href="@{/product/{id}/delete(id=${product.getId()})}">Xóa</a></td>
+            <td><a th:href="@{/product/{id}/view(id=${product.getId()})}">Chi tiết</a></td>
+        </tr>
+    </table>
+</div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

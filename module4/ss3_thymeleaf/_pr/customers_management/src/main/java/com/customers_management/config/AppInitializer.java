@@ -1,4 +1,4 @@
-package com.example.customers_management.config;
+package com.customers_management.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

@@ -1,2 +1,4 @@
-package com.personalproject1.service.customer;public interface ICustomerService {
+package com.personalproject1.service.customer;
+
+public interface ICustomerService {
 }
