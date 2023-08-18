@@ -3,117 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furama home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Furama</title>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <!------------------------------------------------ Navbar ----------------------------------------------->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><b>Furama</b></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Các dịch vụ
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Villa</a></li>
-                  <li><a class="dropdown-item" href="#">House</a></li>
-                  <li><a class="dropdown-item" href="#">Room</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Tìm kiếm..." aria-label="Search">
-              <button class="btn btn-outline-primary" type="submit">Search</button>
-            </form>
-          </div>
+<div class="container-fluid"> 
+    <header class="grid">
+        <div class="title">
+            <h1>Furama</h1>
+            <h5>- HOTEL RESORT -</h5>
         </div>
-      </nav>
-      <!---------------------------------------------------- Home Page --------------------------------------------------->
-      <div class="container-fluid">
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-inner col-12">
-            <div class="carousel-item active">
-              <img src="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2020/06/Review-Furama-Resort-Da-Nang-13.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
-              </div>
+        
+        <nav>
+            <a href="#">Home</a>
+            <a class="dropdown" href="javascript:void(0)">Services</a>
+            <div class="dropdown-content">
+                <a href="#">Villas</a>
+                <a href="#">Houses</a>
+                <a href="#">Rooms</a>
+                <a href="#">Others</a>
             </div>
-            <div class="carousel-item col-12">
-              <img src="https://phulong.com/UploadFiles/Images/FURAMA%2020%20NAM.jpg" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
-              </div>
-            </div>
-            <div class="carousel-item col-12">
-              <img src="https://phulonghouse.com/wp-content/uploads/2021/08/1200-x-700-toan-canh-01-min.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+            <a href="#">Ahout us</a>
+            <a href="#">Contact</a>
+            <div class="elementor-button"><a href="#">BOOK NOW</a></button>
+        </nav>
+    </header>
+    <main class="grid">
+        <img src="https://tadivui.com/wp-content/uploads/2016/05/furama-1.jpg" alt="furama  resort">
+        <div class="welcome">
+            <h2>Welcome Furama Resort</h2>
+            <p>Overlooking the long stretch of wide white sand on Danang Beach, Furama Resort Danang is a gateway to three World Heritage Sites of Hoi An (20 minutes), My Son (90 minutes) and Hue (2 hours). The 196 rooms and suites plus 70 two to four bedroom pool villas feature tasteful décor, designed with traditional Vietnamese style and a touch of French colonial architecture and guarantee the Vietnam’s the most prestigious resort -counting royalty, presidents, movie stars and international business leaders among its celebrity guests.</p>
         </div>
-      </div>
-      <div class="col-12 m-3" style="text-align: center;">
-        <h3>Các dịch vụ của chúng tôi</h3>
-      </div>
-      <div class="container" style="position: relative;">
-        <div class="col-4 m-3" style=" float: left;">
-          <div class="card" style="width: 100%; height: 15rem;">
-            <img src="https://ik.imagekit.io/tvlk/generic-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10024652-332b723195367fda423efae9b6e9b63a.jpeg?_src=imagekit&tr=c-at_max,h-720,q-40,w-1280" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
+        <h2>Services</h2>
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
         </div>
-        <div class="col-4 m-3" style=" float: left;">
-          <div class="card" style="width: 100%;height: 15rem;">
-            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/128145956.jpg?k=4269254c37b76f9aa1ac914dcfcce2f07bb7aed375cce4ae8631bd670266bbc8&o=&hp=1" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
         </div>
-        <div class="col-4 m-3" style=" float: left;">
-          <div class="card" style="width: 100%;height: 15rem;">
-            <img src="https://furama-resort-da-nang.hotelmix.vn/data/Photos/OriginalPhoto/12779/1277943/1277943790/Furama-Resort-Danang-Exterior.JPEG" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
         </div>
-          
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
+        </div>
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
+        </div>
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
+        </div>
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
+        </div>
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
+        </div>
+        <div class="card">
+            <img src="https://i0.wp.com/vietnamtravel.in/wp-content/uploads/2019/07/furama-resort-danang-2-2.jpg?resize=1260%2C844&ssl=1" alt="">
+            <p>abc</p>
+            <a href="#">More...</a>
+        </div>
+    </main>
+</div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>
-
