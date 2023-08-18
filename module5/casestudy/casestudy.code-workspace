@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"name": "casestudy",
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "casestudy"
+	}
+}
