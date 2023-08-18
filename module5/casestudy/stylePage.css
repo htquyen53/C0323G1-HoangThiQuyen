@@ -58,45 +58,32 @@ header nav {
     justify-content: center;
  }
  main {
-    margin: 0px auto 30px;
-    padding: 20px;
-    max-width: 1200px;
- }
- main img {
     grid-column: span 12;
-    width: 100%;
-    border-radius: 12px;
+    margin: 10px 30px;
+ }
+ main .main-edit {
+    padding: 30px 30px;
+    background-color: aquamarine;
+ }
+ main .main-edit-title {
+    grid-column: span 12;
     align-items: center;
+    text-align: center;
+ }
+main .form {
+    grid-column: span 12;
+}
+main form {
+    grid-column: span 12;
+    width: 70%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
- }
- main .welcome {
-    grid-column: span 12;
+    background-color: ghostwhite;
     align-items: center;
-    text-align: center;
- }
- main h2 {
-    grid-column: span 12;
-    align-items: center;
-    text-align: center;
- }
- main .card {
-    grid-column: span 4;
-    background: white;
-    padding: 10px;
-    border-radius:  6px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
- }
- main .card img {
-    text-align: center;
- }
- @media screen and (max-width:960px){
-    main img {
-        grid-column: 2/span 10;
-    }
-    main .welcome {
-        grid-column: 3/span 8;
-        text-align: center;
-    }
- }
+}
+main form input {   
+    border: #CAE5E8;
+    border-radius: 6px;
+    width: 100%;
+}
