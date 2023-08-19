@@ -58,61 +58,48 @@ header nav {
     justify-content: center;
  }
  main {
-    grid-column: span 12;
-    margin: 10px 30px;
+    margin: 0px auto 0px;
+    padding: 20px;
+    max-width: 1200px;
  }
- main .main-edit-title {
+ 
+ main img {
+  grid-column: span 12;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);  
+ }
+ main .list {
+    grid-column: span 12;
+    margin: 3px;
+ }
+ main .list h2 {
     grid-column: span 12;
     align-items: center;
     text-align: center;
  }
- main img {
-    grid-column: span 6;
-    margin: 10px;
-    padding-left: 100px;
-    width: 60%;
-    height: 300px;
+ main .list table {
+    grid-column: span 12;
+    width: 100%;
+    border: 1px solid #CAE5E8;
     align-items: center;
- }
-main form {
-   grid-column: 7/span 6;
-    width: 70%;
-    margin: 10px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ghostwhite;
+ }
+ main .list table tr, th, td {
+    padding: 5px;
+ }
+ main .list table td {
+    text-align: center;
     align-items: center;
-}
-main form table {
-   width: 100%;
-}
-main form table th {
-   text-align: left;
-}
-main form input {   
-    border: #CAE5E8;
-    border-radius: 6px;
-    width: 100%;
-    height: 30px;
-   box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
-}
-main form table tr {
-   height: 40px;
-}
-main form table select, option {
-   border: #CAE5E8;
-   border-radius: 6px;
-   width: 100%;
-   height: 30px;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
-}
-main form .form-btn {
-   margin-top: 20px;
-   width: 100%;
-   background-color: rgb(17, 95, 51);
-   height: 30px;
-   color: #F8F8FF;
-   border-radius: 6px;
-   box-shadow: #CAE5E8;
-}
+ }
+ main .list table button {
+    display: inline;
+    margin: 3px;
+    padding: 7px;
+    width: 70px;
+ }

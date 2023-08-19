@@ -17,6 +17,10 @@ header {
     align-items: center;
     text-align: center;
 }
+.logo {
+   width: 150px;
+   height: 200px;
+}
 header nav {
     grid-column: span 12;
     align-items: center;
