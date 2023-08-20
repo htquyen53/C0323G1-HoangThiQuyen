@@ -107,12 +107,4 @@ main form table select, option {
    height: 30px;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.2)
 }
-main form .form-btn {
-   margin-top: 20px;
-   width: 100%;
-   background-color: rgb(17, 95, 51);
-   height: 30px;
-   color: #F8F8FF;
-   border-radius: 6px;
-   box-shadow: #CAE5E8;
-}
+
