@@ -172,3 +172,94 @@ main form .form-btn {
     border-radius: 6px;
     box-shadow: #CAE5E8;
 }
+footer {
+    padding: 40px;
+    background-color: #CAE5E8;
+    border-radius: 12px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
+footer .footer-content {
+    grid-column: span 4;
+    margin: 10px;
+    background-color: ghostwhite;
+    border-radius: 30px;
+    padding: 5px 20px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    text-align: justify;
+}
+
+footer .footer-contact {
+    grid-column: span 4;
+    padding: 5px 30px 5px 100px;
+}
+
+footer .footer-contact h4 {
+    position: relative;
+}
+
+footer .footer-contact h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #abc3c7;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-contact ul {
+    list-style: none;
+    display: inline;
+}
+
+.footer-contact ul li:not(:last-child) {
+    left: 0;
+    margin-bottom: 10px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-contact ul li:hover {
+    padding-left: 8px;
+}
+
+.social-link {
+    grid-column: span 4;
+    padding: 5px 50px;
+}
+
+.social-link h4 {
+    text-align: left;
+    position: relative;
+}
+
+.social-link h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #abc3c7;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.social-link a {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: rgb(18, 22, 19);
+    transition: all 0.3s ease;
+}
+
+.social-link a:hover {
+    color: #24262b;
+    background-color: #ffffff;
+}
