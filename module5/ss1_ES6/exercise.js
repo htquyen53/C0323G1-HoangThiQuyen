@@ -27,12 +27,12 @@ let courses = [
 ];
 
 // Yêu cầu 1: 
-let resultArr = courses.filter((e) => e.rating >= 4);
-console.log(resultArr);
+let firstRequest = courses.filter((e) => e.rating >= 4);
+console.log(firstRequest);
 
 // Yêu cầu 2:
-let resultArr2 = courses.filter(({ rating }) => rating < 4).map((e) => e.id + "-" + e.title + "-" + e.rating);
-console.log(resultArr2);
+let secondRequest = courses.filter(({ rating }) => rating < 4).map((e) => e.id + "-" + e.title + "-" + e.rating);
+console.log(secondRequest);
 
 // Yêu cầu 3:
 let addedCourses = [ 
@@ -52,5 +52,5 @@ let addedCourses = [
     rating: 3.8, 
   } 
 ]; 
-let resultArr3 = [...courses,...addedCourses];
-console.log(resultArr3);
+const thirdRequest = (courses, addedCourses) => [...courses,...addedCourses];
+console.log(thirdRequest(courses, addedCourses));
