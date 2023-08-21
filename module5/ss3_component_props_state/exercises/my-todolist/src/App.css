@@ -1,0 +1,58 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 30px;
+}
+.content {
+  grid-column: span 12;
+  margin: 30px;
+}
+.title {
+  grid-column: span 12;
+  align-items: center;
+  text-align: center;
+  color: goldenrod;
+}
+.input-form {
+  grid-column: span 12;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.input-form input {
+  border: 1px solid seagreen;
+  border-radius: 6px;
+  padding: 10px;
+}
+.input-form button {
+  border: 1px solid seagreen;
+  border-radius: 6px;
+  padding: 10px;
+  margin-left: 10px;
+}
+table {
+  grid-column: span 12;
+  width: 60%;
+  align-items: center;
+  margin: 20px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: aquamarine;
+  border-radius: 6px;
+  box-shadow: 3px, 3px, 3px, rgba(0, 0, 0, 0.05);
+}
+table tr, th, td {
+  border-collapse: collapse;
+  border: 1p solid ghostwhite;
+  text-align: center;
+  padding: 10px;
+}
+table th {
+  color: goldenrod;
+}
+table td {
+  background-color: white;
+}
