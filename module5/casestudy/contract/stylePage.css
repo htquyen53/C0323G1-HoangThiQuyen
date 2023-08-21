@@ -172,3 +172,29 @@ main form .form-btn {
     border-radius: 6px;
     box-shadow: #CAE5E8;
 }
+
+footer {
+    padding: 40px;
+    background-color: #CAE5E8;
+    border-radius: 12px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+
+}
+
+footer .footer-content {
+    grid-column: span 4;
+    margin: 10px;
+    background-color: ghostwhite;
+    border-radius: 30px;
+    padding: 5px 20px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+    text-align:justify;
+}
+footer .footer-contact {
+    grid-column: span 4;
+    padding: 5px 30px;
+
+}
+footer .footer-contact h4 {
+    text-align: left;
+}
