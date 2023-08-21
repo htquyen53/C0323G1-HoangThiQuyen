@@ -46,13 +46,15 @@ root.render(
         <th>Country</th>
       </thead>
       <tbody>
-        {students.map(student => (
-          <tr>
-            <td>{student.company}</td>
-            <td>{student.contact}</td>
-            <td>{student.country}</td>
-          </tr>
-        ))}
+          
+          {students.map((element,index) => (
+            <tr key={index}>
+              <td>{element.company}</td>
+              <td>{element.contact}</td>
+              <td>{element.country}</td>
+              </tr>
+            ))}
+
       </tbody>
     </table>
   </div>
