@@ -84,6 +84,41 @@ main img {
   transform: translateX(-50%);
 }
 
+main .welcome {
+  grid-column: span 12;
+  align-items: center;
+  text-align: center;
+}
+
+main h2 {
+  grid-column: span 12;
+  align-items: center;
+  text-align: center;
+}
+
+main .card {
+  grid-column: span 4;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.05);
+}
+
+main .card img {
+  text-align: center;
+}
+
+@media screen and (max-width:960px) {
+  main img {
+    grid-column: 2/span 10;
+  }
+
+  main .welcome {
+    grid-column: 3/span 8;
+    text-align: center;
+  }
+}
+
 main .list {
   grid-column: span 12;
   margin: 3px;
@@ -174,7 +209,7 @@ main form .form-btn {
 }
 
 footer {
-  padding: 40px;
+  padding: 50px;
   background-color: #CAE5E8;
   border-radius: 12px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
@@ -185,9 +220,21 @@ footer .footer-content {
   margin: 10px;
   background-color: ghostwhite;
   border-radius: 30px;
-  padding: 5px 20px;
+  padding: 10px 20px;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  align-items: center;
   text-align: justify;
+}
+
+footer .footer-content p {
+  padding: 20px 20px 5px 20px;
+}
+
+footer .footer-content #furama-logo {
+  padding: 5px 20px 5px 20px;
+  width: 30%;
+  height: auto; 
+  float: right;
 }
 
 footer .footer-contact {
@@ -263,4 +310,30 @@ footer .footer-contact h4::before {
 .social-link a:hover {
   color: #24262b;
   background-color: #ffffff;
+}
+
+.input-sendEmail {
+  padding: 10px 0px;
+}
+
+.input-sendEmail input {
+  padding: 5px;
+  border: #CAE5E8;
+  border-radius: 3px;
+  width: 70%;
+  height: 30px;
+  background-color: #d6eaee;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2)
+}
+
+.input-sendEmail button {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 6px;
+  width: auto;
+  height: 30px;
+  margin-left: 5px;
+  background-color: rgb(28, 62, 51);
+  color: antiquewhite;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
