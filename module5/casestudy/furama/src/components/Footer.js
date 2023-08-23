@@ -3,11 +3,13 @@ class Footer extends Component {
     render() {
         return (
             <footer className="grid">
-                <div class="footer-content">
+                <div className="footer-content">
                     <p>The luxurious Furama Resort Danang is a true icon of Vietnam tourism. This 5-star haven on
                         world-famous Da Nang beach is celebrated as Vietnam's most prestigious resort – counting royalty,
                         presidents, movie stars and international business leaders among its celebrity guests.</p>
-                    <div id="furama-logo" ><img src="https://kynghiviet.com/public/upload/Tour/2020/FURAMA%20RESORT%20DA%20NANG/furama%20logo.png"></img></div>
+                    <div id="furama-logo" >
+                        <img src="https://kynghiviet.com/public/upload/Tour/2020/FURAMA%20RESORT%20DA%20NANG/furama%20logo.png"></img>
+                    </div>
                 </div>
                 <div className="footer-contact">
                     <h4>CONTACT US</h4>
