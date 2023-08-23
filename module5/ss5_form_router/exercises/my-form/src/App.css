@@ -1,0 +1,15 @@
+.container {
+  width: 1000px;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.form-label {
+  text-align: left;
+}
+
+.form-error {
+  color: red;
+}
