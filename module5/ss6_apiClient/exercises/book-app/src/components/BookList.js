@@ -11,19 +11,22 @@ export function BookList() {
         setBooks((prev) => result);
     }
     return (
-        <>
+        <div className='container'>
+            <div>
             <h1>LIST OF BOOKS</h1>
-            <table className='table table-striped'>
+            <button className='btn btn-success'>Add a new book</button>
+            </div>
+            <table className='table table-hover'>
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>Quantity</th>
-                        <th>Actions</th>
+                        <th align='center'>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        books.map((book)=>{
+                        books.map((book) => (
                             <tr key={book.id}>
                                 <td>{book.title}</td>
                                 <td>{book.quantity}</td>
@@ -32,10 +35,10 @@ export function BookList() {
                                     <button className='btn btn-danger'>Delete</button>
                                 </td>
                             </tr>
-                        })
+                        ))
                     }
                 </tbody>
             </table>
-        </>
+        </div>
     )
 }
