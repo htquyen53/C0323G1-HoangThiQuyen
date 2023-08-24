@@ -8,7 +8,8 @@ export function BookCreate() {
     const navigate = useNavigate();
     const addBook = async (values) => {
         const result = await bookService.addNewBook(values);
-        toast(`The book ${values.title} create OK`)
+        toast(`The book ${values.title} create OK`);
+        alert("Successfull!")
         navigate("/books")
     }
     return (
