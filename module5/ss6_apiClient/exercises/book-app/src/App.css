@@ -4,3 +4,6 @@
 button {
   margin-left: 10px;
 }
+.form-error {
+  color: red;
+}

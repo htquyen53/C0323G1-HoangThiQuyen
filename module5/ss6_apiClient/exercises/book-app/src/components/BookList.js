@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import * as bookService from '../services/BookService';
 import { useEffect, useState } from 'react';
 
@@ -14,14 +15,14 @@ export function BookList() {
         <div className='container'>
             <div>
             <h1>LIST OF BOOKS</h1>
-            <button className='btn btn-success'>Add a new book</button>
+            <Link to="/create-book"><button className='btn btn-success' id="add-btn">Add a new book</button></Link>
             </div>
             <table className='table table-hover'>
                 <thead>
                     <tr>
                         <th>Title</th>
                         <th>Quantity</th>
-                        <th align='center'>Actions</th>
+                        <th className='center-text'>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
