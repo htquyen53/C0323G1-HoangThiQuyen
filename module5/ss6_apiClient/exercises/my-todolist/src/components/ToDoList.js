@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import * as toDoListService from "./ToDoService"
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import { Field, Formik, Form } from 'formik';
 import { useNavigate } from 'react-router';
 export function ToDoList() {
@@ -11,7 +11,7 @@ export function ToDoList() {
     }, [])
     const getAll = async () => {
         const result = await toDoListService.getAll();
-        setToDoList((prev) => result);
+        setToDoList(result);
     }
 
     //Thêm mới

@@ -32,7 +32,7 @@ export function BookList() {
                                 <td>{book.title}</td>
                                 <td>{book.quantity}</td>
                                 <td>
-                                    <button className='btn btn-primary'>Edit</button>
+                                   <Link to="/edit-book/{id}" ><button className='btn btn-primary'>Edit</button></Link>
                                     <button className='btn btn-danger'>Delete</button>
                                 </td>
                             </tr>
