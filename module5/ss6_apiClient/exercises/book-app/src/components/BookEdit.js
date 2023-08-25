@@ -10,12 +10,13 @@ export function BookEdit() {
     const param = useParams();
 
     
-    const [book, setBook] = useState([]);
+    const [book, setBook] = useState();
     const getBook = async (param) => {
         const loandingBook = await bookService.findBookById(param);
-        setBook(loandingBook);
-        console.log(loandingBook)
+        setBook(prev => ({...prev,...loandingBook}))
     }
+    useEffect(() => { getBook() }, []);
+
 
     const editBook = async (values) => {
         const updateResult = await bookService.updateBook(values);
@@ -23,7 +24,6 @@ export function BookEdit() {
         navigate("/books")
     }
 
-    useEffect(() => { getBook() }, []);
     if (!book) {
         return null;
     }
