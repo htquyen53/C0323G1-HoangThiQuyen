@@ -7,33 +7,42 @@ import * as Yup from 'yup';
 
 export function BookEdit() {
     const navigate = useNavigate();
-    const param = useParams();
-
-    
+    const params = useParams();
     const [book, setBook] = useState();
-    const getBook = async (param) => {
-        const loandingBook = await bookService.findBookById(param);
-        setBook(prev => ({...prev,...loandingBook}))
+
+    useEffect(()=>{
+        if ( params.id ) {
+            getBook(params.id)
+        }
+    },[params])
+
+    const getBook = async (id) => {
+        const selectedBook = await bookService.findBookById(id);
+        setBook(selectedBook);
+        console.log(book);
     }
-    useEffect(() => { getBook() }, []);
 
 
-    const editBook = async (values) => {
-        const updateResult = await bookService.updateBook(values);
-        alert("Update successful!")
-        navigate("/books")
+    const handleSubmit = async (formData) => {
+        console.log("aaaaa")
+        console.log(formData);
+        await bookService.updateBook(formData);
+        alert("Update successful!");
+        navigate("/books");
     }
 
     if (!book) {
         return null;
     }
+
     return (
         <>
-            <h1>Edit Book</h1>
+        <div className="container">
+        <h1>Edit Book</h1>
             <Formik initialValues={{
-                id: book.id,
-                title: book.title,
-                quantity: book.quantity
+                id: book?.id,
+                title: book?.title,
+                quantity: book?.quantity
             }}
                 validationSchema={Yup.object(
                     {
@@ -45,17 +54,17 @@ export function BookEdit() {
                     }
                 )}
                 onSubmit={async (values) => {
-                    await editBook(values);
+                    await handleSubmit(values);
                 }}>
                 <Form>
                     <div className="mb-3 row">
-                        <label className="form-label">Title:</label>
-                        <Field className="form-control" name="title" />
+                        <label className="form-label" htmlFor="name">Title:</label>
+                        <Field className="form-control" name="title" id="title" />
                         <ErrorMessage className="form-error" name="title" component='span' />
                     </div>
                     <div className="mb-3 row">
-                        <label className="form-label">Quantity:</label>
-                        <Field className="form-control" name="quantity" />
+                        <label className="form-label" htmlFor="quantity">Quantity:</label>
+                        <Field className="form-control" name="quantity" id="quantity" />
                         <ErrorMessage className="form-error" name="quantity" component='span' />
                     </div>
                     <div>
@@ -63,6 +72,7 @@ export function BookEdit() {
                     </div>
                 </Form>
             </Formik>
+        </div>
         </>
     )
 }
