@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Routes, Route } from 'react-router';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ListCustomer from './components/ListCustomer';
 import EditCustomer from './components/EditCustomer';
-import { Routes, Route } from 'react-router';
 import ListFacility from './components/ListFacility';
 import EditFacility from './components/EditFacility';
 import CreateFacility from './components/CreateFavcility';
