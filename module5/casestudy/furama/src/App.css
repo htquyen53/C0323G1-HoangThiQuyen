@@ -236,6 +236,10 @@ footer .footer-content #furama-logo {
   height: auto; 
   float: right;
 }
+footer .footer-content #furama-logo img {
+  width: 100%;
+  height: auto;
+}
 
 footer .footer-contact {
   grid-column: span 4;

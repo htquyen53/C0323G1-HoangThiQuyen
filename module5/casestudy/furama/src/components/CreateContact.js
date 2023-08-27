@@ -1,5 +1,5 @@
 import {React} from 'react';
-export function CreateContact() {
+function CreateContact() {
     return(
         <main class="grid">
             <div class="main-title">
@@ -39,3 +39,4 @@ export function CreateContact() {
         </main>
     )
 }
+export default CreateContact;

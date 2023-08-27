@@ -1,5 +1,5 @@
 import { React } from "react";
-function CreateServices() {
+function CreateFacility() {
     return (
         <main className="grid">
             <div class="main-edit-title">
@@ -65,4 +65,4 @@ function CreateServices() {
         </main>
     )
 }
-export default CreateServices;
+export default CreateFacility;

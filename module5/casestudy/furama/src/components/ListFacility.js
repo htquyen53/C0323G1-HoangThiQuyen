@@ -1,5 +1,5 @@
 import { React } from "react";
-function Services() {
+function ListFacility() {
     return (
         <main className="grid">
             <img src="https://tadivui.com/wp-content/uploads/2016/05/furama-1.jpg" alt="furama  resort"/>
@@ -70,4 +70,4 @@ function Services() {
         </main>
     )
 }
-export default Services;
+export default ListFacility;

@@ -1,11 +1,12 @@
 import { React } from 'react';
-export function EditCustomer() {
+import 'App.css';
+function EditCustomer() {
     return (
         <main className="grid">
             <div class="main-title">
                 <img src="https://www.365travel.asia/images/tour/items/img2/furama-resort-danang-banner.jpg"
                     alt="furama  resort" />
-                <h2>EDIT CUSTOMER</h2>
+                <h1>EDIT CUSTOMER</h1>
             </div>
             <form action="#">
                 <table>
@@ -59,3 +60,4 @@ export function EditCustomer() {
         </main>
     )
 }
+export default EditCustomer;

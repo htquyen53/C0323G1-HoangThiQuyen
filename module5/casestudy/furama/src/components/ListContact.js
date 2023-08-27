@@ -1,5 +1,5 @@
 import { React } from 'react';
-export function ListContact() {
+function ListContact() {
     return (
         <main className="grid">
             <img src="https://www.365travel.asia/images/tour/items/img2/furama-resort-danang-banner.jpg"
@@ -31,3 +31,4 @@ export function ListContact() {
         </main>
     )
 }
+export default ListContact;
