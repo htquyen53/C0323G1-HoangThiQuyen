@@ -24,8 +24,6 @@ export function BookEdit() {
 
 
     const handleSubmit = async (formData) => {
-        console.log("aaaaa")
-        console.log(formData);
         await bookService.updateBook(formData);
         alert("Update successful!");
         navigate("/books");
