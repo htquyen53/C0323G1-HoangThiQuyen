@@ -11,11 +11,11 @@ export default function Home0({ data }) {
       <table>
         <thead>
           <tr>
-          <th>Date</th>
-          <th>Confirmed</th>
-          <th>Active</th>
-          <th>Recovered</th>
-          <th>Deaths</th>
+            <th>Date</th>
+            <th>Confirmed</th>
+            <th>Active</th>
+            <th>Recovered</th>
+            <th>Deaths</th>
           </tr>
         </thead>
         <tbody>
@@ -28,9 +28,6 @@ export default function Home0({ data }) {
               <td>{info.Deaths}</td>
             </tr>
           ))}
-          <tr >
-
-          </tr>
         </tbody>
       </table>
     </div>
