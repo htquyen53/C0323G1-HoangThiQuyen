@@ -1,34 +1,56 @@
-import { React } from 'react';
+import { useState, useEffect } from 'react';
+import "../css/listStyle.css";
+import { useNavigate } from 'react-router';
+import * as contactService from '../service/ContactService';
+
 function ListContact() {
+    const navigate = useNavigate();
+    const [contacts, setContacts] = useState();
+
+    const loadContacts = async () => {
+        const dataContacts = await contactService.getContacts();
+        setContacts(dataContacts);
+    }
+
+    useEffect(() => { loadContacts(); }, []);
+
+    if (!contacts) {
+        return null;
+    }
+
     return (
         <main className="grid">
-            <img src="https://www.365travel.asia/images/tour/items/img2/furama-resort-danang-banner.jpg"
-                alt="furama  resort" />
             <h1>Contracts List</h1>
+            <div>
+                <button type='button' className='btn btn-outline-dark' onClick={() => {
+                    navigate(`/furama/contact-create`)
+                }}>Create a new contact</button>
+            </div>
             <div className="list">
-                <table>
-                    <tr>
-                        <thead>
+                <table className='table'>
+                    <thead>
+                        <tr>
                             <th>No.</th>
                             <th>Start-Day</th>
                             <th>End-Day</th>
                             <th>Deposit</th>
                             <th>Total Payment</th>
-
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>....</td>
-                                <td>....</td>
-                                <td>....</td>
-                                <td>....</td>
-                                <td>....</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {contacts.map((contact) => (
+                            <tr key={contact.id}>
+                                <td>{contact.id}</td>
+                                <td>{contact.startDay}</td>
+                                <td>{contact.endDay}</td>
+                                <td>{contact.deposit}</td>
+                                <td>{contact.totalPayment}</td>
                             </tr>
-                        </tbody>
-                    </tr>
+                        ))}
+                    </tbody>
                 </table>
             </div>
-        </main>
+        </main >
     )
 }
 export default ListContact;

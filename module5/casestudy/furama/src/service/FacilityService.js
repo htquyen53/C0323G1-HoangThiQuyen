@@ -116,3 +116,22 @@ export const getRooms = async () => {
         console.log(e);
     }
  }
+//  Rental Type:
+export const getRentalTypes = async () => {
+    try {
+        const result = await axios.get(`http://localhost:8000/rentalTypes`);
+        return result.data;
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+// Room Standard:
+export const getRoomStandards = async () => {
+    try {
+        const result = await axios.get(`http://localhost:8000/roomStandards`);
+        return result.data;
+    } catch (e) {
+        console.log(e);
+    }
+}

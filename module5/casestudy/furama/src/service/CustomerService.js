@@ -37,3 +37,11 @@ export const getCustomers = async () => {
         console.log(e);
     }
  }
+ export const getCustomerTypes = async() => {
+    try {
+        const res = await axios.get('http://localhost:80/customerType');
+        return res.data;
+    } catch (e) {
+        console.log(e);
+    }
+ }

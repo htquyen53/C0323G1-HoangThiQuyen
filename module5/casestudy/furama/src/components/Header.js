@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
+import "../css/stylePage.css";
 class Header extends Component {
     render() {
         return (
@@ -8,19 +10,21 @@ class Header extends Component {
                     <h5>- HOTEL RESORT -</h5>
                 </div>
                 <nav>
-                    <a href="#">Home</a>
-                    <a className="dropdown" href="javascript:void(0)">Services</a>
-                    <div className="dropdown-content">
-                        <a href="#">Villas</a>
-                        <a href="#">Houses</a>
-                        <a href="#">Rooms</a>
-                        <a href="#">Others</a>
-                    </div>
-                    <a href="#">Ahout us</a>
-                    <a href="#">Contact</a>
-                    <div className="elementor-button"><a href="#">BOOK NOW</a></div>
+                    <ul>
+                        <li><Link to="/furama">Home</Link></li>
+                        <li><Link>Management</Link>
+                            <ul className="dropdown">
+                                <li><Link to="/furama/facilities">Facility</Link></li>
+                                <li><Link to="/furama/customers">Customer</Link></li>
+                                <li><Link to="/furama/contacts">Contact</Link></li>
+                            </ul>
+                        </li>
+                        <li><Link>About us</Link></li>
+                        <li><Link>Contact</Link></li>
+                        <li><Link className="elementor-button">BOOK NOW</Link></li>
+                    </ul>
                 </nav>
-            </header>
+            </header >
         )
     }
 }

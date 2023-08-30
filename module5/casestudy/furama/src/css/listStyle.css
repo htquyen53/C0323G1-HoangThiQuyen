@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: #F8F8FF;
+    ;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+}
+
+.list {
+    border: rgb(52, 49, 49);
+    margin: 5px;
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px rgba(0.5, 0.5, 0.5, 0.5);
+}
+h2 {
+    border-radius: 6px;
+}
+h1, h2, h3 {
+    font-weight: bolder;
+    text-align: center;
+}
+.btn-outline-primary {
+    border-color: rgb(36, 10, 182);
+    color: rgb(36, 10, 182);
+
+}
+.btn-success {
+    background-color: rgb(10, 74, 53);
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px rgba(23, 81, 36, 0.5);
+ }
+ .btn-primary {
+    background-color: rgb(36, 10, 182);
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px rgba(146, 133, 233, 0.5);
+ }
+ .btn-danger {
+    background-color: rgb(242, 17, 85);
+    border-radius: 6px;
+    box-shadow: 3px 3px 3px rgba(119, 78, 93, 0.5);
+ }
+.btn {
+    margin: 5px;
+}
+th,td {
+    text-align: center;
+}

@@ -1,10 +1,9 @@
 import { React } from "react";
-export function CreateCustomer() {
+    
+function CreateCustomer() {
     return (
         <main className="grid">
             <div className="main-title">
-                <img src="https://www.365travel.asia/images/tour/items/img2/furama-resort-danang-banner.jpg"
-                    alt="furama  resort" />
                 <h1>CREATE CUSTOMER</h1>
             </div>
             <form action="#">
@@ -59,3 +58,4 @@ export function CreateCustomer() {
         </main>
     )
 }
+export default CreateCustomer;

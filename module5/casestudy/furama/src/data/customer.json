@@ -1,3 +1,77 @@
 {
-    "customers":[]
+  "customers": [
+    {
+      "id": 1,
+      "name": "Hoàng Bảo Quyên",
+      "birthday": "1999-08-24",
+      "gender": "Nữ",
+      "citizenId": "0199194010022",
+      "numberphone": "0919138755",
+      "email": "baoanh@gmail.com",
+      "typeOfCustomer": "Vip",
+      "address": "Đông Anh, Hà Nội"
+    },
+    {
+      "id": 2,
+      "name": "Hoàng Anh Thư",
+      "birthday": "01-01-1999",
+      "gender": "nữ",
+      "citizenId": "0199194010022",
+      "numberphone": "0919138755",
+      "email": "baoanh@gmail.com",
+      "typeOfCustomer": "Vip",
+      "address": "Đông Anh, Hà Nội"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Nhật",
+      "birthday": "01-01-1995",
+      "gender": "nam",
+      "citizenId": "0199194010022",
+      "numberphone": "0919138755",
+      "email": "nhat@gmail.com",
+      "typeOfCustomer": "Vip",
+      "address": "Quận 3, Hà Nội"
+    },
+    {
+      "id": 4,
+      "name": "Trần Trung Dũng",
+      "birthday": "01-01-1991",
+      "gender": "nam",
+      "citizenId": "0199194010012",
+      "numberphone": "0919138751",
+      "email": "trungdung@gmail.com",
+      "typeOfCustomer": "Vip",
+      "address": "Quận 1, Hồ Chí Minh"
+    },
+    {
+      "id": 5,
+      "name": "Bùi Gia Anh",
+      "birthday": "01-01-2000",
+      "gender": "nam",
+      "citizenId": "0199194010033",
+      "numberphone": "0919138345",
+      "email": "giaanh@gmail.com",
+      "typeOfCustomer": "Vip",
+      "address": "Quận 9, Hồ Chí Minh"
+    }
+  ],
+  "customerType": [
+    {
+      "idType": 1,
+      "nameType": "VVip"
+    },
+    {
+      "idType": 2,
+      "nameType": "Vip"
+    },
+    {
+      "idType": 3,
+      "nameType": "Middle"
+    },
+    {
+      "idType": 4,
+      "nameType": "Ordinary"
+    }
+  ]
 }
