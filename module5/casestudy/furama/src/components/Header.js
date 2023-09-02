@@ -4,7 +4,7 @@ import "../css/stylePage.css";
 class Header extends Component {
     render() {
         return (
-            <header class="grid">
+            <header className="grid">
                 <div className="title">
                     <h1>Furama</h1>
                     <h5>- HOTEL RESORT -</h5>
@@ -20,7 +20,7 @@ class Header extends Component {
                             </ul>
                         </li>
                         <li><Link>About us</Link></li>
-                        <li><Link>Contact</Link></li>
+                        <li><Link>Contact us</Link></li>
                         <li><Link className="elementor-button">BOOK NOW</Link></li>
                     </ul>
                 </nav>

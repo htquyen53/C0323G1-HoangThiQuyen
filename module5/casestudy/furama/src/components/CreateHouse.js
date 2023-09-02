@@ -24,7 +24,7 @@ function CreateHouse() {
     },[])
     const addHouse = async (values) => {
         await facilityService.createHouse(values);
-        toast(`The house ${values.name} create successful!`);
+        toast(`The house ${values.name} create successfull!`);
         navigate('/furama/facilities');
     }
     return (

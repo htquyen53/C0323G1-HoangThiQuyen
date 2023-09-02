@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as facilityService from "../service/FacilityService";
 import Modal from "./Modal";
+import ReactPaginate from "react-paginate";
 import "../css/listStyle.css";
 
 function ListFacility() {
@@ -9,24 +10,39 @@ function ListFacility() {
     const [villas, setVillas] = useState([]);
     const [houses, setHouses] = useState([]);
     const [rooms, setRooms] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchName, setSearchName] = useState("");
     const [modalData, setModalData] = useState({
         show: false,
         data: null,
         facilityType: " "
     });
 
+    // -----------------------------------------------  Phân trang ----------------------------------------------------
+    const handelPageClick = (data) => {
+        let numberPage = data.selected + 1;
+        setCurrentPage(numberPage);
+    }
+    let limit = 5;
     // ------------------------------------Lấy list villa, house, room từ api------------------------------------------
-    const loadVillasInfo = async () => {
-        const dataVillas = await facilityService.getVillas();
-        setVillas(dataVillas);
+    const loadVillasInfo = async (currentPage, limit, searchName) => {
+        const dataVillas = await facilityService.getVillas(currentPage, limit, searchName);
+        const total = dataVillas.headers['x-total-count'];
+        setPageCount(Math.ceil(total / limit));
+        setVillas(dataVillas.data);
     }
-    const loadHousesInfo = async () => {
-        const dataHouses = await facilityService.getHouses();
-        setHouses(dataHouses);
+    const loadHousesInfo = async (currentPage, limit, searchName) => {
+        const dataHouses = await facilityService.getHouses(currentPage, limit, searchName);
+        const total = dataHouses.headers['x-total-count'];
+        setPageCount(Math.ceil(total / limit));
+        setHouses(dataHouses.data);
     }
-    const loadRoomInfo = async () => {
-        const dataRooms = await facilityService.getRooms();
-        setRooms(dataRooms);
+    const loadRoomInfo = async (currentPage, limit, searchName) => {
+        const dataRooms = await facilityService.getRooms(currentPage, limit, searchName);
+        const total = dataRooms.headers['x-total-count'];
+        setPageCount(Math.ceil(total / limit));
+        setRooms(dataRooms.data);
     }
 
     // --------------------------------------------------Delete modal--------------------------------------------------
@@ -56,11 +72,10 @@ function ListFacility() {
     }
     // ------------------------------------------------- useEffect ---------------------------------------------------
     useEffect(() => {
-        loadVillasInfo();
-        loadHousesInfo();
-        loadRoomInfo();
-    }, [])
-
+        loadVillasInfo(currentPage, limit, searchName);
+        loadHousesInfo(currentPage, limit, searchName);
+        loadRoomInfo(currentPage, limit, searchName);
+    }, [currentPage, limit, searchName])
 
     // --------------------------------------------------- Return ----------------------------------------------------
 
@@ -74,6 +89,9 @@ function ListFacility() {
             </div>
             <h3>- Villas -</h3>
             <div className="list">
+                <div>
+                    <input type="text" value={searchName} id="searchName" onChange={(event) => { setSearchName(event.target.value) }} />
+                </div>
                 <table className="table">
                     <thead>
                         <tr>
@@ -91,9 +109,9 @@ function ListFacility() {
                     </thead>
                     <tbody>
                         {
-                            villas.map((villa, index) => (
-                                <tr key={index}>
-                                    <td>{index+1}</td>
+                            villas.map((villa) => (
+                                <tr key={villa.id}>
+                                    <td>{villa.id}</td>
                                     <td>{villa?.name}</td>
                                     <td>{villa?.usableArea}</td>
                                     <td>{villa?.price}</td>
@@ -118,6 +136,25 @@ function ListFacility() {
                         }
                     </tbody>
                 </table>
+                <div className="paginate">
+                    <ReactPaginate
+                        previousLabel={'Previous'}
+                        nextLabel={'Next'}
+                        breakLabel={'...'}
+                        pageCount={pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={3}
+                        onPageChange={handelPageClick}
+                        containerClassName={"pagination justify-content-center"}
+                        pageLinkClassName={"page-link"}
+                        pageClassName={"page-item"}
+                        previousClassName={"page-item"}
+                        nextClassName={"page-item"}
+                        previousLinkClassName={"page-link"}
+                        nextLinkClassName={"page-link"}
+                        activeClassName={"active"}
+                    />
+                </div>
             </div>
             <h3>- Houses -</h3>
             <div className="list">
@@ -137,9 +174,9 @@ function ListFacility() {
                     </thead>
                     <tbody>
                         {
-                            houses.map((house, index) => (
-                                <tr key={index}>
-                                    <td>{index+1}</td>
+                            houses.map((house) => (
+                                <tr key={house?.id}>
+                                    <td>{house?.id}</td>
                                     <td>{house?.name}</td>
                                     <td>{house?.usableArea}</td>
                                     <td>{house?.price}</td>
@@ -162,8 +199,26 @@ function ListFacility() {
                         }
                     </tbody>
                 </table>
+                <div className="paginate">
+                    <ReactPaginate
+                        previousLabel={'Previous'}
+                        nextLabel={'Next'}
+                        breakLabel={'...'}
+                        pageCount={pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={3}
+                        onPageChange={handelPageClick}
+                        containerClassName={"pagination justify-content-center"}
+                        pageLinkClassName={"page-link"}
+                        pageClassName={"page-item"}
+                        previousClassName={"page-item"}
+                        nextClassName={"page-item"}
+                        previousLinkClassName={"page-link"}
+                        nextLinkClassName={"page-link"}
+                        activeClassName={"active"}
+                    />
+                </div>
             </div>
-
             <h3>- Rooms -</h3>
             <div className="list">
                 <table className="table">
@@ -181,9 +236,9 @@ function ListFacility() {
                     </thead>
                     <tbody>
                         {
-                            rooms.map((room, index) => (
-                                <tr key={index}>
-                                    <td>{index+1}</td>
+                            rooms.map((room) => (
+                                <tr key={room?.id}>
+                                    <td>{room?.id}</td>
                                     <td>{room?.name}</td>
                                     <td>{room?.usableArea}</td>
                                     <td>{room?.price}</td>
@@ -207,6 +262,25 @@ function ListFacility() {
                         }
                     </tbody>
                 </table>
+                <div className="paginate">
+                    <ReactPaginate
+                        previousLabel={'Previous'}
+                        nextLabel={'Next'}
+                        breakLabel={'...'}
+                        pageCount={pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={3}
+                        onPageChange={handelPageClick}
+                        containerClassName={"pagination justify-content-center"}
+                        pageLinkClassName={"page-link"}
+                        pageClassName={"page-item"}
+                        previousClassName={"page-item"}
+                        nextClassName={"page-item"}
+                        previousLinkClassName={"page-link"}
+                        nextLinkClassName={"page-link"}
+                        activeClassName={"active"}
+                    />
+                </div>
             </div>
 
             {

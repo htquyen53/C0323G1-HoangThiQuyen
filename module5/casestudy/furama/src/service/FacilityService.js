@@ -2,10 +2,10 @@ import axios from "axios";
 
 // Villas
 
-export const getVillas = async () => {
+export const getVillas = async (currentPage, limit, searchName) => {
     try {
-        const result = await axios.get(`http://localhost:8000/villas`);
-        return result.data;
+        const result = await axios.get(`http://localhost:8000/villas?_page=${currentPage}&_limit=${limit}&name_like=${searchName}`);
+        return result;
     } catch (e) {
         console.log(e);
     }
@@ -41,10 +41,10 @@ export const getVillas = async () => {
  }
 
 //  House
-export const getHouses= async () => {
+export const getHouses= async (currentPage, limit, searchName) => {
     try {
-        const result = await axios.get(`http://localhost:8000/houses`);
-        return result.data;
+        const result = await axios.get(`http://localhost:8000/houses?_page=${currentPage}&_limit=${limit}&name_like=${searchName}`);
+        return result;
     } catch (e) {
         console.log(e);
     }
@@ -79,10 +79,10 @@ export const getHouses= async () => {
     }
  }
 //  Room
-export const getRooms = async () => {
+export const getRooms = async (currentPage, limit, searchName) => {
     try {
-        const result = await axios.get(`http://localhost:8000/rooms`);
-        return result.data;
+        const result = await axios.get(`http://localhost:8000/rooms?_page=${currentPage}&_limit=${limit}&name_like=${searchName}`);
+        return result;
     } catch (e) {
         console.log(e);
     }

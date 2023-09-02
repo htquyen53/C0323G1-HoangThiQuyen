@@ -19,7 +19,7 @@ function ListContact() {
     }
 
     return (
-        <main className="grid">
+        <main className="container">
             <h1>Contracts List</h1>
             <div>
                 <button type='button' className='btn btn-outline-dark' onClick={() => {

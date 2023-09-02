@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as facilityService from "../service/FacilityService";
+import "../css/stylePage.css";
 
 function Home() {
     const navigate = useNavigate();
@@ -82,7 +83,7 @@ function Home() {
                 rooms.map((room, index) => {
                     return (
                         <div key={`p_${index}`} className="card">
-                            <img src={room.imgPath}
+                            <img src={room.imgPath  }
                                 alt="" />
                             <h3>{room.name}</h3>
                             <p>Price: {room.price}</p>

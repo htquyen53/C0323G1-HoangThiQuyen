@@ -107,7 +107,7 @@ function EditCustomer() {
                         <label htmlFor='typeOfCustomer'>Type Of Customer:</label>
                         <Field className="form-select"name="typeOfCustomer" id="typeOfCustomer" as="select" >
                             {customerTypes.map((customerType) => (
-                                <option key={customerType.idType} value={customerType.idType}>{customerType.nameType}</option>
+                                <option key={customerType.idType} value={customerType.nameType}>{customerType.nameType}</option>
                             ))}
                         </Field>
                         <ErrorMessage name='typeOfCustomer' component='span' className='text-red' />
