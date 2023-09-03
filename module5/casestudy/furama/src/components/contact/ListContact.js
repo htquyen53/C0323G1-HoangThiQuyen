@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import "../css/listStyle.css";
+import "../../css/listStyle.css";
 import { useNavigate } from 'react-router';
-import * as contactService from '../service/ContactService';
+import * as contactService from '../../service/ContactService';
 
 function ListContact() {
     const navigate = useNavigate();

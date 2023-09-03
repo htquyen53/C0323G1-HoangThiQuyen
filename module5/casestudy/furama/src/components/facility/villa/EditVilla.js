@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useNavigate, useParams } from "react-router";
 import * as Yup from 'yup';
-import * as facilityService from '../service/FacilityService';
-import "../css/crudstyle.css";
+import * as facilityService from '../../../service/FacilityService';
+import "../../../css/crudstyle.css";
 
 function EditVilla() {
     const navigate = useNavigate();

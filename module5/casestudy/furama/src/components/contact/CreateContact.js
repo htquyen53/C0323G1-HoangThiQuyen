@@ -1,8 +1,8 @@
 import { useNavigate, Link } from 'react-router';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import { useState, useEffect } from 'react';
-import * as serviceContact from "../service/ContactService";
-import "../css/crudstyle.css";
+import * as serviceContact from "../../service/ContactService";
+import "../../css/crudstyle.css";
 
 function CreateContact() {
 

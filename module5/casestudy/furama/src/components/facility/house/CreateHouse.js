@@ -1,9 +1,9 @@
-import * as facilityService from '../service/FacilityService';
+import * as facilityService from '../../../service/FacilityService';
 import { useNavigate } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import "../css/crudstyle.css";
+import "../../../css/crudstyle.css";
 import { useEffect, useState } from 'react';
 
 function CreateHouse() {

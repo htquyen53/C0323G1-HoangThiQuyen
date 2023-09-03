@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import "../css/stylePage.css";
+import "../../css/stylePage.css";
 class Header extends Component {
     render() {
         return (

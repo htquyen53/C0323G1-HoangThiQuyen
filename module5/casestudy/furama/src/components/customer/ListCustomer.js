@@ -1,8 +1,8 @@
 import { useNavigate, Link } from 'react-router';
 import { useState, useEffect } from 'react';
-import * as customerService from '../service/CustomerService';
-import "../css/listStyle.css";
-import Modal from './Modal';
+import * as customerService from '../../service/CustomerService';
+import "../../css/listStyle.css";
+import Modal from '../common/Modal';
 import ReactPaginate from 'react-paginate';
 
 function ListCustomer() {

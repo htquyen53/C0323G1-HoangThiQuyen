@@ -1,81 +1,84 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import * as facilityService from "../service/FacilityService";
-import Modal from "./Modal";
-import ReactPaginate from "react-paginate";
-import "../css/listStyle.css";
+import { useNavigate } from "react-router-dom";
+// import * as facilityService from "../../service/FacilityService";
+// import Modal from "../common/Modal";
+// import ReactPaginate from "react-paginate";
+import "../../css/listStyle.css";
+import ListVilla from "./villa/ListVilla";
+import ListHouse from "./house/ListHouse";
+import ListRoom from "./room/ListRoom";
 
 function ListFacility() {
     const navigate = useNavigate();
-    const [villas, setVillas] = useState([]);
-    const [houses, setHouses] = useState([]);
-    const [rooms, setRooms] = useState([]);
-    const [pageCount, setPageCount] = useState(0);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [searchName, setSearchName] = useState("");
-    const [modalData, setModalData] = useState({
-        show: false,
-        data: null,
-        facilityType: " "
-    });
+    // const [villas, setVillas] = useState([]);
+    // const [houses, setHouses] = useState([]);
+    // const [rooms, setRooms] = useState([]);
+    // const [pageCount, setPageCount] = useState(0);
+    // const [currentPage, setCurrentPage] = useState(1);
+    // const [searchName, setSearchName] = useState("");
+    // const [modalData, setModalData] = useState({
+    //     show: false,
+    //     data: null,
+    //     facilityType: " "
+    // });
 
-    // -----------------------------------------------  Phân trang ----------------------------------------------------
-    const handelPageClick = (data) => {
-        let numberPage = data.selected + 1;
-        setCurrentPage(numberPage);
-    }
-    let limit = 5;
-    // ------------------------------------Lấy list villa, house, room từ api------------------------------------------
-    const loadVillasInfo = async (currentPage, limit, searchName) => {
-        const dataVillas = await facilityService.getVillas(currentPage, limit, searchName);
-        const total = dataVillas.headers['x-total-count'];
-        setPageCount(Math.ceil(total / limit));
-        setVillas(dataVillas.data);
-    }
-    const loadHousesInfo = async (currentPage, limit, searchName) => {
-        const dataHouses = await facilityService.getHouses(currentPage, limit, searchName);
-        const total = dataHouses.headers['x-total-count'];
-        setPageCount(Math.ceil(total / limit));
-        setHouses(dataHouses.data);
-    }
-    const loadRoomInfo = async (currentPage, limit, searchName) => {
-        const dataRooms = await facilityService.getRooms(currentPage, limit, searchName);
-        const total = dataRooms.headers['x-total-count'];
-        setPageCount(Math.ceil(total / limit));
-        setRooms(dataRooms.data);
-    }
+    // // -----------------------------------------------  Phân trang ----------------------------------------------------
+    // const handelPageClick = (data) => {
+    //     let numberPage = data.selected + 1;
+    //     setCurrentPage(numberPage);
+    // }
+    // let limit = 5;
+    // // ------------------------------------Lấy list villa, house, room từ api------------------------------------------
+    // const loadVillasInfo = async (currentPage, limit, searchName) => {
+    //     const dataVillas = await facilityService.getVillas(currentPage, limit, searchName);
+    //     const total = dataVillas.headers['x-total-count'];
+    //     setPageCount(Math.ceil(total / limit));
+    //     setVillas(dataVillas.data);
+    // }
+    // const loadHousesInfo = async (currentPage, limit, searchName) => {
+    //     const dataHouses = await facilityService.getHouses(currentPage, limit, searchName);
+    //     const total = dataHouses.headers['x-total-count'];
+    //     setPageCount(Math.ceil(total / limit));
+    //     setHouses(dataHouses.data);
+    // }
+    // const loadRoomInfo = async (currentPage, limit, searchName) => {
+    //     const dataRooms = await facilityService.getRooms(currentPage, limit, searchName);
+    //     const total = dataRooms.headers['x-total-count'];
+    //     setPageCount(Math.ceil(total / limit));
+    //     setRooms(dataRooms.data);
+    // }
 
-    // --------------------------------------------------Delete modal--------------------------------------------------
+    // // --------------------------------------------------Delete modal--------------------------------------------------
 
-    const handleDelete = async (id, type) => {
-        console.log(type);
-        switch (type) {
-            case "villa":
-                await facilityService.deleteVilla(id);
-                loadVillasInfo();
-                break;
-            case "house":
-                await facilityService.deleteHouse(id);
-                loadHousesInfo();
-                break;
-            case "room":
-                await facilityService.deleteRoom(id);
-                loadRoomInfo();
-                break;
-            default:
-                alert("Not found!");
-        }
-        handleCloseModal();
-    }
-    const handleCloseModal = () => {
-        setModalData({ show: false, data: null, facilitytype: "" })
-    }
-    // ------------------------------------------------- useEffect ---------------------------------------------------
-    useEffect(() => {
-        loadVillasInfo(currentPage, limit, searchName);
-        loadHousesInfo(currentPage, limit, searchName);
-        loadRoomInfo(currentPage, limit, searchName);
-    }, [currentPage, limit, searchName])
+    // const handleDelete = async (id, type) => {
+    //     console.log(type);
+    //     switch (type) {
+    //         case "villa":
+    //             await facilityService.deleteVilla(id);
+    //             loadVillasInfo();
+    //             break;
+    //         case "house":
+    //             await facilityService.deleteHouse(id);
+    //             loadHousesInfo();
+    //             break;
+    //         case "room":
+    //             await facilityService.deleteRoom(id);
+    //             loadRoomInfo();
+    //             break;
+    //         default:
+    //             alert("Not found!");
+    //     }
+    //     handleCloseModal();
+    // }
+    // const handleCloseModal = () => {
+    //     setModalData({ show: false, data: null, facilitytype: "" })
+    // }
+    // // ------------------------------------------------- useEffect ---------------------------------------------------
+    // useEffect(() => {
+    //     loadVillasInfo(currentPage, limit, searchName);
+    //     loadHousesInfo(currentPage, limit, searchName);
+    //     loadRoomInfo(currentPage, limit, searchName);
+    // }, [currentPage, limit, searchName])
 
     // --------------------------------------------------- Return ----------------------------------------------------
 
@@ -87,7 +90,12 @@ function ListFacility() {
                     navigate(`/furama/facility-create`)
                 }}>Create a new Facility</button>
             </div>
-            <h3>- Villas -</h3>
+                <ListVilla />
+                <ListHouse />
+                <ListRoom />
+
+
+            {/* <h3>- Villas -</h3>
             <div className="list">
                 <div>
                     <input type="text" value={searchName} id="searchName" onChange={(event) => { setSearchName(event.target.value) }} />
@@ -291,7 +299,7 @@ function ListFacility() {
                         onConfirm={() => handleDelete(modalData.data.id, modalData.facilityType)}
                     ></Modal>
                 )
-            }
+            } */}
         </main>
     )
 }

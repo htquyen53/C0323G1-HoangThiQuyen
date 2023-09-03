@@ -2,8 +2,8 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import * as Yup from 'yup';
-import * as facilityService from '../service/FacilityService';
-import "../css/crudstyle.css";
+import * as facilityService from '../../../service/FacilityService';
+import "../../../css/crudstyle.css";
 
 function EditRoom() {
     const navigate = useNavigate();

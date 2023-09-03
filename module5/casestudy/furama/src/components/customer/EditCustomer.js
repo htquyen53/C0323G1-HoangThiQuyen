@@ -1,57 +1,72 @@
-import { useState, useEffect } from "react";
-import { Formik, Form, Field, Link, ErrorMessage } from 'formik';
-import { useNavigate } from 'react-router';
+import { useEffect, useState } from 'react';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useNavigate, useParams } from 'react-router';
 import * as Yup from 'yup';
-import "../css/crudstyle.css";
-import { ToastContainer, toast } from "react-toastify";
-import * as customerService from '../service/CustomerService';
+import * as customerService from "../../service/CustomerService";
+import "../../css/crudstyle.css";
 
-function CreateCustomer() {
+function EditCustomer() {
     const navigate = useNavigate();
+    const params = useParams();
+    const [customer, setCustomer] = useState();
     const [customerTypes, setCustomerTypes] = useState([]);
-    const loadingCustomerType = async () => {
+    const loadCustomerDetail = async (id) => {
+        const res = await customerService.getCustomerDetail(id);
+        setCustomer(res);
+    }
+    const loadCustomerTypes = async () => {
         const res = await customerService.getCustomerTypes();
+        console.log(res)
         setCustomerTypes(res);
     }
-
-    useEffect(() => {
-        loadingCustomerType();
-    }, []);
-
-    const addCustomer = async (values) => {
-        await customerService.createCustomer(values);
-        toast(`The customer ${values.name} created successfull!`);
+    const handleSubmit = async (formData) => {
+        await customerService.updateCustomer(formData);
         navigate('/furama/customers');
     }
 
+    useEffect(() => {
+        if (params.id) {
+            loadCustomerDetail(params.id);
+            loadCustomerTypes();
+        }
+    }, [params])
+
+    if (!customer) {
+        return null;
+    }
     return (
-        <main className="container">
-            <h1>Create Customer</h1>
+        <main className="grid">
+            <div class="main-title">
+                <h1>EDIT CUSTOMER</h1>
+            </div>
             <Formik initialValues={{
-                name: "",
-                birthday: "",
-                gender: "",
-                citizenId: "",
-                numberphone: "",
-                email: "",
-                typeOfCustomer: "",
-                address: ""
-            }} validationSchema={Yup.object({
-                name: Yup.string().required("Name is not empty!"),
-                birthday: Yup.string().required("Birthday is not empty!"),
-                gender: Yup.string().required("Gender is not empty!"),
-                citizenId: Yup.string().required("CitizenId is not empty!")
-                    .matches(/^[0-9]{13}$/, "CitizenId is not matches!"),
-                address: Yup.string().required("Address is not empty!")
-            })}
-            onSubmit={async (values)=> {
-                await addCustomer(values);
-            }}>
-                <Form>
-                    <div className="mb-3">
-                        <label className="form-label" htmlFor="name">Name: </label>
-                        <Field className="form-control" name="name" id="name" type="text" />
-                        <ErrorMessage name="name" className="form-error" component='span' />
+                id: customer?.id,
+                name: customer?.name,
+                birthday: customer?.birthday,
+                gender: customer?.gender,
+                citizenId: customer?.citizenId,
+                numberphone: customer?.numberphone,
+                email: customer?.email,
+                typeOfCustomer: customer?.typeOfCustomer,
+                address: customer?.address
+            }}
+                validationSchema={Yup.object({
+                    name: Yup.string().required("Name is not empty!"),
+                    birthday: Yup.string().required("Birthday is not empty!"),
+                    gender: Yup.string().required("Gender is not empty!"),
+                    citizenId: Yup.string().required("CitizenId is not empty!")
+                        .matches(/^[0-9]{13}$/, "CitizenId is not matches!"),
+                    address: Yup.string().required("Address is not empty!")
+                })}
+                onSubmit={(values) => {
+                    handleSubmit(values);
+                }}
+            >
+                <Form className='form'>
+                    <div className='mb-3'>
+                        <label htmlFor='name' className='form-label'>Name:</label>
+                        <Field type="text" name="name" id="name" className="form-control" />
+                        <ErrorMessage name='name' component='span' className='text-red' />
                     </div>
                     <div className='mb-3'>
                         <label htmlFor='birthday' className='form-label'>Birthday:</label>
@@ -90,8 +105,7 @@ function CreateCustomer() {
                     </div>
                     <div>
                         <label htmlFor='typeOfCustomer'>Type Of Customer:</label>
-                        <Field className="form-select"name="typeOfCustomer" id="typeOfCustomer" as="select" selectoption = 
-                        {customerTypes} defaultValue={customerTypes[1]} >
+                        <Field className="form-select"name="typeOfCustomer" id="typeOfCustomer" as="select" >
                             {customerTypes.map((customerType) => (
                                 <option key={customerType.idType} value={customerType.nameType}>{customerType.nameType}</option>
                             ))}
@@ -111,4 +125,4 @@ function CreateCustomer() {
         </main>
     )
 }
-export default CreateCustomer;
+export default EditCustomer;

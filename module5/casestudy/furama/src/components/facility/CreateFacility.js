@@ -1,8 +1,8 @@
 import { useState } from "react";
-import CreateVilla from "./CreateVilla";
-import CreateHouse from "./CreateHouse";
-import CreateRoom from "./CreateRoom";
-import "../css/crudstyle.css";
+import CreateVilla from "./villa/CreateVilla";
+import CreateHouse from "./house/CreateHouse";
+import CreateRoom from "./room/CreateRoom";
+import "../../css/crudstyle.css";
 
 function CreateFacility() {
     const [facilityTypes] = useState([

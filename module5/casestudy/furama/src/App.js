@@ -1,18 +1,18 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ListCustomer from './components/ListCustomer';
-import EditCustomer from './components/EditCustomer';
-import ListFacility from './components/ListFacility';
-import CreateFacility from './components/CreateFacility';
-import ListContact from './components/ListContact';
-import CreateContact from './components/CreateContact';
-import EditVilla from './components/EditVilla';
-import EditHouse from './components/EditHouse';
-import EditRoom from './components/EditRoom';
-import CreateCustomer from './components/CreateCustomer';
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import ListCustomer from './components/customer/ListCustomer';
+import EditCustomer from './components/customer/EditCustomer';
+import ListFacility from './components/facility/ListFacility';
+import CreateFacility from './components/facility/CreateFacility';
+import ListContact from './components/contact/ListContact';
+import CreateContact from './components/contact/CreateContact';
+import EditVilla from './components/facility/villa/EditVilla';
+import EditHouse from './components/facility/house/EditHouse';
+import EditRoom from './components/facility/room/EditRoom';
+import CreateCustomer from './components/customer/CreateCustomer';
 import Home from './components/Home';
 
 function App() {
