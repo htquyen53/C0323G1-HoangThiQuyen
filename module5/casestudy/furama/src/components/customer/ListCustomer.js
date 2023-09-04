@@ -4,6 +4,8 @@ import * as customerService from '../../service/CustomerService';
 import "../../css/listStyle.css";
 import Modal from '../common/Modal';
 import ReactPaginate from 'react-paginate';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ListCustomer() {
     const navigate = useNavigate();
@@ -11,6 +13,10 @@ function ListCustomer() {
     const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchItem, setSearchItem] = useState("");
+    const [modalData, setModalData] = useState({
+        show: false,
+        data: null
+    })
     let limit = 5;
 
     // const loadCustomers = async () => {
@@ -40,6 +46,38 @@ function ListCustomer() {
                 setSearchItem("");
                 // getCustomerList(currentPage,limit,searchItem);
             }
+        }
+    }
+    const handleCloseModal = () => {
+        setModalData({ show: false, data: null })
+    }
+    const handleDeleteCustomer = async (id) => {
+        const res = await customerService.deleteCustomer(id);
+        if (res.status === 200) {
+            toast.success(`Delete the customer ${modalData.data.name} successful!`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            await getCustomerList(currentPage, limit, searchItem);
+            handleCloseModal();
+        }
+        else {
+            toast.error('Delete failed!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
     }
     useEffect(() => {
@@ -96,12 +134,26 @@ function ListCustomer() {
                                     <button type="button" className='btn btn-secondary' onClick={() => {
                                         navigate(`/furama/${customer.id}/customer-edit`)
                                     }}>Edit</button>
-                                    <button type="button" className='btn btn-secondary'>Delete</button>
+                                    <button type="button" className='btn btn-secondary' onClick={() => {
+                                        setModalData({ show: true, data: customer })
+                                    }} >Delete</button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
                 <div className='paginate'>
                     <ReactPaginate
                         previousLabel={'Previous'}
@@ -122,6 +174,15 @@ function ListCustomer() {
                     />
                 </div>
             </div>
+            {
+                modalData.show && (
+                    <Modal title={'Delete customer confirmation'}
+                        msg={`Do you want to delethe the customer: ${modalData.data.name} ?`}
+                        onClose={handleCloseModal}
+                        onConfirm={()=> handleDeleteCustomer(modalData.data.id)} />
+
+                )
+            }
         </main>
     )
 }

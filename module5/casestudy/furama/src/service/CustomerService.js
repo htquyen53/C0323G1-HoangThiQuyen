@@ -47,7 +47,8 @@ export const updateCustomer = async (customer) => {
 
 export const deleteCustomer = async (id) => {
     try {
-        await axios.delete(`http://localhost:80/customers/${id}`);
+       const result = await axios.delete(`http://localhost:80/customers/${id}`);
+       return result;
     } catch (e) {
         console.log(e);
     }
