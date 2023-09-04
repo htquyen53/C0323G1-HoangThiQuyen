@@ -11,15 +11,15 @@ function Home() {
 
     // ------------------------------------Lấy list villa, house, room từ api------------------------------------------
     const loadVillasInfo = async () => {
-        const dataVillas = await facilityService.getVillas();
+        const dataVillas = await facilityService.getVillasForHome();
         setVillas(dataVillas);
     }
     const loadHousesInfo = async () => {
-        const dataHouses = await facilityService.getHouses();
+        const dataHouses = await facilityService.getHousesForHome();
         setHouses(dataHouses);
     }
     const loadRoomInfo = async () => {
-        const dataRooms = await facilityService.getRooms();
+        const dataRooms = await facilityService.getRoomsForHome();
         setRooms(dataRooms);
     }
 

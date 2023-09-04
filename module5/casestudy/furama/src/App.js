@@ -20,6 +20,7 @@ function App() {
     <>
       <Header />
       <Routes>
+        <Route path='/' element={<Home />} />
         <Route path='/furama' element={<Home />} />
         <Route path='/furama/facilities' element={<ListFacility />} />
         <Route path='/furama/facility/:id/edit-villa/' element={<EditVilla />} />

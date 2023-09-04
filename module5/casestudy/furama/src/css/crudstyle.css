@@ -59,8 +59,7 @@ main form .form-btn {
    border-radius: 6px;
    box-shadow: #CAE5E8;
 }
-/*  */
-.text-red {
+.form-error {
    color: red;
 }
 .site-create {

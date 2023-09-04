@@ -1,7 +1,14 @@
 import axios from "axios";
 
 // Villas
-
+export const getVillasForHome = async () => {
+    try {
+        const result = await axios.get(`http://localhost:8000/villas?_limit=6`);
+        return result.data;
+    } catch (e) {
+        console.log(e);
+    }
+}
 export const getVillas = async (currentPage, limit, searchName) => {
     try {
         const result = await axios.get(`http://localhost:8000/villas?_page=${currentPage}&_limit=${limit}&name_like=${searchName}`);
@@ -41,6 +48,14 @@ export const getVillas = async (currentPage, limit, searchName) => {
  }
 
 //  House
+export const getHousesForHome = async () => {
+    try {
+        const result = await axios.get(`http://localhost:8000/houses?_limit=6`);
+        return result.data;
+    } catch (e) {
+        console.log(e);
+    }
+}
 export const getHouses= async (currentPage, limit, searchName) => {
     try {
         const result = await axios.get(`http://localhost:8000/houses?_page=${currentPage}&_limit=${limit}&name_like=${searchName}`);
@@ -79,6 +94,14 @@ export const getHouses= async (currentPage, limit, searchName) => {
     }
  }
 //  Room
+export const getRoomsForHome = async () => {
+    try {
+        const result = await axios.get(`http://localhost:8000/rooms?_limit=6`);
+        return result.data;
+    } catch (e) {
+        console.log(e);
+    }
+}
 export const getRooms = async (currentPage, limit, searchName) => {
     try {
         const result = await axios.get(`http://localhost:8000/rooms?_page=${currentPage}&_limit=${limit}&name_like=${searchName}`);
