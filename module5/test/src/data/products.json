@@ -1,0 +1,61 @@
+{
+  "products": [
+    {
+      "id": 7,
+      "name": "White Pull",
+      "inputDate": "2023-02-12",
+      "quantity": 150,
+      "productType": "Pull"
+    },
+    {
+      "name": "Áo lọ cổ hoa",
+      "imputDate": "",
+      "quantity": 1000,
+      "productTypes": "",
+      "inputDate": "2023-01-01",
+      "productType": "Pull",
+      "id": 8
+    },
+    {
+      "name": "Váy jean xanh",
+      "imputDate": "",
+      "quantity": 140,
+      "productTypes": "",
+      "inputDate": "2024-01-01",
+      "productType": "Pull",
+      "id": 19
+    },
+    {
+      "name": "Váy jean",
+      "imputDate": "",
+      "quantity": 130,
+      "productTypes": "",
+      "inputDate": "2024-01-01",
+      "productType": "T-shirt",
+      "id": 22
+    },
+    {
+      "name": "Áo pull trắng",
+      "imputDate": "",
+      "quantity": 120,
+      "productTypes": "",
+      "inputDate": "2023-01-01",
+      "productType": "T-shirt",
+      "id": 23
+    }
+  ],
+  "productType": [
+    {
+      "idType": 1,
+      "nameType": "Dress"
+    },
+    {
+      "idType": 2,
+      "nameType": "Pull"
+    },
+    {
+      "idType": 3,
+      "nameType": "T-shirt"
+    }
+  ]
+}

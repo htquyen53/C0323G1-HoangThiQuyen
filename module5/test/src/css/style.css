@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+}
+.searchBar {
+    border-radius: 6px;
+    padding: 5px;
+    float: right;
+    margin: 5px;
+    border-color: aquamarine    ;
+  }
+
+.btn {
+    margin-right: 15px;
+}
