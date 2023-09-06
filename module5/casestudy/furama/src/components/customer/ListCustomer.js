@@ -6,6 +6,7 @@ import Modal from '../common/Modal';
 import ReactPaginate from 'react-paginate';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import date from 'date-and-time';
 
 function ListCustomer() {
     const navigate = useNavigate();
@@ -80,6 +81,7 @@ function ListCustomer() {
             });
         }
     }
+  
     useEffect(() => {
         // loadCustomers();
         getCustomerList(currentPage, limit, searchItem);
@@ -120,7 +122,7 @@ function ListCustomer() {
                             <tr key={customer?.id}>
                                 <td>{customer?.id}</td>
                                 <td>{customer?.name}</td>
-                                <td>{customer?.birthday}</td>
+                                <td>{date.format(new Date(customer?.birthday),'DD/MM/YYYY')}</td>
                                 <td>{customer?.gender}</td>
                                 <td>{customer?.citizenId}</td>
                                 <td>{customer?.numberphone}</td>

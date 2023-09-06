@@ -16,7 +16,6 @@ function CreateProduct() {
 
     const handleSubmit = async (values) => {
         const res = await productService.createProduct(values);
-        console.log("aAA"+res);
         if (res.status === 201) {
             toast.success(`Create successful!`, {
                 position: "top-center",
@@ -82,7 +81,7 @@ function CreateProduct() {
                         <Field name="productType" className="form-select" as='select' >
                             <option>-Chọn loại sản phẩm-</option>
                             {productTypes.map((type) => (
-                                <option key={type?.idType} value={type?.idName}>{type?.nameType}</option>
+                                <option key={type?.idType} value={type?.idType}>{type?.nameType}</option>
                             ))}
                         </Field>
                         <ErrorMessage name="name" component='span' className="form-error" />

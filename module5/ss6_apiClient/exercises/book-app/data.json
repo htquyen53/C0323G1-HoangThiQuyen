@@ -1,19 +1,14 @@
 {
   "book-app": [
     {
-      "id": 1,
-      "title": "Harry Poter",
-      "quantity": 120
-    },
-    {
-      "id": 2,
-      "title": "Joe",
-      "quantity": 100
-    },
-    {
       "id": 3,
       "title": "Quinn Quinn",
       "quantity": 100
+    },
+    {
+      "title": "Quyên là số 1",
+      "quantity": "100",
+      "id": 4
     }
   ]
 }

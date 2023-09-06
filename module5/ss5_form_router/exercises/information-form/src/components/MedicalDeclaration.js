@@ -1,4 +1,4 @@
-import {ErrorMessage, Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 export function MedicalDeclaration() {
     return (
@@ -57,8 +57,8 @@ export function MedicalDeclaration() {
                         alert("Tờ khai y tế của bạn đã hoàn thành!");
                     }, 2000)
                 }}
-                >
-                    {
+            >
+                {
                     <div className="container">
                         <h1>Tờ khai y tế</h1>
                         <Form>

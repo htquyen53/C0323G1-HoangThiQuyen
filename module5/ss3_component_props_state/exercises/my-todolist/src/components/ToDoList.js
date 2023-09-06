@@ -12,12 +12,16 @@ class ToDoList extends Component {
             item: itemName
         })
     }
+
     addItem() {
-        this.setState({
-            list: [...this.state.list, this.state.item],
-            item: ""
-        })
+        if (this.state.item.trim() !== "") {
+            this.setState((pre) => ({
+                list: [...pre.list, pre.item],
+                item: ""
+            }))
+        }
     }
+
     render() {
         return (
             <main className="grid">

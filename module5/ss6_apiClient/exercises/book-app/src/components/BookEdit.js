@@ -19,7 +19,6 @@ export function BookEdit() {
     const getBook = async (id) => {
         const selectedBook = await bookService.findBookById(id);
         setBook(selectedBook);
-        console.log(book);
     }
 
 

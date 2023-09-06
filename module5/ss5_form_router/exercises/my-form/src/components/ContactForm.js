@@ -1,15 +1,15 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { useState } from 'react';
 import * as Yup from 'yup';
+// import { useState } from 'react';
 
 
 export function ContactForm() {
-    const [form, setForm] = useState({});
-    function handleChange(event) {
-        setForm({
-            ...form, [event.target.name]: event.target.value
-        })
-    }
+    // const [form, setForm] = useState({});
+    // function handleChange(event) {
+    //     setForm({
+    //         ...form, [event.target.name]: event.target.value
+    //     })
+    // }
     return (
         <>
             <Formik
@@ -24,12 +24,13 @@ export function ContactForm() {
                     name: Yup.string()
                         .required("Name is not empty!")
                         .min(3, "Name too short!")
+                        .max(30, "Name too long!")
                         .matches(/^[a-z A-Z]+$/, "Name invalid"),
                     email: Yup.string()
-                        .required("Name is not empty!")
+                        .required("Email is not empty!")
                         .matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, "Email is not matches!"),
                     phone: Yup.string()
-                        .required("Name is not empty!")
+                        .required("Phone is not empty!")
                         .matches(/(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/, "Number Phone is not valid!")
                 })}
                 onSubmit={(values, { setSubmitting }) => {

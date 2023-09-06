@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import * as bookService from '../services/BookService';
 import { useEffect, useState } from 'react';
 import Modal from "./Modal";
@@ -25,16 +25,18 @@ export function BookList() {
     useEffect(() => {
         getAll();
     }, []);
+    
 
     return (
         <div className='container'>
             <div>
                 <h1>LIST OF BOOKS</h1>
-                <Link to="books/create-book"><button className='btn btn-success' id="add-btn">Add a new book</button></Link>
+                <Link to="/books/create-book"><button className='btn btn-success' id="add-btn">Add a new book</button></Link>
             </div>
             <table className='table table-hover'>
                 <thead>
                     <tr>
+                        <th>*</th>
                         <th>Title</th>
                         <th>Quantity</th>
                         <th className='center-text'>Actions</th>
@@ -42,21 +44,24 @@ export function BookList() {
                 </thead>
                 <tbody>
                     {
-                        books.map((book) => (
-                            <tr key={book.id}>
-                                <td>{book.title}</td>
-                                <td>{book.quantity}</td>
-                                <td>
-                                    <button className='btn btn-primary' type='button' onClick={() => {
-                                        navigate(`/books/edit-book/${book.id}`)
-                                    }}>Edit</button>
-                                    <button className='btn btn-danger' type='button' onClick={() => setModalData({
-                                        show: true,
-                                        data: book
-                                    })}>Delete</button>
-                                </td>
-                            </tr>
-                        ))
+                        books.map((book, index) => {
+                            return (
+                                <tr key={`p_${index}`}>
+                                    <td>{book.id}</td>
+                                    <td>{book.title}</td>
+                                    <td>{book.quantity}</td>
+                                    <td>
+                                        <button className='btn btn-primary' type='button' onClick={() => {
+                                            navigate(`/books/edit-book/${book.id}`)
+                                        }}>Edit</button>
+                                        <button className='btn btn-danger' type='button' onClick={() => setModalData({
+                                            show: true,
+                                            data: book
+                                        })}>Delete</button>
+                                    </td>
+                                </tr>
+                            )
+                        })
                     }
                 </tbody>
             </table>
@@ -65,7 +70,7 @@ export function BookList() {
                     <Modal title={'Delete book confirmation'}
                         msg={`Do you want to delete the book: ${modalData.data.title}?`}
                         onClose={handleCloseModal}
-                        onCofirm={() => handleDeleteBook(modalData.data.id)}
+                        onConfirm={() => handleDeleteBook(modalData.data.id)}
                     >
                     </Modal>
                 )
