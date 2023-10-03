@@ -1,0 +1,26 @@
+Bước 1: Add thêm plugin Sonarqube ở pom.xml (thêm vào thẻ <plugins> đã có sẵn)
+
+<plugin>
+	<groupId>org.sonarsource.scanner.maven</groupId>
+	<artifactId>sonar-maven-plugin</artifactId>
+	<version>3.7.0.1746</version>
+</plugin>
+
+---------------------------------------------------------------------------
+Bước 2: Cấu hình host url, login, projectKey, projectName… ở pom.xml (thêm vào thẻ <properties> đã có sẵn)
+
+<properties>
+  <sonar.host.url>http://3.14.79.1:9000</sonar.host.url>
+  <sonar.login>f4570cffe1dd5bf39ecbeed0ef04eef921709b5a</sonar.login>
+  <sonar.projectKey>Cxx2xG1_ReviewCode_AccountName</sonar.projectKey>
+  <sonar.projectName>Cxx2xG1_ReviewCode_AccountName</sonar.projectName>
+</properties>
+
+---------------------------------------------------------------------------
+Bước 3: Scan project Gradle
+Mở command ở thư mục gốc của Project. Sử dụng lệnh: mvnw sonar:sonar
+
+-> Vào server Sonarqube để xem kết quả.
+URL: http://3.14.79.1:9000/
+Account: cgdn_student
+Password: Abcd1234!
