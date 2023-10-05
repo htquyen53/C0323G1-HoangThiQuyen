@@ -29,12 +29,12 @@ const StyledAccount = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-Nav.propTypes = {
+NavHome.propTypes = {
   openNav: PropTypes.bool,
   onCloseNav: PropTypes.func,
 };
 
-export default function Nav({ openNav, onCloseNav }) {
+export default function NavHome({ openNav, onCloseNav }) {
   const { pathname } = useLocation();
 
   const isDesktop = useResponsive('up', 'lg');

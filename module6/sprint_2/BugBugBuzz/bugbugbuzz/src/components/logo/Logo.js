@@ -4,7 +4,7 @@ import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Box, Link } from '@mui/material';
-import logoImg from './logo.png';
+import logoImg from './logob.png';
 
 // ----------------------------------------------------------------------
 
@@ -32,8 +32,8 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
       ref={ref}
       component="div"
       sx={{
-        width: 100,
-        height: 50,
+        width: 500,
+        height: 200,
         display: 'inline-flex',
         ...sx,
       }}

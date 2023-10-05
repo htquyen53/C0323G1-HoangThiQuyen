@@ -1,10 +1,14 @@
 import './App.css';
 import LoginPage from './pages/LoginPage';
+import { HelmetProvider } from 'react-helmet-async';
+
 
 function App() {
   return (
     <>
-      <LoginPage />
+    <HelmetProvider>
+    <LoginPage />
+    </HelmetProvider>
     </>
   );
 }
