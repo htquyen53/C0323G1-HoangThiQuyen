@@ -1,4 +1,4 @@
-import { Grid, Button, Container, Stack, TextField, Typography } from '@mui/material';
+import { Grid, Box, Button, Container, Stack, TextField, Typography } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
@@ -17,6 +17,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ImageIcon from '@mui/icons-material/Image';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
+import Footer from '../layouts/home/footer/Footer';
 
 const ExpandMore = styled((props) => {
 	const { expand, ...other } = props;
@@ -63,14 +64,22 @@ export default function Home() {
 						rows={4}
 						margin="normal"
 					/>
-						<IconButton aria-label="add to favorites" >
-							<ImageIcon color="disabled" />
-							<AttachFileIcon />
-							<AddReactionOutlinedIcon />
-						</IconButton>
-						<Button type="submit" variant="contained" color="primary" justifyContent="end">
+					<Box sx={{ display: 'flex', justifyContent: 'space-between'}}>
+						<Box sx={{display:'flex', justifyContent: 'center'}}>
+							<IconButton aria-label="add to favorites">
+								<ImageIcon color="disabled" />
+							</IconButton>
+							<IconButton aria-label="attach file">
+								<AttachFileIcon />
+							</IconButton>
+							<IconButton aria-label="add reaction">
+								<AddReactionOutlinedIcon />
+							</IconButton>
+						</Box>
+						<Button type="submit" variant="contained" color="primary">
 							Post
 						</Button>
+					</Box>
 				</form>
 			</Container>
 
@@ -220,6 +229,7 @@ export default function Home() {
 					</Collapse>
 				</Card>
 			</Container>
+			<Footer />
 		</>
 	)
 }

@@ -11,6 +11,7 @@ import ProductsPage from './pages/ProductsPage';
 import DashboardAppPage from './pages/DashboardAppPage';
 import Home from './pages/Home';
 import HomeLayout from './layouts/home/HomeLayout';
+import Payment from './pages/Payment';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -32,6 +33,10 @@ export default function Router() {
       children: [
         { path: 'home', element: <Home /> },
       ],
+    },
+    {
+      path: 'payment',
+      element: <Payment />,
     },
     {
       path: 'login',
