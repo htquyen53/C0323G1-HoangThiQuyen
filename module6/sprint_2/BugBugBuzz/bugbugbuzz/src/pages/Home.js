@@ -15,6 +15,8 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ImageIcon from '@mui/icons-material/Image';
+import AttachFileIcon from '@mui/icons-material/AttachFile';
+import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
 
 const ExpandMore = styled((props) => {
 	const { expand, ...other } = props;
@@ -61,8 +63,10 @@ export default function Home() {
 						rows={4}
 						margin="normal"
 					/>
-						<IconButton aria-label="add to favorites">
-							<ImageIcon />
+						<IconButton aria-label="add to favorites" >
+							<ImageIcon color="disabled" />
+							<AttachFileIcon />
+							<AddReactionOutlinedIcon />
 						</IconButton>
 						<Button type="submit" variant="contained" color="primary" justifyContent="end">
 							Post
