@@ -1,6 +1,8 @@
-import { Grid, Box, Button, Container, Stack, TextField, Typography } from '@mui/material';
+import { Grid, Box, Button, Container, Stack, TextField, Typography, ListItem, ListItemText } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
+import Stomp from 'sockjs';
+import SockJs from 'sockjs-client';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -19,6 +21,8 @@ import AttachFileIcon from '@mui/icons-material/AttachFile';
 import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
 import Footer from '../layouts/home/footer/Footer';
 
+
+
 const ExpandMore = styled((props) => {
 	const { expand, ...other } = props;
 	return <IconButton {...other} />;
@@ -32,6 +36,48 @@ const ExpandMore = styled((props) => {
 
 
 export default function Home() {
+	const [posts, setPosts] = useState([]);
+	const [post, setPost] = useState();
+	const [comments, setComments] = useState([]);
+	const [comment, setComment] = useState('');
+	const [userData, setUserData] = useState({
+		userName: '',
+		post: '',
+		comment: ''
+	});
+	const [stompClient, setStompClient] = useState(null);
+
+	useEffect(() => {
+		const socket = new SockJs('http:/localhost:8080/ws');
+		const client = Stomp.over(socket);
+
+		client.connect([], () => {
+			client.subscribe('/forum/posts', (post) => {
+				const postUp = JSON.parse(post.body);
+				setPosts((prevPosts) => [...prevPosts, postUp])
+			});
+		});
+		setStompClient(client);
+		return () => {
+			client.disconnect();
+		};
+	}, []);
+
+	const handleNickNameChange = (e) => {
+		setNickName(e.target.value);
+	}
+	const handlePostChange = (e) => {
+		setPosts(e.target.value);
+	}
+
+	const doPost = () => {
+		if (posts) {
+			const newPost = {
+
+			}
+		}
+	}
+
 	const [expanded, setExpanded] = React.useState(false);
 
 	const handleExpandClick = () => {
@@ -42,6 +88,19 @@ export default function Home() {
 			<Helmet>
 				<title> Home | BugBugBuzz </title>
 			</Helmet>
+			<List>
+				{posts.map((post, index) => (
+					<ListItem key={index}>
+						<Avatar></Avatar>
+						<ListItemText
+							primary={
+								<Typography variant="subtitle1" gutterBottom> {post.title} </Typography>}
+							secondary={post.content}
+						/>
+					</ListItem>
+				))}
+			</List>
+			
 			<Container>
 				<Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
 					<Typography variant='h4'>BugBugBuzz Home</Typography>
@@ -64,8 +123,8 @@ export default function Home() {
 						rows={4}
 						margin="normal"
 					/>
-					<Box sx={{ display: 'flex', justifyContent: 'space-between'}}>
-						<Box sx={{display:'flex', justifyContent: 'center'}}>
+					<Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+						<Box sx={{ display: 'flex', justifyContent: 'center' }}>
 							<IconButton aria-label="add to favorites">
 								<ImageIcon color="disabled" />
 							</IconButton>
