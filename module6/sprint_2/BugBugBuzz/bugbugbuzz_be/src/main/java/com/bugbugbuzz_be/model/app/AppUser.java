@@ -1,12 +1,28 @@
 package com.bugbugbuzz_be.model.app;
 
+import com.bugbugbuzz_be.model.token.Token;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class AppUser {
+@Table(name = "app_user")
+public class AppUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,67 +30,42 @@ public class AppUser {
     private String password;
     private boolean isDeleted;
     private boolean isActive;
-    @JsonBackReference
-    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
-    private Set<UserRole> userRoleSet;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<AppRole> roles = new ArrayList<>();
+    @OneToMany(mappedBy = "appUser")
+    private List<Token> tokenList;
 
-    public AppUser() {
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
     }
 
-    public AppUser(Long id, String userName, String password, boolean isDeleted, boolean isActive, Set<UserRole> userRoleSet) {
-        this.id = id;
-        this.userName = userName;
-        this.password = password;
-        this.isDeleted = isDeleted;
-        this.isActive = isActive;
-        this.userRoleSet = userRoleSet;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUserName() {
+    @Override
+    public String getUsername() {
         return userName;
     }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
+    @Override
+    public String getPassword(){
         return password;
+    };
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
     }
 
-    public boolean isDeleted() {
-        return isDeleted;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
     }
 
-    public void setDeleted(boolean deleted) {
-        isDeleted = deleted;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
-    }
-
-    public Set<UserRole> getUserRoleSet() {
-        return userRoleSet;
-    }
-
-    public void setUserRoleSet(Set<UserRole> userRoleSet) {
-        this.userRoleSet = userRoleSet;
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
