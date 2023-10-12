@@ -26,7 +26,7 @@ public class User {
     @ManyToOne
     @JoinColumn(name="academic_level_id",referencedColumnName = "id")
     private AcademicLevel academicLevel;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="app_user_id", referencedColumnName = "id")
     private AppUser appUser;
     @OneToMany(mappedBy = "user")
