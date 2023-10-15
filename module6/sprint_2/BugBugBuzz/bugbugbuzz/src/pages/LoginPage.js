@@ -59,7 +59,7 @@ export default function LoginPage() {
 
         <Container maxWidth="sm">
           <StyledContent>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h3" gutterBottom sx={{ mb: 3 }}>
               Sign in to BugBugBuzz
             </Typography>
 

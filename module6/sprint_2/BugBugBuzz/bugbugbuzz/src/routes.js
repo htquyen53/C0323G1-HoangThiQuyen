@@ -28,26 +28,23 @@ export default function Router() {
       ],
     },
     {
-      path: '/',
+      path: '/bugbugbuzz',
       element: <HomeLayout />,
       children: [
         { path: 'home', element: <Home /> },
+        {
+          path: 'payment', element: <Payment />,
+        }
       ],
     },
     {
-      path: 'payment',
-      element: <Payment />,
-    },
-    {
-      path: 'login',
-      element: <LoginPage />,
-    },
-    {
+      path: '/bugbugbuzz',
       element: <SimpleLayout />,
       children: [
         { element: <Navigate to="/dashboard/app" />, index: true },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/404" /> },
+        { path: 'login', element: <LoginPage />}
       ],
     },
     {
