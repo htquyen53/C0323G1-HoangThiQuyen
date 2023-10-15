@@ -1,6 +1,7 @@
 package com.bugbugbuzz_be.model.token;
 
 import com.bugbugbuzz_be.model.app.AppUser;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class Token {
 
     public boolean expired;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "app_user_id")
     public AppUser appUser;

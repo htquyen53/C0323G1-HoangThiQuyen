@@ -1,7 +1,14 @@
 package com.bugbugbuzz_be.model.app;
 
+import com.bugbugbuzz_be.model.forum.Comment;
+import com.bugbugbuzz_be.model.forum.CommentReaction;
+import com.bugbugbuzz_be.model.forum.Post;
+import com.bugbugbuzz_be.model.forum.PostReaction;
+import com.bugbugbuzz_be.model.payment.Payment;
 import com.bugbugbuzz_be.model.token.Token;
 import com.bugbugbuzz_be.model.user.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,10 +37,22 @@ public class AppUser implements UserDetails {
     private String password;
     private boolean isDeleted;
     private boolean isActive;
-    @OneToOne(mappedBy = "appUser", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
+    @OneToMany(mappedBy = "appUser")
+    private List<Post> postList;
+    @OneToMany(mappedBy = "comment")
+    private List<Comment> comments;
+    @OneToMany(mappedBy = "appUser")
+    private List<PostReaction> postReactions;
+    @OneToMany(mappedBy = "appUser")
+    private List<Payment> payments;
+    @OneToMany(mappedBy = "appUser")
+    private List<CommentReaction> commentReactions;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<AppRole> roles = new ArrayList<>();
+
     @OneToMany(mappedBy = "appUser")
     private List<Token> tokenList;
 

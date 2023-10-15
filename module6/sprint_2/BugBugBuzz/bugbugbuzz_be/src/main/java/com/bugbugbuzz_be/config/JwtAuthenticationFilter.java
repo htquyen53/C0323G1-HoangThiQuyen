@@ -42,11 +42,16 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             return;
         }
         jwt = authHeader.substring(7);
+        System.out.println(jwt);
         username = jwtService.extractUsername(jwt); //extract username
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+            System.out.println(userDetails);
             Boolean isTokenValid = tokenRepository.findAllByToken(jwt)
                     .map(t -> !t.isExpired() && !t.isRevoked()).orElse(false);
+            /**
+             * => Xuống DB kiểm tra tính hợp lệ của token, nếu token có trong DB và không hết hạn cũng như không bị thu hồi thì trả về giá trị true
+             */
             if (jwtService.isTokenValid(jwt, userDetails) && isTokenValid) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
@@ -54,10 +59,29 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         userDetails.getAuthorities()
                 );
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                /**
+                 *  MĐ: Thiết lập thông tin chi tiết về xác thực trong đối tượng authToken;
+                 *  phương thức setDetails() được gọi trên đối tượng authToken,  và new WebAuthenticationDetailsSource().buildetails(requets)
+                 *  => tạo đối tượng WebAuthenticationDetails chứa thông tin chi tiết về xác thực từ yêu cầu (request)
+                 *  Thông tin này bao gồm: địa chỉ IP của Client, cổng và các thông tin khác liên quan đến yc HTTP
+                 *  Phương thức buildDetails(request) được sử dụng để xây dựng đối tượng WebAuticationDetailsSource từ yêu cầu request hiện tại
+                 *  Sau đó, authToken được sử dụng để chuyển tiếp thông tin xác thực trong quá trình xử lý request, vd thông qua AuthenticationManager của Spring Security để
+                 *  xác thực người dùng và cấp phát phiên hoặc token xác thực
+                 */
                 SecurityContextHolder.getContext().setAuthentication(authToken);
+                /**
+                 * SecurityContextHolder là một lớp trong Spring Security, được sử dụng để lưu trữ và quản lý thông tin về người dùng đã được
+                 * xác thực trong quá trình xử lý yêu cầu của ứng dụng.
+                 * SecurityContextHolder cung cấp một cách tiện lợi để truy cập thông tin xác thực của người dùng hiện tại mà không cần truyền
+                 * thông qua các tham số trong các phương thức. Nó sử dụng cơ chế lưu trữ theo luồng (thread-local storage) để đảm bảo rằng thông tin xác thực chỉ được truy cập bởi luồng đang thực thi yêu cầu tương ứng.
+                 */
             }
         }
         System.out.println("____________________________Authenticated");
         filterChain.doFilter(request, response);
+        /**
+         * MĐ: Chuyển tiếp yêu cầu và phản hooif đến bộ lọc tiếp theo trong chuỗi bộ lọc, cho phép các bộ lọc khác tiếp tục xử lý yu càu hoặc phản hồi
+         * trước khi nó đến servlet chính hoặc kết thúc xử lý yêu cầu.
+         */
     }
 }
