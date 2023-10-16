@@ -12,6 +12,7 @@ import DashboardAppPage from './pages/DashboardAppPage';
 import Home from './pages/Home';
 import HomeLayout from './layouts/home/HomeLayout';
 import Payment from './pages/Payment';
+import Register from './pages/Register';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -44,7 +45,9 @@ export default function Router() {
         { element: <Navigate to="/dashboard/app" />, index: true },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/404" /> },
-        { path: 'login', element: <LoginPage />}
+        { path: 'login', element: <LoginPage />},
+        { path: 'register', element: <Register />}
+      
       ],
     },
     {
