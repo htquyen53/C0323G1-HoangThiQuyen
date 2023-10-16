@@ -1,26 +1,42 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // @mui
-import { Link, Stack, IconButton, InputAdornment, TextField, Checkbox, FormControlLabel, Typography } from '@mui/material';
+import { Link, Stack, IconButton, InputAdornment, TextField, Checkbox, FormControlLabel } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 // components
 import Iconify from '../../../components/iconify';
-
+// import * as appUserService from '../../../service/AppUserService';
+// Swal
+// import Swal from 'sweetaler'
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
+  const [account, setAccount] = useState({
+    username: "",
+    password: ""
+  })
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleClick = () => {
+  const handleLogin = () => {
     navigate('/dashboard', { replace: true });
   };
+
+  const handleUsernameChange = (e) => {
+    const { value } = e.target;
+    setAccount((prevAccount) => ({ ...prevAccount, username: value }));
+  }
+  const handlePasswordChange = (e) => {
+    const { value } = e.target;
+    setAccount((prevAccount) => ({ ...prevAccount, password: value }));
+
+  }
 
   return (
     <>
       <Stack spacing={3}>
-        <TextField name="email" label="Email address" />
+        <TextField name="email" label="Email address" onChange={handleUsernameChange} />
 
         <TextField
           name="password"
@@ -35,6 +51,7 @@ export default function LoginForm() {
               </InputAdornment>
             ),
           }}
+          onChange={handlePasswordChange}
         />
       </Stack>
 
@@ -56,7 +73,7 @@ export default function LoginForm() {
         </Link>
       </Stack>
 
-      <LoadingButton fullWidth size="large" type="submit" variant="contained" onClick={handleClick}>
+      <LoadingButton fullWidth size="large" type="submit" variant="contained" onClick={handleLogin}>
         Login
       </LoadingButton>
     </>

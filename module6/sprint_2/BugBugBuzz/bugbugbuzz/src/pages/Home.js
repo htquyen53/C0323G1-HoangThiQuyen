@@ -23,7 +23,7 @@ export default function Home() {
 	// const [post, setPost] = useState();
 	const [title, setTitle] = useState("");
 	const [content, setContent] = useState("");
-	// const [comments, setComments] = useState([]);
+	const [comments, setComments] = useState([]);
 	// const [comment, setComment] = useState('');
 	const [stompClient, setStompClient] = useState(null);
 
