@@ -28,10 +28,7 @@ public class AuthenticationController {
     @PostMapping("/login-by-username")
     public ResponseEntity<AuthenticationResponse> loginByAccount(@RequestBody AuthenticationRequest request,
                                                                             HttpServletResponse response) {
-        System.out.println("---------------------login1");
         AuthenticationResponse authenticationResponse = authenticationService.authenticate(request);
-        System.out.println("-------------------login2");
-
         // Set refreshToken as a cookie in the response
         Cookie refreshTokenCookie = new Cookie("refreshToken", authenticationResponse.getRefreshToken());
         // Set the cookie's maximum age in seconds (e.g., 7 days)

@@ -18,7 +18,7 @@ import org.springframework.web.cors.CorsConfiguration;
 @EnableWebSecurity
 @RequiredArgsConstructor
 @EnableMethodSecurity
-public class WebSecurityConfiguration {
+public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private final LogoutHandler logoutHandler;
@@ -27,6 +27,7 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
+                .cors().and()
                 .authorizeHttpRequests()
                 .antMatchers("/api/v1/auth/**","/home").permitAll()
                 .anyRequest().authenticated()

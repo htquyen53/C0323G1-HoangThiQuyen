@@ -7,8 +7,6 @@ import com.bugbugbuzz_be.model.forum.PostReaction;
 import com.bugbugbuzz_be.model.payment.Payment;
 import com.bugbugbuzz_be.model.token.Token;
 import com.bugbugbuzz_be.model.user.User;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -20,7 +20,7 @@ public class ApplicationConfig {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return username -> appUserRepository.findByUserName(username).orElseThrow(()-> new UsernameNotFoundException("User not found!"));
+        return username -> appUserRepository.findAppUserByUsername(username).orElseThrow(()-> new UsernameNotFoundException("User not found!"));
     }
 
     @Bean
@@ -30,7 +30,6 @@ public class ApplicationConfig {
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
-
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();

@@ -12,6 +12,8 @@ import com.bugbugbuzz_be.service.user.IAppUserService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -33,13 +35,16 @@ public class AuthenticationService {
     private final IAppRoleRepository appRoleRepository;
     private final IAppUserService appUserService;
     private final TokenRepository tokenRepository;
-    private final PasswordEncoder passwordEncoder;
+//    private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest registerRequest) {
+        System.out.println(registerRequest);
+
         // Kiểm tra ngời dùng có tồn tại hay chưa
-        if (appUserRepository.findByUserName(registerRequest.getUsername()).isPresent()) {
+        if (appUserRepository.findAppUserByUsername(registerRequest.getUsername()).isPresent()) {
+            System.out.println(appUserRepository.findAppUserByUsername(registerRequest.getUsername()).isPresent());
             return AuthenticationResponse.builder()
                     .accessToken(null)
                     .errMsg("Existed username")
@@ -49,7 +54,8 @@ public class AuthenticationService {
         UserDto user = UserDto.builder()
                 .name(registerRequest.getName())
                 .username(registerRequest.getUsername())
-                .password(passwordEncoder.encode(registerRequest.getPassword()))
+//                .password(passwordEncoder.encode(registerRequest.getPassword()))
+                .password(registerRequest.getPassword())
                 .birthday(registerRequest.getBirthday())
                 .email(registerRequest.getEmail())
                 .phoneNumber(registerRequest.getPhoneNumber())
@@ -63,9 +69,9 @@ public class AuthenticationService {
         // Lưu người dùng vào DB
         AppUser savedUser = appUserService.registerUser(user);
         // Tạo mã token cho ngời dùng
-        String jwtToken = jwtService.generateToken(savedUser);
-        String refreshToken = jwtService.generateRefreshToken(savedUser);
-        saveUserToken(savedUser,jwtToken);
+        var jwtToken = jwtService.generateToken(savedUser);
+        var refreshToken = jwtService.generateRefreshToken(savedUser);
+        saveUserToken(savedUser, jwtToken);
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .refreshToken(refreshToken)
@@ -74,28 +80,28 @@ public class AuthenticationService {
 
     public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
         try {
-            Authentication authenticator = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
-            if (authenticator.isAuthenticated()) {
-                AppUser appUser = appUserRepository.findByUserName(authenticationRequest.getUsername()).orElseThrow(()-> new UsernameNotFoundException("User not found!"));
-                System.out.println("------------- username is: "+ appUser.getUsername());
-                String jwtToken = jwtService.generateToken(appUser);
-                String refreshToken = jwtService.generateRefreshToken(appUser);
-                System.out.println("----------------" + jwtToken);
-                revokeAllUserTokens(appUser);
-                saveUserToken(appUser, jwtToken);
-                return AuthenticationResponse.builder()
-                        .accessToken(jwtToken)
-                        .refreshToken(refreshToken)
-                        .build();
-            } else {
-                System.out.println("Xác thực thất bại!");
-            }
-        } catch (AuthenticationException e) {
-            System.out.println("Ngoại lệ");
-        } return AuthenticationResponse.builder().errMsg("Err").build();
+            System.out.println((new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())));
+            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
+        } catch (DisabledException e) {
+            return AuthenticationResponse.builder().errMsg("Your account is disabled").build();
+        } catch (BadCredentialsException e) {
+            return AuthenticationResponse.builder().errMsg("Login failed!").build();
+        }
+        AppUser appUser = appUserRepository.findAppUserByUsername(authenticationRequest.getUsername()).orElseThrow(() -> new UsernameNotFoundException("User not found!"));
+        System.out.println("------------- username is: " + appUser.getUsername());
+        var jwtToken = jwtService.generateToken(appUser);
+        var refreshToken = jwtService.generateRefreshToken(appUser);
+        System.out.println("----------------" + jwtToken);
+        revokeAllUserTokens(appUser);
+        saveUserToken(appUser, jwtToken);
+        return AuthenticationResponse.builder()
+                .accessToken(jwtToken)
+                .refreshToken(refreshToken)
+                .build();
     }
+
     private void saveUserToken(AppUser appUser, String jwtToken) {
-        Token token = Token.builder()
+        var token = Token.builder()
                 .appUser(appUser)
                 .token(jwtToken)
                 .tokenType(TokenType.BEARER)
@@ -106,7 +112,7 @@ public class AuthenticationService {
     }
 
     private void revokeAllUserTokens(AppUser appUser) {
-        List<Token> validUserTokens = tokenRepository.findAllValidTokenByAppUser(appUser.getId());
+        var validUserTokens = tokenRepository.findAllValidTokenByAppUser(appUser.getId());
         if (validUserTokens.isEmpty())
             return;
         validUserTokens.forEach(token -> {
@@ -115,6 +121,7 @@ public class AuthenticationService {
         });
         tokenRepository.saveAll(validUserTokens);
     }
+
     public void refreshToken(
             HttpServletRequest request,
             HttpServletResponse response
@@ -137,7 +144,7 @@ public class AuthenticationService {
         }
         username = jwtService.extractUsername(refreshToken); //extract username
         if (username != null) {
-            AppUser appUser = this.appUserRepository.findByUserName(username).orElseThrow(()-> new UsernameNotFoundException("User not found!"));
+            AppUser appUser = this.appUserRepository.findAppUserByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User not found!"));
             if (jwtService.isTokenValid(refreshToken, appUser)) {
                 String accessToken = jwtService.generateToken(appUser);
 

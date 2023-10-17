@@ -52,7 +52,7 @@ public class JwtService {
 
     /**
      * MĐ: Tạo một chuỗi token dựa trên thông tin người dùng (userDetails)
-     * Tham số đầu vào: một ối tượng userDetails (UserDetails)
+     * Tham số đầu vào: một đối tượng userDetails (UserDetails)
      * generateToken(new HashMap<>(), userDetails): tham số thứ nhất thể hiện thông tin claim bạn muốn truyền vào token, tham số thứ 2 là đối tượng userDetail chứa thông tin ngời dùng mà bạn muốn đứa vào token
      * Return: Chuỗi token tự tạo
      */

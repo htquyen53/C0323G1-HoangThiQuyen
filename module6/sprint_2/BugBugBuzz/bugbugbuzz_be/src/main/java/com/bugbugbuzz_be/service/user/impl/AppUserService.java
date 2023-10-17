@@ -7,6 +7,7 @@ import com.bugbugbuzz_be.repository.user.IAppUserRepository;
 import com.bugbugbuzz_be.repository.user.IUserRepository;
 import com.bugbugbuzz_be.service.user.IAppUserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -16,6 +17,7 @@ import javax.transaction.Transactional;
 public class AppUserService implements IAppUserService {
     private final IAppUserRepository appUserRepository;
     private final IUserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     @Override
     @Transactional
     public AppUser registerUser(UserDto userDto) {
@@ -33,7 +35,7 @@ public class AppUserService implements IAppUserService {
         userRepository.save(newUser);
         AppUser newAppUser = AppUser.builder()
                 .username(userDto.getUsername())
-                .password(userDto.getPassword())
+                .password(passwordEncoder.encode(userDto.getPassword()))
                 .user(newUser)
                 .build();
         return appUserRepository.save(newAppUser);
