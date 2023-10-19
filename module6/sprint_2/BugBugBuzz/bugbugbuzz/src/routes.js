@@ -42,9 +42,9 @@ export default function Router() {
       path: '/bugbugbuzz',
       element: <SimpleLayout />,
       children: [
-        { element: <Navigate to="/dashboard/app" />, index: true },
+        { element: <Navigate to="/home" />, index: true },
         { path: '404', element: <Page404 /> },
-        { path: '*', element: <Navigate to="/404" /> },
+        { path: '*', element: <Navigate to="/bugbugbuzz/404" /> },
         { path: 'login', element: <LoginPage />},
         { path: 'register', element: <Register />}
       
@@ -52,7 +52,7 @@ export default function Router() {
     },
     {
       path: '*',
-      element: <Navigate to="/404" replace />,
+      element: <Navigate to="/bugbugbuzz/404" replace />,
     },
   ]);
 

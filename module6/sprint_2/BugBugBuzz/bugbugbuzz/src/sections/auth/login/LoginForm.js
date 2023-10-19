@@ -1,27 +1,90 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 // @mui
-import { Link, Stack, IconButton, InputAdornment, TextField, Checkbox, FormControlLabel } from '@mui/material';
+import { Stack, IconButton, InputAdornment, TextField, Checkbox, FormControlLabel } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+// import { useDispatch } from "react-redux";
+// Swal
+import Swal from "sweetalert2";
+// import { setCredentials } from "../authSlice";
+// import { useLoginMutation } from "./authApiSlice";
+// import jwt_decode from "jwt-decode";
+
 // components
 import Iconify from '../../../components/iconify';
-// import * as appUserService from '../../../service/AppUserService';
-// Swal
-// import Swal from 'sweetaler'
+import * as appUserService from "../../../service/AppUserService";
+
 // ----------------------------------------------------------------------
 
 export default function LoginForm() {
+
+  // --------------- Cách 1: Sử dụng Redux -----------------------------------
+  // const userRef = useRef();
+  // const errRef = useRef();
+  // const [username, setUsername] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [errMsg, setErrMsg] = useState('')
+  // const [checked, setChecked] = useState(false);
+  // const navigate = useNavigate();
+  // const [showPassword, setShowPassword] = useState(false);
+
+  // const [login, { isLoading }] = useLoginMutation();
+  // const dispatch = useDispatch();
+
+
+  // useEffect(() => {
+  //   userRef.current.focus();
+  // }, []);
+
+  // useEffect(() => {
+  //   setErrMsg('')
+  // }, [user, pwd])
+
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   console.log(e)
+  //   console.log(username+password)
+  //   try {
+  //     const userData = await login({ user, pwd }).unwrap();
+  //     console.log(userData);
+  //     dispatch(setCredentials({ ...userData, user }))
+  //     setUsername('');
+  //     setPassword('');
+  //     Swal.fire({
+  //       title: "Đăng nhập thành công",
+  //       icon: "success",
+  //       timer: 1500,
+  //     }).then(() => {
+  //       navigate('/bugbugbuzz/home', { replace: true });
+  //     });
+  //   } catch (err) {
+  //     if (!err?.originalStatus) {
+  //       console.log(err)
+  //       setErrMsg('No server Response aaaa');
+  //     } else if (err.originalStatus === 400) {
+  //       setErrMsg('Missing Username or Password');
+  //     } else if (err.originalStatus === 401) {
+  //       setErrMsg('Unauthorized');
+  //     } else {
+  //       setErrMsg('Login Failed');
+  //     }
+  //     //  errRef.current.focus();
+  //     console.log(errMsg);
+  //   }
+  // };
+
+
+  // -------------------- Cách 2: Sử dụng storage------------------
+
   const [account, setAccount] = useState({
     username: "",
     password: ""
   })
+  const userRef = useRef();
   const [checked, setChecked] = useState(false);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = () => {
-    navigate('/dashboard', { replace: true });
-  };
 
   const handleUsernameChange = (e) => {
     const { value } = e.target;
@@ -33,19 +96,70 @@ export default function LoginForm() {
 
   }
 
+  const loginByUserName = async () => {
+    try {
+      const result = await appUserService.loginByUserName(account);
+      console.log(result)
+      if (result?.status === 200) {
+        // Lưu JWT token xuống LocalStorage
+        appUserService.addJwtTokenToLocalStorage(result.data.access_token );
+
+        console.log(appUserService.infoAppUserByJwtToken());
+       Swal.fire({
+          title: "Đăng nhập thành công",
+          icon: "success",
+          timer: 2500,
+        }).then(() => {
+          navigate('/bugbugbuzz/home', { replace: true });
+        });
+      }
+    } catch (e) {
+      console.log(e)
+      if (e?.response.status === 409) {
+       Swal.fire({
+          title: 'Lỗi đăng nhập',
+          text: 'Thông tin đăng nhập không chính xác!',
+          icon: 'error',
+          timer: 2000
+        })
+        setAccount({
+          username: "",
+          password: ""
+        })
+      } else {
+        Swal.fire({
+          icon:'error',
+          title:'Đăng nhập thất bại',
+          timer: 2000
+        })
+        setAccount({
+          username: "",
+          password: ""
+        })
+      }
+    }
+  }
   return (
     <>
       <Stack spacing={3}>
-        <TextField name="email" label="Email address" onChange={handleUsernameChange} />
+        <TextField name="username"
+          ref={userRef}
+          id="userName"
+          label="Username"
+          value={account?.username}
+          onChange={handleUsernameChange}
+        />
 
         <TextField
           name="password"
+          id="password"
           label="Password"
+          value={account?.password}
           type={showPassword ? 'text' : 'password'}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                <IconButton onClick={handlePasswordChange} edge="end">
                   <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
                 </IconButton>
               </InputAdornment>
@@ -73,7 +187,7 @@ export default function LoginForm() {
         </Link>
       </Stack>
 
-      <LoadingButton fullWidth size="large" type="submit" variant="contained" onClick={handleLogin}>
+      <LoadingButton fullWidth size="large" type="submit" variant="contained" onClick={loginByUserName}>
         Login
       </LoadingButton>
     </>

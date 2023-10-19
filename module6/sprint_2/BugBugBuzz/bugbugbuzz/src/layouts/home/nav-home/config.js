@@ -9,7 +9,7 @@ const navConfig = [
   {
     title: 'Profile',
     path: '/dashboard/app',
-    icon: icon('ic_analytics'),
+    icon: icon('ic_lock'),
   },
   {
     title: 'Account Setting',
@@ -19,7 +19,7 @@ const navConfig = [
   {
     title: 'Favorite Zone',
     path: '/dashboard/products',
-    icon: icon('ic_cart'),
+    icon: icon('ic_blog'),
   },
   // {
   //   title: 'blog',

@@ -79,13 +79,13 @@ export default function NavHome({ openNav, onCloseNav }) {
 
       <Box sx={{ flexGrow: 1 }} />
 
-      <Box sx={{ px: 2.5, pb: 3, mt:0 }}>
+      {/* <Box sx={{ px: 2.5, pb: 3, mt:0 }}>
         <Stack alignItems="center" spacing={3} sx={{ pt: 5, borderRadius: 2, position: 'relative' }}>
-          <Button href="/home" target="_blank" variant="contained">
+          <Button href="/bugbugbuzz/home" target="_blank" variant="contained">
             Back to home
           </Button>
         </Stack>
-      </Box>
+      </Box> */}
     </Scrollbar>
   );
 
