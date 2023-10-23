@@ -1,7 +1,7 @@
-import { Box, Button, Container, Stack, TextField, Typography, List, ListItem, ListItemText, ListItemAvatar } from '@mui/material';
+import { Box, Button, Container, Stack, TextField, Typography, ListItem, ListItemText, ListItemAvatar, TablePagination } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import React, { useState, useEffect } from 'react';
-import Stomp from 'stompjs';
+import Stomp, { client } from 'stompjs';
 import SockJs from 'sockjs-client';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -19,72 +19,158 @@ import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
 import SendIcon from '@mui/icons-material/Send';
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
 import TurnedInOutlinedIcon from '@mui/icons-material/TurnedInOutlined';
-// mock
-import account from '../_mock/account';
+import SpatialTrackingIcon from '@mui/icons-material/SpatialTracking';
+import VoiceOverOffIcon from '@mui/icons-material/VoiceOverOff';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import * as postService from "../service/PostService";
+import * as userService from "../service/UserService";
+
+
 
 export default function Home() {
-	const [posts, setPosts] = useState([]);
-	// const [post, setPost] = useState();
-	const [title, setTitle] = useState("");
-	const [content, setContent] = useState("");
-	// const [comments, setComments] = useState();
-	const [comment, setComment] = useState('');
+	const navigate = useNavigate();
+	const [rowsPerPage, setRowsPerPage] = useState(5);
+	const [page, setPage] = useState(0);
+	const [totalElements, setTotalElements] = useState(0);
+	const [comments, setComments] = useState([]);
+	const [imgPath, setImgPath] = useState("");
+
+	const [comment, setComment] = useState({
+		// id: null,
+		username: "",
+		avatarImg: "",
+		commentContent: "",
+		postId: null
+	})
+
 	const [stompClient, setStompClient] = useState(null);
 
-	useEffect(() => {
+	const [posts, setPosts] = useState([]);
+	const [post, setPost] = useState({
+		username: "",
+		title: "",
+		content: "",
+		visibilityId: 1
+	})
+
+
+	// Call posts list
+	const getAllPosts = async (page, rowsPerPage) => {
+		try {
+			const response = await postService.getAllPosts(page, rowsPerPage);
+			setPosts(response?.data.content);
+			setTotalElements(response.data.totalElements);
+			console.log(posts)
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	// Create a post
+	const userName = localStorage.getItem("username");
+	const avatar = localStorage.getItem("avatar");
+
+	const handleTitleChange = (e) => {
+		const { value } = e.target;
+		setPost((prevPost) => ({ ...prevPost, title: value }));
+	}
+
+	const handleContentChange = (e) => {
+		const { value } = e.target;
+		setPost((prevPost) => ({ ...prevPost, content: value }))
+	}
+
+	const handleSendPost = async () => {
+		setPost({ ...post, username: userName})
+		console.log(userName)
+		const result = await postService.addNewPost(localStorage.getItem("JWT"), post);
+		setPost({
+			username: "",
+			title: "",
+			content: "",
+			visibilityId: 1
+		})
+
+		if (result.status === 200) {
+			Swal.fire({
+				title: "Add New Post Successful",
+				icon: "success",
+				timer: 2000,
+			}).then(() => {
+				getAllPosts(page, rowsPerPage)
+			});
+		} else {
+			Swal.fire({
+				title: "Add New Post Failed!",
+				icon: "warning",
+				timer: 2000,
+			}).then(() => {
+				getAllPosts(page, rowsPerPage)
+			});
+		}
+	}
+	const handleChangePage = (event, newPage) => {
+		setPage(newPage);
+	};
+
+	const handleChangeRowsPerPage = (event) => {
+		setPage(0);
+		setRowsPerPage(parseInt(event.target.value, 10));
+	};
+
+	// Websocket to discuss about per topic
+
+
+
+	const handleConnect = (id) => {
 		const socket = new SockJs('http:/localhost:8080/ws');
 		const client = Stomp.over(socket);
-
 		client.connect([], () => {
-			client.subscribe('/forum/posts', (post) => {
-				const postUp = JSON.parse(post.body);
-				console.log(post.body)
-				setPosts((prevPosts) => [postUp, ...prevPosts]);
-				// setComments(post.commentList);
+			console.log(id)
+			setComment({ ...comment, postId: id })
+			client.subscribe(`/forum/posts/${id}`, (payload) => {
+				const newComment = JSON.parse(payload.body);
+				setComments((prev) => [...prev, newComment]);
 			});
-			// client.subscribe('/forum/post/comment', (comment) => {
-			// 	const commentPush = JSON.parse(comment.body);
-			// 	console.log(comment.body)
-			// 	setComments((prevComments) => [...prevComments, commentPush]);
-			// });
-		}, (err) => { console.log(err) });
-
+		},
+			(err) => { console.log(err) });
 		setStompClient(client);
 		return () => {
 			client.connect();
 		};
-	}, []);
+	}
 
-	const handleTitleChange = (e) => {
-		setTitle(e.target.value);
+	const handleDisconnect = () => {
+		client.disconnect();
 	}
-	const handleContentChange = (e) => {
-		setContent(e.target.value);
+
+
+	const sendComment = (id) => {
+		const newComment = {
+			...comment,
+			username: localStorage.getItem("username"),
+			postId: id
+		}
+		stompClient.send(`/bugbugbuzz/post/${id}`, {}, JSON.stringify(newComment));
+		setComment({
+			...comment,
+			commentContent: ""
+		});
 	}
+
+	// const getAvatar = async (username) => {
+	// 	const avatar = await userService.getAvatar(username);
+	// 	setImgPath(avatar);
+	// }	
+
 	const handleCommentChange = (e) => {
-		setComment(e.target.value);
+		const { value } = e.target;
+		setComment({ ...comment, commentContent: value });
 	}
+	useEffect(() => {
+		getAllPosts(page, rowsPerPage);
+	}, [page, rowsPerPage])
 
-
-	const doPost = () => {
-		// setComments((prev)=>[...prev,comment]);
-		const newPost = {
-			title,
-			content
-			// comments
-		};
-		stompClient.send('/bugbugbuzz/post', {}, JSON.stringify(newPost));
-		setTitle("");
-		setContent("");
-
-
-	};
-
-	// const doComment = () => {
-	// 	const newComment = comment;
-	// 	stompClient.send('/bugbugbuzz/post/comment', {}, JSON.stringify(newComment));
-	// 	setComment("");
-	// }
 	return (
 		<>
 			<Helmet>
@@ -98,10 +184,10 @@ export default function Home() {
 					<Typography variant='h3'>Here's what your bug resolved!</Typography>
 				</Stack>
 				<Stack direction="row" alignItems="center" justifyContent="space-between" mb={1}>
-					<Avatar style={{ marginRight: 10 }} src='/assets/images/avatars/avatar_default.jpg' alt='photoURL' />
+					<Avatar style={{ marginRight: 10 }} src={localStorage.getItem("avatar")} alt='photoURL' />
 					<TextField
 						label="Title"
-						value={title}
+						value={post.title}
 						onChange={handleTitleChange}
 						fullWidth
 					/>
@@ -110,7 +196,7 @@ export default function Home() {
 					label="What is your answer?"
 					fullWidth
 					multiline
-					value={content}
+					value={post.content}
 					onChange={handleContentChange}
 					rows={4}
 					margin="normal"
@@ -127,29 +213,17 @@ export default function Home() {
 							<AddReactionOutlinedIcon />
 						</IconButton>
 					</Box>
-					<Button variant="contained" color="primary" onClick={doPost} disabled={!title.trim()}>
+					<Button variant="contained" color="primary" onClick={handleSendPost}>
 						Post
 					</Button>
 				</Box>
 			</Container>
 			<Container>
-				{/* <List>
-					{posts.map((post, index) => (
-						<ListItem key={index}>
-							<Avatar><ImageIcon /></Avatar>
-							<ListItemText
-								primary={
-									<Typography variant="subtitle1" gutterBottom> {post.title} </Typography>}
-								secondary={post.content}
-							/>
-						</ListItem>
-					))}
-				</List> */}
 				{posts?.map((post, index) => (
 					<Card key={index} sx={{ maxWidth: 10000 }} style={{ marginTop: '20px' }}>
 						<CardHeader
 							avatar={
-								<Avatar src='/assets/images/avatars/avatar_default.jpg' alt='photoURL' />
+								<Avatar src={post?.appUser?.avatar} alt='photoURL' />
 							}
 							action={
 								<IconButton aria-label="settings">
@@ -170,7 +244,7 @@ export default function Home() {
 								{post.content}
 							</Typography>
 						</CardContent>
-						<CardActions disableSpacing style={{margin: 5}}>
+						<CardActions disableSpacing style={{ margin: 5 }}>
 							<IconButton aria-label="favorites">
 								<FavoriteIcon />
 							</IconButton>
@@ -180,44 +254,57 @@ export default function Home() {
 							<IconButton aria-label="save to favorites zone">
 								<TurnedInOutlinedIcon />
 							</IconButton>
-							<IconButton aria-label="share">
-								<ForumRoundedIcon />
+							<IconButton aria-label="share" onClick={() => handleConnect(post.id)}>
+								<SpatialTrackingIcon />
+							</IconButton>
+							<IconButton aria-label="share" onClick={handleDisconnect}>
+								<VoiceOverOffIcon />
 							</IconButton>
 						</CardActions>
-						<Stack direction="row" margin={3}>
-							{/* {comments?.map((comment, index) => ( */}
-							<ListItem key={index} >
-								<ListItemAvatar>
-									<Avatar src={account.photoURL} alt="photoURL" style={{ margin: 5 }} />
-								</ListItemAvatar>
-								<ListItemText primary="folower1" secondary="Wow!" />
-							</ListItem>
+						{comments?.map((comment, index) => (
+							(comment.postId === post.id) &&
+							<Stack direction="row" margin={3} key={index}>
+								<ListItem  >
+									<ListItemAvatar>
+										<Avatar src={comment.avatarImg} alt="photoURL" style={{ margin: 5 }} />
+									</ListItemAvatar>
+									<ListItemText primary={comment.username} secondary={comment.commentContent} />
+								</ListItem>
+							</Stack>
+						))}
 
-							{/* ))} */}
-						</Stack>
-						<Stack direction="row" margin={3}>
+						{/* <Stack direction="row" margin={3}>
 							<ListItem key={index} >
 								<ListItemAvatar>
-									<Avatar src={account.photoURL} alt="photoURL" style={{ margin: 5 }} />
+									<Avatar src={localStorage.getItem("avatar")} alt="photoURL" style={{ margin: 5 }} />
 								</ListItemAvatar>
 								<ListItemText primary="folower2" secondary="You should ....." />
 							</ListItem>
-						</Stack>
+						</Stack> */}
 						<Stack direction='row' margin={3}>
-							<Avatar src={account.photoURL} alt="photoURL" style={{ margin: 20 }} />
-							<TextField label="What is your answer?"
+							<Avatar src={localStorage.getItem("avatar")} alt="photoURL" style={{ margin: 20 }} />
+							<TextField label="Share your opinion?"
 								fullWidth
 								multiline
-								value={comment}
+								value={(comment?.postId === post?.id) ? comment?.commentContent : ""}
 								onChange={handleCommentChange}
 								rows={1}
 								margin="dense" />
-							<IconButton aria-label="share" disabled={!comment.trim()}>
+							<IconButton aria-label="share" onClick={() => { sendComment(post?.id) }}>
 								<SendIcon />
 							</IconButton>
 						</Stack>
 					</Card>
 				))}
+				<TablePagination
+					rowsPerPageOptions={[5, 10, 25]}
+					component="div"
+					count={totalElements}
+					rowsPerPage={rowsPerPage}
+					page={page}
+					onPageChange={handleChangePage}
+					onRowsPerPageChange={handleChangeRowsPerPage}
+				/>
 			</Container>
 		</>
 	)

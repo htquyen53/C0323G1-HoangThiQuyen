@@ -1,8 +1,7 @@
-import axios from "axios";  
+import axios from "axios";
 import jwtDecode from "jwt-decode";
 
 export const loginByUserName = async (appUser) => {
-
   const result = await axios.post(
     `http://localhost:8080/api/v1/auth/login-by-username`,
     appUser
@@ -47,6 +46,18 @@ export const getIdByUserName = async (userName) => {
   );
   return id;
 };
+
+export const getAvatarByUsername = async (accessToken, userName) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    withCeredentials: true,
+  };
+  const response = await axios.get(`http://localhost:8080/api/user/get-avatar?username=${userName}`, config);
+  return response.data;
+}
 
 export const checkRoleAppUser = (roleName) => {
   const jwtToken = localStorage.getItem("JWT");

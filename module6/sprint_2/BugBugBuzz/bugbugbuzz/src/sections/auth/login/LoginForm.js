@@ -13,6 +13,7 @@ import Swal from "sweetalert2";
 // components
 import Iconify from '../../../components/iconify';
 import * as appUserService from "../../../service/AppUserService";
+// import { sub } from "date-fns";
 
 // ----------------------------------------------------------------------
 
@@ -102,10 +103,14 @@ export default function LoginForm() {
       console.log(result)
       if (result?.status === 200) {
         // Lưu JWT token xuống LocalStorage
-        appUserService.addJwtTokenToLocalStorage(result.data.access_token );
+        appUserService.addJwtTokenToLocalStorage(result.data.access_token);
+        const infoUser = appUserService.infoAppUserByJwtToken();
+        localStorage.setItem("username", infoUser.sub);
+        const avatar = await appUserService.getAvatarByUsername(localStorage.getItem("JWT"), infoUser.sub)
+        localStorage.setItem("avatar", avatar);
+        console.log(localStorage.getItem("avatar"))
 
-        console.log(appUserService.infoAppUserByJwtToken());
-       Swal.fire({
+        Swal.fire({
           title: "Đăng nhập thành công",
           icon: "success",
           timer: 2500,
@@ -115,8 +120,8 @@ export default function LoginForm() {
       }
     } catch (e) {
       console.log(e)
-      if (e?.response.status === 409) {
-       Swal.fire({
+      if (e?.response?.status === 409) {
+        Swal.fire({
           title: 'Lỗi đăng nhập',
           text: 'Thông tin đăng nhập không chính xác!',
           icon: 'error',
@@ -128,8 +133,8 @@ export default function LoginForm() {
         })
       } else {
         Swal.fire({
-          icon:'error',
-          title:'Đăng nhập thất bại',
+          icon: 'error',
+          title: 'Đăng nhập thất bại',
           timer: 2000
         })
         setAccount({

@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import HomeLayout from './layouts/home/HomeLayout';
 import Payment from './pages/Payment';
 import Register from './pages/Register';
+import PackagePade from './pages/PackagePage';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -31,7 +32,7 @@ export default function Router() {
     {
       path: '/bugbugbuzz',
       element: <HomeLayout />,
-      children: [
+      children: [ 
         { path: 'home', element: <Home /> },
         {
           path: 'payment', element: <Payment />,
@@ -46,6 +47,7 @@ export default function Router() {
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/bugbugbuzz/404" /> },
         { path: 'login', element: <LoginPage />},
+        { path: 'packagepage', element: <PackagePade />},
         { path: 'register', element: <Register />}
       
       ],
