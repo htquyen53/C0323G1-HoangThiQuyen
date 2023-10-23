@@ -9,6 +9,7 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
@@ -28,11 +29,20 @@ public class LogoutService implements LogoutHandler {
     ) {
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
+        Cookie[] cookies = request.getCookies();
+        if (cookies!=null) {
+            for(Cookie cookie: cookies) {
+                cookie.setMaxAge(0);
+                cookie.setPath("/");
+                response.addCookie(cookie);
+            }
+        }
         if (authHeader == null ||!authHeader.startsWith("Bearer ")) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
         }
         jwt = authHeader.substring(7);
-        Token storedToken = tokenRepository.findAllByToken(jwt)
+        var storedToken = tokenRepository.findAllByToken(jwt)
                 .orElse(null);
         if (storedToken != null) {
             storedToken.setExpired(true);
@@ -40,5 +50,7 @@ public class LogoutService implements LogoutHandler {
             tokenRepository.save(storedToken);
             SecurityContextHolder.clearContext();
         }
+        response.setHeader("Access-Control-Allow-Origin","http://localhost:8080");
+        response.setStatus(HttpServletResponse.SC_OK);
     }
 }

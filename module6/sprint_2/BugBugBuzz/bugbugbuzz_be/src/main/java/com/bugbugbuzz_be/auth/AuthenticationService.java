@@ -26,7 +26,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -80,7 +79,6 @@ public class AuthenticationService {
 
     public AuthenticationResponse authenticate(AuthenticationRequest authenticationRequest) {
         try {
-            System.out.println((new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())));
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
         } catch (DisabledException e) {
             return AuthenticationResponse.builder().errMsg("Your account is disabled").build();
@@ -88,10 +86,8 @@ public class AuthenticationService {
             return AuthenticationResponse.builder().errMsg("Login failed!").build();
         }
         AppUser appUser = appUserRepository.findAppUserByUsername(authenticationRequest.getUsername()).orElseThrow(() -> new UsernameNotFoundException("User not found!"));
-        System.out.println("------------- username is: " + appUser.getUsername());
         var jwtToken = jwtService.generateToken(appUser);
         var refreshToken = jwtService.generateRefreshToken(appUser);
-        System.out.println("----------------" + jwtToken);
         revokeAllUserTokens(appUser);
         saveUserToken(appUser, jwtToken);
         return AuthenticationResponse.builder()

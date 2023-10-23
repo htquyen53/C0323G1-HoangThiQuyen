@@ -73,7 +73,7 @@ public class JwtService {
      * Cụ thể:
             * Khi người dùng login và xác thực thành công, hệ thống sẽ cung cấp cho user một cặp token bao gồm access token và refresh token.
             * Access token => là một chuỗi token ngắn hạn, dùng để xác thực và truy cập tài nguyên bảo mật trên hệ thống, tuy nhiên thời hạn hợp lệ ngắn, thường chỉ trong vài phút hoặc vài giờ
-            * Jgu access token hết hạn, người dùng không không thể sử dụng nó để truy cập tài nguyên nữa => refresh token yêu cầu một access token mời từ hệ thống, refresh token có thời hạn hợp lệ lâu hơn access token, thường từ vài ngày đến vài tuần
+            * Khi access token hết hạn, người dùng không không thể sử dụng nó để truy cập tài nguyên nữa => refresh token yêu cầu một access token mời từ hệ thống, refresh token có thời hạn hợp lệ lâu hơn access token, thường từ vài ngày đến vài tuần
      * Lợi ích:
             * Giúp user không cần phải đăng nhập lại sau khi access token hết hạn, mà chỉ cần thực hiện yêu cầu tái xác thực bằng cách gửi refresh lên hệ thống.
             * Tăng tính bảo mật cho hệ thống, tránh việc đăng nhập quá thường xuyên

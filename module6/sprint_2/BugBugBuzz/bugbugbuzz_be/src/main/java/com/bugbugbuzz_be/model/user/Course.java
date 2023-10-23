@@ -1,12 +1,12 @@
 package com.bugbugbuzz_be.model.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,6 +20,7 @@ public class Course {
     @Column(columnDefinition = "LONGTEXT")
     private String coursePath;
     private Boolean isDeleted;
+//    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;

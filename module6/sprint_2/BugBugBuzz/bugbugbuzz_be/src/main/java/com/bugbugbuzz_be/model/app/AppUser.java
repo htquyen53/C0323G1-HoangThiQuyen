@@ -7,10 +7,8 @@ import com.bugbugbuzz_be.model.forum.PostReaction;
 import com.bugbugbuzz_be.model.payment.Payment;
 import com.bugbugbuzz_be.model.token.Token;
 import com.bugbugbuzz_be.model.user.User;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +19,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Data
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -33,24 +32,32 @@ public class AppUser implements UserDetails {
     private Long id;
     private String username;
     private String password;
+    private String avatar;
     private boolean isDeleted;
     private boolean isActive;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_id", referencedColumnName = "id")
     private User user;
+
+    @JsonBackReference
     @OneToMany(mappedBy = "appUser")
     private List<Post> postList;
+    @JsonBackReference
     @OneToMany(mappedBy = "comment")
     private List<Comment> comments;
+    @JsonBackReference
     @OneToMany(mappedBy = "appUser")
     private List<PostReaction> postReactions;
+    @JsonBackReference
     @OneToMany(mappedBy = "appUser")
     private List<Payment> payments;
+    @JsonBackReference
     @OneToMany(mappedBy = "appUser")
     private List<CommentReaction> commentReactions;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<AppRole> roles = new ArrayList<>();
 
+    @JsonBackReference
     @OneToMany(mappedBy = "appUser")
     private List<Token> tokenList;
 

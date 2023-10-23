@@ -40,4 +40,9 @@ public class AppUserService implements IAppUserService {
                 .build();
         return appUserRepository.save(newAppUser);
     }
+
+    @Override
+    public AppUser  getAppUserByUsername(String username) {
+        return appUserRepository.findAppUserByUsername(username).orElse(null);
+    }
 }

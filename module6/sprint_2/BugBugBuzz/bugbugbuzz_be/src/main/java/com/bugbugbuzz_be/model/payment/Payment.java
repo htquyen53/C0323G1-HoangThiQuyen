@@ -2,6 +2,7 @@ package com.bugbugbuzz_be.model.payment;
 
 import com.bugbugbuzz_be.model.app.AppUser;
 import com.bugbugbuzz_be.model.product.Package;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,9 +22,12 @@ public class Payment {
     @Column(columnDefinition = "date")
     private String paymentDate;
 
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name="package_id", referencedColumnName = "id")
     private Package aPackage;
+
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "app_user_id", referencedColumnName = "id")
     private AppUser appUser;

@@ -5,5 +5,7 @@ import com.bugbugbuzz_be.dto.UserDto;
 import com.bugbugbuzz_be.model.app.AppUser;
 
 public interface IAppUserService {
-    public AppUser registerUser(UserDto userDto);
+    AppUser registerUser(UserDto userDto);
+    AppUser getAppUserByUsername (String username);
+
 }

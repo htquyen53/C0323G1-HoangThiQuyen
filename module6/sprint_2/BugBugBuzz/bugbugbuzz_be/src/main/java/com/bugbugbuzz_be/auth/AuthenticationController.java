@@ -13,7 +13,7 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/v1/auth")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @EnableTransactionManagement
 public class AuthenticationController {
@@ -40,7 +40,13 @@ public class AuthenticationController {
 
         authenticationResponse.setRefreshToken("At cookie");
 
-        return ResponseEntity.ok(authenticationResponse);
+        if (authenticationResponse.getErrMsg() == null) {
+            return ResponseEntity.ok(authenticationResponse);
+        } else if (authenticationResponse.getErrMsg().equals("Login failed!")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
     }
     @PostMapping("/refresh-token")
     public void refreshToken(

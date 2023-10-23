@@ -1,13 +1,18 @@
 package com.bugbugbuzz_be.model.forum;
 
 import com.bugbugbuzz_be.model.app.AppUser;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,19 +24,25 @@ public class Post {
     private Long id;
     private String title;
     private String content;
-    @Column(columnDefinition = "timestamp")
+    @Column(columnDefinition = "datetime")
     private String timePost;
-    private Boolean isDeleted = false;
+    @Column(columnDefinition = "false")
+    private Boolean isDeleted;
     @ManyToOne
-    @JoinColumn(name="app_user_id", referencedColumnName = "id")
+    @JsonManagedReference
+    @JoinColumn(name = "app_user_id", referencedColumnName = "id")
     private AppUser appUser;
     @ManyToOne
-    @JoinColumn(name="visibility_id", referencedColumnName = "id")
+    @JsonManagedReference
+    @JoinColumn(name = "visibility_id", referencedColumnName = "id")
     private Visibility visibility;
+    @JsonBackReference
     @OneToMany(mappedBy = "post")
     private Set<Image> imageSet;
+    @JsonBackReference
     @OneToMany(mappedBy = "post")
     private Set<PostReaction> postReactionSet;
+    @JsonBackReference
     @OneToMany(mappedBy = "post")
     private Set<Comment> commentSet;
 

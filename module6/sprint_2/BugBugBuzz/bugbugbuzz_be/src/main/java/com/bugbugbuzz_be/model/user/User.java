@@ -1,6 +1,7 @@
 package com.bugbugbuzz_be.model.user;
 
-import com.bugbugbuzz_be.model.app.AppUser;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,12 +30,12 @@ public class User {
     private String biography;
     private Long follower;
     private Long following;
-    private Boolean isDeleted = false;
+    private Boolean isDeleted;
     @ManyToOne
+//    @JsonManagedReference
     @JoinColumn(name="academic_level_id",referencedColumnName = "id")
     private AcademicLevel academicLevel;
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private AppUser appUser;
-    @OneToMany(mappedBy = "user")
+//    @JsonBackReference
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Course> courseSet;
 }

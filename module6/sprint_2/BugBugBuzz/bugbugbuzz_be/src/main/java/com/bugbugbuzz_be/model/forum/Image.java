@@ -1,5 +1,6 @@
 package com.bugbugbuzz_be.model.forum;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class Image {
     private String imgPath;
     private Boolean isDeleted;
     @ManyToOne
+    @JsonManagedReference
     @JoinColumn(name = "post_id", referencedColumnName = "id")
     private Post post;
 

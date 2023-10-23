@@ -1,14 +1,13 @@
 package com.bugbugbuzz_be.model.forum;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
 
-@Data
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -19,6 +18,7 @@ public class Visibility {
     private Integer id;
     private Boolean isDeleted;
     private String name;
+    @JsonBackReference
     @OneToMany(mappedBy = "visibility")
     private Set<Post> postSet;
 }
