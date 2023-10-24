@@ -1,11 +1,13 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from "react";
+import { createPayment } from "../../service/ProductService";
 
 const PaypalCheckoutButton = (props) => {
-    const { product } = props;
+    const {product } = props;
     const [paidFor, setPayFor] = useState(false);
     const [error, setError] = useState(null);
     const handleApprove = (orderID) => {
+
         // Call backend function to fulfill order
 
         // If response is success
@@ -29,7 +31,7 @@ const PaypalCheckoutButton = (props) => {
                 // Validate on button click, client or server side
                 const hasAlreadyBought = false;
                 if (hasAlreadyBought) {
-                    setError("You already bought this package. Gp to your account to view your package!");
+                    setError("You already bought this package. Go to your account to view your package!");
                     return actions.reject();
                 }
                 return actions.resolve();
@@ -40,7 +42,7 @@ const PaypalCheckoutButton = (props) => {
                     actions.order.create({
                         purchase_units: [
                             {
-                                description: product.description,
+                                // description: product.description,
                                 amount: { value: product.price }
                             }
                         ]

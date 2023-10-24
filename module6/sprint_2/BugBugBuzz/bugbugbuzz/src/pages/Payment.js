@@ -1,11 +1,60 @@
-import { Typography, Container, Box, Stack, Paper, Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Typography, Container, Box, Stack, Paper, Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Avatar } from "@mui/material";
 import { Helmet } from "react-helmet-async";
+
+import { useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
+import Swal from "sweetalert2";
+
 import PaypalCheckoutButton from "../components/checkout/PaypalCheckoutButton";
+import * as packageService from "../service/ProductService";
 
 export default function Payment() {
-    const product = {
-        price: 6
+    const params = useParams();
+    const navigate = useNavigate();
+    const [selectedPackage, setSelectedPackage] = useState();
+
+    const accessToken = localStorage.getItem("JWT");
+
+    const loadPackageInfo = async (accessToken, id) => {
+        try {
+            const res = await packageService.getPackageById(accessToken, id);
+            if (res == null) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Connect Error',
+                    text: 'Package not found!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(-1);
+            }
+            setSelectedPackage(res);
+        } catch (e) {
+            if (e.response.status === 406) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Connect Error',
+                    text: 'Not Acceptable ',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                navigate(-1);
+            }
+        }
+    }
+
+    useEffect(() => {
+        loadPackageInfo(accessToken, params.id);
+    }, [params.id])
+
+    if (!selectedPackage) {
+        return null;
+    }
+    const comeBackPagePrev = () => {
+        navigate(-1);
     }
 
     return (
@@ -32,10 +81,10 @@ export default function Payment() {
                         }}
                     >
                         <Paper elevation={3} sx={{ padding: "10px" }}>
-                            <Button variant="contained" sx={{ margin: 1, fontFamily: 'sans-serif' }} color="secondary">Three month free width subcription</Button>
-                            <Button variant="outlined" sx={{ margin: 1 }} color="secondary">Once time payment</Button>
-                            <Typography margin={1} variant="h5">VIP1</Typography>
-                            <Typography margin={1} paragraph>3$/month after offer period  1 account</Typography>
+                            <Button variant="contained" sx={{ margin: 1, fontFamily: 'sans-serif' }}>Three month free width subcription</Button>
+                            <Button variant="outlined" sx={{ margin: 1 }} >Once time payment</Button>
+                            <Typography margin={1} variant="h5">{selectedPackage?.name}</Typography>
+                            <Typography margin={1} paragraph>{selectedPackage?.price}$/Six month after offer period  1 account</Typography>
                             <hr />
                             <List>
                                 <ListItem disablePadding>
@@ -55,11 +104,12 @@ export default function Payment() {
                                     </ListItemButton>
                                 </ListItem>
                             </List>
-                            <Typography margin={2} textAlign="start" paragraph sx={{ fontSize: 12 }}>Terms and conditions apply. Plan available for higher education students who haven't already tried Premium. After the trial period a monthly fee of 29,500₫/month will be charged. Offer ends on 21/10/2023
-                            </Typography>
+                            <Box sx={{ marginTop: 2 }} display="flex" justifyContent="center">
+                                <Avatar style={{ width: 150, height: 150 }} src={localStorage.getItem("avatar")} alt='photoURL' />
+                            </Box>
                         </Paper>
                         <Box sx={{ marginTop: 5 }} display="flex" justifyContent="center">
-                            <PaypalCheckoutButton product={product} />
+                            <PaypalCheckoutButton product={selectedPackage} />
                         </Box>
                     </Box>
 

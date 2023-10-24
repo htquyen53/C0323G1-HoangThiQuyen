@@ -37,6 +37,7 @@ export default function Home() {
 	const [imgPath, setImgPath] = useState("");
 	const [statusBtn, setStatusBtn] = useState(false);
 	const [connectedPostId, setConnectedPostId] = useState([]);
+	const [onConnected, setOnConnectd] = useState(false);
 	const [comment, setComment] = useState({
 		// id: null,
 		username: "",
@@ -138,15 +139,16 @@ export default function Home() {
 		setStompClient(client);
 		setStatusBtn(true)
 		setConnectedPostId([...connectedPostId, id]);
+		setOnConnectd(true);
 		return () => {
 			client.connect();
 		};
 	}
 
-	const handleDisconnect = () => {
-		setStatusBtn(false)
-		stompClient.disconnect();
-	}
+	// const handleDisconnect = () => {
+	// 	setStatusBtn(false)
+	// 	stompClient.disconnect();
+	// }
 
 
 	const sendComment = (id) => {
@@ -261,12 +263,12 @@ export default function Home() {
 							<IconButton aria-label="save to favorites zone">
 								<TurnedInOutlinedIcon />
 							</IconButton>
-							<IconButton aria-label="share" onClick={() => handleConnect(post.id)}>
+							<IconButton aria-label="share" disabled = {onConnected && connectedPostId.includes(post?.id)} onClick={() => handleConnect(post.id)}>
 								<SpatialTrackingIcon />
 							</IconButton>
-							<IconButton aria-label="share" onClick={handleDisconnect}>
+							{/* <IconButton aria-label="share" onClick={handleDisconnect}>
 								<VoiceOverOffIcon />
-							</IconButton>
+							</IconButton> */}
 						</CardActions>
 						{comments?.map((comment, index) => (
 							(comment.postId === post.id) &&

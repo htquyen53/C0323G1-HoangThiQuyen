@@ -35,7 +35,7 @@ export default function Router() {
       children: [ 
         { path: 'home', element: <Home /> },
         {
-          path: 'payment', element: <Payment />,
+          path: 'payment/:id', element: <Payment />,
         }
       ],
     },

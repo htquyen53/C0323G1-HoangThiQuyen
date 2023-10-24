@@ -4,6 +4,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { teal, blueGrey, orange, grey } from '@mui/material/colors';
 import DoneOutlineRoundedIcon from '@mui/icons-material/DoneOutlineRounded';
 import { useNavigate } from "react-router-dom";
+import { useState,useEffect } from "react";
+import * as productService from "../service/ProductService"
+
 
 const theme = createTheme({
     typography: {
@@ -18,16 +21,30 @@ const theme = createTheme({
 });
 
 export default function PackagePage() {
+    const [packages, setPackages] = useState();
     const navigate = useNavigate();
+    const getAllPackages = async () => {
+        try {
+            const response = await productService.getAllPackages();
+            setPackages(response);
+            console.log(response)
+        } catch (e) {
+            console.log(e)
+        }
+
+    }
     console.log(localStorage.getItem("JWT"))
-    const handleBuyVip = (price) => {
-        console.log(price)
+    const handleBuyVip = (id) => {
+        console.log(id)
         if (localStorage.getItem("JWT")) {
-            navigate("/bugbugbuzz/payment", price)
+            navigate(`/bugbugbuzz/payment/${id}`)
         } else {
             navigate("/bugbugbuzz/login")
         }
     }
+    useEffect(() => {
+        getAllPackages();
+    }, [])
     return (
         <ThemeProvider theme={theme}>
 
@@ -61,8 +78,44 @@ export default function PackagePage() {
                                 },
                             }}
                         >
-
-                            <Paper elevation={3} sx={{ padding: "10px" }}>
+                            {packages?.map((product, index) => (
+                                <Paper elevation={3} sx={{ padding: "10px" }} key={index}>
+                                    <Button variant="contained" sx={{ margin: 1, fontFamily: 'sans-serif' }} color="secondary">Three month free width subcription</Button>
+                                    <Button variant="outlined" sx={{ margin: 1 }} color="secondary">Once time payment</Button>
+                                    <Typography margin={1} variant="h5">{product.name}</Typography>
+                                    <Typography margin={1} paragraph>{product.price} $/month after offer period  1 account</Typography>
+                                    <hr />
+                                    <List>
+                                        <ListItem disablePadding>
+                                            <ListItemButton>
+                                                <ListItemIcon>
+                                                    <DoneOutlineRoundedIcon />
+                                                </ListItemIcon>
+                                                <ListItemText primary="Ad-free post your problem" />
+                                            </ListItemButton>
+                                        </ListItem>
+                                        <ListItem disablePadding>
+                                            <ListItemButton>
+                                                <ListItemIcon>
+                                                    <DoneOutlineRoundedIcon />
+                                                </ListItemIcon>
+                                                <ListItemText primary="Play anywhere - even offline" />
+                                            </ListItemButton>
+                                        </ListItem>
+                                    </List>
+                                    <Button
+                                        variant="contained"
+                                        color="dark" fullWidth
+                                        sx={{ color: 'white' }}
+                                        onClick={() => handleBuyVip(product?.id)}
+                                    >
+                                        Get started!
+                                    </Button>
+                                    <Typography margin={2} textAlign="start" paragraph sx={{ fontSize: 12 }}>Terms and conditions apply. Plan available for higher education students who haven't already tried Premium. After the trial period a monthly fee of 29,500₫/month will be charged. Offer ends on 21/10/2023
+                                    </Typography>
+                                </Paper>
+                            ))}
+                            {/* <Paper elevation={3} sx={{ padding: "10px" }}>
                                 <Button variant="contained" sx={{ margin: 1, fontFamily: 'sans-serif' }} color="secondary">Three month free width subcription</Button>
                                 <Button variant="outlined" sx={{ margin: 1 }} color="secondary">Once time payment</Button>
                                 <Typography margin={1} variant="h5">VIP1</Typography>
@@ -163,7 +216,7 @@ export default function PackagePage() {
                                 >Get started!</Button>
                                 <Typography margin={2} textAlign="start" paragraph sx={{ fontSize: 12 }}>Terms and conditions apply. Plan available for higher education students who haven't already tried Premium. After the trial period a monthly fee of 29,500₫/month will be charged. Offer ends on 21/10/2023
                                 </Typography>
-                            </Paper>
+                            </Paper> */}
                         </Box>
                     </Stack>
                 </Stack>
