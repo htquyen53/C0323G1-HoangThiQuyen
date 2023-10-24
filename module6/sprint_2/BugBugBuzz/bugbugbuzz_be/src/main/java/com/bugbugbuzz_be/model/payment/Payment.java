@@ -19,8 +19,9 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(columnDefinition = "date")
+    @Column(columnDefinition = "datetime")
     private String paymentDate;
+    private Boolean status;
 
     @JsonManagedReference
     @ManyToOne

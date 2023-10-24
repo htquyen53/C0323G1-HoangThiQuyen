@@ -20,12 +20,10 @@ public class Package {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @Column(columnDefinition = "datetime")
-    private String startDay;
-    @Column(columnDefinition = "datetime")
-    private String endDay;
     private Boolean isDeleted = false;
     private Double price;
+    private Integer value;
+    private Boolean status;
     @JsonBackReference
     @OneToMany(mappedBy = "aPackage")
     private Set<Payment> paymentSet;

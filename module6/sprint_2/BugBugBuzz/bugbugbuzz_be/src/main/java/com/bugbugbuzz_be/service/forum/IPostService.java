@@ -8,4 +8,5 @@ import org.springframework.data.domain.Pageable;
 public interface IPostService {
     Page<Post> getAll(Pageable pageable);
     Post savePost(PostRequest request);
+
 }

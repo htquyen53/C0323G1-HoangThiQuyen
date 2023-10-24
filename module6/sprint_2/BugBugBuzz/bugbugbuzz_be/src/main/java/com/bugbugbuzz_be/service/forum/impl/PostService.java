@@ -50,4 +50,5 @@ public class PostService implements IPostService {
                 .build();
         return postRepository.save(newPost);
     }
+
 }

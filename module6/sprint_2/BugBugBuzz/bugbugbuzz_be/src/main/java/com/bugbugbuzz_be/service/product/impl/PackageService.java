@@ -17,4 +17,9 @@ public class PackageService implements IPackageService {
     public List<Package> getAllPackage() {
         return packageRepository.findAll();
     }
+
+    @Override
+    public Package findById(Long id) {
+        return packageRepository.findById(id).orElse(null);
+    }
 }

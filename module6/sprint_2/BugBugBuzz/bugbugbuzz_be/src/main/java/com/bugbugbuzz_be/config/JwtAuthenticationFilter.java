@@ -79,7 +79,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         System.out.println("____________________________Authenticated");
         filterChain.doFilter(request, response);
         /**
-         * MĐ: Chuyển tiếp yêu cầu và phản hooif đến bộ lọc tiếp theo trong chuỗi bộ lọc, cho phép các bộ lọc khác tiếp tục xử lý yu càu hoặc phản hồi
+         * MĐ: Chuyển tiếp yêu cầu và phản hồi đến bộ lọc tiếp theo trong chuỗi bộ lọc, cho phép các bộ lọc khác tiếp tục xử lý yu càu hoặc phản hồi
          * trước khi nó đến servlet chính hoặc kết thúc xử lý yêu cầu.
          */
     }

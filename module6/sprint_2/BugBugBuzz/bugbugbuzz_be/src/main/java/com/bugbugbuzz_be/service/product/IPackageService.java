@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface IPackageService {
     List<Package> getAllPackage();
+    Package findById(Long id);
 
 }
