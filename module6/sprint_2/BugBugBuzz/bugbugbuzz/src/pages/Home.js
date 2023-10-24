@@ -35,7 +35,8 @@ export default function Home() {
 	const [totalElements, setTotalElements] = useState(0);
 	const [comments, setComments] = useState([]);
 	const [imgPath, setImgPath] = useState("");
-
+	const [statusBtn, setStatusBtn] = useState(false);
+	const [connectedPostId, setConnectedPostId] = useState([]);
 	const [comment, setComment] = useState({
 		// id: null,
 		username: "",
@@ -81,7 +82,7 @@ export default function Home() {
 	}
 
 	const handleSendPost = async () => {
-		setPost({ ...post, username: userName})
+		setPost({ ...post, username: userName })
 		console.log(userName)
 		const result = await postService.addNewPost(localStorage.getItem("JWT"), post);
 		setPost({
@@ -135,13 +136,16 @@ export default function Home() {
 		},
 			(err) => { console.log(err) });
 		setStompClient(client);
+		setStatusBtn(true)
+		setConnectedPostId([...connectedPostId, id]);
 		return () => {
 			client.connect();
 		};
 	}
 
 	const handleDisconnect = () => {
-		client.disconnect();
+		setStatusBtn(false)
+		stompClient.disconnect();
 	}
 
 
@@ -166,6 +170,9 @@ export default function Home() {
 	const handleCommentChange = (e) => {
 		const { value } = e.target;
 		setComment({ ...comment, commentContent: value });
+	}
+	const handleOnMouseOver = (pId) => {
+		setComment({ ...comment, postId: pId })
 	}
 	useEffect(() => {
 		getAllPosts(page, rowsPerPage);
@@ -281,19 +288,20 @@ export default function Home() {
 								<ListItemText primary="folower2" secondary="You should ....." />
 							</ListItem>
 						</Stack> */}
-						<Stack direction='row' margin={3}>
+						{statusBtn && (connectedPostId.includes(post?.id)) && <Stack direction='row' margin={3}>
 							<Avatar src={localStorage.getItem("avatar")} alt="photoURL" style={{ margin: 20 }} />
 							<TextField label="Share your opinion?"
 								fullWidth
 								multiline
 								value={(comment?.postId === post?.id) ? comment?.commentContent : ""}
 								onChange={handleCommentChange}
+								onMouseOver={() => handleOnMouseOver(post?.id)}
 								rows={1}
 								margin="dense" />
 							<IconButton aria-label="share" onClick={() => { sendComment(post?.id) }}>
 								<SendIcon />
 							</IconButton>
-						</Stack>
+						</Stack>}
 					</Card>
 				))}
 				<TablePagination
