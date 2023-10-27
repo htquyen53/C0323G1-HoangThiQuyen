@@ -35,7 +35,6 @@ export default function PackagePage() {
     }
     console.log(localStorage.getItem("JWT"))
     const handleBuyVip = (id) => {
-        console.log(id)
         if (localStorage.getItem("JWT")) {
             navigate(`/bugbugbuzz/payment/${id}`)
         } else {

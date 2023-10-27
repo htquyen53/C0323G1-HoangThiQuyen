@@ -31,7 +31,7 @@ const StyledContent = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Register() {
-
+    
     return (
         <>
             <Helmet>

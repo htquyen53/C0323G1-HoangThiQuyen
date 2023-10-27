@@ -86,6 +86,17 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
+  const checkStatusVip = async (accessToken, username) => {
+    try {
+        const res = await appUserService.checkVipStatus(accessToken, username);
+         // Lưu Vipstatus xuống LocalStorage
+         localStorage.setItem("VipStatus", res);
+    } catch (e) {
+        console.log(e);
+    }
+}
+
+
 
   const handleUsernameChange = (e) => {
     const { value } = e.target;
@@ -97,6 +108,8 @@ export default function LoginForm() {
 
   }
 
+
+
   const loginByUserName = async () => {
     try {
       const result = await appUserService.loginByUserName(account);
@@ -107,9 +120,8 @@ export default function LoginForm() {
         const infoUser = appUserService.infoAppUserByJwtToken();
         localStorage.setItem("username", infoUser.sub);
         const avatar = await appUserService.getAvatarByUsername(localStorage.getItem("JWT"), infoUser.sub)
-        localStorage.setItem("avatar", avatar);
-        console.log(localStorage.getItem("avatar"))
-
+        localStorage.setItem("avatar", avatar); 
+        checkStatusVip(localStorage.getItem("JWT"), infoUser.sub);
         Swal.fire({
           title: "Đăng nhập thành công",
           icon: "success",

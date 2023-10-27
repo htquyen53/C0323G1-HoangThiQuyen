@@ -14,6 +14,8 @@ import HomeLayout from './layouts/home/HomeLayout';
 import Payment from './pages/Payment';
 import Register from './pages/Register';
 import PackagePade from './pages/PackagePage';
+import Profile from './pages/Profile';
+import SavedPost from './pages/SavedPost';
 // ----------------------------------------------------------------------
 
 export default function Router() {
@@ -32,11 +34,13 @@ export default function Router() {
     {
       path: '/bugbugbuzz',
       element: <HomeLayout />,
-      children: [ 
+      children: [
         { path: 'home', element: <Home /> },
         {
           path: 'payment/:id', element: <Payment />,
-        }
+        },
+        { path: 'save-post', element: <SavedPost /> },
+        { path: 'profile', element: <Profile /> }
       ],
     },
     {
@@ -46,15 +50,15 @@ export default function Router() {
         { element: <Navigate to="/home" />, index: true },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/bugbugbuzz/404" /> },
-        { path: 'login', element: <LoginPage />},
-        { path: 'packagepage', element: <PackagePade />},
-        { path: 'register', element: <Register />}
-      
+        { path: 'login', element: <LoginPage /> },
+        { path: 'packagepage', element: <PackagePade /> },
+        { path: 'register', element: <Register /> }
+
       ],
     },
     {
       path: '*',
-      element: <Navigate to="/bugbugbuzz/404" replace />,
+      element: <Navigate to="/bugbugbuzz/login" replace />,
     },
   ]);
 

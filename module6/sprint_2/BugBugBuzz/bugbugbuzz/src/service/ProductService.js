@@ -28,3 +28,16 @@ export const createPayment = async (accessToken, payment) => {
   const response = await axios.post("http://localhost:8080/api/payment/createPayment", payment, config);
   return response;
 }
+
+// Get List Payment
+export const getAllPayment = async (accessToken, username) => {
+  const config = {
+      headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+      },
+      withCeredentials: true,
+  };
+  const response = await axios.get(`http://localhost:8080/api/payment/list/${username}`, config);
+  return response.data;
+}

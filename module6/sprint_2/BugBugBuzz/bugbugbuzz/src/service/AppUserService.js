@@ -59,6 +59,18 @@ export const getAvatarByUsername = async (accessToken, userName) => {
   return response.data;
 }
 
+export const checkVipStatus = async (accessToken, username) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    withCeredentials: true,
+  };
+  const response = await axios.get(`http://localhost:8080/api/user/check-vip?username=${username}`, config);
+  return response.data;
+}
+
 export const checkRoleAppUser = (roleName) => {
   const jwtToken = localStorage.getItem("JWT");
   if (jwtToken) {

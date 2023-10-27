@@ -8,24 +8,24 @@ const icon = (name) => <SvgColor src={`/assets/icons/navbar/${name}.svg`} sx={{ 
 const navConfig = [
   {
     title: 'Profile',
-    path: '/dashboard/app',
+    path: '/bugbugbuzz/profile',
     icon: icon('ic_lock'),
   },
   {
-    title: 'Account Setting',
-    path: '/dashboard/user',
+    title: 'Favorite Zone',
+    path: localStorage.getItem("VipStatus") !== "" ? ('/bugbugbuzz/save-post') : ('/bugbugbuzz/packagepage'),
+    icon: icon('ic_blog'),
+  },
+  {
+    title: 'Update VIP',
+    path: '/bugbugbuzz/packagepage',
     icon: icon('ic_user'),
   },
   {
-    title: 'Favorite Zone',
-    path: '/dashboard/products',
-    icon: icon('ic_blog'),
-  },
-  // {
-  //   title: 'blog',
-  //   path: '/dashboard/blog',
-  //   icon: icon('ic_blog'),
-  // },
+    title: 'New Feed',
+    path: '/bugbugbuzz/home',
+    icon: icon('ic_notification_chat'),
+  }
   // {
   //   title: 'login',
   //   path: '/login',

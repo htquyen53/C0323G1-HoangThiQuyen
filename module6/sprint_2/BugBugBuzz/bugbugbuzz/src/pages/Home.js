@@ -21,6 +21,7 @@ import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
 import TurnedInOutlinedIcon from '@mui/icons-material/TurnedInOutlined';
 import SpatialTrackingIcon from '@mui/icons-material/SpatialTracking';
 import VoiceOverOffIcon from '@mui/icons-material/VoiceOverOff';
+
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import * as postService from "../service/PostService";
@@ -221,7 +222,7 @@ export default function Home() {
 						<IconButton aria-label="add reaction">
 							<AddReactionOutlinedIcon />
 						</IconButton>
-					</Box>
+					</Box> 
 					<Button variant="contained" color="primary" onClick={handleSendPost}>
 						Post
 					</Button>
@@ -263,25 +264,27 @@ export default function Home() {
 							<IconButton aria-label="save to favorites zone">
 								<TurnedInOutlinedIcon />
 							</IconButton>
-							<IconButton aria-label="share" disabled = {onConnected && connectedPostId.includes(post?.id)} onClick={() => handleConnect(post.id)}>
+							<IconButton aria-label="share" disabled={onConnected && connectedPostId.includes(post?.id)} onClick={() => handleConnect(post.id)}>
 								<SpatialTrackingIcon />
 							</IconButton>
 							{/* <IconButton aria-label="share" onClick={handleDisconnect}>
 								<VoiceOverOffIcon />
 							</IconButton> */}
 						</CardActions>
-						{comments?.map((comment, index) => (
-							(comment.postId === post.id) &&
-							<Stack direction="row" margin={3} key={index}>
-								<ListItem  >
-									<ListItemAvatar>
-										<Avatar src={comment.avatarImg} alt="photoURL" style={{ margin: 5 }} />
-									</ListItemAvatar>
-									<ListItemText primary={comment.username} secondary={comment.commentContent} />
-								</ListItem>
-							</Stack>
-						))}
+						<Box margin={3}>
+								{comments?.map((comment, index) => (
+									(comment.postId === post.id) &&
+									<Stack direction="row" margin={3} key={index}>
+										<ListItem  >
+											<ListItemAvatar>
+												<Avatar src={comment.avatarImg} alt="photoURL" style={{ margin: 5 }} />
+											</ListItemAvatar>
+											<ListItemText primary={comment.username} secondary={comment.commentContent} />
+										</ListItem>
+									</Stack>
+								))}
 
+						</Box>
 						{/* <Stack direction="row" margin={3}>
 							<ListItem key={index} >
 								<ListItemAvatar>
