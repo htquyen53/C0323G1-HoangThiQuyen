@@ -39,7 +39,7 @@ export default function Profile() {
     }, [])
 
     return (
-        <Box sx={{ flexGrow: 1, margin: 7 }}>
+        <Box sx={{ flexGrow: 1, margin: 5 }}>
             <Grid container spacing={3}>
                 <Grid item xs={8}>
                     <Item>

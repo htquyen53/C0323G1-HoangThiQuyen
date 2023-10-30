@@ -23,6 +23,7 @@ public class UserController {
             return ResponseEntity.noContent().build();
         }
     }
+
     @GetMapping("/home/get-avatar")
     public ResponseEntity<?> getAccountByUser(@RequestParam String username) {
         String avatar = appUserService.getAppUserByUsername(username).getAvatar();
@@ -31,5 +32,15 @@ public class UserController {
         } else {
             return ResponseEntity.noContent().build();
         }
+    }
+
+
+    @GetMapping("/check-vip")
+    public ResponseEntity<?> checkVipStatus(@RequestParam String username) {
+        String vipStatus = appUserService.checkVipStatusByUsername(username);
+        if (vipStatus != null) {
+            return ResponseEntity.ok(vipStatus);
+        }
+        return ResponseEntity.noContent().build();
     }
 }

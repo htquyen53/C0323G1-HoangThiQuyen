@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -33,8 +34,14 @@ public class PaymentService implements IPaymentService{
                 .appUser(appUser.get())
                 .aPackage(selectedPackage.get())
                 .paymentDate(formattedDateTime)
+                .orderId(request.getOrderId())
                 .status(true)
                 .build();
         return paymentRepository.save(newPayment);
+    }
+
+    @Override
+    public List<Payment> getAll(AppUser appUser) {
+        return paymentRepository.findPaymentByAppUser(appUser);
     }
 }

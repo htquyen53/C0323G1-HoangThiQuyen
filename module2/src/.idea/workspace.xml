@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6850b6c2-9f4d-451c-82bb-4231e62fed64" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ss3/audit/DrawIsoscelesTriangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss3/audit/SecondMax.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/dto/FormatUserInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/Module1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/case_study/case_study.iml" beforeDir="false" afterPath="$PROJECT_DIR$/case_study/case_study.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/RemovingDuplicateInString.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/RemovingDuplicateInString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/al5.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/al5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/al6.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/al6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/demo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/demo1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/demo3.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/demo3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/demo4.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/demo4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/demo5.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/demo5.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/demo6.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/demo6.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/demo7.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/demo7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/demo8.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/demo8.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ss3/audit/quicksort.java" beforeDir="false" afterPath="$PROJECT_DIR$/ss3/audit/quicksort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module4/ss1_springMVC/_pr/pr02/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../module4/ss1_springMVC/_pr/pr02/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/QuyenHT&amp;TinDT_Customer.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/QuyenHT_Customer/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/QuyenHT_Customer/.idea/QuyenHT_Customer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/QuyenHT_Customer/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/QuyenHT_Customer/QuyenHT_Customer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/QuyenHT_Customer/QuyenHT_CustomerList.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/QuyenHT_Customer/QuyenHT_CustomerList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/QuyenHT_Customer_List.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT/Class_Diagram_Customer.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT/Sequence_Diagram_deleteCustomer.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT/Sequence_Diagram_displayCustomers.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT/[C0323G1]_DetailDesign_QuyenHT.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT/detail_design_customer.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT/use_case_customer.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT_Fixed/Sequence_Diagram_displayCustomers.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT_Fixed/[C0323G1]_DetailDesign_QuyenHT.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT_Fixed/detail_design-Sequence_Diagram_1update.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/[C0323G1]_DetailDesign_QuyenHT_Fixed/detail_design-Sequence_Diagram_update.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/customer-prototype/QuyenHT_CustomerList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/customer_database.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/customer_mysql.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/project_module6/retro_care.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/components/checkout/PaypalCheckoutButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/components/checkout/PaypalCheckoutButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/pages/PackagePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/pages/PackagePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/pages/Payment.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/pages/Payment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/pages/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/pages/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/sections/auth/login/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/sections/auth/login/LoginForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/service/AppUserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/src/service/AppUserService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/dto/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/model/payment/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/model/payment/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/model/payment/PaymentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/model/payment/PaymentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/repository/user/IAppUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/repository/user/IAppUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/service/payment/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/service/payment/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/service/user/IAppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/service/user/IAppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/service/user/impl/AppUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../module6/sprint_2/BugBugBuzz/bugbugbuzz_be/src/main/java/com/bugbugbuzz_be/service/user/impl/AppUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/EER.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/components/iconify/Iconify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/components/iconify/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/components/scroll-to-top/ScrollToTop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/components/scroll-to-top/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/hooks/useResponsive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/DashboardLayout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/header/AccountPopover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/header/LanguagePopover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/header/NotificationsPopover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/header/Searchbar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/header/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/nav/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/dashboard/nav/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/simple/SimpleLayout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/layouts/simple/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/pages/LoginPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/sections/auth/login/LoginForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/sections/auth/login/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/customShadows.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/globalStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Autocomplete.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Backdrop.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Card.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Input.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Paper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Table.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/Typography.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/overrides/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/palette.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/shadows.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/theme/typography.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/utils/cssStyles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/utils/formatNumber.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/FE/bugbugbuzz/src/utils/formatTime.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/sprint_2/bugbugbuzzERD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/ServletInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/TestApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/controller/GymRoomController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/dto/IGymRoomDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/model/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/model/GymRoom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/model/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/repository/IGymRoomRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/service/IGymRoomService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/java/com/example/test/service/impl/GymRoomService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/be/test/src/test/java/com/example/test/TestApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/components/CreateGymRoom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/components/GymRoomList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/components/Modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/service/GymRoomService.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/fe/test/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module6/test/test.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../numbers.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../result.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../something_new/demo-websocket/src/main/java/com/demowebsocket/config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../something_new/demo-websocket/src/main/java/com/demowebsocket/config/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../something_new/demo-websocket/src/main/java/com/demowebsocket/controller/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../something_new/demo-websocket/src/main/java/com/demowebsocket/controller/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../something_new/demo-websocket/src/main/java/com/demowebsocket/model/ChatMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../something_new/demo-websocket/src/main/java/com/demowebsocket/model/ChatMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/test" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/ServletInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/TestBackendApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/controller/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/model/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/model/ProductType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/repository/IProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/repository/IProductTypeRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/service/IProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/service/IProductTypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/service/impl/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/java/com/example/testbackend/service/impl/ProductTypeService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testBackend/src/test/java/com/example/testbackend/TestBackendApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/src/main/java/com/testspring/TestSpringApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/test_module_5/testSpring/src/test/java/com/testspring/TestSpringApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2WKELoahmLlBVFu7sQ8VX8A3Af2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Codegym/C0323G1-HoangThiQuyen/module2/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.DrawIsoscelesTriangle">
+    <configuration name="DrawIsoscelesTriangle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ss3.audit.DrawIsoscelesTriangle" />
+      <module name="module2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ss3.audit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SecondMax" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ss3.audit.SecondMax" />
+      <module name="module2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ss3.audit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="al5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ss3.audit.al5" />
+      <module name="module2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ss3.audit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="al6" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ss3.audit.al6" />
+      <module name="module2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ss3.audit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="d19102023" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ss3.audit.d19102023" />
+      <module name="module2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ss3.audit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.DrawIsoscelesTriangle" />
+        <item itemvalue="Application.SecondMax" />
+        <item itemvalue="Application.al6" />
+        <item itemvalue="Application.al5" />
+        <item itemvalue="Application.d19102023" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6850b6c2-9f4d-451c-82bb-4231e62fed64" name="Changes" comment="" />
+      <created>1696472817342</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696472817342</updated>
+      <workItem from="1696472818496" duration="27000" />
+      <workItem from="1696557741618" duration="1480000" />
+      <workItem from="1696893709036" duration="1504000" />
+      <workItem from="1697038856504" duration="613000" />
+      <workItem from="1697166990370" duration="1478000" />
+      <workItem from="1697671335889" duration="171000" />
+      <workItem from="1697680400985" duration="2179000" />
+      <workItem from="1698119458088" duration="4741000" />
+      <workItem from="1698359292807" duration="2063000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

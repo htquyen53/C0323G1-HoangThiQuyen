@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
 import { Link, Container, Typography, Divider, Stack, Button } from '@mui/material';
@@ -31,6 +32,7 @@ const StyledContent = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function Register() {
+    const navigate = useNavigate();
     
     return (
         <>
@@ -47,7 +49,7 @@ export default function Register() {
                         </Typography>
                         <Typography variant="body2" sx={{ mb: 5 }}>
                             You have an account? {''}
-                            <Link variant="subtitle2">Get started</Link>
+                            <Link variant="subtitle2" href='/bugbugbuzz/login'>Get started</Link>
                         </Typography>
                         <Stack direction="row" spacing={2}>
                             <Button fullWidth size="large" color="inherit" variant="outlined">

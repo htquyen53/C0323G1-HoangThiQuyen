@@ -65,7 +65,7 @@ export default function LoginPage() {
 
             <Typography variant="body2" sx={{ mb: 5 }}>
               Don’t have an account? {''}
-              <Link variant="subtitle2" href='/bugbugbuzz/register'>Get started</Link>
+              <Link variant="subtitle2" href ='/bugbugbuzz/register'>Get started</Link>
             </Typography>
 
             <Stack direction="row" spacing={2}>

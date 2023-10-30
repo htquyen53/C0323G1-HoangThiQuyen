@@ -9,7 +9,7 @@ const navConfig = [
   {
     title: 'Profile',
     path: '/bugbugbuzz/profile',
-    icon: icon('ic_lock'),
+    icon: icon('ic_lock'),  
   },
   {
     title: 'Favorite Zone',

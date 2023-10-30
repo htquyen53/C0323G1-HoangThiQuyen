@@ -45,4 +45,9 @@ public class AppUserService implements IAppUserService {
     public AppUser  getAppUserByUsername(String username) {
         return appUserRepository.findAppUserByUsername(username).orElse(null);
     }
+
+    @Override
+    public String checkVipStatusByUsername(String username) {
+        return appUserRepository.checkVipByUsername(username);
+    }
 }

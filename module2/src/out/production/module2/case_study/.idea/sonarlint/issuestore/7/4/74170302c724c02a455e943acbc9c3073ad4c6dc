@@ -1,0 +1,23 @@
+
+P
+java:S1118":Add a private constructor to hide the implicit public one.(°áäİ
+g
+java:S5998"LRefactor this repetition that can lead to a stack overflow for large inputs.(…Ğ˜íúÿÿÿÿ
+b
+java:S5998"LRefactor this repetition that can lead to a stack overflow for large inputs.(¥ ±ø
+W
+java:S6353""<Use concise character class syntax '\\d' instead of '[0-9]'.(ÙÔ÷ìşÿÿÿÿ
+|
+java:S2178&"fCorrect this "|" to "||" and extract the right operand to a variable if it should always be evaluated.(ˆáÑâ
+<
+java:S19052"&Remove this unnecessary cast to "int".(Ñ¡Î®
+<
+java:S19052"&Remove this unnecessary cast to "int".(Ñ¡Î®
+<
+java:S19053"&Remove this unnecessary cast to "int".(üÚìı
+<
+java:S19053"&Remove this unnecessary cast to "int".(üÚìı
+A
+java:S19054"&Remove this unnecessary cast to "int".(õÏïæşÿÿÿÿ
+A
+java:S19054"&Remove this unnecessary cast to "int".(õÏïæşÿÿÿÿ

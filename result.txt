@@ -1,2 +1,0 @@
-Giá trị lớn nhất là: 56
-Giá trị lớn nhất là: 111

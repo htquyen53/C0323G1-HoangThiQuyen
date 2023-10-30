@@ -12,5 +12,6 @@ import lombok.RequiredArgsConstructor;
 public class PaymentRequest {
     private String username;
     private Long packageId;
+    private String orderId;
 
 }

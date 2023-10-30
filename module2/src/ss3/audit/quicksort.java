@@ -1,2 +1,4 @@
-package ss3.audit;public class quicksort {
+package ss3.audit;
+
+public class quicksort {
 }

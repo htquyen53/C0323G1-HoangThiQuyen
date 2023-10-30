@@ -74,6 +74,7 @@ export default function Payment() {
                             (
                                 <Stack>
                                     <Typography>You being {vipStatus}! </Typography>
+                                    <Typography>Do you want to cancel your current package to sign up for a new package? </Typography>
                                 </Stack>
                             )
                             :

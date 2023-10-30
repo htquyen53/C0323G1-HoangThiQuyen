@@ -21,6 +21,7 @@ public class Payment {
     private Long id;
     @Column(columnDefinition = "datetime")
     private String paymentDate;
+    private String orderId;
     private Boolean status;
 
     @JsonManagedReference
