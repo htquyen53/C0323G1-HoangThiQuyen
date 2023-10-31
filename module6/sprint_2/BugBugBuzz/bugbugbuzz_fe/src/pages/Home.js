@@ -72,6 +72,7 @@ export default function Home() {
 	// Create a post
 	const userName = localStorage.getItem("username");
 	const avatar = localStorage.getItem("avatar");
+	const vipStatus = localStorage.getItem("VipStatus");
 
 	const handleTitleChange = (e) => {
 		const { value } = e.target;
@@ -223,7 +224,7 @@ export default function Home() {
 							<AddReactionOutlinedIcon />
 						</IconButton>
 					</Box> 
-					<Button variant="contained" color="primary" onClick={handleSendPost}>
+					<Button variant="contained" color="primary" onClick={handleSendPost} disabled = {vipStatus !== ""} >
 						Post
 					</Button>
 				</Box>

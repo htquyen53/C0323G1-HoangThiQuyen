@@ -19,6 +19,7 @@ import SavedPost from './pages/SavedPost';
 // ----------------------------------------------------------------------
 
 export default function Router() {
+  const accessToken = localStorage.getItem("JWT");
   const routes = useRoutes([
     {
       path: '/dashboard',
@@ -35,10 +36,8 @@ export default function Router() {
       path: '/bugbugbuzz',
       element: <HomeLayout />,
       children: [
-        { path: 'home', element: <Home /> },
-        {
-          path: 'payment/:id', element: <Payment />,
-        },
+        { path: 'home', element: accessToken? <Home /> : <Navigate to="/bugbugbuzz/login" />, index: true },
+        { path: 'payment/:id', element: <Payment /> },
         { path: 'save-post', element: <SavedPost /> },
         { path: 'profile', element: <Profile /> }
       ],
@@ -47,7 +46,7 @@ export default function Router() {
       path: '/bugbugbuzz',
       element: <SimpleLayout />,
       children: [
-        { element: <Navigate to="/home" />, index: true },
+        { element: <Navigate to="/login" />, index: true },
         { path: '404', element: <Page404 /> },
         { path: '*', element: <Navigate to="/bugbugbuzz/404" /> },
         { path: 'login', element: <LoginPage /> },

@@ -13,7 +13,7 @@ const navConfig = [
   },
   {
     title: 'Favorite Zone',
-    path: localStorage.getItem("VipStatus") !== "" ? ('/bugbugbuzz/save-post') : ('/bugbugbuzz/packagepage'),
+    path: localStorage.getItem("VipStatus") !== "" ? ("/bugbugbuzz/save-post") : ("/bugbugbuzz/packagepage"),
     icon: icon('ic_blog'),
   },
   {

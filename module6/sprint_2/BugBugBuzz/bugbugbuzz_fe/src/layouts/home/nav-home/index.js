@@ -34,7 +34,7 @@ NavHome.propTypes = {
 
 export default function NavHome({ openNav, onCloseNav }) {
   const { pathname } = useLocation();
-
+  const username = localStorage.getItem("username");
   const isDesktop = useResponsive('up', 'lg');
 
   useEffect(() => {
