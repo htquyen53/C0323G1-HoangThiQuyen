@@ -22,10 +22,10 @@ export default function Router() {
   const accessToken = localStorage.getItem("JWT");
   const routes = useRoutes([
     {
-      path: '/dashboard',
+      path: '/bugbugbuzz/dashboard',
       element: <DashboardLayout />,
       children: [
-        { element: <Navigate to="/dashboard/app" />, index: true },
+        { element: <Navigate to="/bugbugbuzz/dashboard/app" />, index: true },
         { path: 'app', element: <DashboardAppPage /> },
         { path: 'user', element: <UserPage /> },
         { path: 'products', element: <ProductsPage /> },

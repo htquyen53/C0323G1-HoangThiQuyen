@@ -88,19 +88,27 @@ export default function LoginForm() {
 
   const checkStatusVip = async (accessToken, username) => {
     try {
-        const res = await appUserService.checkVipStatus(accessToken, username);
-         // Lưu Vipstatus xuống LocalStorage
-         localStorage.setItem("VipStatus", res);
+      const res = await appUserService.checkVipStatus(accessToken, username);
+      // Lưu Vipstatus xuống LocalStorage
+      localStorage.setItem("VipStatus", res);
     } catch (e) {
-        console.log(e);
+      console.log(e);
     }
-}
+  }
 
 
 
   const handleUsernameChange = (e) => {
     const { value } = e.target;
     setAccount((prevAccount) => ({ ...prevAccount, username: value }));
+  }
+  const handleShowPasswordChange = () => {
+    if (showPassword) {
+      setShowPassword(false);
+    } else {
+      setShowPassword(true);
+    }
+
   }
   const handlePasswordChange = (e) => {
     const { value } = e.target;
@@ -120,7 +128,7 @@ export default function LoginForm() {
         const infoUser = appUserService.infoAppUserByJwtToken();
         localStorage.setItem("username", infoUser.sub);
         const avatar = await appUserService.getAvatarByUsername(localStorage.getItem("JWT"), infoUser.sub)
-        localStorage.setItem("avatar", avatar); 
+        localStorage.setItem("avatar", avatar);
         checkStatusVip(localStorage.getItem("JWT"), infoUser.sub);
         Swal.fire({
           title: "Đăng nhập thành công",
@@ -176,7 +184,7 @@ export default function LoginForm() {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <IconButton onClick={handlePasswordChange} edge="end">
+                <IconButton onClick={handleShowPasswordChange} edge="end">
                   <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
                 </IconButton>
               </InputAdornment>
@@ -192,9 +200,10 @@ export default function LoginForm() {
             <Checkbox
               checked={checked}
               onChange={(event) => setChecked(event.target.checked)}
-              name="checked"
+              name="remember-me"
               color="primary"
               size="small"
+              value="true"
             />
           }
           label={'Remember me'}

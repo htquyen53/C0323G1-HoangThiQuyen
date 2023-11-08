@@ -125,7 +125,6 @@ export default function Home() {
 	// Websocket to discuss about per topic
 
 
-
 	const handleConnect = (id) => {
 		const socket = new SockJs('http:/localhost:8080/ws');
 		const client = Stomp.over(socket);
