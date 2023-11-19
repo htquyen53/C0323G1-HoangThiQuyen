@@ -19,3 +19,7 @@ iss5_orm&Jpa/_ex/produce_management/src/main/java/com/product_management/reposit
 Mss4_dataBinding/_ex/email/src/main/java/com/emailSettings/model/Settings.java,f\2\f28517ca8fd7927a432ff59be60597b60c549692
 ç
 ]ss4_dataBinding/_ex/email/src/main/java/com/emailSettings/repository/ISettingsRepository.java,6\2\622a4efcccf3e57082209025b0584628d9aa665e
+°
+qss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/controller/ProductController.java,0\a\0aa638bb5785616f9a29d5a571b53c7fef2e9f7b
+õ
+kss10_SessionCookie/_ex/cart-management/src/main/java/com/example/cartmanagement/service/ProductService.java,0\4\04a345f1b5cdd36e4b95fef18664221e1f8890a3

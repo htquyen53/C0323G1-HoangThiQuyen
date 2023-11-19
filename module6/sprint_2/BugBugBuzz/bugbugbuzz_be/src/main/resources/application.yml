@@ -1,14 +1,11 @@
-#Database
-spring.datasource.url=${DB_URL}
-spring.datasource.username=${DB_ROOT}
-spring.datasource.password=${DB_PASS}
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
-spring.jpa.properties.hibernate.format_sql=true
-
-#JWT
-jwt.secret=${JWT}
-#jwt.token-expiration=${TOKEN_EXPIRATION}
-#jwt.refresh-token.expiration=${REFRESH_TOKEN_EXPIRATION}
-
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: Iv1.8bdfc95331229209
+            clientSecret: 5791268dc97417041475e75cec40112d915b942c
+          google:
+            clientId: 478010581524-9i3baqf0bsa1pq9dilr3s70igv44tk4j.apps.googleusercontent.com
+            clientSecret: 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

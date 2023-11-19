@@ -17,10 +17,10 @@ import ImageIcon from '@mui/icons-material/Image';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
 import SendIcon from '@mui/icons-material/Send';
-import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
 import TurnedInOutlinedIcon from '@mui/icons-material/TurnedInOutlined';
 import SpatialTrackingIcon from '@mui/icons-material/SpatialTracking';
 import VoiceOverOffIcon from '@mui/icons-material/VoiceOverOff';
+import ForumIcon from '@mui/icons-material/Forum';
 
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
@@ -222,8 +222,8 @@ export default function Home() {
 						<IconButton aria-label="add reaction">
 							<AddReactionOutlinedIcon />
 						</IconButton>
-					</Box> 
-					<Button variant="contained" color="primary" onClick={handleSendPost} disabled = {vipStatus !== ""} >
+					</Box>
+					<Button variant="contained" color="primary" onClick={handleSendPost} disabled={vipStatus !== ""} >
 						Post
 					</Button>
 				</Box>
@@ -265,24 +265,24 @@ export default function Home() {
 								<TurnedInOutlinedIcon />
 							</IconButton>
 							<IconButton aria-label="share" disabled={onConnected && connectedPostId.includes(post?.id)} onClick={() => handleConnect(post.id)}>
-								<SpatialTrackingIcon />
+								<ForumIcon />
 							</IconButton>
 							{/* <IconButton aria-label="share" onClick={handleDisconnect}>
 								<VoiceOverOffIcon />
 							</IconButton> */}
 						</CardActions>
 						<Box margin={3}>
-								{comments?.map((comment, index) => (
-									(comment.postId === post.id) &&
-									<Stack direction="row" margin={3} key={index}>
-										<ListItem  >
-											<ListItemAvatar>
-												<Avatar src={comment.avatarImg} alt="photoURL" style={{ margin: 5 }} />
-											</ListItemAvatar>
-											<ListItemText primary={comment.username} secondary={comment.commentContent} />
-										</ListItem>
-									</Stack>
-								))}
+							{comments?.map((comment, index) => (
+								(comment.postId === post.id) &&
+								<Stack direction="row" margin={3} key={index}>
+									<ListItem  >
+										<ListItemAvatar>
+											<Avatar src={comment.avatarImg} alt="photoURL" style={{ margin: 5 }} />
+										</ListItemAvatar>
+										<ListItemText primary={comment.username} secondary={comment.commentContent} />
+									</ListItem>
+								</Stack>
+							))}
 
 						</Box>
 						{/* <Stack direction="row" margin={3}>

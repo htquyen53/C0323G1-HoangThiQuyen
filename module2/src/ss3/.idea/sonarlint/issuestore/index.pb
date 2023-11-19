@@ -11,3 +11,7 @@ $audit/RemovingDuplicateInString.java,f\4\f4d38070864d76d2be60cd9b101654844bf9f
 audit/demo3.java,d\6\d67dcda72c891fac4c0dad31e5a257ac5c0dde4b
 @
 audit/demo4.java,b\4\b446e96f9592fae583653bb8fe3f2def1778b211
+A
+audit/SwapAB.java,9\3\934dc9344a6962fad4b5ac444759b29abae2553c
+E
+audit/ListString.java,e\8\e87e4106daa1e4faa71f952b802f99e8b41f26cf

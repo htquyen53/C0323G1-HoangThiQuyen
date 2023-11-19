@@ -4,7 +4,6 @@ import com.bugbugbuzz_be.model.app.AppUser;
 import com.bugbugbuzz_be.model.payment.Payment;
 import com.bugbugbuzz_be.model.payment.PaymentRequest;
 import com.bugbugbuzz_be.service.payment.IPaymentService;
-import com.bugbugbuzz_be.service.product.IPackageService;
 import com.bugbugbuzz_be.service.user.IAppUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -30,10 +29,8 @@ public class PaymentController {
 
     @GetMapping("/list/{username}")
     public ResponseEntity<?> getListPayment (@PathVariable String username) {
-        System.out.println(username);
         AppUser appUser = appUserService.getAppUserByUsername(username);
         List<Payment> payments = paymentService.getAll(appUser);
-        System.out.println(payments.size());
         if (payments.size()>0) {
             return ResponseEntity.ok(payments);
         }

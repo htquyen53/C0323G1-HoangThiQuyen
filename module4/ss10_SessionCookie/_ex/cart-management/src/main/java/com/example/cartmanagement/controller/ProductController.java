@@ -4,7 +4,6 @@ import com.example.cartmanagement.dto.CartDto;
 import com.example.cartmanagement.dto.ProductDto;
 import com.example.cartmanagement.model.Product;
 import com.example.cartmanagement.service.IProductService;
-import com.example.cartmanagement.service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,7 +11,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -47,7 +45,7 @@ public class ProductController {
         modelAndView.addObject("productPage", productPage);
         modelAndView.addObject("searchName", searchName);
         // Hiển thị sp gần nhất
-        Product product = productService.findByiD(id).orElse(null);
+        Product product = productService.findById(id).orElse(null);
         model.addAttribute("historyProduct", product);
         if (cartDto != null) {
             model.addAttribute("cart", cartDto);
@@ -60,13 +58,13 @@ public class ProductController {
         Cookie cookie = new Cookie("productId", id + "");
         cookie.setMaxAge(1 * 24 * 60 * 60);
         cookie.setPath("/");
-        return new ModelAndView("product/detail", "product", productService.findByiD(id).orElse(null));
+        return new ModelAndView("product/detail", "product", productService.findById(id).orElse(null));
     }
 
     //    Thêm vào giỏ hàng
     @GetMapping("add/{id}")
     public String addToCart(@PathVariable Long id, @SessionAttribute(value = "cart") CartDto cart) {
-        Optional<Product> productOptional = productService.findByiD(id);
+        Optional<Product> productOptional = productService.findById(id);
         Product product = null;
         if (productOptional.isPresent()) {
             product = productOptional.get();

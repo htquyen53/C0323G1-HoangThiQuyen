@@ -1,6 +1,7 @@
 package ss3.audit;
 
 public class ReverseString {
+    // Thuật toán đảo chuỗi
     public static void main(String[] args) {
         String s = "Hello, How are you?";
         StringBuilder reverseStr = reverseString (s);

@@ -22,9 +22,10 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class PostService implements IPostService {
-    private  final IAppUserRepository appUserRepository;
+    private final IAppUserRepository appUserRepository;
     private final IPostRepository postRepository;
     private final IVisibilityRepository visibilityRepository;
+
     @Override
     public Page<Post> getAll(Pageable pageable) {
         return postRepository.findAll(pageable);

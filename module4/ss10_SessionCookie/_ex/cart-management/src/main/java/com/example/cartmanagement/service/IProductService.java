@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import java.util.Optional;
 
 public interface IProductService {
-    Optional<Product> findByiD(Long id);
+    Optional<Product> findById(Long id);
     Page<Product> showList(Pageable pageable, String name);
     boolean save(Product product);
     boolean update(Long id, Product product);

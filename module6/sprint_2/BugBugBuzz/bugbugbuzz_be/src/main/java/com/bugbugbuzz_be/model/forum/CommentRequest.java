@@ -10,11 +10,11 @@ import lombok.Setter;
 @Setter
 @Getter
 public class CommentRequest {
-//    private Long id;
+    private Long id;
     private Long postId;
     private String commentContent;
+    private String avatarImg;
     private String username;
-    private  String avatarImg;
     private String timeComment;
 
 }

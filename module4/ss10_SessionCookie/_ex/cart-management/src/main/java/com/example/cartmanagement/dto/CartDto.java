@@ -44,7 +44,6 @@ public class CartDto {
             productMap.put(productDto, 1);
         }
     }
-
     public Integer countProductQuantity() {
         Integer productQuantity = 0;
         for (Map.Entry<ProductDto, Integer> entry : productMap.entrySet()) {
